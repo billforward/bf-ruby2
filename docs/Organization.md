@@ -1,0 +1,21 @@
+# BillForward::Organization
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**created** | **DateTime** | { \&quot;description\&quot; : \&quot;The UTC DateTime when the object was created.\&quot;, \&quot;verbs\&quot;:[] } | [optional] 
+**changed_by** | **String** | { \&quot;description\&quot; : \&quot;ID of the user who last updated the entity.\&quot;, \&quot;verbs\&quot;:[] } | [optional] 
+**updated** | **DateTime** | { \&quot;description\&quot; : \&quot;The UTC DateTime when the object was last updated.\&quot;, \&quot;verbs\&quot;:[] } | [optional] 
+**id** | **String** | { \&quot;description\&quot; : \&quot;ID of the organization.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | [optional] 
+**customer_code** | **String** | { \&quot;description\&quot; : \&quot;A shortcode for the organization. This is used as a short reference code for use when referring to the organization, by default this is set to the organizations name.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | 
+**name** | **String** | { \&quot;description\&quot; : \&quot;The name of the organization.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | 
+**deleted** | **BOOLEAN** | { \&quot;description\&quot; : \&quot;Indicates if an organization has been retired. If an organization has been retired it can still be retrieved using the appropriate flag on API requests.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | [default to false]
+**webhooks** | [**Array&lt;MutableBillingEntity&gt;**](MutableBillingEntity.md) | { \&quot;description\&quot; : \&quot;The WebHooks associated with the organization. These are the end-points where notifications are sent. WebHooks are added, updated and removed from the organization. Thus to add a WebHook, the webhook must be defined on this property of the organization and then the organization updated. To update a WebHook the same procedure must be followed, first retrieving the organization followed by updating the appropriate WebHook, finally the organization is updated.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | 
+**_alias** | [**Array&lt;ModelAlias&gt;**](ModelAlias.md) |  | [optional] 
+**clients** | [**Array&lt;Client&gt;**](Client.md) | { \&quot;description\&quot; : \&quot;The OAuth2 clients associated with the organization. In most cases an organization would not have any clients associated with their account. In the case of an APP developer, a clients would exist per an application they have developed. To further understand clients please see the client, OAuth2 API and APP development documentation.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | [optional] 
+**dunning_lines** | [**Array&lt;DunningLine&gt;**](DunningLine.md) | { \&quot;description\&quot; : \&quot;The dunning-lines associated with the organization. Dunning lines are used as re-try logic for invoices to attempt to reconcile the payment.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | [optional] 
+**taxation_strategies** | [**Array&lt;MutableBillingEntity&gt;**](MutableBillingEntity.md) | { \&quot;description\&quot; : \&quot;The taxation-strategies associated with the organization. Taxation-strategies may be linked to product-rate-plans to specify how their tax should be calculated.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | [optional] 
+**organization_gateways** | [**Array&lt;MutableBillingEntity&gt;**](MutableBillingEntity.md) | { \&quot;description\&quot; : \&quot;The card-vault gateways associated with the organization.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | [optional] 
+**api_configurations** | [**Array&lt;MutableBillingEntity&gt;**](MutableBillingEntity.md) | { \&quot;description\&quot; : \&quot;Stores the organizations 3rd party API keys which may be used by the system for payment gateway integration etc.\&quot;, \&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;] } | [optional] 
+
+

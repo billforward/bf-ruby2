@@ -1,0 +1,15 @@
+# BillForward::RecalculateChargeRequest
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**created** | **DateTime** | { \&quot;description\&quot; : \&quot;The UTC DateTime when the object was created.\&quot;, \&quot;verbs\&quot;:[] } | [optional] 
+**name** | **String** | {\&quot;description\&quot;:\&quot;New friendly name given to the charge to help identify it.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;GET\&quot;]} | [optional] 
+**description** | **String** | {\&quot;description\&quot;:\&quot;New description given to the charge.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;GET\&quot;]} | [optional] 
+**amount** | **Float** | {\&quot;description\&quot;:\&quot;(Applicable only if the existing charge has none of [&#x60;pricingComponentName&#x60;, &#x60;pricingComponentID&#x60;] defined)&lt;br&gt;New monetary amount for which to charge. Used only for ad-hoc charges (i.e charges not associated with any pricing component).&lt;br&gt;This amount excludes tax.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;GET\&quot;]} | [optional] 
+**invoicing_type** | **String** | {\&quot;default\&quot;:\&quot;&lt;span class&#x3D;\\\&quot;label label-default\\\&quot;&gt;Aggregated&lt;/span&gt;\&quot;,\&quot;description\&quot;:\&quot;The strategy for how to raise invoices describing the charges produced by this charge recalculation.&lt;br&gt;&lt;span class&#x3D;\\\&quot;label label-default\\\&quot;&gt;Immediate&lt;/span&gt; &amp;mdash; Generate straight-away an invoice containing these charges.&lt;br&gt;&lt;span class&#x3D;\\\&quot;label label-default\\\&quot;&gt;Aggregated&lt;/span&gt; &amp;mdash; Add these charges to the next invoice which is generated naturally &amp;mdash; i.e. the invoice raised at the current period&#39;s end.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;GET\&quot;]} | [optional] 
+**pricing_component_value** | **Integer** | {\&quot;description\&quot;:\&quot;(Applicable only if the existing charge has any of [&#x60;pricingComponentName&#x60;, &#x60;pricingComponentID&#x60;] defined)&lt;br&gt;The updated value consumed of the pricing component which this charge concerns.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;GET\&quot;]} | [optional] 
+**recalculation_behaviour** | **String** | {\&quot;default\&quot;:\&quot;RecalculateWithLatestPricing\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;GET\&quot;]} | 
+**dry_run** | **BOOLEAN** | {\&quot;default\&quot;:false,\&quot;description\&quot;:\&quot;Changes described in the response:&lt;br&gt;&lt;span class&#x3D;\\\&quot;label label-default\\\&quot;&gt;true&lt;/span&gt; &amp;mdash; Are not actually performed; your subscription remains unchanged, no billing events run, and no invoices are executed.&lt;br&gt;&lt;span class&#x3D;\\\&quot;label label-default\\\&quot;&gt;false&lt;/span&gt; &amp;mdash; Are actually performed and committed.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;GET\&quot;]} | [optional] [default to false]
+
+
