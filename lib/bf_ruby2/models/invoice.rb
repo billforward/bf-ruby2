@@ -143,6 +143,14 @@ module BillForward
     # { \"description\" : \"Is this an initial invoice. An initial invoice is the first invoice generated for a subscription. Initial invoices will not have dunning applied to them and as such will only have a single payment attempt. For trial periods, the trial invoice is the initial invoice.\", \"verbs\":[\"GET\"] }
     attr_accessor :initial_invoice
 
+    # { \"processing\" : \"If true, the invoice is processing.\", \"verbs\":[] }
+    attr_accessor :processing
+
+    attr_accessor :payment_terms
+
+    # { \"description\" : \"Purchase order associated with the subscription. If specified this is copied to any invoices issued for this subscription.\", \"verbs\":[\"GET\",\"PUT\",\"POST\"] }
+    attr_accessor :purchase_order
+
     # { \"description\" : \"The version number of the Invoice.  The first version of an Invoice is version number 1\", \"verbs\":[\"GET\"] }
     attr_accessor :version_number
 
@@ -228,6 +236,9 @@ module BillForward
         :'locked' => :'locked',
         :'managed_by' => :'managedBy',
         :'initial_invoice' => :'initialInvoice',
+        :'processing' => :'processing',
+        :'payment_terms' => :'paymentTerms',
+        :'purchase_order' => :'purchaseOrder',
         :'version_number' => :'versionNumber',
         :'invoice_lines' => :'invoiceLines',
         :'tax_lines' => :'taxLines',
@@ -281,6 +292,9 @@ module BillForward
         :'locked' => :'String',
         :'managed_by' => :'String',
         :'initial_invoice' => :'BOOLEAN',
+        :'processing' => :'BOOLEAN',
+        :'payment_terms' => :'Integer',
+        :'purchase_order' => :'String',
         :'version_number' => :'Integer',
         :'invoice_lines' => :'Array<InvoiceLine>',
         :'tax_lines' => :'Array<InsertableBillingEntity>',
@@ -460,6 +474,20 @@ module BillForward
         self.initial_invoice = false
       end
 
+      if attributes.has_key?(:'processing')
+        self.processing = attributes[:'processing']
+      else
+        self.processing = false
+      end
+
+      if attributes.has_key?(:'paymentTerms')
+        self.payment_terms = attributes[:'paymentTerms']
+      end
+
+      if attributes.has_key?(:'purchaseOrder')
+        self.purchase_order = attributes[:'purchaseOrder']
+      end
+
       if attributes.has_key?(:'versionNumber')
         self.version_number = attributes[:'versionNumber']
       end
@@ -615,6 +643,9 @@ module BillForward
           locked == o.locked &&
           managed_by == o.managed_by &&
           initial_invoice == o.initial_invoice &&
+          processing == o.processing &&
+          payment_terms == o.payment_terms &&
+          purchase_order == o.purchase_order &&
           version_number == o.version_number &&
           invoice_lines == o.invoice_lines &&
           tax_lines == o.tax_lines &&
@@ -634,7 +665,7 @@ module BillForward
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created, changed_by, updated, version_id, id, crm_id, subscription_id, subscription_version_id, account_id, organization_id, parent_invoice_id, name, description, state, issued, period_start, period_end, due, deleted, total_execution_attempts, last_execution_attempt, next_execution_attempt, final_execution_attempt, payment_received, currency, cost_excluding_tax, invoice_cost, non_discounted_cost, non_discounted_cost_excluding_tax, invoice_paid, discount_amount, discount_amount_excluding_tax, invoice_refunded, credit_rolled_over, credit_rolled_over_excluding_tax, type, locked, managed_by, initial_invoice, version_number, invoice_lines, tax_lines, invoice_payments, invoice_refunds, invoice_credit_notes, charges, children].hash
+      [created, changed_by, updated, version_id, id, crm_id, subscription_id, subscription_version_id, account_id, organization_id, parent_invoice_id, name, description, state, issued, period_start, period_end, due, deleted, total_execution_attempts, last_execution_attempt, next_execution_attempt, final_execution_attempt, payment_received, currency, cost_excluding_tax, invoice_cost, non_discounted_cost, non_discounted_cost_excluding_tax, invoice_paid, discount_amount, discount_amount_excluding_tax, invoice_refunded, credit_rolled_over, credit_rolled_over_excluding_tax, type, locked, managed_by, initial_invoice, processing, payment_terms, purchase_order, version_number, invoice_lines, tax_lines, invoice_payments, invoice_refunds, invoice_credit_notes, charges, children].hash
     end
 
     # Builds the object from hash

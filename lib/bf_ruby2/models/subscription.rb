@@ -141,6 +141,9 @@ module BillForward
 
     attr_accessor :payment_terms
 
+    # { \"default\": \" \", \"description\":\"Purchase order associated with the subscription. If specified this is copied to any invoices issued for this subscription.\",\"verbs\":[\"POST\"]}
+    attr_accessor :purchase_order
+
     # {\"default\":\"None\",\"description\":\"The action that should be taken, should an invoice for some subscription to this rate plan remain unpaid despite the dunning period's being exceeded.<br><span class=\\\"label label-default\\\">CancelSubscription</span> &mdash; Demotes the subscription to the `Failed` state as soon as the dunning period is exceeded.<br><span class=\\\"label label-default\\\">None</span> &mdash; The subscription is allowed to continue in the `AwaitingPayment` state indefinitely even if the dunning period is exceeded.For slow payment cycles &mdash; or when manual invoice remediation is common &mdash; <span class=\\\"label label-default\\\">None</span> is recommended.<br>In a heavily-automated SaaS environment, automatic cancellation via <span class=\\\"label label-default\\\">CancelSubscription</span> is recommended.\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
     attr_accessor :failed_payment_behaviour
 
@@ -208,6 +211,7 @@ module BillForward
         :'current_time' => :'currentTime',
         :'time_offset' => :'timeOffset',
         :'payment_terms' => :'paymentTerms',
+        :'purchase_order' => :'purchaseOrder',
         :'failed_payment_behaviour' => :'failedPaymentBehaviour'
       }
     end
@@ -254,6 +258,7 @@ module BillForward
         :'current_time' => :'DateTime',
         :'time_offset' => :'Integer',
         :'payment_terms' => :'Integer',
+        :'purchase_order' => :'String',
         :'failed_payment_behaviour' => :'String'
       }
     end
@@ -434,6 +439,10 @@ module BillForward
         self.payment_terms = attributes[:'paymentTerms']
       end
 
+      if attributes.has_key?(:'purchaseOrder')
+        self.purchase_order = attributes[:'purchaseOrder']
+      end
+
       if attributes.has_key?(:'failedPaymentBehaviour')
         self.failed_payment_behaviour = attributes[:'failedPaymentBehaviour']
       end
@@ -557,6 +566,7 @@ module BillForward
           current_time == o.current_time &&
           time_offset == o.time_offset &&
           payment_terms == o.payment_terms &&
+          purchase_order == o.purchase_order &&
           failed_payment_behaviour == o.failed_payment_behaviour
     end
 
@@ -569,7 +579,7 @@ module BillForward
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created, changed_by, updated, metadata, id, version_id, crm_id, account_id, organization_id, product_id, product_rate_plan_id, parent_id, name, description, type, state, current_period_start, current_period_end, contract_start, subscription_end, current_period_end_explicit, initial_period_start, successful_periods, total_periods, trial_end, dunning, locked, managed_by, version_start, version_end, version_number, credit_enabled, aggregate_all_subscriptions_on_account, pricing_component_values, payment_method_subscription_links, fixed_terms, current_time, time_offset, payment_terms, failed_payment_behaviour].hash
+      [created, changed_by, updated, metadata, id, version_id, crm_id, account_id, organization_id, product_id, product_rate_plan_id, parent_id, name, description, type, state, current_period_start, current_period_end, contract_start, subscription_end, current_period_end_explicit, initial_period_start, successful_periods, total_periods, trial_end, dunning, locked, managed_by, version_start, version_end, version_number, credit_enabled, aggregate_all_subscriptions_on_account, pricing_component_values, payment_method_subscription_links, fixed_terms, current_time, time_offset, payment_terms, purchase_order, failed_payment_behaviour].hash
     end
 
     # Builds the object from hash

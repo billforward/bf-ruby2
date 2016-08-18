@@ -55,8 +55,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: text/xml, application/xml, application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: text/xml, application/xml, application/json; charset=utf-8
 
 
 
@@ -124,7 +124,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -175,7 +175,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: text/plain
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -234,7 +234,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: text/plain
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -293,7 +293,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: text/plain
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 

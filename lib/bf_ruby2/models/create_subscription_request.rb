@@ -75,11 +75,17 @@ module BillForward
 
     attr_accessor :payment_terms
 
+    # { \"default\": \" \", \"description\":\"Purchase order associated with the subscription. If specified this is copied to any invoices issued for this subscription.\",\"verbs\":[\"POST\"]}
+    attr_accessor :purchase_order
+
     # {\"description\":\"start of the contracted period.  This will be after a trial, if one exists\",\"verbs\":[\"GET\"]}
     attr_accessor :contract_start
 
     # {\"default\":\"None\",\"description\":\"The action that should be taken, should an invoice for some subscription to this rate plan remain unpaid despite the dunning period's being exceeded.<br><span class=\\\"label label-default\\\">CancelSubscription</span> &mdash; Demotes the subscription to the `Failed` state as soon as the dunning period is exceeded.<br><span class=\\\"label label-default\\\">None</span> &mdash; The subscription is allowed to continue in the `AwaitingPayment` state indefinitely even if the dunning period is exceeded.For slow payment cycles &mdash; or when manual invoice remediation is common &mdash; <span class=\\\"label label-default\\\">None</span> is recommended.<br>In a heavily-automated SaaS environment, automatic cancellation via <span class=\\\"label label-default\\\">CancelSubscription</span> is recommended.\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
     attr_accessor :failed_payment_behaviour
+
+    # { \"description\":\"How much prepayment should be taken upfront.\", \"verbs\":[\"POST\",\"GET\"]}
+    attr_accessor :prepayment_amount
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -123,8 +129,10 @@ module BillForward
         :'pricing_component_quantities' => :'pricingComponentQuantities',
         :'metadata' => :'metadata',
         :'payment_terms' => :'paymentTerms',
+        :'purchase_order' => :'purchaseOrder',
         :'contract_start' => :'contractStart',
-        :'failed_payment_behaviour' => :'failedPaymentBehaviour'
+        :'failed_payment_behaviour' => :'failedPaymentBehaviour',
+        :'prepayment_amount' => :'prepaymentAmount'
       }
     end
 
@@ -148,8 +156,10 @@ module BillForward
         :'pricing_component_quantities' => :'Array<PricingComponentQuantityRequest>',
         :'metadata' => :'DynamicMetadata',
         :'payment_terms' => :'Integer',
+        :'purchase_order' => :'String',
         :'contract_start' => :'DateTime',
-        :'failed_payment_behaviour' => :'String'
+        :'failed_payment_behaviour' => :'String',
+        :'prepayment_amount' => :'Float'
       }
     end
 
@@ -235,12 +245,20 @@ module BillForward
         self.payment_terms = attributes[:'paymentTerms']
       end
 
+      if attributes.has_key?(:'purchaseOrder')
+        self.purchase_order = attributes[:'purchaseOrder']
+      end
+
       if attributes.has_key?(:'contractStart')
         self.contract_start = attributes[:'contractStart']
       end
 
       if attributes.has_key?(:'failedPaymentBehaviour')
         self.failed_payment_behaviour = attributes[:'failedPaymentBehaviour']
+      end
+
+      if attributes.has_key?(:'prepaymentAmount')
+        self.prepayment_amount = attributes[:'prepaymentAmount']
       end
 
     end
@@ -319,8 +337,10 @@ module BillForward
           pricing_component_quantities == o.pricing_component_quantities &&
           metadata == o.metadata &&
           payment_terms == o.payment_terms &&
+          purchase_order == o.purchase_order &&
           contract_start == o.contract_start &&
-          failed_payment_behaviour == o.failed_payment_behaviour
+          failed_payment_behaviour == o.failed_payment_behaviour &&
+          prepayment_amount == o.prepayment_amount
     end
 
     # @see the `==` method
@@ -332,7 +352,7 @@ module BillForward
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [account_id, product, product_rate_plan, organization_id, name, description, start, _end, state, trial_end, type, parent_id, aggregate_all_subscriptions_on_account, align_period_with_aggregating_subscription, pricing_component_quantities, metadata, payment_terms, contract_start, failed_payment_behaviour].hash
+      [account_id, product, product_rate_plan, organization_id, name, description, start, _end, state, trial_end, type, parent_id, aggregate_all_subscriptions_on_account, align_period_with_aggregating_subscription, pricing_component_quantities, metadata, payment_terms, purchase_order, contract_start, failed_payment_behaviour, prepayment_amount].hash
     end
 
     # Builds the object from hash

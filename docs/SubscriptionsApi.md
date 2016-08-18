@@ -51,6 +51,7 @@ Method | HTTP request | Description
 [**revive_subscription**](SubscriptionsApi.md#revive_subscription) | **POST** /subscriptions/{subscription-ID}/revive | Revives a cancelled subscription and returns it to its previous state
 [**set_metadata_for_subscription**](SubscriptionsApi.md#set_metadata_for_subscription) | **POST** /subscriptions/{subscription-ID}/metadata | Remove any existing metadata keys and create the provided data.
 [**set_pricing_component_value_on_subscription**](SubscriptionsApi.md#set_pricing_component_value_on_subscription) | **POST** /subscriptions/{subscription-ID}/pricing-component-values | Sets upon this subscription a new value for the specified pricing-component without performing an upgrade.
+[**set_pricing_component_value_on_subscription_batch_update**](SubscriptionsApi.md#set_pricing_component_value_on_subscription_batch_update) | **POST** /subscriptions/{subscription-ID}/values | Upgrades/downgrades this subscription to some new value for the specified pricing-component. This endpoint can do synchronous (immediate) and asynchronous (delayed) updates. A synchronous update will generate a charge/credit for an UPGRADE or DOWNGRADE. An asynchronous update will generate an amendment scheduled for the end of the billing period. By default each update is considered synchronous, you can make them asynchronous setting &#39;applyChangeNow&#39; to &#39;false&#39;.
 [**set_pricing_component_value_on_subscription_v2**](SubscriptionsApi.md#set_pricing_component_value_on_subscription_v2) | **POST** /subscriptions/{subscription-ID}/values/{pricing-component} | Upgrades/downgrades this subscription to some new value for the specified pricing-component.
 [**update_subscription**](SubscriptionsApi.md#update_subscription) | **PUT** /subscriptions | Update a subscription.
 [**update_subscription_v2**](SubscriptionsApi.md#update_subscription_v2) | **PUT** /subscriptions/update | Update a subscription (V2).
@@ -102,8 +103,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -152,8 +153,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -202,8 +203,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -252,8 +253,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -302,8 +303,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -361,8 +362,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -408,8 +409,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -458,8 +459,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -505,8 +506,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -552,8 +553,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: text/xml, application/xml, application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: text/xml, application/xml, application/json; charset=utf-8
 
 
 
@@ -599,8 +600,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -649,8 +650,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -700,8 +701,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -750,8 +751,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -816,8 +817,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -877,8 +878,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -938,8 +939,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1003,8 +1004,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1064,8 +1065,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1125,8 +1126,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1187,8 +1188,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1238,8 +1239,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1289,8 +1290,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1336,8 +1337,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1399,8 +1400,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1452,8 +1453,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1515,8 +1516,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1578,8 +1579,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1641,8 +1642,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1692,8 +1693,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1754,8 +1755,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1816,8 +1817,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1878,8 +1879,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -1940,8 +1941,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2001,8 +2002,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2066,8 +2067,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2113,8 +2114,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2163,8 +2164,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2213,8 +2214,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2267,8 +2268,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2321,8 +2322,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2375,8 +2376,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2429,8 +2430,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2479,8 +2480,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2529,8 +2530,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2583,8 +2584,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2633,8 +2634,58 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
+
+
+
+# **set_pricing_component_value_on_subscription_batch_update**
+> UpdatePricingComponentValueResponsePagedMetadata set_pricing_component_value_on_subscription_batch_update(subscription_id, request)
+
+Upgrades/downgrades this subscription to some new value for the specified pricing-component. This endpoint can do synchronous (immediate) and asynchronous (delayed) updates. A synchronous update will generate a charge/credit for an UPGRADE or DOWNGRADE. An asynchronous update will generate an amendment scheduled for the end of the billing period. By default each update is considered synchronous, you can make them asynchronous setting 'applyChangeNow' to 'false'.
+
+{\"nickname\":\"Set values\",\"request\":\"setBatchPricingComponentValueRequest.html\",\"response\":\"setBatchPricingComponentValue.html\"}
+
+### Example
+```ruby
+# load the gem
+require 'bf_ruby2'
+
+api_instance = BillForward::SubscriptionsApi.new
+
+subscription_id = "subscription_id_example" # String | ID of the subscription
+
+request = BillForward::BatchUpdatePricingComponentValuesRequest.new # BatchUpdatePricingComponentValuesRequest | The batched update requests.
+
+
+begin
+  #Upgrades/downgrades this subscription to some new value for the specified pricing-component. This endpoint can do synchronous (immediate) and asynchronous (delayed) updates. A synchronous update will generate a charge/credit for an UPGRADE or DOWNGRADE. An asynchronous update will generate an amendment scheduled for the end of the billing period. By default each update is considered synchronous, you can make them asynchronous setting 'applyChangeNow' to 'false'.
+  result = api_instance.set_pricing_component_value_on_subscription_batch_update(subscription_id, request)
+  p result
+rescue BillForward::ApiError => e
+  puts "Exception when calling SubscriptionsApi->set_pricing_component_value_on_subscription_batch_update: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subscription_id** | **String**| ID of the subscription | 
+ **request** | [**BatchUpdatePricingComponentValuesRequest**](BatchUpdatePricingComponentValuesRequest.md)| The batched update requests. | 
+
+### Return type
+
+[**UpdatePricingComponentValueResponsePagedMetadata**](UpdatePricingComponentValueResponsePagedMetadata.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2686,8 +2737,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2733,8 +2784,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: text/xml, application/xml, application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: text/xml, application/xml, application/json; charset=utf-8
 
 
 
@@ -2780,8 +2831,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -2834,8 +2885,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 

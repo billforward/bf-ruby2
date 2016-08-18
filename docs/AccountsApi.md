@@ -4,6 +4,7 @@ All URIs are relative to *https://localhost:8080/RestAPI*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_charge_to_account**](AccountsApi.md#add_charge_to_account) | **POST** /accounts/{account-ID}/invoice | Create a manual invoice.
 [**add_credit_note_to_account**](AccountsApi.md#add_credit_note_to_account) | **POST** /accounts/{account-ID}/credit | Creates a credit-note which may be used by any subscription of this account.
 [**add_permission_to_account**](AccountsApi.md#add_permission_to_account) | **POST** /accounts/{account-ID}/roles/{role} | Add a role to the account
 [**create_account**](AccountsApi.md#create_account) | **POST** /accounts | Create an Account.
@@ -22,6 +23,56 @@ Method | HTTP request | Description
 [**set_metadata_for_account**](AccountsApi.md#set_metadata_for_account) | **POST** /accounts/{account-ID}/metadata | Remove any existing metadata keys and create the provided data.
 [**update_account**](AccountsApi.md#update_account) | **PUT** /accounts | Update an Account.
 [**upsert_metadata_for_account**](AccountsApi.md#upsert_metadata_for_account) | **PUT** /accounts/{account-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
+
+
+# **add_charge_to_account**
+> AddChargeToAccountResponsePagedMetadata add_charge_to_account(account_id, request)
+
+Create a manual invoice.
+
+{\"nickname\":\"Create a manual invoice\",\"request\":\"addChargeToAccountRequest.html\",\"response\":\"addChargeToAccountResponse.html\"}
+
+### Example
+```ruby
+# load the gem
+require 'bf_ruby2'
+
+api_instance = BillForward::AccountsApi.new
+
+account_id = "account_id_example" # String | ID of the account.
+
+request = BillForward::AddChargesToAccountAPIRequest.new # AddChargesToAccountAPIRequest | The charge request
+
+
+begin
+  #Create a manual invoice.
+  result = api_instance.add_charge_to_account(account_id, request)
+  p result
+rescue BillForward::ApiError => e
+  puts "Exception when calling AccountsApi->add_charge_to_account: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **String**| ID of the account. | 
+ **request** | [**AddChargesToAccountAPIRequest**](AddChargesToAccountAPIRequest.md)| The charge request | 
+
+### Return type
+
+[**AddChargeToAccountResponsePagedMetadata**](AddChargeToAccountResponsePagedMetadata.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
+
 
 
 # **add_credit_note_to_account**
@@ -69,8 +120,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -123,8 +174,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -170,8 +221,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: text/xml, application/xml, application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: text/xml, application/xml, application/json; charset=utf-8
 
 
 
@@ -223,8 +274,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -274,8 +325,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -325,8 +376,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -390,7 +441,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json
+ - **Accept**: text/plain, application/json; charset=utf-8
 
 
 
@@ -454,7 +505,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json
+ - **Accept**: text/plain, application/json; charset=utf-8
 
 
 
@@ -514,8 +565,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -579,7 +630,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json
+ - **Accept**: text/plain, application/json; charset=utf-8
 
 
 
@@ -639,8 +690,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -690,8 +741,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -752,7 +803,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: text/plain
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -805,8 +856,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain, application/json
- - **Accept**: application/json
+ - **Content-Type**: text/plain, application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -860,7 +911,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: text/plain
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -913,8 +964,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -960,8 +1011,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: text/xml, application/xml, application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: text/xml, application/xml, application/json; charset=utf-8
 
 
 
@@ -1014,8 +1065,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: application/json; charset=utf-8
 
 
 

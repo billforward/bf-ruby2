@@ -22,5 +22,5 @@ limitations under the License.
 =end
 
 module BillForward
-  VERSION = "1.2016.229"
+  VERSION = "1.2016.230"
 end

@@ -31,6 +31,63 @@ module BillForward
       @api_client = api_client
     end
 
+    # Recalculate a batch of charges.
+    # {\"nickname\":\"Batch re-calculate charges\",\"request\":\"batchRecalculateChargeRequest.html\",\"response\":\"batchRecalculateChargeResponse.html\"}
+    # @param request The batch charge request.
+    # @param [Hash] opts the optional parameters
+    # @return [RecalculateChargeBatchResponsePagedMetadata]
+    def batch_recalculate_subscription_charge(request, opts = {})
+      data, _status_code, _headers = batch_recalculate_subscription_charge_with_http_info(request, opts)
+      return data
+    end
+
+    # Recalculate a batch of charges.
+    # {\&quot;nickname\&quot;:\&quot;Batch re-calculate charges\&quot;,\&quot;request\&quot;:\&quot;batchRecalculateChargeRequest.html\&quot;,\&quot;response\&quot;:\&quot;batchRecalculateChargeResponse.html\&quot;}
+    # @param request The batch charge request.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RecalculateChargeBatchResponsePagedMetadata, Fixnum, Hash)>] RecalculateChargeBatchResponsePagedMetadata data, response status code and response headers
+    def batch_recalculate_subscription_charge_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ChargesApi.batch_recalculate_subscription_charge ..."
+      end
+      # verify the required parameter 'request' is set
+      fail ArgumentError, "Missing the required parameter 'request' when calling ChargesApi.batch_recalculate_subscription_charge" if request.nil?
+      # resource path
+      local_var_path = "/charges/recalculate".sub('{format}','json')
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['text/xml', 'application/xml', 'application/json; charset=utf-8']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json; charset=utf-8']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RecalculateChargeBatchResponsePagedMetadata')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ChargesApi#batch_recalculate_subscription_charge\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieves a collection of all charges. By default 10 values are returned. Records are returned in natural order.
     # {\"nickname\":\"Retrieve all charges\",\"response\":\"getChargeAll.html\"}
     # @param [Hash] opts the optional parameters
@@ -79,7 +136,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
@@ -157,7 +214,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
@@ -235,7 +292,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
@@ -317,7 +374,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
@@ -377,7 +434,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
@@ -438,11 +495,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['text/xml', 'application/xml', 'application/json']
+      local_header_accept = ['text/xml', 'application/xml', 'application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -498,7 +555,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'

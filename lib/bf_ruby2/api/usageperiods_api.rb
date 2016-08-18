@@ -84,7 +84,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
@@ -159,7 +159,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
@@ -238,7 +238,7 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'

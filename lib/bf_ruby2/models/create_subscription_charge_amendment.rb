@@ -74,9 +74,6 @@ module BillForward
     # { \"description\" : \"\", \"verbs\":[] }
     attr_accessor :discount
 
-    # { \"description\" : \"\", \"default\" : \"Manual\",  \"verbs\":[] }
-    attr_accessor :type
-
     # { \"description\" : \"<span class=\\\"label label-default\\\">Immediate</span> invoicing will result in an invoice being issued immediately for the charge. <span class=\\\"label label-default\\\">Aggregated</span> invoicing will generate a charge to be added to the next issued invoice, for example at the current billing period end.\", \"default\" : \"Aggregated\", \"verbs\":[\"POST\",\"PUT\",\"GET\"] }
     attr_accessor :invoicing_type
 
@@ -133,7 +130,6 @@ module BillForward
         :'description' => :'description',
         :'amount' => :'amount',
         :'discount' => :'discount',
-        :'type' => :'type',
         :'invoicing_type' => :'invoicingType',
         :'tax_status' => :'taxStatus',
         :'subscription_charge' => :'subscriptionCharge',
@@ -161,7 +157,6 @@ module BillForward
         :'description' => :'String',
         :'amount' => :'Float',
         :'discount' => :'Float',
-        :'type' => :'String',
         :'invoicing_type' => :'String',
         :'tax_status' => :'String',
         :'subscription_charge' => :'SubscriptionCharge',
@@ -244,10 +239,6 @@ module BillForward
         self.discount = attributes[:'discount']
       end
 
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
       if attributes.has_key?(:'invoicingType')
         self.invoicing_type = attributes[:'invoicingType']
       end
@@ -292,9 +283,6 @@ module BillForward
       return false unless state_validator.valid?(@state)
       return false if @deleted.nil?
       return false if @amount.nil?
-      return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["Setup", "Upgrade", "Manual", "ProductRatePlanMigration", "Arrears", "Advance", "Coupon", "Usage", "PricingComponent"])
-      return false unless type_validator.valid?(@type)
       return false if @invoicing_type.nil?
       invoicing_type_validator = EnumAttributeValidator.new('String', ["Immediate", "Aggregated"])
       return false unless invoicing_type_validator.valid?(@invoicing_type)
@@ -332,16 +320,6 @@ module BillForward
         fail ArgumentError, "invalid value for 'state', must be one of #{validator.allowable_values}."
       end
       @state = state
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] type Object to be assigned
-    def type=(type)
-      validator = EnumAttributeValidator.new('String', ["Setup", "Upgrade", "Manual", "ProductRatePlanMigration", "Arrears", "Advance", "Coupon", "Usage", "PricingComponent"])
-      unless validator.valid?(type)
-        fail ArgumentError, "invalid value for 'type', must be one of #{validator.allowable_values}."
-      end
-      @type = type
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -385,7 +363,6 @@ module BillForward
           description == o.description &&
           amount == o.amount &&
           discount == o.discount &&
-          type == o.type &&
           invoicing_type == o.invoicing_type &&
           tax_status == o.tax_status &&
           subscription_charge == o.subscription_charge &&
@@ -402,7 +379,7 @@ module BillForward
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created, changed_by, updated, type, id, organization_id, subscription_id, amendment_type, actioning_time, actioned_time, state, deleted, subscription_charge_id, description, amount, discount, type, invoicing_type, tax_status, subscription_charge, pricing_component_value_change, pricing_component_id].hash
+      [created, changed_by, updated, type, id, organization_id, subscription_id, amendment_type, actioning_time, actioned_time, state, deleted, subscription_charge_id, description, amount, discount, invoicing_type, tax_status, subscription_charge, pricing_component_value_change, pricing_component_id].hash
     end
 
     # Builds the object from hash

@@ -66,11 +66,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -127,11 +127,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -188,11 +188,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -249,11 +249,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -310,11 +310,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -385,11 +385,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -442,11 +442,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -503,11 +503,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -560,11 +560,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -617,11 +617,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['text/xml', 'application/xml', 'application/json']
+      local_header_accept = ['text/xml', 'application/xml', 'application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -674,11 +674,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -735,11 +735,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -795,11 +795,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -856,11 +856,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -942,11 +942,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1020,11 +1020,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1098,11 +1098,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1188,11 +1188,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1266,11 +1266,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1344,11 +1344,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1427,11 +1427,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1487,11 +1487,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1547,11 +1547,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1604,11 +1604,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1685,11 +1685,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1748,11 +1748,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1829,11 +1829,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1910,11 +1910,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -1995,11 +1995,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2055,11 +2055,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2134,11 +2134,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2213,11 +2213,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2292,11 +2292,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2371,11 +2371,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2446,11 +2446,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2536,11 +2536,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2593,11 +2593,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2654,11 +2654,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2715,11 +2715,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2779,11 +2779,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2843,11 +2843,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2907,11 +2907,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -2971,11 +2971,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['text/plain', 'application/json']
+      local_header_content_type = ['text/plain', 'application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -3032,11 +3032,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -3093,11 +3093,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -3157,11 +3157,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -3218,11 +3218,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -3240,6 +3240,67 @@ module BillForward
         :return_type => 'PricingComponentValuePagedMetadata')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SubscriptionsApi#set_pricing_component_value_on_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upgrades/downgrades this subscription to some new value for the specified pricing-component. This endpoint can do synchronous (immediate) and asynchronous (delayed) updates. A synchronous update will generate a charge/credit for an UPGRADE or DOWNGRADE. An asynchronous update will generate an amendment scheduled for the end of the billing period. By default each update is considered synchronous, you can make them asynchronous setting 'applyChangeNow' to 'false'.
+    # {\"nickname\":\"Set values\",\"request\":\"setBatchPricingComponentValueRequest.html\",\"response\":\"setBatchPricingComponentValue.html\"}
+    # @param subscription_id ID of the subscription
+    # @param request The batched update requests.
+    # @param [Hash] opts the optional parameters
+    # @return [UpdatePricingComponentValueResponsePagedMetadata]
+    def set_pricing_component_value_on_subscription_batch_update(subscription_id, request, opts = {})
+      data, _status_code, _headers = set_pricing_component_value_on_subscription_batch_update_with_http_info(subscription_id, request, opts)
+      return data
+    end
+
+    # Upgrades/downgrades this subscription to some new value for the specified pricing-component. This endpoint can do synchronous (immediate) and asynchronous (delayed) updates. A synchronous update will generate a charge/credit for an UPGRADE or DOWNGRADE. An asynchronous update will generate an amendment scheduled for the end of the billing period. By default each update is considered synchronous, you can make them asynchronous setting &#39;applyChangeNow&#39; to &#39;false&#39;.
+    # {\&quot;nickname\&quot;:\&quot;Set values\&quot;,\&quot;request\&quot;:\&quot;setBatchPricingComponentValueRequest.html\&quot;,\&quot;response\&quot;:\&quot;setBatchPricingComponentValue.html\&quot;}
+    # @param subscription_id ID of the subscription
+    # @param request The batched update requests.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdatePricingComponentValueResponsePagedMetadata, Fixnum, Hash)>] UpdatePricingComponentValueResponsePagedMetadata data, response status code and response headers
+    def set_pricing_component_value_on_subscription_batch_update_with_http_info(subscription_id, request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SubscriptionsApi.set_pricing_component_value_on_subscription_batch_update ..."
+      end
+      # verify the required parameter 'subscription_id' is set
+      fail ArgumentError, "Missing the required parameter 'subscription_id' when calling SubscriptionsApi.set_pricing_component_value_on_subscription_batch_update" if subscription_id.nil?
+      # verify the required parameter 'request' is set
+      fail ArgumentError, "Missing the required parameter 'request' when calling SubscriptionsApi.set_pricing_component_value_on_subscription_batch_update" if request.nil?
+      # resource path
+      local_var_path = "/subscriptions/{subscription-ID}/values".sub('{format}','json').sub('{' + 'subscription-ID' + '}', subscription_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json; charset=utf-8']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json; charset=utf-8']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'UpdatePricingComponentValueResponsePagedMetadata')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SubscriptionsApi#set_pricing_component_value_on_subscription_batch_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3283,11 +3344,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -3340,11 +3401,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['text/xml', 'application/xml', 'application/json']
+      local_header_accept = ['text/xml', 'application/xml', 'application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -3397,11 +3458,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
@@ -3461,11 +3522,11 @@ module BillForward
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
+      local_header_accept = ['application/json; charset=utf-8']
       local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
+      local_header_content_type = ['application/json; charset=utf-8']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters

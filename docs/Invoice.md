@@ -42,6 +42,9 @@ Name | Type | Description | Notes
 **locked** | **String** | { \&quot;description\&quot; : \&quot;If the subscription is locked, it will not be processed by the system\&quot;, \&quot;verbs\&quot;:[] } | [optional] 
 **managed_by** | **String** | { \&quot;description\&quot; : \&quot;Which system is responsible for managing the subscription.\&quot;, \&quot;verbs\&quot;:[] } | [optional] 
 **initial_invoice** | **BOOLEAN** | { \&quot;description\&quot; : \&quot;Is this an initial invoice. An initial invoice is the first invoice generated for a subscription. Initial invoices will not have dunning applied to them and as such will only have a single payment attempt. For trial periods, the trial invoice is the initial invoice.\&quot;, \&quot;verbs\&quot;:[\&quot;GET\&quot;] } | [default to false]
+**processing** | **BOOLEAN** | { \&quot;processing\&quot; : \&quot;If true, the invoice is processing.\&quot;, \&quot;verbs\&quot;:[] } | [optional] [default to false]
+**payment_terms** | **Integer** |  | [optional] 
+**purchase_order** | **String** | { \&quot;description\&quot; : \&quot;Purchase order associated with the subscription. If specified this is copied to any invoices issued for this subscription.\&quot;, \&quot;verbs\&quot;:[\&quot;GET\&quot;,\&quot;PUT\&quot;,\&quot;POST\&quot;] } | [optional] 
 **version_number** | **Integer** | { \&quot;description\&quot; : \&quot;The version number of the Invoice.  The first version of an Invoice is version number 1\&quot;, \&quot;verbs\&quot;:[\&quot;GET\&quot;] } | 
 **invoice_lines** | [**Array&lt;InvoiceLine&gt;**](InvoiceLine.md) | { \&quot;description\&quot; : \&quot;The collection of invoice-lines associated with the invoice.\&quot;, \&quot;verbs\&quot;:[\&quot;GET\&quot;] } | [optional] 
 **tax_lines** | [**Array&lt;InsertableBillingEntity&gt;**](InsertableBillingEntity.md) |  | [optional] 

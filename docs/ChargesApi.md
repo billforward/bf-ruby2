@@ -4,6 +4,7 @@ All URIs are relative to *https://localhost:8080/RestAPI*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**batch_recalculate_subscription_charge**](ChargesApi.md#batch_recalculate_subscription_charge) | **POST** /charges/recalculate | Recalculate a batch of charges.
 [**get_all_subscription_charges**](ChargesApi.md#get_all_subscription_charges) | **GET** /charges | Retrieves a collection of all charges. By default 10 values are returned. Records are returned in natural order.
 [**get_subscription_charge_by_account_id**](ChargesApi.md#get_subscription_charge_by_account_id) | **GET** /charges/account/{account-ID} | Retrieves a collection of charges, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
 [**get_subscription_charge_by_id**](ChargesApi.md#get_subscription_charge_by_id) | **GET** /charges/{charge-id} | Retrieves a single charge, specified by the charge-id parameter.
@@ -11,6 +12,53 @@ Method | HTTP request | Description
 [**get_subscription_charge_by_version_id**](ChargesApi.md#get_subscription_charge_by_version_id) | **GET** /charges/version/{version-ID} | Retrieves a single charge, specified by the version-ID parameter.
 [**recalculate_subscription_charge**](ChargesApi.md#recalculate_subscription_charge) | **POST** /charges/{charge-ID}/recalculate | Recalculate a charge.
 [**void_subscription_charge**](ChargesApi.md#void_subscription_charge) | **DELETE** /charges/{charge-id} | Void the charge with the specified charge-ID.
+
+
+# **batch_recalculate_subscription_charge**
+> RecalculateChargeBatchResponsePagedMetadata batch_recalculate_subscription_charge(request)
+
+Recalculate a batch of charges.
+
+{\"nickname\":\"Batch re-calculate charges\",\"request\":\"batchRecalculateChargeRequest.html\",\"response\":\"batchRecalculateChargeResponse.html\"}
+
+### Example
+```ruby
+# load the gem
+require 'bf_ruby2'
+
+api_instance = BillForward::ChargesApi.new
+
+request = BillForward::RecalculateChargeBatchRequest.new # RecalculateChargeBatchRequest | The batch charge request.
+
+
+begin
+  #Recalculate a batch of charges.
+  result = api_instance.batch_recalculate_subscription_charge(request)
+  p result
+rescue BillForward::ApiError => e
+  puts "Exception when calling ChargesApi->batch_recalculate_subscription_charge: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**RecalculateChargeBatchRequest**](RecalculateChargeBatchRequest.md)| The batch charge request. | 
+
+### Return type
+
+[**RecalculateChargeBatchResponsePagedMetadata**](RecalculateChargeBatchResponsePagedMetadata.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: text/xml, application/xml, application/json; charset=utf-8
+
 
 
 # **get_all_subscription_charges**
@@ -67,7 +115,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -128,7 +176,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: text/plain
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -189,7 +237,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: text/plain
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -250,7 +298,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -301,7 +349,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: text/plain
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
@@ -350,8 +398,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: text/xml, application/xml, application/json
+ - **Content-Type**: application/json; charset=utf-8
+ - **Accept**: text/xml, application/xml, application/json; charset=utf-8
 
 
 
@@ -402,7 +450,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json; charset=utf-8
 
 
 
