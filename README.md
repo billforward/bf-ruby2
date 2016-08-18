@@ -107,6 +107,28 @@ end
     @value=1.09>]>
 ```
 
+## Releasing
+
+Bump the version in `lib/bf_ruby2/version.rb`, with a major version bump if there are breaking changes.
+
+Minor revision is determined by [days since start of year](http://www.wolframalpha.com/input/?i=days+since+start+of+year) (rounded down).
+
+If you publish twice in a day, it becomes day.1, day.2 and so on.
+
+Please find-and-replace all references to `1.2016.229` in this README, to the latest version.
+
+Build the gemspec locally:
+
+```bash
+gem build bf_ruby2.gemspec
+```
+
+Then publish the resulting gem:
+
+```bash
+gem push bf_ruby2-1.2016.229.gem
+```
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://api-sandbox.billforward.net:443/v1*
