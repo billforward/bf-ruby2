@@ -26,6 +26,7 @@ Then either install the gem locally:
 ```shell
 gem install ./bf_ruby2-1.0.0.gem
 ```
+
 (for development, run `gem install --dev ./bf_ruby2-1.0.0.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
@@ -51,25 +52,56 @@ ruby -Ilib script.rb
 ## Getting Started
 
 Please follow the [installation](#installation) procedure and then run the following code:
+
 ```ruby
 # Load the gem
 require 'bf_ruby2'
 
+BillForward::Configuration.default.host="api-sandbox.billforward.net:433"
+BillForward::Configuration.default.scheme="https"
+BillForward::Configuration.default.base_path="v1"
+BillForward::Configuration.default.logger.level = Logger::DEBUG
+BillForward::Configuration.default.debugging = false
+
+# your BillForward private token
+access_token = "EXAMPLE38-1136-4646-a552-fa2728da66b6"
+
 api_instance = BillForward::AccountsApi.new
 
-account_id = "account_id_example" # String | ID of the account.
+account_id = "ACC-23A086A2-F460-470E-85C5-BB52CD55"
 
-credit_note = BillForward::CreditAccountRequest.new # CreditAccountRequest | The credit-note request
-
+credit_note = BillForward::CreditAccountRequest.new ({
+	'currency': 'USD',
+	'value': 1.09
+	})
 
 begin
   #Creates a credit-note which may be used by any subscription of this account.
   result = api_instance.add_credit_note_to_account(account_id, credit_note)
   p result
 rescue BillForward::ApiError => e
-  puts "Exception when calling AccountsApi->add_credit_note_to_account: #{e}"
+  # puts "Exception when calling AccountsApi->add_credit_note_to_account: #{JSON.parse(e.response_body) || e}"
+  puts "Exception when calling AccountsApi->add_credit_note_to_account: #{e.response_body || e}"
 end
+```
 
+```ruby
+# Result looks like this:
+=> #<BillForward::CreditNotePagedMetadata:0x007fa7cbd8b600
+ @execution_time=304000,
+ @results=
+  [#<BillForward::CreditNote:0x007fa7cbd8b268
+    @account_id="ACC-23A086A2-F460-470E-85C5-BB52CD55",
+    @changed_by="CF0CBF36-922B-403F-AA95-22BAD9960BF3",
+    @created=#<DateTime: 2016-08-18T00:29:37+00:00 ((2457619j,1777s,0n),+0s,2299161j)>,
+    @created_by="CF0CBF36-922B-403F-AA95-22BAD9960BF3",
+    @currency="USD",
+    @id="CDT-2797BD1B-8C1A-4589-B23A-B0432A0D",
+    @organization_id="ORG-BE199668-332C-4EFD-B05D-D705142C",
+    @remaining_value=1.09,
+    @type="manual",
+    @updated=#<DateTime: 2016-08-18T00:29:37+00:00 ((2457619j,1777s,0n),+0s,2299161j)>,
+    @value=1.09>]>
 ```
 
 ## Documentation for API Endpoints
