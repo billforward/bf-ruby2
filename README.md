@@ -52,7 +52,14 @@ ruby -Ilib script.rb
 
 ## Usage
 
-Once [installed](#Installation), you can try out the following example:
+### Getting Credentials
+You will need an API token. First log into your [Sandbox account](https://app-sandbox.billforward.net/#/login/) ([register](https://app-sandbox.billforward.net/#/register/) if necessary).
+
+Then [generate an API token](https://app-sandbox.billforward.net/#/setup/personal/api-keys).
+
+### Invocation
+
+Here is an example which demonstrates POSTing a JSON request to our API, and handling the result. The example adds credit to an Account.
 
 ```ruby
 # Load the gem
