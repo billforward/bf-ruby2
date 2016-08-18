@@ -74,7 +74,10 @@ BillForward::Configuration.default.debugging = false
 # your BillForward private token
 access_token = "EXAMPLE38-1136-4646-a552-fa2728da66b6"
 
-api_instance = BillForward::AccountsApi.new
+client = BillForward::ApiClient.new
+client.default_headers.merge! 'Authorization' => "Bearer #{access_token}"
+
+api_instance = BillForward::AccountsApi.new client
 
 account_id = "ACC-23A086A2-F460-470E-85C5-BB52CD55"
 
