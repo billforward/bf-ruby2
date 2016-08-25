@@ -22,5 +22,5 @@ limitations under the License.
 =end
 
 module Bfwd
-  VERSION = "1.2016.230"
+  VERSION = "2.2016.237"
 end
