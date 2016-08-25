@@ -65,7 +65,7 @@ Here is an example which demonstrates POSTing a JSON request to our API, and han
 # Load the gem
 require 'bf_ruby2'
 
-Bfwd::Configuration.default.host="api-sandbox.billforward.net:433"
+Bfwd::Configuration.default.host="api-sandbox.billforward.net"
 Bfwd::Configuration.default.scheme="https"
 Bfwd::Configuration.default.base_path="v1"
 Bfwd::Configuration.default.logger.level = Logger::DEBUG
