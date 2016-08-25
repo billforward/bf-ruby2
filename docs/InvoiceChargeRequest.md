@@ -1,4 +1,4 @@
-# BillForward::InvoiceChargeRequest
+# Bfwd::InvoiceChargeRequest
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::PaymentRetryRequest
+# Bfwd::PaymentRetryRequest
 
 ## Properties
 Name | Type | Description | Notes

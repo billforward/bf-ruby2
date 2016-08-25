@@ -1,4 +1,4 @@
-# BillForward::EmailprovidersApi
+# Bfwd::EmailprovidersApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -22,16 +22,16 @@ Create an email provider.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailprovidersApi.new
+api_instance = Bfwd::EmailprovidersApi.new
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | .
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | .
 
 
 begin
   #Create an email provider.
   result = api_instance.create_email_provider(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailprovidersApi->create_email_provider: #{e}"
 end
 ```
@@ -69,7 +69,7 @@ Deletes a single email provider, specified by id or name parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailprovidersApi.new
+api_instance = Bfwd::EmailprovidersApi.new
 
 email_provider_id = "email_provider_id_example" # String | 
 
@@ -81,7 +81,7 @@ begin
   #Deletes a single email provider, specified by id or name parameter.
   result = api_instance.delete(email_provider_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailprovidersApi->delete: #{e}"
 end
 ```
@@ -120,7 +120,7 @@ Returns a collection of all email-providers. By default 10 values are returned. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailprovidersApi.new
+api_instance = Bfwd::EmailprovidersApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -135,7 +135,7 @@ begin
   #Returns a collection of all email-providers. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_email_providers(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailprovidersApi->get_all_email_providers: #{e}"
 end
 ```
@@ -178,7 +178,7 @@ Retrieves a single email provider, specified by the version-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailprovidersApi.new
+api_instance = Bfwd::EmailprovidersApi.new
 
 email_provider_id = "email_provider_id_example" # String | 
 
@@ -191,7 +191,7 @@ begin
   #Retrieves a single email provider, specified by the version-ID parameter.
   result = api_instance.get_email_by_provider_id(email_provider_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailprovidersApi->get_email_by_provider_id: #{e}"
 end
 ```

@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # An InvoiceLinePayment specifies the amount of a particular invoice payment used to pay part of &mdash; or the entirety of &mdash; the outstanding balance of the associated invoice line.
   class InvoiceLinePayment
     # {\"description\":\"PeriodStart of the charge with which this InvoiceLinePayment's invoice line is associated.\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
@@ -487,7 +487,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

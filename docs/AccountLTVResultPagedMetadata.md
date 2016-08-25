@@ -1,4 +1,4 @@
-# BillForward::AccountLTVResultPagedMetadata
+# Bfwd::AccountLTVResultPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

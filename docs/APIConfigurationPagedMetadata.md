@@ -1,4 +1,4 @@
-# BillForward::APIConfigurationPagedMetadata
+# Bfwd::APIConfigurationPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

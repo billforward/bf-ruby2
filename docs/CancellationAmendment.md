@@ -1,4 +1,4 @@
-# BillForward::CancellationAmendment
+# Bfwd::CancellationAmendment
 
 ## Properties
 Name | Type | Description | Notes

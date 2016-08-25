@@ -1,4 +1,4 @@
-# BillForward::PaymentMethodSubscriptionLinkPagedMetadata
+# Bfwd::PaymentMethodSubscriptionLinkPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

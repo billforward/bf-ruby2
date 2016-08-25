@@ -1,4 +1,4 @@
-# BillForward::Coupon
+# Bfwd::Coupon
 
 ## Properties
 Name | Type | Description | Notes

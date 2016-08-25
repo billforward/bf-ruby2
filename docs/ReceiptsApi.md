@@ -1,4 +1,4 @@
-# BillForward::ReceiptsApi
+# Bfwd::ReceiptsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -25,16 +25,16 @@ Create a receipt.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ReceiptsApi.new
+api_instance = Bfwd::ReceiptsApi.new
 
-receipt = BillForward::Receipt.new # Receipt | The receipt object to be created.
+receipt = Bfwd::Receipt.new # Receipt | The receipt object to be created.
 
 
 begin
   #Create a receipt.
   result = api_instance.create_receipt(receipt)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ReceiptsApi->create_receipt: #{e}"
 end
 ```
@@ -72,7 +72,7 @@ Returns a collection of all receipts. By default 10 values are returned. receipt
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ReceiptsApi.new
+api_instance = Bfwd::ReceiptsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -92,7 +92,7 @@ begin
   #Returns a collection of all receipts. By default 10 values are returned. receipts are returned in natural order
   result = api_instance.get_all_receipts(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ReceiptsApi->get_all_receipts: #{e}"
 end
 ```
@@ -140,7 +140,7 @@ Returns a single receipt, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ReceiptsApi.new
+api_instance = Bfwd::ReceiptsApi.new
 
 receipt_id = "receipt_id_example" # String | ID of the receipt.
 
@@ -152,7 +152,7 @@ begin
   #Returns a single receipt, specified by the ID parameter.
   result = api_instance.get_receipt_by_id(receipt_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ReceiptsApi->get_receipt_by_id: #{e}"
 end
 ```
@@ -191,7 +191,7 @@ Returns a receipt for the receipt payment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ReceiptsApi.new
+api_instance = Bfwd::ReceiptsApi.new
 
 invoice_id = "invoice_id_example" # String | ID of the Invoice.
 
@@ -207,7 +207,7 @@ begin
   #Returns a receipt for the receipt payment.
   result = api_instance.get_receipts_by_invoice(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ReceiptsApi->get_receipts_by_invoice: #{e}"
 end
 ```
@@ -250,7 +250,7 @@ Returns a collection of receipts for the payment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ReceiptsApi.new
+api_instance = Bfwd::ReceiptsApi.new
 
 payment_id = "payment_id_example" # String | ID of the payment.
 
@@ -266,7 +266,7 @@ begin
   #Returns a collection of receipts for the payment.
   result = api_instance.get_receipts_by_payment(payment_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ReceiptsApi->get_receipts_by_payment: #{e}"
 end
 ```
@@ -309,7 +309,7 @@ Retrieves debit payments in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ReceiptsApi.new
+api_instance = Bfwd::ReceiptsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -326,7 +326,7 @@ begin
   #Retrieves debit payments in CSV format.
   result = api_instance.get_receipts_for_debit_payments_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ReceiptsApi->get_receipts_for_debit_payments_as_csv: #{e}"
 end
 ```
@@ -371,7 +371,7 @@ Retrieves refunded payments in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ReceiptsApi.new
+api_instance = Bfwd::ReceiptsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -387,7 +387,7 @@ begin
   #Retrieves refunded payments in CSV format.
   result = api_instance.get_receipts_for_refund_payments_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ReceiptsApi->get_receipts_for_refund_payments_as_csv: #{e}"
 end
 ```

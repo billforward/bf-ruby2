@@ -1,4 +1,4 @@
-# BillForward::BFError
+# Bfwd::BFError
 
 ## Properties
 Name | Type | Description | Notes

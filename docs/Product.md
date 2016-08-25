@@ -1,4 +1,4 @@
-# BillForward::Product
+# Bfwd::Product
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **String** | {\&quot;description\&quot;:\&quot;ID uniquely identifying this product.\&quot;,\&quot;verbs\&quot;:[\&quot;GET\&quot;]} | [optional] 
 **crm_id** | **String** | {\&quot;description\&quot;:\&quot;Customer-relationship-management ID of the product.\&quot;,\&quot;verbs\&quot;:[\&quot;GET\&quot;,\&quot;PUT\&quot;,\&quot;POST\&quot;]} | [optional] 
 **account_id** | **String** | {\&quot;description\&quot;:\&quot;\&quot;,\&quot;verbs\&quot;:[]} | [optional] 
-**name** | **String** | {\&quot;description\&quot;:\&quot;A unique name &amp;mdash; for your benefit &amp;mdash; used to identify this product within BillForward. It should reflect the fact that this product confers some service to a customer (e.g. \\\&quot;Gold membership\\\&quot;).&lt;br&gt;The product can also be defined by the frequency with which it recurs (e.g. \\\&quot;Monthly Gold membership\\\&quot;).&lt;br&gt;Remember also that rate plans can override the timing prescribed by their product. If you intend to override that timing, you may consider the product&#39;s period duration to be an unimportant factor when it comes to naming it.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;]} | 
+**name** | **String** | {\&quot;description\&quot;:\&quot;A unique name &amp;mdash; for your benefit &amp;mdash; used to identify this product within Bfwd. It should reflect the fact that this product confers some service to a customer (e.g. \\\&quot;Gold membership\\\&quot;).&lt;br&gt;The product can also be defined by the frequency with which it recurs (e.g. \\\&quot;Monthly Gold membership\\\&quot;).&lt;br&gt;Remember also that rate plans can override the timing prescribed by their product. If you intend to override that timing, you may consider the product&#39;s period duration to be an unimportant factor when it comes to naming it.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;]} | 
 **public_name** | **String** | {\&quot;description\&quot;:\&quot;A friendly non-unique name used to identify this product\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;]} | [optional] 
 **description** | **String** | {\&quot;description\&quot;:\&quot;A description &amp;mdash; for your benefit &amp;mdash; of the product. For example: you could explain what service this product entitles a customer to.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;]} | 
 **duration** | **Integer** | {\&quot;description\&quot;:\&quot;Number of length-measures which constitute the product&#39;s period.\&quot;,\&quot;verbs\&quot;:[\&quot;POST\&quot;,\&quot;PUT\&quot;,\&quot;GET\&quot;]} | 

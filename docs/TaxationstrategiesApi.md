@@ -1,4 +1,4 @@
-# BillForward::TaxationstrategiesApi
+# Bfwd::TaxationstrategiesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -27,16 +27,16 @@ Method | HTTP request | Description
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
-taxation_strategy = BillForward::MutableBillingEntity.new # MutableBillingEntity | The taxation-strategy object to be updated.
+taxation_strategy = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The taxation-strategy object to be updated.
 
 
 begin
   #<p>Add a new tax or schedule changes in an existing tax.</p><p>Add a new tax by providing the location and tax percentage. To schedule a tax change specify the ID of the current Tax. A new version of the will be created <i>validFrom</i> the specified date, the existing tax <i>validTill</i> the start of this new tax.</p>
   result = api_instance.create_taxation_strategy(taxation_strategy)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->create_taxation_strategy: #{e}"
 end
 ```
@@ -74,7 +74,7 @@ Returns a collection of all taxation-strategies. By default 10 values are return
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -89,7 +89,7 @@ begin
   #Returns a collection of all taxation-strategies. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_taxation_strategies(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->get_all_taxation_strategies: #{e}"
 end
 ```
@@ -132,7 +132,7 @@ Returns the tax currently being applied for the taxation-strategy-ID. To return 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
 taxation_strategy_id = "taxation_strategy_id_example" # String | 
 
@@ -149,7 +149,7 @@ begin
   #Returns the tax currently being applied for the taxation-strategy-ID. To return schedule or historic tax changes the include_retired query parameter should be set to true.
   result = api_instance.get_taxation_strategy_by_consistent_id(taxation_strategy_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->get_taxation_strategy_by_consistent_id: #{e}"
 end
 ```
@@ -193,7 +193,7 @@ Returns a collection of taxation-strategies, specified by the country parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
 country = "country_example" # String | The country
 
@@ -210,7 +210,7 @@ begin
   #Returns a collection of taxation-strategies, specified by the country parameter. By default 10 values are returned. Records are returned in natural order. To return schedule or historic tax changes the include_retired query parameter should be set to true.
   result = api_instance.get_taxation_strategy_by_country(country, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->get_taxation_strategy_by_country: #{e}"
 end
 ```
@@ -254,7 +254,7 @@ Returns a collection of taxation-strategies, specified by the currency parameter
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
 currency = "currency_example" # String | The currency
 
@@ -271,7 +271,7 @@ begin
   #Returns a collection of taxation-strategies, specified by the currency parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_taxation_strategy_by_currency(currency, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->get_taxation_strategy_by_currency: #{e}"
 end
 ```
@@ -315,7 +315,7 @@ Returns a collection of taxation-strategies, specified by the province parameter
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
 province = "province_example" # String | The province
 
@@ -332,7 +332,7 @@ begin
   #Returns a collection of taxation-strategies, specified by the province parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_taxation_strategy_by_province(province, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->get_taxation_strategy_by_province: #{e}"
 end
 ```
@@ -376,7 +376,7 @@ Returns a single taxation-strategy, specified by the taxation-strategy-ID parame
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
 version_id = "version_id_example" # String | 
 
@@ -388,7 +388,7 @@ begin
   #Returns a single taxation-strategy, specified by the taxation-strategy-ID parameter.
   result = api_instance.get_taxation_strategy_by_version_id(version_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->get_taxation_strategy_by_version_id: #{e}"
 end
 ```
@@ -427,7 +427,7 @@ Retires the taxation-strategy specified by taxation-strategy-ID parameter. Only 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
 version_id = "version_id_example" # String | 
 
@@ -438,7 +438,7 @@ begin
   #Retires the taxation-strategy specified by taxation-strategy-ID parameter. Only the version of the tax which has an unbounded (null) validTill can be removed. Removing a tax change will make the previous tax come into effect. For example if you have a Tax in January and 5% and a new tax at 7% from February onwards, you can remove the February tax. Remove the February tax will re-instate the January tax.
   result = api_instance.retire_taxation_strategy(version_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->retire_taxation_strategy: #{e}"
 end
 ```
@@ -477,16 +477,16 @@ Update a tax.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationstrategiesApi.new
+api_instance = Bfwd::TaxationstrategiesApi.new
 
-taxation_strategy = BillForward::MutableBillingEntity.new # MutableBillingEntity | The taxation-strategy object to be updated.
+taxation_strategy = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The taxation-strategy object to be updated.
 
 
 begin
   #Update a tax.
   result = api_instance.update_taxation_strategy(taxation_strategy)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationstrategiesApi->update_taxation_strategy: #{e}"
 end
 ```

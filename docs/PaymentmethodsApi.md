@@ -1,4 +1,4 @@
-# BillForward::PaymentmethodsApi
+# Bfwd::PaymentmethodsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -26,16 +26,16 @@ Create a payment-method.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsApi.new
+api_instance = Bfwd::PaymentmethodsApi.new
 
-payment_method = BillForward::PaymentMethod.new # PaymentMethod | The payment-method object to be updated.
+payment_method = Bfwd::PaymentMethod.new # PaymentMethod | The payment-method object to be updated.
 
 
 begin
   #Create a payment-method.
   result = api_instance.create_payment_method(payment_method)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsApi->create_payment_method: #{e}"
 end
 ```
@@ -73,7 +73,7 @@ Deletes the payment-method specified by the payment-method-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsApi.new
+api_instance = Bfwd::PaymentmethodsApi.new
 
 payment_method_id = "payment_method_id_example" # String | 
 
@@ -85,7 +85,7 @@ begin
   #Deletes the payment-method specified by the payment-method-ID parameter.
   result = api_instance.delete_payment_method(payment_method_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsApi->delete_payment_method: #{e}"
 end
 ```
@@ -124,7 +124,7 @@ Returns a collection of all payment-methods. By default 10 values are returned. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsApi.new
+api_instance = Bfwd::PaymentmethodsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -139,7 +139,7 @@ begin
   #Returns a collection of all payment-methods. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_payment_methods(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsApi->get_all_payment_methods: #{e}"
 end
 ```
@@ -182,7 +182,7 @@ Returns a collection of payment-methods, specified by the account-ID parameter. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsApi.new
+api_instance = Bfwd::PaymentmethodsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -200,7 +200,7 @@ begin
   #Returns a collection of payment-methods, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_payment_method_by_account_id(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsApi->get_payment_method_by_account_id: #{e}"
 end
 ```
@@ -245,7 +245,7 @@ Returns a single payment-method, specified by the payment-method-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsApi.new
+api_instance = Bfwd::PaymentmethodsApi.new
 
 payment_method_id = "payment_method_id_example" # String | 
 
@@ -257,7 +257,7 @@ begin
   #Returns a single payment-method, specified by the payment-method-ID parameter.
   result = api_instance.get_payment_method_by_id(payment_method_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsApi->get_payment_method_by_id: #{e}"
 end
 ```
@@ -296,7 +296,7 @@ Returns a single payment-method, specified by the linkID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsApi.new
+api_instance = Bfwd::PaymentmethodsApi.new
 
 link_id = "link_id_example" # String | The link-id of the payment-method.
 
@@ -308,7 +308,7 @@ begin
   #Returns a single payment-method, specified by the linkID parameter.
   result = api_instance.get_payment_method_by_link_id(link_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsApi->get_payment_method_by_link_id: #{e}"
 end
 ```
@@ -347,7 +347,7 @@ Returns a collection of payment-methods, specified by the gateway parameter. By 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsApi.new
+api_instance = Bfwd::PaymentmethodsApi.new
 
 gateway = "gateway_example" # String | The payment-method gateway which generated the payment-method.
 
@@ -364,7 +364,7 @@ begin
   #Returns a collection of payment-methods, specified by the gateway parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_payment_method_by_payment_gateway(gateway, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsApi->get_payment_method_by_payment_gateway: #{e}"
 end
 ```
@@ -408,16 +408,16 @@ Update a payment-method.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsApi.new
+api_instance = Bfwd::PaymentmethodsApi.new
 
-payment_method = BillForward::PaymentMethod.new # PaymentMethod | The payment-method object to be updated.
+payment_method = Bfwd::PaymentMethod.new # PaymentMethod | The payment-method object to be updated.
 
 
 begin
   #Update a payment-method.
   result = api_instance.update_payment_method(payment_method)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsApi->update_payment_method: #{e}"
 end
 ```

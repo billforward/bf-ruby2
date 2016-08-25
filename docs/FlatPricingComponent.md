@@ -1,4 +1,4 @@
-# BillForward::FlatPricingComponent
+# Bfwd::FlatPricingComponent
 
 ## Properties
 Name | Type | Description | Notes

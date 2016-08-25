@@ -1,4 +1,4 @@
-# BillForward::CouponDiscountEstimate
+# Bfwd::CouponDiscountEstimate
 
 ## Properties
 Name | Type | Description | Notes

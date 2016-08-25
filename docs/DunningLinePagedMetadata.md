@@ -1,4 +1,4 @@
-# BillForward::DunningLinePagedMetadata
+# Bfwd::DunningLinePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

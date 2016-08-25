@@ -1,4 +1,4 @@
-# BillForward::FixedTermExpiryAmendment
+# Bfwd::FixedTermExpiryAmendment
 
 ## Properties
 Name | Type | Description | Notes

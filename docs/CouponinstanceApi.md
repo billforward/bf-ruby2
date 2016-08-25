@@ -1,4 +1,4 @@
-# BillForward::CouponinstanceApi
+# Bfwd::CouponinstanceApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -28,16 +28,16 @@ Create a coupon-instance.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
-coupon_instance = BillForward::CouponInstance.new # CouponInstance | The coupon-instance object to be created.
+coupon_instance = Bfwd::CouponInstance.new # CouponInstance | The coupon-instance object to be created.
 
 
 begin
   #Create a coupon-instance.
   result = api_instance.create_coupon_instance(coupon_instance)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->create_coupon_instance: #{e}"
 end
 ```
@@ -75,7 +75,7 @@ Retire a coupon-instance, specified by the coupon-instance-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
 coupon_instance_id = "coupon_instance_id_example" # String | ID of the coupon-instance.
 
@@ -87,7 +87,7 @@ begin
   #Retire a coupon-instance, specified by the coupon-instance-ID parameter.
   result = api_instance.delete_coupon_instance(coupon_instance_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->delete_coupon_instance: #{e}"
 end
 ```
@@ -126,7 +126,7 @@ Returns a collection of attachable coupon-instances. An attachable coupon-instan
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
 attachableness = true # BOOLEAN | The attachableness of the coupon-instance.
 
@@ -144,7 +144,7 @@ begin
   #Returns a collection of attachable coupon-instances. An attachable coupon-instance has at least one remaining use, and is not deleted. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_attachable_coupon_instances(attachableness, has_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->get_all_attachable_coupon_instances: #{e}"
 end
 ```
@@ -188,7 +188,7 @@ Returns a collection of coupon-instances. By default 10 values are returned. Rec
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -203,7 +203,7 @@ begin
   #Returns a collection of coupon-instances. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_coupon_instances(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->get_all_coupon_instances: #{e}"
 end
 ```
@@ -246,7 +246,7 @@ Returns a collection of coupon-instances, specified by coupon-code parameter. By
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
 coupon_code = "coupon_code_example" # String | The string coupon-code of the coupon-instance.
 
@@ -263,7 +263,7 @@ begin
   #Returns a collection of coupon-instances, specified by coupon-code parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
   result = api_instance.get_coupon_instance_by_coupon_code(coupon_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->get_coupon_instance_by_coupon_code: #{e}"
 end
 ```
@@ -307,7 +307,7 @@ Returns a collection of coupon-instances, specified by coupon-definition-ID para
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
 coupon_definition_id = "coupon_definition_id_example" # String | The string coupon-definition-ID of the coupon-instance.
 
@@ -324,7 +324,7 @@ begin
   #Returns a collection of coupon-instances, specified by coupon-definition-ID parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
   result = api_instance.get_coupon_instance_by_coupon_definition_id(coupon_definition_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->get_coupon_instance_by_coupon_definition_id: #{e}"
 end
 ```
@@ -368,7 +368,7 @@ Returns a single coupon-instance, specified by the coupon-instance-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
 coupon_instance_id = "coupon_instance_id_example" # String | ID of the coupon-instance.
 
@@ -380,7 +380,7 @@ begin
   #Returns a single coupon-instance, specified by the coupon-instance-ID parameter.
   result = api_instance.get_coupon_instance_by_id(coupon_instance_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->get_coupon_instance_by_id: #{e}"
 end
 ```
@@ -419,7 +419,7 @@ Returns a collection of coupon-instances, specified by target-ID parameter. By d
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
 target_id = "target_id_example" # String | The string target-ID of the coupon-instance.
 
@@ -436,7 +436,7 @@ begin
   #Returns a collection of coupon-instances, specified by target-ID parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
   result = api_instance.get_coupon_instance_by_target_id(target_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->get_coupon_instance_by_target_id: #{e}"
 end
 ```
@@ -480,7 +480,7 @@ Returns a collection of coupon-instances, specified by target parameter. By defa
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
 target = "target_example" # String | The string target of the coupon-instance.
 
@@ -497,7 +497,7 @@ begin
   #Returns a collection of coupon-instances, specified by target parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
   result = api_instance.get_coupon_instance_by_target_type(target, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->get_coupon_instance_by_target_type: #{e}"
 end
 ```
@@ -541,16 +541,16 @@ Update a coupon-instance.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponinstanceApi.new
+api_instance = Bfwd::CouponinstanceApi.new
 
-coupon_instance = BillForward::CouponInstance.new # CouponInstance | The coupon-instance object to be updated.
+coupon_instance = Bfwd::CouponInstance.new # CouponInstance | The coupon-instance object to be updated.
 
 
 begin
   #Update a coupon-instance.
   result = api_instance.update_coupon_instance(coupon_instance)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponinstanceApi->update_coupon_instance: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# BillForward::BraintreeTokenPagedMetadata
+# Bfwd::BraintreeTokenPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

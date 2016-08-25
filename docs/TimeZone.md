@@ -1,4 +1,4 @@
-# BillForward::TimeZone
+# Bfwd::TimeZone
 
 ## Properties
 Name | Type | Description | Notes

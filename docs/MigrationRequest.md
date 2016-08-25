@@ -1,4 +1,4 @@
-# BillForward::MigrationRequest
+# Bfwd::MigrationRequest
 
 ## Properties
 Name | Type | Description | Notes

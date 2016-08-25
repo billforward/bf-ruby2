@@ -1,4 +1,4 @@
-# BillForward::Period
+# Bfwd::Period
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::Usage
+# Bfwd::Usage
 
 ## Properties
 Name | Type | Description | Notes

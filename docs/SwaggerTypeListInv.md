@@ -1,4 +1,4 @@
-# BillForward::SwaggerTypeListInv
+# Bfwd::SwaggerTypeListInv
 
 ## Properties
 Name | Type | Description | Notes

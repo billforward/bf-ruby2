@@ -1,4 +1,4 @@
-# BillForward::CouponModifierBase
+# Bfwd::CouponModifierBase
 
 ## Properties
 Name | Type | Description | Notes

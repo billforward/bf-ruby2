@@ -1,4 +1,4 @@
-# BillForward::PricingcomponenttiersApi
+# Bfwd::PricingcomponenttiersApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,16 +23,16 @@ Create
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponenttiersApi.new
+api_instance = Bfwd::PricingcomponenttiersApi.new
 
-pricing_component_tier = BillForward::PricingComponentTier.new # PricingComponentTier | The pricing-component-tier object to be updated.
+pricing_component_tier = Bfwd::PricingComponentTier.new # PricingComponentTier | The pricing-component-tier object to be updated.
 
 
 begin
   #Create
   result = api_instance.create_pricing_component_tier(pricing_component_tier)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponenttiersApi->create_pricing_component_tier: #{e}"
 end
 ```
@@ -70,7 +70,7 @@ Returns a collection of pricing-component-tier-tiers. By default 10 values are r
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponenttiersApi.new
+api_instance = Bfwd::PricingcomponenttiersApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -84,7 +84,7 @@ begin
   #Returns a collection of pricing-component-tier-tiers. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_pricing_component_tiers(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponenttiersApi->get_all_pricing_component_tiers: #{e}"
 end
 ```
@@ -126,7 +126,7 @@ Returns a collection of pricing-component-tier-tiers, specified by the pricing-c
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponenttiersApi.new
+api_instance = Bfwd::PricingcomponenttiersApi.new
 
 pricing_component_tier_id = "pricing_component_tier_id_example" # String | The string ID of the pricing-component-tier-tier.
 
@@ -142,7 +142,7 @@ begin
   #Returns a collection of pricing-component-tier-tiers, specified by the pricing-component-tier-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component_tier(pricing_component_tier_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponenttiersApi->get_pricing_component_tier: #{e}"
 end
 ```
@@ -185,7 +185,7 @@ Returns a collection of pricing-component-tier-tiers, specified by the product-r
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponenttiersApi.new
+api_instance = Bfwd::PricingcomponenttiersApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | The string product-rate-plan-ID of the pricing-component-tier-tier.
 
@@ -201,7 +201,7 @@ begin
   #Returns a collection of pricing-component-tier-tiers, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component_tier_by_product_rate_plan_id(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponenttiersApi->get_pricing_component_tier_by_product_rate_plan_id: #{e}"
 end
 ```
@@ -244,16 +244,16 @@ Update.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponenttiersApi.new
+api_instance = Bfwd::PricingcomponenttiersApi.new
 
-pricing_component_tier = BillForward::PricingComponentTier.new # PricingComponentTier | The pricing-component-tier object to be updated.
+pricing_component_tier = Bfwd::PricingComponentTier.new # PricingComponentTier | The pricing-component-tier object to be updated.
 
 
 begin
   #Update.
   result = api_instance.update_pricing_component_tier(pricing_component_tier)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponenttiersApi->update_pricing_component_tier: #{e}"
 end
 ```

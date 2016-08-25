@@ -1,4 +1,4 @@
-# BillForward::DataSynchronizationJobPagedMetadata
+# Bfwd::DataSynchronizationJobPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

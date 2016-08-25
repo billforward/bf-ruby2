@@ -1,4 +1,4 @@
-# BillForward::ProductPagedMetadata
+# Bfwd::ProductPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

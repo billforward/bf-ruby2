@@ -1,4 +1,4 @@
-# BillForward::PricingComponentTierPagedMetadata
+# Bfwd::PricingComponentTierPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

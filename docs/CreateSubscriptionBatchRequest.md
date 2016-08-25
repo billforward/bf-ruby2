@@ -1,4 +1,4 @@
-# BillForward::CreateSubscriptionBatchRequest
+# Bfwd::CreateSubscriptionBatchRequest
 
 ## Properties
 Name | Type | Description | Notes

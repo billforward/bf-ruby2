@@ -1,4 +1,4 @@
-# BillForward::ChargesApi
+# Bfwd::ChargesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -26,16 +26,16 @@ Recalculate a batch of charges.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ChargesApi.new
+api_instance = Bfwd::ChargesApi.new
 
-request = BillForward::RecalculateChargeBatchRequest.new # RecalculateChargeBatchRequest | The batch charge request.
+request = Bfwd::RecalculateChargeBatchRequest.new # RecalculateChargeBatchRequest | The batch charge request.
 
 
 begin
   #Recalculate a batch of charges.
   result = api_instance.batch_recalculate_subscription_charge(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ChargesApi->batch_recalculate_subscription_charge: #{e}"
 end
 ```
@@ -73,7 +73,7 @@ Retrieves a collection of all charges. By default 10 values are returned. Record
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ChargesApi.new
+api_instance = Bfwd::ChargesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -88,7 +88,7 @@ begin
   #Retrieves a collection of all charges. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_subscription_charges(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ChargesApi->get_all_subscription_charges: #{e}"
 end
 ```
@@ -131,7 +131,7 @@ Retrieves a collection of charges, specified by the account-ID parameter. By def
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ChargesApi.new
+api_instance = Bfwd::ChargesApi.new
 
 account_id = "account_id_example" # String | The string ID of the account
 
@@ -148,7 +148,7 @@ begin
   #Retrieves a collection of charges, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscription_charge_by_account_id(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ChargesApi->get_subscription_charge_by_account_id: #{e}"
 end
 ```
@@ -192,7 +192,7 @@ Retrieves a single charge, specified by the charge-id parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ChargesApi.new
+api_instance = Bfwd::ChargesApi.new
 
 charge_id = "charge_id_example" # String | The unique string-ID of the subscription.
 
@@ -209,7 +209,7 @@ begin
   #Retrieves a single charge, specified by the charge-id parameter.
   result = api_instance.get_subscription_charge_by_id(charge_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ChargesApi->get_subscription_charge_by_id: #{e}"
 end
 ```
@@ -253,7 +253,7 @@ Retrieves a collection of charges, specified by the state parameter. By default 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ChargesApi.new
+api_instance = Bfwd::ChargesApi.new
 
 state = "state_example" # String | The current state of the charge
 
@@ -270,7 +270,7 @@ begin
   #Retrieves a collection of charges, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscription_charge_by_state(state, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ChargesApi->get_subscription_charge_by_state: #{e}"
 end
 ```
@@ -314,7 +314,7 @@ Retrieves a single charge, specified by the version-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ChargesApi.new
+api_instance = Bfwd::ChargesApi.new
 
 version_id = "version_id_example" # String | The version-ID of the charge.
 
@@ -326,7 +326,7 @@ begin
   #Retrieves a single charge, specified by the version-ID parameter.
   result = api_instance.get_subscription_charge_by_version_id(version_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ChargesApi->get_subscription_charge_by_version_id: #{e}"
 end
 ```
@@ -365,18 +365,18 @@ Recalculate a charge.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ChargesApi.new
+api_instance = Bfwd::ChargesApi.new
 
 charge_id = "charge_id_example" # String | Unique id of the charge.
 
-charge = BillForward::RecalculateChargeRequest.new # RecalculateChargeRequest | The charge to be re-calculated.
+charge = Bfwd::RecalculateChargeRequest.new # RecalculateChargeRequest | The charge to be re-calculated.
 
 
 begin
   #Recalculate a charge.
   result = api_instance.recalculate_subscription_charge(charge_id, charge)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ChargesApi->recalculate_subscription_charge: #{e}"
 end
 ```
@@ -415,7 +415,7 @@ Void the charge with the specified charge-ID.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ChargesApi.new
+api_instance = Bfwd::ChargesApi.new
 
 charge_id = "charge_id_example" # String | Unique id of the charge.
 
@@ -427,7 +427,7 @@ begin
   #Void the charge with the specified charge-ID.
   result = api_instance.void_subscription_charge(charge_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ChargesApi->void_subscription_charge: #{e}"
 end
 ```

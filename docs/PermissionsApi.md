@@ -1,4 +1,4 @@
-# BillForward::PermissionsApi
+# Bfwd::PermissionsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Create a new permission.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PermissionsApi.new
+api_instance = Bfwd::PermissionsApi.new
 
-permission_request = BillForward::BillingEntityBase.new # BillingEntityBase | 
+permission_request = Bfwd::BillingEntityBase.new # BillingEntityBase | 
 
 
 begin
   #Create a new permission.
   result = api_instance.create_permission(permission_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PermissionsApi->create_permission: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ Retrieves a collection of all permissions. By default 10 values are returned. Re
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PermissionsApi.new
+api_instance = Bfwd::PermissionsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -86,7 +86,7 @@ begin
   #Retrieves a collection of all permissions. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_permissions(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PermissionsApi->get_all_permissions: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ Retrieves all the available actions for the specified resource.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PermissionsApi.new
+api_instance = Bfwd::PermissionsApi.new
 
 resource = "resource_example" # String | 
 
@@ -141,7 +141,7 @@ begin
   #Retrieves all the available actions for the specified resource.
   result = api_instance.get_available_actions_for_resource(resource, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PermissionsApi->get_available_actions_for_resource: #{e}"
 end
 ```
@@ -180,7 +180,7 @@ Retrieves all available resource.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PermissionsApi.new
+api_instance = Bfwd::PermissionsApi.new
 
 opts = { 
   organizations: ["organizations_example"] # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -190,7 +190,7 @@ begin
   #Retrieves all available resource.
   result = api_instance.get_available_resources(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PermissionsApi->get_available_resources: #{e}"
 end
 ```
@@ -228,7 +228,7 @@ Retrieves a single permission, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PermissionsApi.new
+api_instance = Bfwd::PermissionsApi.new
 
 permission_id = "permission_id_example" # String | 
 
@@ -241,7 +241,7 @@ begin
   #Retrieves a single permission, specified by the ID parameter.
   result = api_instance.get_permission_by_id(permission_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PermissionsApi->get_permission_by_id: #{e}"
 end
 ```
@@ -281,7 +281,7 @@ Revokes a permission
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PermissionsApi.new
+api_instance = Bfwd::PermissionsApi.new
 
 permission_id = "permission_id_example" # String | 
 
@@ -293,7 +293,7 @@ begin
   #Revokes a permission
   result = api_instance.revoke_permission(permission_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PermissionsApi->revoke_permission: #{e}"
 end
 ```

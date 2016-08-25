@@ -1,4 +1,4 @@
-# BillForward::ProfilePagedMetadata
+# Bfwd::ProfilePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

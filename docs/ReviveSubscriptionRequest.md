@@ -1,4 +1,4 @@
-# BillForward::ReviveSubscriptionRequest
+# Bfwd::ReviveSubscriptionRequest
 
 ## Properties
 Name | Type | Description | Notes

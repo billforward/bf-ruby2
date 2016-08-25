@@ -1,4 +1,4 @@
-# BillForward::UsernamesApi
+# Bfwd::UsernamesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -19,16 +19,16 @@ Create a username.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsernamesApi.new
+api_instance = Bfwd::UsernamesApi.new
 
-username = BillForward::Username.new # Username | The username object to be created.
+username = Bfwd::Username.new # Username | The username object to be created.
 
 
 begin
   #Create a username.
   result = api_instance.create_username(username)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsernamesApi->create_username: #{e}"
 end
 ```

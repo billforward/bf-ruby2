@@ -1,4 +1,4 @@
-# BillForward::Role
+# Bfwd::Role
 
 ## Properties
 Name | Type | Description | Notes

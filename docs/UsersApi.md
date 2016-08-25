@@ -1,4 +1,4 @@
-# BillForward::UsersApi
+# Bfwd::UsersApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -29,16 +29,16 @@ Create a user.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
-user = BillForward::User.new # User | The user object to be created.
+user = Bfwd::User.new # User | The user object to be created.
 
 
 begin
   #Create a user.
   result = api_instance.create_user(user)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->create_user: #{e}"
 end
 ```
@@ -76,16 +76,16 @@ Create a user.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
-user = BillForward::UserCreationRequest.new # UserCreationRequest | The user object to be created.
+user = Bfwd::UserCreationRequest.new # UserCreationRequest | The user object to be created.
 
 
 begin
   #Create a user.
   result = api_instance.create_user_login(user)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->create_user_login: #{e}"
 end
 ```
@@ -123,7 +123,7 @@ Returns a collection of Users. By default 10 values are returned. Records are re
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -137,7 +137,7 @@ begin
   #Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_users(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->get_all_users: #{e}"
 end
 ```
@@ -179,7 +179,7 @@ Returns a single User, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
 user_id = "user_id_example" # String | ID of the User.
 
@@ -191,7 +191,7 @@ begin
   #Returns a single User, specified by the ID parameter.
   result = api_instance.get_user_by_id(user_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->get_user_by_id: #{e}"
 end
 ```
@@ -230,7 +230,7 @@ Returns a single User, specified by the password-reset-code parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
 password_reset_code = "password_reset_code_example" # String | The unique password reset code of the User.
 
@@ -242,7 +242,7 @@ begin
   #Returns a single User, specified by the password-reset-code parameter.
   result = api_instance.get_user_by_password_reset_code(password_reset_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->get_user_by_password_reset_code: #{e}"
 end
 ```
@@ -281,7 +281,7 @@ Returns a single User, specified by the sms-password-reset-code parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
 sms_password_reset_code = "sms_password_reset_code_example" # String | The unique SMS password reset code of the User.
 
@@ -293,7 +293,7 @@ begin
   #Returns a single User, specified by the sms-password-reset-code parameter.
   result = api_instance.get_user_by_sms_password_reset_code(sms_password_reset_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->get_user_by_sms_password_reset_code: #{e}"
 end
 ```
@@ -332,7 +332,7 @@ Returns a single User, specified by the username parameter, this is by default t
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
 username = "username_example" # String | The unique username of the User.
 
@@ -344,7 +344,7 @@ begin
   #Returns a single User, specified by the username parameter, this is by default the e-mail address of the user.
   result = api_instance.get_user_by_username(username, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->get_user_by_username: #{e}"
 end
 ```
@@ -383,16 +383,16 @@ Create a password reset request.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
-request = BillForward::PasswordResetRequest.new # PasswordResetRequest | 
+request = Bfwd::PasswordResetRequest.new # PasswordResetRequest | 
 
 
 begin
   #Create a password reset request.
   result = api_instance.reset_user_password(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->reset_user_password: #{e}"
 end
 ```
@@ -430,7 +430,7 @@ Retires the user with the specified user-ID.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
 user_id = "user_id_example" # String | ID of the User.
 
@@ -441,7 +441,7 @@ begin
   #Retires the user with the specified user-ID.
   result = api_instance.retire_user(user_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->retire_user: #{e}"
 end
 ```
@@ -480,16 +480,16 @@ Update a user.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
-user = BillForward::User.new # User | The user object to be updated.
+user = Bfwd::User.new # User | The user object to be updated.
 
 
 begin
   #Update a user.
   result = api_instance.update_user(user)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->update_user: #{e}"
 end
 ```
@@ -527,16 +527,16 @@ Update a user's password.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsersApi.new
+api_instance = Bfwd::UsersApi.new
 
-password_reset = BillForward::BillingEntityBase.new # BillingEntityBase | The password reset object.
+password_reset = Bfwd::BillingEntityBase.new # BillingEntityBase | The password reset object.
 
 
 begin
   #Update a user's password.
   result = api_instance.update_user_password(password_reset)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsersApi->update_user_password: #{e}"
 end
 ```

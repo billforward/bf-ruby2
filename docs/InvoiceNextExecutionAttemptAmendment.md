@@ -1,4 +1,4 @@
-# BillForward::InvoiceNextExecutionAttemptAmendment
+# Bfwd::InvoiceNextExecutionAttemptAmendment
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::AddChargeToAccountResponsePagedMetadata
+# Bfwd::AddChargeToAccountResponsePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

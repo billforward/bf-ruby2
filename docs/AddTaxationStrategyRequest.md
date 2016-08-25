@@ -1,4 +1,4 @@
-# BillForward::AddTaxationStrategyRequest
+# Bfwd::AddTaxationStrategyRequest
 
 ## Properties
 Name | Type | Description | Notes

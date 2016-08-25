@@ -1,4 +1,4 @@
-# BillForward::UpdateComponentValueAmendment
+# Bfwd::UpdateComponentValueAmendment
 
 ## Properties
 Name | Type | Description | Notes

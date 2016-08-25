@@ -1,4 +1,4 @@
-# BillForward::CreateSubscriptionChargeAmendment
+# Bfwd::CreateSubscriptionChargeAmendment
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::Amendment
+# Bfwd::Amendment
 
 ## Properties
 Name | Type | Description | Notes

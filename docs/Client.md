@@ -1,4 +1,4 @@
-# BillForward::Client
+# Bfwd::Client
 
 ## Properties
 Name | Type | Description | Notes

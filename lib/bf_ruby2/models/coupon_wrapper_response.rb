@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # Calculation of the effect of applying a coupon to some pricing component (in the context of a quote's being requested).
   class CouponWrapperResponse
     # {\"description\":\"Code of the coupon applied.\",\"verbs\":[\"POST\",\"GET\"]}
@@ -198,7 +198,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

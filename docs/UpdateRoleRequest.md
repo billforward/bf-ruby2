@@ -1,4 +1,4 @@
-# BillForward::UpdateRoleRequest
+# Bfwd::UpdateRoleRequest
 
 ## Properties
 Name | Type | Description | Notes

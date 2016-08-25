@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # Entity for requesting that an 'aggregating subscription' (i.e. a 'parent subscription' which collects the charges raised by many 'child subscriptions') be created.
   class CreateAggregatingSubscriptionRequest
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -341,7 +341,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

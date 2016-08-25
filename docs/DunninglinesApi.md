@@ -1,4 +1,4 @@
-# BillForward::DunninglinesApi
+# Bfwd::DunninglinesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Create a dunning-line.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::DunninglinesApi.new
+api_instance = Bfwd::DunninglinesApi.new
 
-dunning_line = BillForward::DunningLine.new # DunningLine | The Dunning-Line object to be updated.
+dunning_line = Bfwd::DunningLine.new # DunningLine | The Dunning-Line object to be updated.
 
 
 begin
   #Create a dunning-line.
   result = api_instance.create_dunning_line(dunning_line)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling DunninglinesApi->create_dunning_line: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ Returns a collection of all dunning-lines. By default 10 values are returned. Re
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::DunninglinesApi.new
+api_instance = Bfwd::DunninglinesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -86,7 +86,7 @@ begin
   #Returns a collection of all dunning-lines. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_dunning_lines(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling DunninglinesApi->get_all_dunning_lines: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ Returns a collection of dunning-lines specified by the index parameter. By defau
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::DunninglinesApi.new
+api_instance = Bfwd::DunninglinesApi.new
 
 index = 56 # Integer | The attempt index of the dunning-line.
 
@@ -146,7 +146,7 @@ begin
   #Returns a collection of dunning-lines specified by the index parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_dunning_line_by_attempt_index(index, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling DunninglinesApi->get_dunning_line_by_attempt_index: #{e}"
 end
 ```
@@ -190,7 +190,7 @@ Returns a single dunning-line, specified by the dunning-line-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::DunninglinesApi.new
+api_instance = Bfwd::DunninglinesApi.new
 
 dunning_line_id = "dunning_line_id_example" # String | ID of the dunning-line.
 
@@ -202,7 +202,7 @@ begin
   #Returns a single dunning-line, specified by the dunning-line-ID parameter.
   result = api_instance.get_dunning_line_by_id(dunning_line_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling DunninglinesApi->get_dunning_line_by_id: #{e}"
 end
 ```
@@ -241,7 +241,7 @@ Retires the specified dunning-line.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::DunninglinesApi.new
+api_instance = Bfwd::DunninglinesApi.new
 
 dunning_line_id = "dunning_line_id_example" # String | ID of the dunning-line.
 
@@ -252,7 +252,7 @@ begin
   #Retires the specified dunning-line.
   result = api_instance.retire_dunning_line(dunning_line_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling DunninglinesApi->retire_dunning_line: #{e}"
 end
 ```
@@ -291,16 +291,16 @@ Update a dunning-line.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::DunninglinesApi.new
+api_instance = Bfwd::DunninglinesApi.new
 
-dunning_line = BillForward::DunningLine.new # DunningLine | The Dunning-Line object to be updated.
+dunning_line = Bfwd::DunningLine.new # DunningLine | The Dunning-Line object to be updated.
 
 
 begin
   #Update a dunning-line.
   result = api_instance.update_dunning_line(dunning_line)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling DunninglinesApi->update_dunning_line: #{e}"
 end
 ```

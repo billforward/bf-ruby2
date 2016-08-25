@@ -1,4 +1,4 @@
-# BillForward::InvoiceOutstandingChargesAmendment
+# Bfwd::InvoiceOutstandingChargesAmendment
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::CouponInstancePagedMetadata
+# Bfwd::CouponInstancePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::FixedtermsApi
+# Bfwd::FixedtermsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -19,16 +19,16 @@ Update
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::FixedtermsApi.new
+api_instance = Bfwd::FixedtermsApi.new
 
-payment_method = BillForward::FixedTerm.new # FixedTerm | The payment-method object to be updated.
+payment_method = Bfwd::FixedTerm.new # FixedTerm | The payment-method object to be updated.
 
 
 begin
   #Update
   result = api_instance.update_fixed_term(payment_method)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling FixedtermsApi->update_fixed_term: #{e}"
 end
 ```

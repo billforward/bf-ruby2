@@ -1,4 +1,4 @@
-# BillForward::RevenueAttribution
+# Bfwd::RevenueAttribution
 
 ## Properties
 Name | Type | Description | Notes

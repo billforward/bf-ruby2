@@ -1,4 +1,4 @@
-# BillForward::AuditEntry
+# Bfwd::AuditEntry
 
 ## Properties
 Name | Type | Description | Notes

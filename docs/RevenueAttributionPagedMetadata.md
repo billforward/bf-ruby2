@@ -1,4 +1,4 @@
-# BillForward::RevenueAttributionPagedMetadata
+# Bfwd::RevenueAttributionPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

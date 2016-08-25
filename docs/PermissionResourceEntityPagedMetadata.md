@@ -1,4 +1,4 @@
-# BillForward::PermissionResourceEntityPagedMetadata
+# Bfwd::PermissionResourceEntityPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

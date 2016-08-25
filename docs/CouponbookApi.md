@@ -1,4 +1,4 @@
-# BillForward::CouponbookApi
+# Bfwd::CouponbookApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -27,16 +27,16 @@ Create a coupon-book.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
-coupon_book = BillForward::CouponBook.new # CouponBook | The coupon-book object to be created.
+coupon_book = Bfwd::CouponBook.new # CouponBook | The coupon-book object to be created.
 
 
 begin
   #Create a coupon-book.
   result = api_instance.create_coupon_book(coupon_book)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->create_coupon_book: #{e}"
 end
 ```
@@ -74,7 +74,7 @@ Retire a coupon-book, specified by the coupon-book-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
 coupon_book_id = "coupon_book_id_example" # String | ID of the coupon-book.
 
@@ -86,7 +86,7 @@ begin
   #Retire a coupon-book, specified by the coupon-book-ID parameter.
   result = api_instance.delete_coupon_book(coupon_book_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->delete_coupon_book: #{e}"
 end
 ```
@@ -125,7 +125,7 @@ Returns a collection of attachable coupon-books. An attachable coupon-book has a
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
 attachableness = true # BOOLEAN | The attachableness of the coupon-book.
 
@@ -143,7 +143,7 @@ begin
   #Returns a collection of attachable coupon-books. An attachable coupon-book has at least one remaining use, and is not deleted. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_attachable_coupon_books(attachableness, has_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->get_all_attachable_coupon_books: #{e}"
 end
 ```
@@ -187,7 +187,7 @@ Returns a collection of coupon-books. By default 10 values are returned. Records
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -202,7 +202,7 @@ begin
   #Returns a collection of coupon-books. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_coupon_books(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->get_all_coupon_books: #{e}"
 end
 ```
@@ -245,7 +245,7 @@ Returns a single coupon-book, specified by the book-code parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
 book_code = "book_code_example" # String | The unique coupon-book-code.
 
@@ -257,7 +257,7 @@ begin
   #Returns a single coupon-book, specified by the book-code parameter.
   result = api_instance.get_coupon_book_by_book_code(book_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->get_coupon_book_by_book_code: #{e}"
 end
 ```
@@ -296,7 +296,7 @@ Returns a collection of coupon-books, specified by coupon-book-definition-ID par
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
 coupon_book_definition_id = "coupon_book_definition_id_example" # String | The string coupon-book-definition-ID of the coupon-book.
 
@@ -313,7 +313,7 @@ begin
   #Returns a collection of coupon-books, specified by coupon-book-definition-ID parameter. By default 10 coupon-books are returned. Records are returned in natural order.
   result = api_instance.get_coupon_book_by_coupon_book_definition_id(coupon_book_definition_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->get_coupon_book_by_coupon_book_definition_id: #{e}"
 end
 ```
@@ -357,7 +357,7 @@ Returns a single coupon-book, specified by the coupon-code parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
 coupon_code = "coupon_code_example" # String | The unique coupon-code.
 
@@ -369,7 +369,7 @@ begin
   #Returns a single coupon-book, specified by the coupon-code parameter.
   result = api_instance.get_coupon_book_by_coupon_code(coupon_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->get_coupon_book_by_coupon_code: #{e}"
 end
 ```
@@ -408,7 +408,7 @@ Returns a single coupon-book, specified by the coupon-book-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
 coupon_book_id = "coupon_book_id_example" # String | ID of the coupon-book.
 
@@ -420,7 +420,7 @@ begin
   #Returns a single coupon-book, specified by the coupon-book-ID parameter.
   result = api_instance.get_coupon_book_by_id(coupon_book_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->get_coupon_book_by_id: #{e}"
 end
 ```
@@ -459,16 +459,16 @@ Update a coupon-book.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponbookApi.new
+api_instance = Bfwd::CouponbookApi.new
 
-coupon_book = BillForward::CouponBook.new # CouponBook | The coupon-book object to be updated.
+coupon_book = Bfwd::CouponBook.new # CouponBook | The coupon-book object to be updated.
 
 
 begin
   #Update a coupon-book.
   result = api_instance.update_coupon_book(coupon_book)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponbookApi->update_coupon_book: #{e}"
 end
 ```

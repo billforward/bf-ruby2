@@ -1,4 +1,4 @@
-# BillForward::Refund
+# Bfwd::Refund
 
 ## Properties
 Name | Type | Description | Notes

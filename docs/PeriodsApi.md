@@ -1,4 +1,4 @@
-# BillForward::PeriodsApi
+# Bfwd::PeriodsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -20,7 +20,7 @@ Retrieve by subscription)
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PeriodsApi.new
+api_instance = Bfwd::PeriodsApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the usage.
 
@@ -36,7 +36,7 @@ begin
   #Retrieve by subscription)
   result = api_instance.get_all_periods_for_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PeriodsApi->get_all_periods_for_subscription: #{e}"
 end
 ```
@@ -79,7 +79,7 @@ Get all periods
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PeriodsApi.new
+api_instance = Bfwd::PeriodsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -93,7 +93,7 @@ begin
   #Get all periods
   result = api_instance.get_latest_periods(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PeriodsApi->get_latest_periods: #{e}"
 end
 ```

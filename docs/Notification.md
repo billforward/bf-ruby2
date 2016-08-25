@@ -1,4 +1,4 @@
-# BillForward::Notification
+# Bfwd::Notification
 
 ## Properties
 Name | Type | Description | Notes

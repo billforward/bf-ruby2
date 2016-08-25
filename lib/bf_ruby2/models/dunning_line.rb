@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # A dunning-line specifies when the next execution attempt of an unpaid invoice should take place given the number of existing execution attempts.
   class DunningLine
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -302,7 +302,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

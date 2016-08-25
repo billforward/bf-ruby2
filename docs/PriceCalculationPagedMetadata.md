@@ -1,4 +1,4 @@
-# BillForward::PriceCalculationPagedMetadata
+# Bfwd::PriceCalculationPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

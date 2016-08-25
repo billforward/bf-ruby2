@@ -1,4 +1,4 @@
-# BillForward::TieredPricingComponent
+# Bfwd::TieredPricingComponent
 
 ## Properties
 Name | Type | Description | Notes

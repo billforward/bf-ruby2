@@ -1,4 +1,4 @@
-# BillForward::IssueInvoiceAmendment
+# Bfwd::IssueInvoiceAmendment
 
 ## Properties
 Name | Type | Description | Notes

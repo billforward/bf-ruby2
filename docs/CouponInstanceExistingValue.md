@@ -1,4 +1,4 @@
-# BillForward::CouponInstanceExistingValue
+# Bfwd::CouponInstanceExistingValue
 
 ## Properties
 Name | Type | Description | Notes

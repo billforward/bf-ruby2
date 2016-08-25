@@ -1,4 +1,4 @@
-# BillForward::UsageSessionPagedMetadata
+# Bfwd::UsageSessionPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

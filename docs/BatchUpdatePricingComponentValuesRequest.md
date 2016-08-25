@@ -1,4 +1,4 @@
-# BillForward::BatchUpdatePricingComponentValuesRequest
+# Bfwd::BatchUpdatePricingComponentValuesRequest
 
 ## Properties
 Name | Type | Description | Notes

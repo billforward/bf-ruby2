@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # UpdatePricingComponentValueRequest
   class UpdatePricingComponentValueRequest
     # {\"default\":\"Default\",\"description\":\"Whether the value change will apply immediately or at the period end. If no value is specified the pricing components behaviour on the rate-plan will be used. The following values are available: <ul><li>Immediate: The change will be applied immediately by creating a new Charge against the subscription.</li><li>AtPeriodEnd: The change will be delayed to the billing period end through an amendment. Any Pending Update Amendment already existing will be Discarded.</li><li>Default: The pricing components behaviour on the rate-plan will be used.</li></ul>\",\"verbs\":[\"POST\"]}
@@ -201,7 +201,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

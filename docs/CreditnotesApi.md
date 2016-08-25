@@ -1,4 +1,4 @@
-# BillForward::CreditnotesApi
+# Bfwd::CreditnotesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Create a credit note.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CreditnotesApi.new
+api_instance = Bfwd::CreditnotesApi.new
 
-credit_note = BillForward::CreditNote.new # CreditNote | The credit note object to be created.
+credit_note = Bfwd::CreditNote.new # CreditNote | The credit note object to be created.
 
 
 begin
   #Create a credit note.
   result = api_instance.create_credit_note(credit_note)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CreditnotesApi->create_credit_note: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ Returns a single credit-note, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CreditnotesApi.new
+api_instance = Bfwd::CreditnotesApi.new
 
 credit_note_id = "credit_note_id_example" # String | ID of the credit-note.
 
@@ -83,7 +83,7 @@ begin
   #Returns a single credit-note, specified by the ID parameter.
   result = api_instance.get_credit_note_by_id(credit_note_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CreditnotesApi->get_credit_note_by_id: #{e}"
 end
 ```
@@ -122,7 +122,7 @@ Returns credit notes for an account.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CreditnotesApi.new
+api_instance = Bfwd::CreditnotesApi.new
 
 account_id = "account_id_example" # String | ID of the account.
 
@@ -138,7 +138,7 @@ begin
   #Returns credit notes for an account.
   result = api_instance.get_credit_note_for_account(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CreditnotesApi->get_credit_note_for_account: #{e}"
 end
 ```
@@ -181,7 +181,7 @@ Returns credit notes for an invoice.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CreditnotesApi.new
+api_instance = Bfwd::CreditnotesApi.new
 
 invoice_id = "invoice_id_example" # String | ID of the Invoice.
 
@@ -197,7 +197,7 @@ begin
   #Returns credit notes for an invoice.
   result = api_instance.get_credit_note_for_invoice(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CreditnotesApi->get_credit_note_for_invoice: #{e}"
 end
 ```
@@ -240,7 +240,7 @@ Returns credit notes for an subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CreditnotesApi.new
+api_instance = Bfwd::CreditnotesApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
@@ -256,7 +256,7 @@ begin
   #Returns credit notes for an subscription.
   result = api_instance.get_credit_note_for_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CreditnotesApi->get_credit_note_for_subscription: #{e}"
 end
 ```
@@ -299,7 +299,7 @@ Removes any remaining value from credit note
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CreditnotesApi.new
+api_instance = Bfwd::CreditnotesApi.new
 
 credit_note_id = "credit_note_id_example" # String | ID of the credit-note.
 
@@ -310,7 +310,7 @@ begin
   #Removes any remaining value from credit note
   result = api_instance.retire_credit_note(credit_note_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CreditnotesApi->retire_credit_note: #{e}"
 end
 ```

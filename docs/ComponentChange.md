@@ -1,4 +1,4 @@
-# BillForward::ComponentChange
+# Bfwd::ComponentChange
 
 ## Properties
 Name | Type | Description | Notes

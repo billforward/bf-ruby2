@@ -1,4 +1,4 @@
-# BillForward::APIQuotePagedMetadata
+# Bfwd::APIQuotePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

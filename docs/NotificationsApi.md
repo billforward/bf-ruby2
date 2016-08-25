@@ -1,4 +1,4 @@
-# BillForward::NotificationsApi
+# Bfwd::NotificationsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,7 +24,7 @@ Acknowledge a newly recevied notification.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::NotificationsApi.new
+api_instance = Bfwd::NotificationsApi.new
 
 notification_id = "notification_id_example" # String | ID of the notification.
 
@@ -36,7 +36,7 @@ begin
   #Acknowledge a newly recevied notification.
   result = api_instance.ack_notification(notification_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling NotificationsApi->ack_notification: #{e}"
 end
 ```
@@ -75,7 +75,7 @@ Returns a collection of all notifications. By default 10 values are returned. Re
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::NotificationsApi.new
+api_instance = Bfwd::NotificationsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -90,7 +90,7 @@ begin
   #Returns a collection of all notifications. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_notifications(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling NotificationsApi->get_all_notifications: #{e}"
 end
 ```
@@ -133,7 +133,7 @@ Returns a collection of notifications, specified by the entity-ID parameter. By 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::NotificationsApi.new
+api_instance = Bfwd::NotificationsApi.new
 
 entity_id = "entity_id_example" # String | The string entity-ID of the notification.
 
@@ -150,7 +150,7 @@ begin
   #Returns a collection of notifications, specified by the entity-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_notification_by_entity_id(entity_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling NotificationsApi->get_notification_by_entity_id: #{e}"
 end
 ```
@@ -194,7 +194,7 @@ Returns a single notification, specified by the notification-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::NotificationsApi.new
+api_instance = Bfwd::NotificationsApi.new
 
 notification_id = "notification_id_example" # String | ID of the notification.
 
@@ -206,7 +206,7 @@ begin
   #Returns a single notification, specified by the notification-ID parameter.
   result = api_instance.get_notification_by_id(notification_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling NotificationsApi->get_notification_by_id: #{e}"
 end
 ```
@@ -245,7 +245,7 @@ Returns a collection of notification objects with created times within the perio
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::NotificationsApi.new
+api_instance = Bfwd::NotificationsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -267,7 +267,7 @@ begin
   #Returns a collection of notification objects with created times within the period specified by the lower-threshold and upper-threshold parameters for the given webhook id. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_notifications_by_webhook_id(lower_threshold, upper_threshold, webhook_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling NotificationsApi->get_notifications_by_webhook_id: #{e}"
 end
 ```
@@ -314,7 +314,7 @@ Returns a collection of notification objects with created times within the perio
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::NotificationsApi.new
+api_instance = Bfwd::NotificationsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -334,7 +334,7 @@ begin
   #Returns a collection of notification objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_notifications_within_date_range(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling NotificationsApi->get_notifications_within_date_range: #{e}"
 end
 ```

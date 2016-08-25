@@ -1,4 +1,4 @@
-# BillForward::AddChargeToAccountResponse
+# Bfwd::AddChargeToAccountResponse
 
 ## Properties
 Name | Type | Description | Notes

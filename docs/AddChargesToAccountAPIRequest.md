@@ -1,4 +1,4 @@
-# BillForward::AddChargesToAccountAPIRequest
+# Bfwd::AddChargesToAccountAPIRequest
 
 ## Properties
 Name | Type | Description | Notes

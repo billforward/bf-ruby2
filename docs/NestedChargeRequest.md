@@ -1,4 +1,4 @@
-# BillForward::NestedChargeRequest
+# Bfwd::NestedChargeRequest
 
 ## Properties
 Name | Type | Description | Notes

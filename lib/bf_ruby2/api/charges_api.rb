@@ -23,7 +23,7 @@ limitations under the License.
 
 require "uri"
 
-module BillForward
+module Bfwd
   class ChargesApi
     attr_accessor :api_client
 

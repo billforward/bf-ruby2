@@ -1,4 +1,4 @@
-# BillForward::TimeRequest
+# Bfwd::TimeRequest
 
 ## Properties
 Name | Type | Description | Notes

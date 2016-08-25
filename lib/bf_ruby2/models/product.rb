@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # Product
   class Product
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -44,7 +44,7 @@ module BillForward
     # {\"description\":\"\",\"verbs\":[]}
     attr_accessor :account_id
 
-    # {\"description\":\"A unique name &mdash; for your benefit &mdash; used to identify this product within BillForward. It should reflect the fact that this product confers some service to a customer (e.g. \\\"Gold membership\\\").<br>The product can also be defined by the frequency with which it recurs (e.g. \\\"Monthly Gold membership\\\").<br>Remember also that rate plans can override the timing prescribed by their product. If you intend to override that timing, you may consider the product's period duration to be an unimportant factor when it comes to naming it.\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
+    # {\"description\":\"A unique name &mdash; for your benefit &mdash; used to identify this product within Bfwd. It should reflect the fact that this product confers some service to a customer (e.g. \\\"Gold membership\\\").<br>The product can also be defined by the frequency with which it recurs (e.g. \\\"Monthly Gold membership\\\").<br>Remember also that rate plans can override the timing prescribed by their product. If you intend to override that timing, you may consider the product's period duration to be an unimportant factor when it comes to naming it.\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
     attr_accessor :name
 
     # {\"description\":\"A friendly non-unique name used to identify this product\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
@@ -383,7 +383,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

@@ -1,4 +1,4 @@
-# BillForward::FixedTermPagedMetadata
+# Bfwd::FixedTermPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

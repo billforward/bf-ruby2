@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # An invoice encapsulates the cumulative charges of a subscription's pricing-components and their respective pricing-component-values for a specific period of time.
   class Invoice
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -725,7 +725,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

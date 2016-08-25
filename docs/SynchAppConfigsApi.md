@@ -1,4 +1,4 @@
-# BillForward::SynchAppConfigsApi
+# Bfwd::SynchAppConfigsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -22,16 +22,16 @@ Create a synch app configuration.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchAppConfigsApi.new
+api_instance = Bfwd::SynchAppConfigsApi.new
 
-synch_app_config = BillForward::MutableBillingEntity.new # MutableBillingEntity | The data synch app config object to be created.
+synch_app_config = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The data synch app config object to be created.
 
 
 begin
   #Create a synch app configuration.
   result = api_instance.create_sync_app_config(synch_app_config)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchAppConfigsApi->create_sync_app_config: #{e}"
 end
 ```
@@ -69,7 +69,7 @@ Returns a single config, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchAppConfigsApi.new
+api_instance = Bfwd::SynchAppConfigsApi.new
 
 synch_app_configs_id = "synch_app_configs_id_example" # String | ID of the Synch App Configuration.
 
@@ -81,7 +81,7 @@ begin
   #Returns a single config, specified by the ID parameter.
   result = api_instance.get_sync_app_config(synch_app_configs_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchAppConfigsApi->get_sync_app_config: #{e}"
 end
 ```
@@ -120,7 +120,7 @@ Returns a collection configurations, specified by the platform parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchAppConfigsApi.new
+api_instance = Bfwd::SynchAppConfigsApi.new
 
 platform = "platform_example" # String | The type of the synch app configuration.
 
@@ -132,7 +132,7 @@ begin
   #Returns a collection configurations, specified by the platform parameter.
   result = api_instance.get_sync_app_config_by_platform(platform, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchAppConfigsApi->get_sync_app_config_by_platform: #{e}"
 end
 ```
@@ -171,16 +171,16 @@ Update a synch app configuration.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchAppConfigsApi.new
+api_instance = Bfwd::SynchAppConfigsApi.new
 
-synch_app_config = BillForward::MutableBillingEntity.new # MutableBillingEntity | The synch app configuration object to be updated.
+synch_app_config = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The synch app configuration object to be updated.
 
 
 begin
   #Update a synch app configuration.
   result = api_instance.update_sync_app_config(synch_app_config)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchAppConfigsApi->update_sync_app_config: #{e}"
 end
 ```

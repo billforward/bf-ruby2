@@ -1,4 +1,4 @@
-# BillForward::PaymentsApi
+# Bfwd::PaymentsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -26,16 +26,16 @@ Create a payment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentsApi.new
+api_instance = Bfwd::PaymentsApi.new
 
-payment = BillForward::Payment.new # Payment | The payment object to be updated.
+payment = Bfwd::Payment.new # Payment | The payment object to be updated.
 
 
 begin
   #Create a payment.
   result = api_instance.create_payment(payment)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentsApi->create_payment: #{e}"
 end
 ```
@@ -73,7 +73,7 @@ Returns a collection of all payments. By default 10 values are returned. Records
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentsApi.new
+api_instance = Bfwd::PaymentsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -88,7 +88,7 @@ begin
   #Returns a collection of all payments. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_payments(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentsApi->get_all_payments: #{e}"
 end
 ```
@@ -131,7 +131,7 @@ Retrieves payments in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentsApi.new
+api_instance = Bfwd::PaymentsApi.new
 
 received_start = "received_start_example" # String | The UTC DateTime specifying the start of the interval within which payments were received.
 
@@ -149,7 +149,7 @@ begin
   #Retrieves payments in CSV format.
   result = api_instance.get_payment_as_csv(received_start, received_end, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentsApi->get_payment_as_csv: #{e}"
 end
 ```
@@ -193,7 +193,7 @@ Returns a single payment, specified by the payment-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentsApi.new
+api_instance = Bfwd::PaymentsApi.new
 
 payment_id = "payment_id_example" # String | The unique string-ID of the payment.
 
@@ -205,7 +205,7 @@ begin
   #Returns a single payment, specified by the payment-ID parameter.
   result = api_instance.get_payment_by_id(payment_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentsApi->get_payment_by_id: #{e}"
 end
 ```
@@ -244,7 +244,7 @@ Returns a collection of payments, specified by the invoice-ID parameter. By defa
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentsApi.new
+api_instance = Bfwd::PaymentsApi.new
 
 invoice_id = "invoice_id_example" # String | The string ID of the account
 
@@ -261,7 +261,7 @@ begin
   #Returns a collection of payments, specified by the invoice-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_payment_by_invoice_id(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentsApi->get_payment_by_invoice_id: #{e}"
 end
 ```
@@ -305,7 +305,7 @@ Returns a collection of payments, specified by the gateway parameter. By default
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentsApi.new
+api_instance = Bfwd::PaymentsApi.new
 
 gateway = "gateway_example" # String | The payment gateway which generated the payment.
 
@@ -322,7 +322,7 @@ begin
   #Returns a collection of payments, specified by the gateway parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_payment_by_payment_gateway(gateway, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentsApi->get_payment_by_payment_gateway: #{e}"
 end
 ```
@@ -366,7 +366,7 @@ Returns a collection of payments, specified by the payment-method-ID parameter. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentsApi.new
+api_instance = Bfwd::PaymentsApi.new
 
 payment_method_id = "payment_method_id_example" # String | ID of the PaymentMethod
 
@@ -383,7 +383,7 @@ begin
   #Returns a collection of payments, specified by the payment-method-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_payment_by_payment_method_id(payment_method_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentsApi->get_payment_by_payment_method_id: #{e}"
 end
 ```
@@ -427,16 +427,16 @@ Update a payment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentsApi.new
+api_instance = Bfwd::PaymentsApi.new
 
-payment = BillForward::Payment.new # Payment | The payment object to be updated.
+payment = Bfwd::Payment.new # Payment | The payment object to be updated.
 
 
 begin
   #Update a payment.
   result = api_instance.update_payment(payment)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentsApi->update_payment: #{e}"
 end
 ```

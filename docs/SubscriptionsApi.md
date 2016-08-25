@@ -1,4 +1,4 @@
-# BillForward::SubscriptionsApi
+# Bfwd::SubscriptionsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -70,18 +70,18 @@ Creates a charge on the specified subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
-charge = BillForward::AddChargeRequest.new # AddChargeRequest | The charge request
+charge = Bfwd::AddChargeRequest.new # AddChargeRequest | The charge request
 
 
 begin
   #Creates a charge on the specified subscription.
   result = api_instance.add_charge_to_subscription(subscription_id, charge)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->add_charge_to_subscription: #{e}"
 end
 ```
@@ -120,18 +120,18 @@ Applies a coupon to a subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
-request = BillForward::AddCouponCodeRequest.new # AddCouponCodeRequest | Request containing the coupon code.
+request = Bfwd::AddCouponCodeRequest.new # AddCouponCodeRequest | Request containing the coupon code.
 
 
 begin
   #Applies a coupon to a subscription.
   result = api_instance.add_coupon_to_subscription(subscription_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->add_coupon_to_subscription: #{e}"
 end
 ```
@@ -170,18 +170,18 @@ Creates a credit-note which may be used by only the specified subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
-credit_note = BillForward::CreditSubscriptionRequest.new # CreditSubscriptionRequest | The credit-note request
+credit_note = Bfwd::CreditSubscriptionRequest.new # CreditSubscriptionRequest | The credit-note request
 
 
 begin
   #Creates a credit-note which may be used by only the specified subscription.
   result = api_instance.add_credit_note_to_subscription(subscription_id, credit_note)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->add_credit_note_to_subscription: #{e}"
 end
 ```
@@ -220,18 +220,18 @@ Enables the payment method to pay invoices of this subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
-payment_method = BillForward::AddPaymentMethodRequest.new # AddPaymentMethodRequest | 
+payment_method = Bfwd::AddPaymentMethodRequest.new # AddPaymentMethodRequest | 
 
 
 begin
   #Enables the payment method to pay invoices of this subscription.
   result = api_instance.add_payment_method_to_subscription(subscription_id, payment_method)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->add_payment_method_to_subscription: #{e}"
 end
 ```
@@ -270,18 +270,18 @@ Advance the subscription through time.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
-request = BillForward::TimeRequest.new # TimeRequest | The request
+request = Bfwd::TimeRequest.new # TimeRequest | The request
 
 
 begin
   #Advance the subscription through time.
   result = api_instance.advance_subscription(subscription_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->advance_subscription: #{e}"
 end
 ```
@@ -320,7 +320,7 @@ Returns all available payment methods for the specified subscription. By default
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -336,7 +336,7 @@ begin
   #Returns all available payment methods for the specified subscription. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.available_payment_methods_for_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->available_payment_methods_for_subscription: #{e}"
 end
 ```
@@ -379,16 +379,16 @@ Create multiple subscriptions.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-request = BillForward::CreateSubscriptionBatchRequest.new # CreateSubscriptionBatchRequest | 
+request = Bfwd::CreateSubscriptionBatchRequest.new # CreateSubscriptionBatchRequest | 
 
 
 begin
   #Create multiple subscriptions.
   result = api_instance.batch_create_subscriptions(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->batch_create_subscriptions: #{e}"
 end
 ```
@@ -426,18 +426,18 @@ Retires the subscription specified by the subscription-ID parameter. Retiring a 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
-subscription_cancellation = BillForward::CancelSubscriptionRequest.new # CancelSubscriptionRequest | The cancellation request
+subscription_cancellation = Bfwd::CancelSubscriptionRequest.new # CancelSubscriptionRequest | The cancellation request
 
 
 begin
   #Retires the subscription specified by the subscription-ID parameter. Retiring a subscription causes it to cancel based on the specified retirement settings for the product.
   result = api_instance.cancel_subscription(subscription_id, subscription_cancellation)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->cancel_subscription: #{e}"
 end
 ```
@@ -476,16 +476,16 @@ Create an aggregating subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-request = BillForward::CreateAggregatingSubscriptionRequest.new # CreateAggregatingSubscriptionRequest | 
+request = Bfwd::CreateAggregatingSubscriptionRequest.new # CreateAggregatingSubscriptionRequest | 
 
 
 begin
   #Create an aggregating subscription.
   result = api_instance.create_aggregating_subscription(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->create_aggregating_subscription: #{e}"
 end
 ```
@@ -523,16 +523,16 @@ Create a new subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-subscription = BillForward::Subscription.new # Subscription | The subscription object to be updated.
+subscription = Bfwd::Subscription.new # Subscription | The subscription object to be updated.
 
 
 begin
   #Create a new subscription.
   result = api_instance.create_subscription(subscription)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->create_subscription: #{e}"
 end
 ```
@@ -570,16 +570,16 @@ Create a subscription (V2).
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-request = BillForward::CreateSubscriptionRequest.new # CreateSubscriptionRequest | 
+request = Bfwd::CreateSubscriptionRequest.new # CreateSubscriptionRequest | 
 
 
 begin
   #Create a subscription (V2).
   result = api_instance.create_subscription_v2(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->create_subscription_v2: #{e}"
 end
 ```
@@ -617,18 +617,18 @@ Create a timer for a subscription event.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | 
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | 
 
 
 begin
   #Create a timer for a subscription event.
   result = api_instance.create_timer(subscription_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->create_timer: #{e}"
 end
 ```
@@ -667,7 +667,7 @@ Remove any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -679,7 +679,7 @@ begin
   #Remove any associated metadata.
   result = api_instance.delete_metadata_for_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->delete_metadata_for_subscription: #{e}"
 end
 ```
@@ -718,18 +718,18 @@ Freeze the subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
-request = BillForward::PauseRequest.new # PauseRequest | The request
+request = Bfwd::PauseRequest.new # PauseRequest | The request
 
 
 begin
   #Freeze the subscription.
   result = api_instance.freeze_subscription(subscription_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->freeze_subscription: #{e}"
 end
 ```
@@ -768,7 +768,7 @@ Retrieves a collection of all subscriptions. By default 10 values are returned. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -787,7 +787,7 @@ begin
   #Retrieves a collection of all subscriptions. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_subscriptions(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_all_subscriptions: #{e}"
 end
 ```
@@ -834,7 +834,7 @@ Retrieves a collection of the coupons which can be applied to this subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
@@ -851,7 +851,7 @@ begin
   #Retrieves a collection of the coupons which can be applied to this subscription.
   result = api_instance.get_applicable_coupons_for_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_applicable_coupons_for_subscription: #{e}"
 end
 ```
@@ -895,7 +895,7 @@ Returns all available credit-notes for the specified subscription. By default 10
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -912,7 +912,7 @@ begin
   #Returns all available credit-notes for the specified subscription. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_available_credit_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_available_credit_subscription: #{e}"
 end
 ```
@@ -956,7 +956,7 @@ Returns all charges for the specified subscription. By default 10 values are ret
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -975,7 +975,7 @@ begin
   #Returns all charges for the specified subscription. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_charges_on_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_charges_on_subscription: #{e}"
 end
 ```
@@ -1021,7 +1021,7 @@ Return all entities whose invoices will be aggregated by the specified subscript
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -1038,7 +1038,7 @@ begin
   #Return all entities whose invoices will be aggregated by the specified subscription By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_children_of_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_children_of_subscription: #{e}"
 end
 ```
@@ -1082,7 +1082,7 @@ Retrieves a collection of the coupons and the unique codes currently applied to 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
@@ -1099,7 +1099,7 @@ begin
   #Retrieves a collection of the coupons and the unique codes currently applied to the subscription.
   result = api_instance.get_coupons_on_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_coupons_on_subscription: #{e}"
 end
 ```
@@ -1143,7 +1143,7 @@ Retrieves a collection of invoice objects of the specified state for the given s
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | The unique id of the subscription.
 
@@ -1161,7 +1161,7 @@ begin
   #Retrieves a collection of invoice objects of the specified state for the given subscription. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_for_subscription_by_state(subscription_id, state, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_invoices_for_subscription_by_state: #{e}"
 end
 ```
@@ -1205,7 +1205,7 @@ Retrieve any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -1217,7 +1217,7 @@ begin
   #Retrieve any associated metadata.
   result = api_instance.get_metadata_for_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_metadata_for_subscription: #{e}"
 end
 ```
@@ -1256,7 +1256,7 @@ Return the parent of the given subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -1268,7 +1268,7 @@ begin
   #Return the parent of the given subscription.
   result = api_instance.get_parent_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_parent_subscription: #{e}"
 end
 ```
@@ -1307,7 +1307,7 @@ Gets the subscription's current pricing-component values.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
@@ -1316,7 +1316,7 @@ begin
   #Gets the subscription's current pricing-component values.
   result = api_instance.get_pricing_component_values_of_subscription(subscription_id)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_pricing_component_values_of_subscription: #{e}"
 end
 ```
@@ -1354,7 +1354,7 @@ Retrieves a collection of subscriptions, specified by the account-ID parameter. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -1372,7 +1372,7 @@ begin
   #Retrieves a collection of subscriptions, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscription_by_account_id(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscription_by_account_id: #{e}"
 end
 ```
@@ -1417,7 +1417,7 @@ Retrieves a single subscription, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -1430,7 +1430,7 @@ begin
   #Retrieves a single subscription, specified by the ID parameter.
   result = api_instance.get_subscription_by_id(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscription_by_id: #{e}"
 end
 ```
@@ -1470,7 +1470,7 @@ Retrieves a collection of subscriptions, specified by the product-ID parameter. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 product_id = "product_id_example" # String | ID of the product
 
@@ -1488,7 +1488,7 @@ begin
   #Retrieves a collection of subscriptions, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscription_by_product_id(product_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscription_by_product_id: #{e}"
 end
 ```
@@ -1533,7 +1533,7 @@ Retrieves a collection of subscriptions, specified by the product-rate-plan-ID p
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
@@ -1551,7 +1551,7 @@ begin
   #Retrieves a collection of subscriptions, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscription_by_product_rate_plan_id(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscription_by_product_rate_plan_id: #{e}"
 end
 ```
@@ -1596,7 +1596,7 @@ Retrieves a collection of subscriptions, specified by the state parameter. By de
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 state = "state_example" # String | The current state of the subscription, either Provisioned, AwaitingPayment, Paid or Cancelled
 
@@ -1614,7 +1614,7 @@ begin
   #Retrieves a collection of subscriptions, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscription_by_state(state, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscription_by_state: #{e}"
 end
 ```
@@ -1659,7 +1659,7 @@ Retrieves a single subscription, specified by the version-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 version_id = "version_id_example" # String | The version-ID of the subscription.
 
@@ -1671,7 +1671,7 @@ begin
   #Retrieves a single subscription, specified by the version-ID parameter.
   result = api_instance.get_subscription_by_version_id(version_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscription_by_version_id: #{e}"
 end
 ```
@@ -1710,7 +1710,7 @@ Retrieves a collection of subscription objects with period-end times within the 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -1728,7 +1728,7 @@ begin
   #Retrieves a collection of subscription objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscriptions_by_initial_period_start(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscriptions_by_initial_period_start: #{e}"
 end
 ```
@@ -1772,7 +1772,7 @@ Retrieves a collection of subscription objects with period-end times within the 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -1790,7 +1790,7 @@ begin
   #Retrieves a collection of subscription objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscriptions_by_period_end(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscriptions_by_period_end: #{e}"
 end
 ```
@@ -1834,7 +1834,7 @@ Retrieves a collection of subscription objects with period-start times within th
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -1852,7 +1852,7 @@ begin
   #Retrieves a collection of subscription objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscriptions_by_period_start(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscriptions_by_period_start: #{e}"
 end
 ```
@@ -1896,7 +1896,7 @@ Retrieves a collection of subscription objects whose successful periods count fa
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 lower_threshold = 56 # Integer | The lower threshold of the range
 
@@ -1914,7 +1914,7 @@ begin
   #Retrieves a collection of subscription objects whose successful periods count falls within the range specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_subscriptions_by_successful_periods(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_subscriptions_by_successful_periods: #{e}"
 end
 ```
@@ -1958,7 +1958,7 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 query_string = "query_string_example" # String | The query string used to search.
 
@@ -1975,7 +1975,7 @@ begin
   #
   result = api_instance.get_swagger_subscription(query_string, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_swagger_subscription: #{e}"
 end
 ```
@@ -2019,7 +2019,7 @@ Retrieves a collection timer amendments for the specified subscription.. By defa
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -2038,7 +2038,7 @@ begin
   #Retrieves a collection timer amendments for the specified subscription.. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_timers_for_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->get_timers_for_subscription: #{e}"
 end
 ```
@@ -2084,16 +2084,16 @@ Import a subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | The request
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | The request
 
 
 begin
   #Import a subscription.
   result = api_instance.import_subscription(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->import_subscription: #{e}"
 end
 ```
@@ -2131,18 +2131,18 @@ Invoice any outstanding charges for the subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
-charge = BillForward::InvoiceChargeRequest.new # InvoiceChargeRequest | The charge request
+charge = Bfwd::InvoiceChargeRequest.new # InvoiceChargeRequest | The charge request
 
 
 begin
   #Invoice any outstanding charges for the subscription.
   result = api_instance.invoice_charges_on_subscription(subscription_id, charge)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->invoice_charges_on_subscription: #{e}"
 end
 ```
@@ -2181,18 +2181,18 @@ Migrate the subscription to a new plan.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
-request = BillForward::MigrationRequest.new # MigrationRequest | The migration request
+request = Bfwd::MigrationRequest.new # MigrationRequest | The migration request
 
 
 begin
   #Migrate the subscription to a new plan.
   result = api_instance.migrate_subscription(subscription_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->migrate_subscription: #{e}"
 end
 ```
@@ -2231,7 +2231,7 @@ Removes the coupon from the subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -2245,7 +2245,7 @@ begin
   #Removes the coupon from the subscription.
   result = api_instance.remove_coupon_from_subscription(subscription_id, coupon_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->remove_coupon_from_subscription: #{e}"
 end
 ```
@@ -2285,7 +2285,7 @@ Decrease the amount of credit available to the specified subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -2299,7 +2299,7 @@ begin
   #Decrease the amount of credit available to the specified subscription.
   result = api_instance.remove_credit_from_subscription(subscription_id, value, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->remove_credit_from_subscription: #{e}"
 end
 ```
@@ -2339,7 +2339,7 @@ Removes the specified payment method for the given subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -2353,7 +2353,7 @@ begin
   #Removes the specified payment method for the given subscription.
   result = api_instance.remove_payment_method_from_subscription(subscription_id, payment_method_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->remove_payment_method_from_subscription: #{e}"
 end
 ```
@@ -2393,7 +2393,7 @@ Discards from the subscription any scheduled changes in the value of the specifi
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -2407,7 +2407,7 @@ begin
   #Discards from the subscription any scheduled changes in the value of the specified pricing-component.
   result = api_instance.remove_pricing_component_value_change_from_subscription(subscription_id, pricing_component, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->remove_pricing_component_value_change_from_subscription: #{e}"
 end
 ```
@@ -2447,18 +2447,18 @@ Resume the frozen subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
-request = BillForward::ResumeRequest.new # ResumeRequest | The request
+request = Bfwd::ResumeRequest.new # ResumeRequest | The request
 
 
 begin
   #Resume the frozen subscription.
   result = api_instance.resume_subscription(subscription_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->resume_subscription: #{e}"
 end
 ```
@@ -2497,18 +2497,18 @@ Revives a cancelled subscription and returns it to its previous state
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
-request = BillForward::ReviveSubscriptionRequest.new # ReviveSubscriptionRequest | The revive request
+request = Bfwd::ReviveSubscriptionRequest.new # ReviveSubscriptionRequest | The revive request
 
 
 begin
   #Revives a cancelled subscription and returns it to its previous state
   result = api_instance.revive_subscription(subscription_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->revive_subscription: #{e}"
 end
 ```
@@ -2547,9 +2547,9 @@ Remove any existing metadata keys and create the provided data.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -2561,7 +2561,7 @@ begin
   #Remove any existing metadata keys and create the provided data.
   result = api_instance.set_metadata_for_subscription(metadata, subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->set_metadata_for_subscription: #{e}"
 end
 ```
@@ -2601,18 +2601,18 @@ Sets upon this subscription a new value for the specified pricing-component with
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
-pricing_component_value = BillForward::PricingComponentValue.new # PricingComponentValue | The pricing-component-value request
+pricing_component_value = Bfwd::PricingComponentValue.new # PricingComponentValue | The pricing-component-value request
 
 
 begin
   #Sets upon this subscription a new value for the specified pricing-component without performing an upgrade.
   result = api_instance.set_pricing_component_value_on_subscription(subscription_id, pricing_component_value)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->set_pricing_component_value_on_subscription: #{e}"
 end
 ```
@@ -2651,18 +2651,18 @@ Upgrades/downgrades this subscription to some new value for the specified pricin
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription
 
-request = BillForward::BatchUpdatePricingComponentValuesRequest.new # BatchUpdatePricingComponentValuesRequest | The batched update requests.
+request = Bfwd::BatchUpdatePricingComponentValuesRequest.new # BatchUpdatePricingComponentValuesRequest | The batched update requests.
 
 
 begin
   #Upgrades/downgrades this subscription to some new value for the specified pricing-component. This endpoint can do synchronous (immediate) and asynchronous (delayed) updates. A synchronous update will generate a charge/credit for an UPGRADE or DOWNGRADE. An asynchronous update will generate an amendment scheduled for the end of the billing period. By default each update is considered synchronous, you can make them asynchronous setting 'applyChangeNow' to 'false'.
   result = api_instance.set_pricing_component_value_on_subscription_batch_update(subscription_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->set_pricing_component_value_on_subscription_batch_update: #{e}"
 end
 ```
@@ -2701,20 +2701,20 @@ Upgrades/downgrades this subscription to some new value for the specified pricin
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
 subscription_id = "subscription_id_example" # String | 
 
 pricing_component = "pricing_component_example" # String | Name or ID of the pricing-component.
 
-value = BillForward::PricingComponentValueRequest.new # PricingComponentValueRequest | The pricing-component-value request
+value = Bfwd::PricingComponentValueRequest.new # PricingComponentValueRequest | The pricing-component-value request
 
 
 begin
   #Upgrades/downgrades this subscription to some new value for the specified pricing-component.
   result = api_instance.set_pricing_component_value_on_subscription_v2(subscription_id, pricing_component, value)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->set_pricing_component_value_on_subscription_v2: #{e}"
 end
 ```
@@ -2754,16 +2754,16 @@ Update a subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-subscription = BillForward::Subscription.new # Subscription | The subscription object to be updated.
+subscription = Bfwd::Subscription.new # Subscription | The subscription object to be updated.
 
 
 begin
   #Update a subscription.
   result = api_instance.update_subscription(subscription)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->update_subscription: #{e}"
 end
 ```
@@ -2801,16 +2801,16 @@ Update a subscription (V2).
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-request = BillForward::UpdateSubscriptionRequest.new # UpdateSubscriptionRequest | 
+request = Bfwd::UpdateSubscriptionRequest.new # UpdateSubscriptionRequest | 
 
 
 begin
   #Update a subscription (V2).
   result = api_instance.update_subscription_v2(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->update_subscription_v2: #{e}"
 end
 ```
@@ -2848,9 +2848,9 @@ Update any existing metadata key-values and insert any new key-values, no keys w
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SubscriptionsApi.new
+api_instance = Bfwd::SubscriptionsApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 subscription_id = "subscription_id_example" # String | 
 
@@ -2862,7 +2862,7 @@ begin
   #Update any existing metadata key-values and insert any new key-values, no keys will be removed.
   result = api_instance.upsert_metadata_for_subscription(metadata, subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SubscriptionsApi->upsert_metadata_for_subscription: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# BillForward::AddCouponCodeRequest
+# Bfwd::AddCouponCodeRequest
 
 ## Properties
 Name | Type | Description | Notes

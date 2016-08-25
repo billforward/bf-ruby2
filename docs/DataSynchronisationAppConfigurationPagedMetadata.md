@@ -1,4 +1,4 @@
-# BillForward::DataSynchronisationAppConfigurationPagedMetadata
+# Bfwd::DataSynchronisationAppConfigurationPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

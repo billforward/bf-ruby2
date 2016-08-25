@@ -1,4 +1,4 @@
-# BillForward::UsageSession
+# Bfwd::UsageSession
 
 ## Properties
 Name | Type | Description | Notes

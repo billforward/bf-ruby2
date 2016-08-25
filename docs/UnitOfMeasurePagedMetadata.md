@@ -1,4 +1,4 @@
-# BillForward::UnitOfMeasurePagedMetadata
+# Bfwd::UnitOfMeasurePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

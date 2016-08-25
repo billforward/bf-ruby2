@@ -1,4 +1,4 @@
-# BillForward::AmendmentsApi
+# Bfwd::AmendmentsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -29,16 +29,16 @@ Create an amendment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
-amendment = BillForward::Amendment.new # Amendment | The amendment object to be created.
+amendment = Bfwd::Amendment.new # Amendment | The amendment object to be created.
 
 
 begin
   #Create an amendment.
   result = api_instance.create_amendment(amendment)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->create_amendment: #{e}"
 end
 ```
@@ -76,7 +76,7 @@ Returns a collection of all amendments. By default 10 values are returned. Recor
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -93,7 +93,7 @@ begin
   #Returns a collection of all amendments. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_amendments(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->get_all_amendments: #{e}"
 end
 ```
@@ -138,7 +138,7 @@ Returns a single amendment, specified by the amendment-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 amendment_id = "amendment_id_example" # String | The unique string-ID of the amendment.
 
@@ -150,7 +150,7 @@ begin
   #Returns a single amendment, specified by the amendment-ID parameter.
   result = api_instance.get_amendment_by_id(amendment_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->get_amendment_by_id: #{e}"
 end
 ```
@@ -189,7 +189,7 @@ Returns a collection of amendments, specified by the state parameter. By default
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 state = "state_example" # String | The current state of the amendment, either pending, succeeded, failed or discarded
 
@@ -205,7 +205,7 @@ begin
   #Returns a collection of amendments, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_amendment_by_state(state, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->get_amendment_by_state: #{e}"
 end
 ```
@@ -248,7 +248,7 @@ Returns a collection of amendments, specified by the subscription-ID parameter. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription
 
@@ -264,7 +264,7 @@ begin
   #Returns a collection of amendments, specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_amendment_by_subscription_id(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->get_amendment_by_subscription_id: #{e}"
 end
 ```
@@ -307,7 +307,7 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 query_string = "query_string_example" # String | The query string used to search.
 
@@ -323,7 +323,7 @@ begin
   #
   result = api_instance.get_amendment_swagger(query_string, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->get_amendment_swagger: #{e}"
 end
 ```
@@ -366,7 +366,7 @@ Returns a collection of amendment objects with an actioning-time within the peri
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -384,7 +384,7 @@ begin
   #Returns a collection of amendment objects with an actioning-time within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_amendments_by_actioning_time(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->get_amendments_by_actioning_time: #{e}"
 end
 ```
@@ -428,7 +428,7 @@ Returns a collection of amendment objects with created times within the period s
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -446,7 +446,7 @@ begin
   #Returns a collection of amendment objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_amendments_by_created_date(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->get_amendments_by_created_date: #{e}"
 end
 ```
@@ -490,7 +490,7 @@ Returns a collection of amendment objects with updated times within the period s
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -508,7 +508,7 @@ begin
   #Returns a collection of amendment objects with updated times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_amendments_by_updated_date(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->get_amendments_by_updated_date: #{e}"
 end
 ```
@@ -552,7 +552,7 @@ Retires the amendment specified by the amendment-ID parameter. Retiring a amendm
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
 amendment_id = "amendment_id_example" # String | ID of the amendment.
 
@@ -563,7 +563,7 @@ begin
   #Retires the amendment specified by the amendment-ID parameter. Retiring a amendment causes it to cancel based on the specificed retirement settings for the product.
   result = api_instance.retire_amendment(amendment_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->retire_amendment: #{e}"
 end
 ```
@@ -602,16 +602,16 @@ Update an amendment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AmendmentsApi.new
+api_instance = Bfwd::AmendmentsApi.new
 
-amendment = BillForward::Amendment.new # Amendment | The amendment object to be updated.
+amendment = Bfwd::Amendment.new # Amendment | The amendment object to be updated.
 
 
 begin
   #Update an amendment.
   result = api_instance.update_amendment(amendment)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AmendmentsApi->update_amendment: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# BillForward::BFPermissionPagedMetadata
+# Bfwd::BFPermissionPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

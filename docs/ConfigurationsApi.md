@@ -1,4 +1,4 @@
-# BillForward::ConfigurationsApi
+# Bfwd::ConfigurationsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -22,16 +22,16 @@ Create a configuration.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ConfigurationsApi.new
+api_instance = Bfwd::ConfigurationsApi.new
 
-configuration = BillForward::MutableBillingEntity.new # MutableBillingEntity | The configuration object to be created.
+configuration = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The configuration object to be created.
 
 
 begin
   #Create a configuration.
   result = api_instance.create_api_configuration(configuration)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ConfigurationsApi->create_api_configuration: #{e}"
 end
 ```
@@ -69,7 +69,7 @@ Returns a collection of configurations. By default 10 values are returned. Recor
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ConfigurationsApi.new
+api_instance = Bfwd::ConfigurationsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -83,7 +83,7 @@ begin
   #Returns a collection of configurations. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_api_configurations(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ConfigurationsApi->get_all_api_configurations: #{e}"
 end
 ```
@@ -125,7 +125,7 @@ Returns a single configuration, specified by the type parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ConfigurationsApi.new
+api_instance = Bfwd::ConfigurationsApi.new
 
 configuration_type = "configuration_type_example" # String | The unique type of the configuration.
 
@@ -141,7 +141,7 @@ begin
   #Returns a single configuration, specified by the type parameter.
   result = api_instance.get_api_configurations_by_type(configuration_type, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ConfigurationsApi->get_api_configurations_by_type: #{e}"
 end
 ```
@@ -184,16 +184,16 @@ Update a configuration.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ConfigurationsApi.new
+api_instance = Bfwd::ConfigurationsApi.new
 
-configuration = BillForward::MutableBillingEntity.new # MutableBillingEntity | The configuration object to be updated.
+configuration = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The configuration object to be updated.
 
 
 begin
   #Update a configuration.
   result = api_instance.update_api_configuration(configuration)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ConfigurationsApi->update_api_configuration: #{e}"
 end
 ```

@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # A rate plan describes a pricing system under which a subscription can be made to a product.
   class ProductRatePlan
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -77,7 +77,7 @@ module BillForward
     # {\"default\":\"true\",\"description\":\"Whether invoices are created if they have a zero valued cost before any discounts are applied.\",\"verbs\":[\"POST\",\"PUT\",\"GET\"] }
     attr_accessor :create_zero_valued_invoices
 
-    # {\"description\":\"A friendly name &mdash; for your benefit &mdash; used to identify this rate plan within some product in BillForward. The name should reflect the fact that this rate plan provides to the customer a price tiering system within which a subscription to its Product can be made. <br>The rate plan's name could describe the nature of its price tiering (e.g. \\\"Default pricing\\\", \\\"Student pricing\\\").<br>Remember also that rate plans can override the timing prescribed by their product. If your rate plan is defined by its overriding the default timing of its product, then that can be reflected in that rate plan's name. (e.g. \\\"Student pricing - Annual\\\").\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
+    # {\"description\":\"A friendly name &mdash; for your benefit &mdash; used to identify this rate plan within some product in Bfwd. The name should reflect the fact that this rate plan provides to the customer a price tiering system within which a subscription to its Product can be made. <br>The rate plan's name could describe the nature of its price tiering (e.g. \\\"Default pricing\\\", \\\"Student pricing\\\").<br>Remember also that rate plans can override the timing prescribed by their product. If your rate plan is defined by its overriding the default timing of its product, then that can be reflected in that rate plan's name. (e.g. \\\"Student pricing - Annual\\\").\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
     attr_accessor :name
 
     # {\"description\":\"A friendly non-unique name used to identify this product-rate-plan\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
@@ -606,7 +606,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

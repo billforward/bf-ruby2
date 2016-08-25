@@ -1,4 +1,4 @@
-# BillForward::BankAccountVerificationPagedMetadata
+# Bfwd::BankAccountVerificationPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

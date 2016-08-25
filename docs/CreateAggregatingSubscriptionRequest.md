@@ -1,4 +1,4 @@
-# BillForward::CreateAggregatingSubscriptionRequest
+# Bfwd::CreateAggregatingSubscriptionRequest
 
 ## Properties
 Name | Type | Description | Notes

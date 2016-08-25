@@ -1,4 +1,4 @@
-# BillForward::EmailPagedMetadata
+# Bfwd::EmailPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

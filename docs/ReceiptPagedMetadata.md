@@ -1,4 +1,4 @@
-# BillForward::ReceiptPagedMetadata
+# Bfwd::ReceiptPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

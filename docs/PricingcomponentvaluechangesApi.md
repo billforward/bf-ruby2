@@ -1,4 +1,4 @@
-# BillForward::PricingcomponentvaluechangesApi
+# Bfwd::PricingcomponentvaluechangesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Create a pricing-component-value-change.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluechangesApi.new
+api_instance = Bfwd::PricingcomponentvaluechangesApi.new
 
-pricing_component_value_change = BillForward::InsertableBillingEntity.new # InsertableBillingEntity | The pricing-component-value-change object to be updated.
+pricing_component_value_change = Bfwd::InsertableBillingEntity.new # InsertableBillingEntity | The pricing-component-value-change object to be updated.
 
 
 begin
   #Create a pricing-component-value-change.
   result = api_instance.create_pricing_component_value_change(pricing_component_value_change)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluechangesApi->create_pricing_component_value_change: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ Returns a collection of pricing-component-value-changes. By default 10 values ar
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluechangesApi.new
+api_instance = Bfwd::PricingcomponentvaluechangesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -85,7 +85,7 @@ begin
   #Returns a collection of pricing-component-value-changes. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_pricing_component_value_changes(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluechangesApi->get_all_pricing_component_value_changes: #{e}"
 end
 ```
@@ -127,7 +127,7 @@ Returns a single pricing-component-value-changes, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluechangesApi.new
+api_instance = Bfwd::PricingcomponentvaluechangesApi.new
 
 id = "id_example" # String | The string ID of the pricing-component-value-change.
 
@@ -139,7 +139,7 @@ begin
   #Returns a single pricing-component-value-changes, specified by the ID parameter.
   result = api_instance.get_pricing_component_value_change(id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluechangesApi->get_pricing_component_value_change: #{e}"
 end
 ```
@@ -178,7 +178,7 @@ Returns a collection of pricing-component-value-changes, specified by the pricin
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluechangesApi.new
+api_instance = Bfwd::PricingcomponentvaluechangesApi.new
 
 pricing_component_id = "pricing_component_id_example" # String | The string ID of the pricing-component-value.
 
@@ -194,7 +194,7 @@ begin
   #Returns a collection of pricing-component-value-changes, specified by the pricing-component-value-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component_value_change_by_component_id(pricing_component_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluechangesApi->get_pricing_component_value_change_by_component_id: #{e}"
 end
 ```
@@ -237,7 +237,7 @@ Returns a collection of pricing-component-value-changes, specified by the invoic
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluechangesApi.new
+api_instance = Bfwd::PricingcomponentvaluechangesApi.new
 
 invoice_id = "invoice_id_example" # String | The string invoice-ID of the pricing-component-value-change.
 
@@ -253,7 +253,7 @@ begin
   #Returns a collection of pricing-component-value-changes, specified by the invoice-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component_value_change_by_invoice_id(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluechangesApi->get_pricing_component_value_change_by_invoice_id: #{e}"
 end
 ```
@@ -296,7 +296,7 @@ Returns a collection of pricing-component-value-changes, specified by the subscr
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluechangesApi.new
+api_instance = Bfwd::PricingcomponentvaluechangesApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
@@ -312,7 +312,7 @@ begin
   #Returns a collection of pricing-component-value-changes, specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component_value_change_by_subscription_id(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluechangesApi->get_pricing_component_value_change_by_subscription_id: #{e}"
 end
 ```

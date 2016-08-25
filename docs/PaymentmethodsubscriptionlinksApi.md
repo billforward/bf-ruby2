@@ -1,4 +1,4 @@
-# BillForward::PaymentmethodsubscriptionlinksApi
+# Bfwd::PaymentmethodsubscriptionlinksApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -20,16 +20,16 @@ Create
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsubscriptionlinksApi.new
+api_instance = Bfwd::PaymentmethodsubscriptionlinksApi.new
 
-payment_method = BillForward::PaymentMethodSubscriptionLink.new # PaymentMethodSubscriptionLink | The payment-method object to be updated.
+payment_method = Bfwd::PaymentMethodSubscriptionLink.new # PaymentMethodSubscriptionLink | The payment-method object to be updated.
 
 
 begin
   #Create
   result = api_instance.create_payment_method_subscription_link(payment_method)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsubscriptionlinksApi->create_payment_method_subscription_link: #{e}"
 end
 ```
@@ -67,7 +67,7 @@ Retires the payment-method-subscription-link specified by the link-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PaymentmethodsubscriptionlinksApi.new
+api_instance = Bfwd::PaymentmethodsubscriptionlinksApi.new
 
 payment_method_subscription_link_id = "payment_method_subscription_link_id_example" # String | ID of the link.
 
@@ -78,7 +78,7 @@ begin
   #Retires the payment-method-subscription-link specified by the link-ID parameter.
   result = api_instance.retire_payment_method_subscription_link(payment_method_subscription_link_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PaymentmethodsubscriptionlinksApi->retire_payment_method_subscription_link: #{e}"
 end
 ```

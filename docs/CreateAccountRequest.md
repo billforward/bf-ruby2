@@ -1,4 +1,4 @@
-# BillForward::CreateAccountRequest
+# Bfwd::CreateAccountRequest
 
 ## Properties
 Name | Type | Description | Notes

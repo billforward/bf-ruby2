@@ -1,4 +1,4 @@
-# BillForward::CreditNote
+# Bfwd::CreditNote
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::TimeResponse
+# Bfwd::TimeResponse
 
 ## Properties
 Name | Type | Description | Notes

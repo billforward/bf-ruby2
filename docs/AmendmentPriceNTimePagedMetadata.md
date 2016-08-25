@@ -1,4 +1,4 @@
-# BillForward::AmendmentPriceNTimePagedMetadata
+# Bfwd::AmendmentPriceNTimePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

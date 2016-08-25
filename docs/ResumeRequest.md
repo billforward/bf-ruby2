@@ -1,4 +1,4 @@
-# BillForward::ResumeRequest
+# Bfwd::ResumeRequest
 
 ## Properties
 Name | Type | Description | Notes

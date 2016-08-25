@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # An invoice-payment specifies the amount of a particular payment used to pay part or entirety of the outstanding balance of the associated invoice.
   class InvoicePayment
     # {\"description\":\"The date when the associated payment was received.\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
@@ -332,7 +332,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # AddPaymentMethodRequest
   class AddPaymentMethodRequest
     # { \"description\" : \"ID of the payment method to add\", \"verbs\":[\"POST\",\"GET\"] }
@@ -148,7 +148,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

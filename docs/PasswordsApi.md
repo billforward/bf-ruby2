@@ -1,4 +1,4 @@
-# BillForward::PasswordsApi
+# Bfwd::PasswordsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -19,16 +19,16 @@ Create
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PasswordsApi.new
+api_instance = Bfwd::PasswordsApi.new
 
-password = BillForward::Password.new # Password | The password object to be created.
+password = Bfwd::Password.new # Password | The password object to be created.
 
 
 begin
   #Create
   result = api_instance.create_password(password)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PasswordsApi->create_password: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# BillForward::UnitofmeasureApi
+# Bfwd::UnitofmeasureApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -22,16 +22,16 @@ Create a unit-of-measure.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UnitofmeasureApi.new
+api_instance = Bfwd::UnitofmeasureApi.new
 
-unit_of_measure = BillForward::UnitOfMeasure.new # UnitOfMeasure | The unit-of-measure object to be created.
+unit_of_measure = Bfwd::UnitOfMeasure.new # UnitOfMeasure | The unit-of-measure object to be created.
 
 
 begin
   #Create a unit-of-measure.
   result = api_instance.create_unit_of_measure(unit_of_measure)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UnitofmeasureApi->create_unit_of_measure: #{e}"
 end
 ```
@@ -69,7 +69,7 @@ Returns a collection of all unit-of-measure objects. By default 10 values are re
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UnitofmeasureApi.new
+api_instance = Bfwd::UnitofmeasureApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -84,7 +84,7 @@ begin
   #Returns a collection of all unit-of-measure objects. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_units_of_measure(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UnitofmeasureApi->get_all_units_of_measure: #{e}"
 end
 ```
@@ -127,7 +127,7 @@ Returns a single unit-of-measure corresponding to the unique id or name specifie
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UnitofmeasureApi.new
+api_instance = Bfwd::UnitofmeasureApi.new
 
 unit_of_measure_identifier = "unit_of_measure_identifier_example" # String | The unique id or name of the unit-of-measure.
 
@@ -139,7 +139,7 @@ begin
   #Returns a single unit-of-measure corresponding to the unique id or name specified.
   result = api_instance.get_unit_of_measure_by_id(unit_of_measure_identifier, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UnitofmeasureApi->get_unit_of_measure_by_id: #{e}"
 end
 ```
@@ -178,16 +178,16 @@ Update a unit-of-measure.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UnitofmeasureApi.new
+api_instance = Bfwd::UnitofmeasureApi.new
 
-unit_of_measure = BillForward::UnitOfMeasure.new # UnitOfMeasure | The unit-of-measure object to be updated.
+unit_of_measure = Bfwd::UnitOfMeasure.new # UnitOfMeasure | The unit-of-measure object to be updated.
 
 
 begin
   #Update a unit-of-measure.
   result = api_instance.update_unit_of_measure(unit_of_measure)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UnitofmeasureApi->update_unit_of_measure: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# BillForward::CybersourcetokensApi
+# Bfwd::CybersourcetokensApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,16 +23,16 @@ Create a cybersource-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CybersourcetokensApi.new
+api_instance = Bfwd::CybersourcetokensApi.new
 
-cybersource_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The cybersource-token object to be created.
+cybersource_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The cybersource-token object to be created.
 
 
 begin
   #Create a cybersource-token.
   result = api_instance.create_cybersource_token(cybersource_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CybersourcetokensApi->create_cybersource_token: #{e}"
 end
 ```
@@ -70,7 +70,7 @@ Returns a single cybersource-token, specified by the token-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CybersourcetokensApi.new
+api_instance = Bfwd::CybersourcetokensApi.new
 
 token_id = "token_id_example" # String | The unique sting ID of the cybersource token.
 
@@ -82,7 +82,7 @@ begin
   #Returns a single cybersource-token, specified by the token-ID parameter.
   result = api_instance.get_cybersource_token_by_id(token_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CybersourcetokensApi->get_cybersource_token_by_id: #{e}"
 end
 ```
@@ -121,7 +121,7 @@ Returns a single cybersource-token, specified by the recurring-subscription-ID p
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CybersourcetokensApi.new
+api_instance = Bfwd::CybersourcetokensApi.new
 
 recurring_subscription_id = "recurring_subscription_id_example" # String | The recurring-subscription-info-subscription-ID of the cybersource token.
 
@@ -133,7 +133,7 @@ begin
   #Returns a single cybersource-token, specified by the recurring-subscription-ID parameter.
   result = api_instance.get_cybersource_token_by_recurring_subscription_id(recurring_subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CybersourcetokensApi->get_cybersource_token_by_recurring_subscription_id: #{e}"
 end
 ```
@@ -172,7 +172,7 @@ Retires the cybersource token specified by the token-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CybersourcetokensApi.new
+api_instance = Bfwd::CybersourcetokensApi.new
 
 token_id = "token_id_example" # String | ID of the cybersource-token.
 
@@ -183,7 +183,7 @@ begin
   #Retires the cybersource token specified by the token-ID parameter.
   result = api_instance.retire_cybersource_token(token_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CybersourcetokensApi->retire_cybersource_token: #{e}"
 end
 ```
@@ -222,16 +222,16 @@ Update a cybersource-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CybersourcetokensApi.new
+api_instance = Bfwd::CybersourcetokensApi.new
 
-cybersource_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The cybersource-token object to be updated.
+cybersource_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The cybersource-token object to be updated.
 
 
 begin
   #Update a cybersource-token.
   result = api_instance.update_cybersource_token(cybersource_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CybersourcetokensApi->update_cybersource_token: #{e}"
 end
 ```

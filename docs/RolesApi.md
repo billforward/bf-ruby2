@@ -1,4 +1,4 @@
-# BillForward::RolesApi
+# Bfwd::RolesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Create a new role.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RolesApi.new
+api_instance = Bfwd::RolesApi.new
 
-role_request = BillForward::BillingEntityBase.new # BillingEntityBase | 
+role_request = Bfwd::BillingEntityBase.new # BillingEntityBase | 
 
 
 begin
   #Create a new role.
   result = api_instance.create_role(role_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RolesApi->create_role: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ Retrieves a collection of all roles. By default 10 values are returned. Records 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RolesApi.new
+api_instance = Bfwd::RolesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | 
@@ -86,7 +86,7 @@ begin
   #Retrieves a collection of all roles. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_roles(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RolesApi->get_all_roles: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ Retrieves a single role, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RolesApi.new
+api_instance = Bfwd::RolesApi.new
 
 role = "role_example" # String | ID or name of the role.
 
@@ -142,7 +142,7 @@ begin
   #Retrieves a single role, specified by the ID parameter.
   result = api_instance.get_role_by_id(role, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RolesApi->get_role_by_id: #{e}"
 end
 ```
@@ -182,7 +182,7 @@ Revokes a particular permission
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RolesApi.new
+api_instance = Bfwd::RolesApi.new
 
 role = "role_example" # String | ID or name of the role.
 
@@ -198,7 +198,7 @@ begin
   #Revokes a particular permission
   result = api_instance.remove_permission_from_role(role, resource, action, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RolesApi->remove_permission_from_role: #{e}"
 end
 ```
@@ -239,7 +239,7 @@ Revokes a role
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RolesApi.new
+api_instance = Bfwd::RolesApi.new
 
 role = "role_example" # String | ID or name of the role.
 
@@ -251,7 +251,7 @@ begin
   #Revokes a role
   result = api_instance.revoke_role(role, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RolesApi->revoke_role: #{e}"
 end
 ```
@@ -290,16 +290,16 @@ Update a role.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RolesApi.new
+api_instance = Bfwd::RolesApi.new
 
-role_request = BillForward::UpdateRoleRequest.new # UpdateRoleRequest | 
+role_request = Bfwd::UpdateRoleRequest.new # UpdateRoleRequest | 
 
 
 begin
   #Update a role.
   result = api_instance.update_role(role_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RolesApi->update_role: #{e}"
 end
 ```

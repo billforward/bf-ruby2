@@ -1,4 +1,4 @@
-# BillForward::AuthCaptureRequest
+# Bfwd::AuthCaptureRequest
 
 ## Properties
 Name | Type | Description | Notes

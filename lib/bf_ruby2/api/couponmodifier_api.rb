@@ -23,7 +23,7 @@ limitations under the License.
 
 require "uri"
 
-module BillForward
+module Bfwd
   class CouponmodifierApi
     attr_accessor :api_client
 

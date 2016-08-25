@@ -65,23 +65,23 @@ Here is an example which demonstrates POSTing a JSON request to our API, and han
 # Load the gem
 require 'bf_ruby2'
 
-BillForward::Configuration.default.host="api-sandbox.billforward.net:433"
-BillForward::Configuration.default.scheme="https"
-BillForward::Configuration.default.base_path="v1"
-BillForward::Configuration.default.logger.level = Logger::DEBUG
-BillForward::Configuration.default.debugging = false
+Bfwd::Configuration.default.host="api-sandbox.billforward.net:433"
+Bfwd::Configuration.default.scheme="https"
+Bfwd::Configuration.default.base_path="v1"
+Bfwd::Configuration.default.logger.level = Logger::DEBUG
+Bfwd::Configuration.default.debugging = false
 
 # your BillForward private token
 access_token = "EXAMPLE38-1136-4646-a552-fa2728da66b6"
 
-client = BillForward::ApiClient.new
+client = Bfwd::ApiClient.new
 client.default_headers.merge! 'Authorization' => "Bearer #{access_token}"
 
-api_instance = BillForward::AccountsApi.new client
+api_instance = Bfwd::AccountsApi.new client
 
 account_id = "ACC-23A086A2-F460-470E-85C5-BB52CD55"
 
-credit_note = BillForward::CreditAccountRequest.new ({
+credit_note = Bfwd::CreditAccountRequest.new ({
 	'currency': 'USD',
 	'value': 1.09
 	})
@@ -90,7 +90,7 @@ begin
   #Creates a credit-note which may be used by any subscription of this account.
   result = api_instance.add_credit_note_to_account(account_id, credit_note)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   # puts "Exception when calling AccountsApi->add_credit_note_to_account: #{JSON.parse(e.response_body) || e}"
   puts "Exception when calling AccountsApi->add_credit_note_to_account: #{e.response_body || e}"
 end
@@ -98,10 +98,10 @@ end
 
 ```ruby
 # Result looks like this:
-=> #<BillForward::CreditNotePagedMetadata:0x007fa7cbd8b600
+=> #<Bfwd::CreditNotePagedMetadata:0x007fa7cbd8b600
  @execution_time=304000,
  @results=
-  [#<BillForward::CreditNote:0x007fa7cbd8b268
+  [#<Bfwd::CreditNote:0x007fa7cbd8b268
     @account_id="ACC-23A086A2-F460-470E-85C5-BB52CD55",
     @changed_by="CF0CBF36-922B-403F-AA95-22BAD9960BF3",
     @created=#<DateTime: 2016-08-18T00:29:37+00:00 ((2457619j,1777s,0n),+0s,2299161j)>,
@@ -143,703 +143,703 @@ All URIs are relative to *https://localhost:8080/RestAPI*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BillForward::AccountsApi* | [**add_charge_to_account**](docs/AccountsApi.md#add_charge_to_account) | **POST** /accounts/{account-ID}/invoice | Create a manual invoice.
-*BillForward::AccountsApi* | [**add_credit_note_to_account**](docs/AccountsApi.md#add_credit_note_to_account) | **POST** /accounts/{account-ID}/credit | Creates a credit-note which may be used by any subscription of this account.
-*BillForward::AccountsApi* | [**add_permission_to_account**](docs/AccountsApi.md#add_permission_to_account) | **POST** /accounts/{account-ID}/roles/{role} | Add a role to the account
-*BillForward::AccountsApi* | [**create_account**](docs/AccountsApi.md#create_account) | **POST** /accounts | Create an Account.
-*BillForward::AccountsApi* | [**delete_account**](docs/AccountsApi.md#delete_account) | **DELETE** /accounts/{account-ID} | Delete the account specified by the account-ID parameter.
-*BillForward::AccountsApi* | [**delete_metadata_for_account**](docs/AccountsApi.md#delete_metadata_for_account) | **DELETE** /accounts/{account-ID}/metadata | Remove any associated metadata.
-*BillForward::AccountsApi* | [**get_account_by_id**](docs/AccountsApi.md#get_account_by_id) | **GET** /accounts/{account-ID} | Returns a single account, specified by the account-ID parameter.
-*BillForward::AccountsApi* | [**get_accounts_by_created**](docs/AccountsApi.md#get_accounts_by_created) | **GET** /accounts/created/{lower-threshold}/{upper-threshold} | Returns a collection of account objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AccountsApi* | [**get_accounts_by_updated**](docs/AccountsApi.md#get_accounts_by_updated) | **GET** /accounts/updated/{lower-threshold}/{upper-threshold} | Returns a collection of account objects with updated times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AccountsApi* | [**get_accounts_by_user_id**](docs/AccountsApi.md#get_accounts_by_user_id) | **GET** /accounts/user/{user-ID} | Returns a collection of accounts, specified by the user-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AccountsApi* | [**get_all_accounts**](docs/AccountsApi.md#get_all_accounts) | **GET** /accounts | Returns a collection of all account objects. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AccountsApi* | [**get_available_credit_on_account**](docs/AccountsApi.md#get_available_credit_on_account) | **GET** /accounts/{account-ID}/credit | Returns all available credit-notes for the specified account. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AccountsApi* | [**get_metadata_for_account**](docs/AccountsApi.md#get_metadata_for_account) | **GET** /accounts/{account-ID}/metadata | Retrieve any associated metadata.
-*BillForward::AccountsApi* | [**get_permissions_on_account**](docs/AccountsApi.md#get_permissions_on_account) | **GET** /accounts/{account-ID}/roles | Retrieves a collection of roles, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AccountsApi* | [**remove_credit_from_account**](docs/AccountsApi.md#remove_credit_from_account) | **DELETE** /accounts/{account-ID}/credit/{value} | Decrease the amount of credit by the value specified or entirely if no value provided.
-*BillForward::AccountsApi* | [**remove_permission_from_account**](docs/AccountsApi.md#remove_permission_from_account) | **DELETE** /accounts/{account-ID}/roles/{role} | Revoke the specified role.
-*BillForward::AccountsApi* | [**set_metadata_for_account**](docs/AccountsApi.md#set_metadata_for_account) | **POST** /accounts/{account-ID}/metadata | Remove any existing metadata keys and create the provided data.
-*BillForward::AccountsApi* | [**update_account**](docs/AccountsApi.md#update_account) | **PUT** /accounts | Update an Account.
-*BillForward::AccountsApi* | [**upsert_metadata_for_account**](docs/AccountsApi.md#upsert_metadata_for_account) | **PUT** /accounts/{account-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
-*BillForward::AddressesApi* | [**create_address**](docs/AddressesApi.md#create_address) | **POST** /addresses | Create
-*BillForward::AddressesApi* | [**update_address**](docs/AddressesApi.md#update_address) | **PUT** /addresses | Update
-*BillForward::AmendmentsApi* | [**create_amendment**](docs/AmendmentsApi.md#create_amendment) | **POST** /amendments | Create an amendment.
-*BillForward::AmendmentsApi* | [**get_all_amendments**](docs/AmendmentsApi.md#get_all_amendments) | **GET** /amendments | Returns a collection of all amendments. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AmendmentsApi* | [**get_amendment_by_id**](docs/AmendmentsApi.md#get_amendment_by_id) | **GET** /amendments/{amendment-ID} | Returns a single amendment, specified by the amendment-ID parameter.
-*BillForward::AmendmentsApi* | [**get_amendment_by_state**](docs/AmendmentsApi.md#get_amendment_by_state) | **GET** /amendments/state/{state} | Returns a collection of amendments, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AmendmentsApi* | [**get_amendment_by_subscription_id**](docs/AmendmentsApi.md#get_amendment_by_subscription_id) | **GET** /amendments/subscription/{subscription-ID} | Returns a collection of amendments, specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AmendmentsApi* | [**get_amendment_swagger**](docs/AmendmentsApi.md#get_amendment_swagger) | **GET** /amendments/swagger-end-point/{query-string} | 
-*BillForward::AmendmentsApi* | [**get_amendments_by_actioning_time**](docs/AmendmentsApi.md#get_amendments_by_actioning_time) | **GET** /amendments/actioning-time/{lower-threshold}/{upper-threshold} | Returns a collection of amendment objects with an actioning-time within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AmendmentsApi* | [**get_amendments_by_created_date**](docs/AmendmentsApi.md#get_amendments_by_created_date) | **GET** /amendments/created/{lower-threshold}/{upper-threshold} | Returns a collection of amendment objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AmendmentsApi* | [**get_amendments_by_updated_date**](docs/AmendmentsApi.md#get_amendments_by_updated_date) | **GET** /amendments/updated/{lower-threshold}/{upper-threshold} | Returns a collection of amendment objects with updated times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AmendmentsApi* | [**retire_amendment**](docs/AmendmentsApi.md#retire_amendment) | **DELETE** /amendments/{amendment-ID} | Retires the amendment specified by the amendment-ID parameter. Retiring a amendment causes it to cancel based on the specificed retirement settings for the product.
-*BillForward::AmendmentsApi* | [**update_amendment**](docs/AmendmentsApi.md#update_amendment) | **PUT** /amendments | Update an amendment.
-*BillForward::AnalyticsApi* | [**get_account_debts**](docs/AnalyticsApi.md#get_account_debts) | **POST** /analytics/payments/accounts/outstanding | Gets outstanding debts per account, within a date range.
-*BillForward::AnalyticsApi* | [**get_account_ltv**](docs/AnalyticsApi.md#get_account_ltv) | **GET** /analytics/account-ltv/{account-id}/{end-datetime} | Gets an account's life-time value, as of a given end date.
-*BillForward::AnalyticsApi* | [**get_account_payments**](docs/AnalyticsApi.md#get_account_payments) | **POST** /analytics/payments/accounts | Gets hourly payments per product, within a date range.
-*BillForward::AnalyticsApi* | [**get_billforward_managed_payments**](docs/AnalyticsApi.md#get_billforward_managed_payments) | **GET** /analytics/billforward-managed-payments/{start-datetime}/{end-datetime} | Gets all payments managed by BillForward, within a date range.
-*BillForward::AnalyticsApi* | [**get_churn**](docs/AnalyticsApi.md#get_churn) | **GET** /analytics/churn/{start-datetime}/{end-datetime} | Gets churn, within a date range.
-*BillForward::AnalyticsApi* | [**get_debts**](docs/AnalyticsApi.md#get_debts) | **GET** /analytics/payments/outstanding/{start-datetime}/{end-datetime} | Gets debts within a date range.
-*BillForward::AnalyticsApi* | [**get_payments**](docs/AnalyticsApi.md#get_payments) | **GET** /analytics/payments/{start-datetime}/{end-datetime} | Gets payments within a date range.
-*BillForward::AnalyticsApi* | [**get_product_payments**](docs/AnalyticsApi.md#get_product_payments) | **POST** /analytics/payments-per-product | Gets hourly payments per product, within a date range.
-*BillForward::AnalyticsApi* | [**get_product_rate_plan_payments**](docs/AnalyticsApi.md#get_product_rate_plan_payments) | **POST** /analytics/payments/product-rate-plan | Gets hourly payments per product, within a date range.
-*BillForward::AnalyticsApi* | [**get_subscription_ltv**](docs/AnalyticsApi.md#get_subscription_ltv) | **GET** /analytics/subscription-ltv/{subscription-id}/{end-datetime} | Gets a subscription's life-time value, as of a given end date.
-*BillForward::AnalyticsApi* | [**get_upgrades**](docs/AnalyticsApi.md#get_upgrades) | **GET** /analytics/upgrades/{start-datetime}/{end-datetime} | Gets upgrades, within a date range.
-*BillForward::AuditlogsApi* | [**get_all_audit_entries**](docs/AuditlogsApi.md#get_all_audit_entries) | **GET** /audit-logs | Returns a collection of all audit-log objects. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AuditlogsApi* | [**get_audit_entries_by_created_date**](docs/AuditlogsApi.md#get_audit_entries_by_created_date) | **GET** /audit-logs/created/{lower-threshold}/{upper-threshold} | Returns a collection of audit-log objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AuditlogsApi* | [**get_audit_entry_by_entity_id**](docs/AuditlogsApi.md#get_audit_entry_by_entity_id) | **GET** /audit-logs/entity/{entity-ID} | Returns a collection of audit-log entries, specified by the entity-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AuditlogsApi* | [**get_audit_entry_by_entity_type**](docs/AuditlogsApi.md#get_audit_entry_by_entity_type) | **GET** /audit-logs/entity-type/{entity-type} | Returns a collection of audit-log entries, specified by the entity-type parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::AuditlogsApi* | [**get_audit_entry_by_id**](docs/AuditlogsApi.md#get_audit_entry_by_id) | **GET** /audit-logs/{audit-ID} | Returns a single audit-log entry, specified by the audit-ID parameter.
-*BillForward::ChargesApi* | [**batch_recalculate_subscription_charge**](docs/ChargesApi.md#batch_recalculate_subscription_charge) | **POST** /charges/recalculate | Recalculate a batch of charges.
-*BillForward::ChargesApi* | [**get_all_subscription_charges**](docs/ChargesApi.md#get_all_subscription_charges) | **GET** /charges | Retrieves a collection of all charges. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ChargesApi* | [**get_subscription_charge_by_account_id**](docs/ChargesApi.md#get_subscription_charge_by_account_id) | **GET** /charges/account/{account-ID} | Retrieves a collection of charges, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ChargesApi* | [**get_subscription_charge_by_id**](docs/ChargesApi.md#get_subscription_charge_by_id) | **GET** /charges/{charge-id} | Retrieves a single charge, specified by the charge-id parameter.
-*BillForward::ChargesApi* | [**get_subscription_charge_by_state**](docs/ChargesApi.md#get_subscription_charge_by_state) | **GET** /charges/state/{state} | Retrieves a collection of charges, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ChargesApi* | [**get_subscription_charge_by_version_id**](docs/ChargesApi.md#get_subscription_charge_by_version_id) | **GET** /charges/version/{version-ID} | Retrieves a single charge, specified by the version-ID parameter.
-*BillForward::ChargesApi* | [**recalculate_subscription_charge**](docs/ChargesApi.md#recalculate_subscription_charge) | **POST** /charges/{charge-ID}/recalculate | Recalculate a charge.
-*BillForward::ChargesApi* | [**void_subscription_charge**](docs/ChargesApi.md#void_subscription_charge) | **DELETE** /charges/{charge-id} | Void the charge with the specified charge-ID.
-*BillForward::ClientsApi* | [**create_client**](docs/ClientsApi.md#create_client) | **POST** /clients | Create a client.
-*BillForward::ClientsApi* | [**get_all_clients**](docs/ClientsApi.md#get_all_clients) | **GET** /clients | Returns a collection of clients.
-*BillForward::ClientsApi* | [**get_client_by_id**](docs/ClientsApi.md#get_client_by_id) | **GET** /clients/{client-ID} | Returns a single client, specified by the client-ID parameter.
-*BillForward::ClientsApi* | [**update_client**](docs/ClientsApi.md#update_client) | **PUT** /clients | Update a client.
-*BillForward::ConfigurationsApi* | [**create_api_configuration**](docs/ConfigurationsApi.md#create_api_configuration) | **POST** /configurations | Create a configuration.
-*BillForward::ConfigurationsApi* | [**get_all_api_configurations**](docs/ConfigurationsApi.md#get_all_api_configurations) | **GET** /configurations | Returns a collection of configurations. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ConfigurationsApi* | [**get_api_configurations_by_type**](docs/ConfigurationsApi.md#get_api_configurations_by_type) | **GET** /configurations/type/{configuration-type} | Returns a single configuration, specified by the type parameter.
-*BillForward::ConfigurationsApi* | [**update_api_configuration**](docs/ConfigurationsApi.md#update_api_configuration) | **PUT** /configurations | Update a configuration.
-*BillForward::CouponbookApi* | [**create_coupon_book**](docs/CouponbookApi.md#create_coupon_book) | **POST** /coupon-books | Create a coupon-book.
-*BillForward::CouponbookApi* | [**delete_coupon_book**](docs/CouponbookApi.md#delete_coupon_book) | **DELETE** /coupon-books/{coupon-book-ID} | Retire a coupon-book, specified by the coupon-book-ID parameter.
-*BillForward::CouponbookApi* | [**get_all_attachable_coupon_books**](docs/CouponbookApi.md#get_all_attachable_coupon_books) | **GET** /coupon-books/attachable/{attachableness}/{has_code} | Returns a collection of attachable coupon-books. An attachable coupon-book has at least one remaining use, and is not deleted. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CouponbookApi* | [**get_all_coupon_books**](docs/CouponbookApi.md#get_all_coupon_books) | **GET** /coupon-books | Returns a collection of coupon-books. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CouponbookApi* | [**get_coupon_book_by_book_code**](docs/CouponbookApi.md#get_coupon_book_by_book_code) | **GET** /coupon-books/book-code/{book-code} | Returns a single coupon-book, specified by the book-code parameter.
-*BillForward::CouponbookApi* | [**get_coupon_book_by_coupon_book_definition_id**](docs/CouponbookApi.md#get_coupon_book_by_coupon_book_definition_id) | **GET** /coupon-books/coupon-book-definition/{coupon-book-definition-ID} | Returns a collection of coupon-books, specified by coupon-book-definition-ID parameter. By default 10 coupon-books are returned. Records are returned in natural order.
-*BillForward::CouponbookApi* | [**get_coupon_book_by_coupon_code**](docs/CouponbookApi.md#get_coupon_book_by_coupon_code) | **GET** /coupon-books/coupon/{coupon-code} | Returns a single coupon-book, specified by the coupon-code parameter.
-*BillForward::CouponbookApi* | [**get_coupon_book_by_id**](docs/CouponbookApi.md#get_coupon_book_by_id) | **GET** /coupon-books/{coupon-book-ID} | Returns a single coupon-book, specified by the coupon-book-ID parameter.
-*BillForward::CouponbookApi* | [**update_coupon_book**](docs/CouponbookApi.md#update_coupon_book) | **PUT** /coupon-books | Update a coupon-book.
-*BillForward::CouponbookdefinitionApi* | [**create_coupon_book_definition**](docs/CouponbookdefinitionApi.md#create_coupon_book_definition) | **POST** /coupon-book-definitions | Create a coupon-book-definition.
-*BillForward::CouponbookdefinitionApi* | [**delete_coupon_book_definition**](docs/CouponbookdefinitionApi.md#delete_coupon_book_definition) | **DELETE** /coupon-book-definitions/{coupon-book-definition-ID} | Retire a coupon-book-definition, specified by the coupon-book-definition-ID parameter.
-*BillForward::CouponbookdefinitionApi* | [**get_all_coupon_book_definitions**](docs/CouponbookdefinitionApi.md#get_all_coupon_book_definitions) | **GET** /coupon-book-definitions | Returns a collection of coupon-book-definitions. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CouponbookdefinitionApi* | [**get_coupon_book_definition_by_coupon_definition_id**](docs/CouponbookdefinitionApi.md#get_coupon_book_definition_by_coupon_definition_id) | **GET** /coupon-book-definitions/coupon-definition/{coupon-definition-ID} | Returns a collection of coupon-book-definitions, specified by coupon-definition-ID parameter. By default 10 coupon-book-definitions are returned. Records are returned in natural order.
-*BillForward::CouponbookdefinitionApi* | [**get_coupon_book_definition_by_id**](docs/CouponbookdefinitionApi.md#get_coupon_book_definition_by_id) | **GET** /coupon-book-definitions/{coupon-book-definition-ID} | Returns a single coupon-book-definition, specified by the coupon-book-definition-ID parameter.
-*BillForward::CouponbookdefinitionApi* | [**update_coupon_book_definition**](docs/CouponbookdefinitionApi.md#update_coupon_book_definition) | **PUT** /coupon-book-definitions | Update a coupon-book-definition.
-*BillForward::CoupondefinitionApi* | [**create_coupon_definition**](docs/CoupondefinitionApi.md#create_coupon_definition) | **POST** /coupon-definitions | Create a coupon-definition.
-*BillForward::CoupondefinitionApi* | [**delete_coupon_definition**](docs/CoupondefinitionApi.md#delete_coupon_definition) | **DELETE** /coupon-definitions/{coupon-definition-ID} | Retire a coupon-definition, specified by the coupon-definition-ID parameter.
-*BillForward::CoupondefinitionApi* | [**get_all_coupon_definitions**](docs/CoupondefinitionApi.md#get_all_coupon_definitions) | **GET** /coupon-definitions | Returns a collection of coupon-definitions. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CoupondefinitionApi* | [**get_coupon_definition_by_id**](docs/CoupondefinitionApi.md#get_coupon_definition_by_id) | **GET** /coupon-definitions/{coupon-definition-ID} | Returns a single coupon-definition, specified by the coupon-definition-ID parameter.
-*BillForward::CoupondefinitionApi* | [**update_coupon_definition**](docs/CoupondefinitionApi.md#update_coupon_definition) | **PUT** /coupon-definitions | Update a coupon-definition.
-*BillForward::CouponinstanceApi* | [**create_coupon_instance**](docs/CouponinstanceApi.md#create_coupon_instance) | **POST** /coupon-instances | Create a coupon-instance.
-*BillForward::CouponinstanceApi* | [**delete_coupon_instance**](docs/CouponinstanceApi.md#delete_coupon_instance) | **DELETE** /coupon-instances/{coupon-instance-ID} | Retire a coupon-instance, specified by the coupon-instance-ID parameter.
-*BillForward::CouponinstanceApi* | [**get_all_attachable_coupon_instances**](docs/CouponinstanceApi.md#get_all_attachable_coupon_instances) | **GET** /coupon-instances/attachable/{attachableness}/{has_code} | Returns a collection of attachable coupon-instances. An attachable coupon-instance has at least one remaining use, and is not deleted. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CouponinstanceApi* | [**get_all_coupon_instances**](docs/CouponinstanceApi.md#get_all_coupon_instances) | **GET** /coupon-instances | Returns a collection of coupon-instances. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CouponinstanceApi* | [**get_coupon_instance_by_coupon_code**](docs/CouponinstanceApi.md#get_coupon_instance_by_coupon_code) | **GET** /coupon-instances/coupon/{coupon-code} | Returns a collection of coupon-instances, specified by coupon-code parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
-*BillForward::CouponinstanceApi* | [**get_coupon_instance_by_coupon_definition_id**](docs/CouponinstanceApi.md#get_coupon_instance_by_coupon_definition_id) | **GET** /coupon-instances/coupon-definition/{coupon-definition-ID} | Returns a collection of coupon-instances, specified by coupon-definition-ID parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
-*BillForward::CouponinstanceApi* | [**get_coupon_instance_by_id**](docs/CouponinstanceApi.md#get_coupon_instance_by_id) | **GET** /coupon-instances/{coupon-instance-ID} | Returns a single coupon-instance, specified by the coupon-instance-ID parameter.
-*BillForward::CouponinstanceApi* | [**get_coupon_instance_by_target_id**](docs/CouponinstanceApi.md#get_coupon_instance_by_target_id) | **GET** /coupon-instances/target/{target-ID} | Returns a collection of coupon-instances, specified by target-ID parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
-*BillForward::CouponinstanceApi* | [**get_coupon_instance_by_target_type**](docs/CouponinstanceApi.md#get_coupon_instance_by_target_type) | **GET** /coupon-instances/target-entity/{target} | Returns a collection of coupon-instances, specified by target parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
-*BillForward::CouponinstanceApi* | [**update_coupon_instance**](docs/CouponinstanceApi.md#update_coupon_instance) | **PUT** /coupon-instances | Update a coupon-instance.
-*BillForward::CouponmodifierApi* | [**create_coupon_modifier**](docs/CouponmodifierApi.md#create_coupon_modifier) | **POST** /coupon-modifiers | Create a coupon-modifier.
-*BillForward::CouponmodifierApi* | [**delete_coupon_modifier**](docs/CouponmodifierApi.md#delete_coupon_modifier) | **DELETE** /coupon-modifiers/{coupon-modifier-ID} | Retire a coupon-modifier, specified by the coupon-modifier-ID parameter.
-*BillForward::CouponmodifierApi* | [**get_all_coupon_modifiers**](docs/CouponmodifierApi.md#get_all_coupon_modifiers) | **GET** /coupon-modifiers | Returns a collection of coupon-modifiers. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CouponmodifierApi* | [**get_coupon_modifier_by_coupon_code**](docs/CouponmodifierApi.md#get_coupon_modifier_by_coupon_code) | **GET** /coupon-modifiers/coupon-code/{coupon-code} | Returns a collection of coupon-modifiers, specified by the coupon-code parameter.
-*BillForward::CouponmodifierApi* | [**get_coupon_modifier_by_coupon_definition_id**](docs/CouponmodifierApi.md#get_coupon_modifier_by_coupon_definition_id) | **GET** /coupon-modifiers/coupon-definition/{coupon-definition-ID} | Returns a collection of coupon-modifiers, specified by the coupon-definition-ID parameter.
-*BillForward::CouponmodifierApi* | [**get_coupon_modifier_by_id**](docs/CouponmodifierApi.md#get_coupon_modifier_by_id) | **GET** /coupon-modifiers/{coupon-modifier-ID} | Returns a single coupon-modifier, specified by the coupon-modifier-ID parameter.
-*BillForward::CouponmodifierApi* | [**update_coupon_modifier**](docs/CouponmodifierApi.md#update_coupon_modifier) | **PUT** /coupon-modifiers | Update a coupon-instance.
-*BillForward::CouponruleApi* | [**create_coupon_rule**](docs/CouponruleApi.md#create_coupon_rule) | **POST** /coupon-rules | Create a coupon-rule.
-*BillForward::CouponruleApi* | [**delete_coupon_rule**](docs/CouponruleApi.md#delete_coupon_rule) | **DELETE** /coupon-rules/{coupon-rule-ID} | Retire a coupon-rule, specified by the coupon-rule-ID parameter.
-*BillForward::CouponruleApi* | [**get_all_coupon_rules**](docs/CouponruleApi.md#get_all_coupon_rules) | **GET** /coupon-rules | Returns a collection of coupon-rules. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CouponruleApi* | [**get_coupon_rule_by_coupon_definition_id**](docs/CouponruleApi.md#get_coupon_rule_by_coupon_definition_id) | **GET** /coupon-rules/coupon-definition/{coupon-definition-ID} | Returns a single coupon-definition, specified by the coupon-definition-ID parameter.
-*BillForward::CouponruleApi* | [**get_coupon_rule_by_id**](docs/CouponruleApi.md#get_coupon_rule_by_id) | **GET** /coupon-rules/{coupon-rule-ID} | Returns a single coupon-rule, specified by the coupon-rule-ID parameter.
-*BillForward::CouponsApi* | [**create_coupon**](docs/CouponsApi.md#create_coupon) | **POST** /coupons | Create a coupon.
-*BillForward::CouponsApi* | [**create_coupon_unique_codes**](docs/CouponsApi.md#create_coupon_unique_codes) | **POST** /coupons/{code}/codes | Create a list of unique coupon codes that can be applied to a subscription.
-*BillForward::CouponsApi* | [**get_all_coupons**](docs/CouponsApi.md#get_all_coupons) | **GET** /coupons | Returns a collection of all coupons. By default 10 values are returned. Records are returned in natural order.
-*BillForward::CouponsApi* | [**get_applied_coupons**](docs/CouponsApi.md#get_applied_coupons) | **GET** /coupons/{code}/applied | Returns a list of unique coupons which have been applied.
-*BillForward::CouponsApi* | [**get_available_coupon_codes_for_code**](docs/CouponsApi.md#get_available_coupon_codes_for_code) | **GET** /coupons/{code}/codes | Returns a list of available unique coupon codes for the specified parent coupon code that can be applied to a subscription.
-*BillForward::CouponsApi* | [**get_coupon_code**](docs/CouponsApi.md#get_coupon_code) | **GET** /coupons/{code} | Returns the coupon for the specified code that can be applied to a subscription.
-*BillForward::CouponsApi* | [**get_subscription_applications_of_coupons**](docs/CouponsApi.md#get_subscription_applications_of_coupons) | **GET** /coupons/{code}/subscriptions | Retrieves a collection of the coupons by this coupon code which have been applied.
-*BillForward::CouponsApi* | [**retire_coupon**](docs/CouponsApi.md#retire_coupon) | **DELETE** /coupons/{code} | <p>This method has 2 main behaviours depending on what is passed in. If the parent coupon code, for example SUMMER, is given no new coupons can be issued or claimed from this code. Deleting will result in the deleted property being set to true.</p><p>If a unique coupon code, for example SUMMER-AGH8, is given this will stop the coupon from being applied to the subscription from that point onwards. When a coupon is deleted the validUntil property is set which is the date/time it stopped applying to the target.</p>
-*BillForward::CreditnotesApi* | [**create_credit_note**](docs/CreditnotesApi.md#create_credit_note) | **POST** /credit-notes | Create a credit note.
-*BillForward::CreditnotesApi* | [**get_credit_note_by_id**](docs/CreditnotesApi.md#get_credit_note_by_id) | **GET** /credit-notes/{credit-note-ID} | Returns a single credit-note, specified by the ID parameter.
-*BillForward::CreditnotesApi* | [**get_credit_note_for_account**](docs/CreditnotesApi.md#get_credit_note_for_account) | **GET** /credit-notes/account/{account-ID} | Returns credit notes for an account.
-*BillForward::CreditnotesApi* | [**get_credit_note_for_invoice**](docs/CreditnotesApi.md#get_credit_note_for_invoice) | **GET** /credit-notes/invoice/{invoice-ID} | Returns credit notes for an invoice.
-*BillForward::CreditnotesApi* | [**get_credit_note_for_subscription**](docs/CreditnotesApi.md#get_credit_note_for_subscription) | **GET** /credit-notes/subscription/{subscription-ID} | Returns credit notes for an subscription.
-*BillForward::CreditnotesApi* | [**retire_credit_note**](docs/CreditnotesApi.md#retire_credit_note) | **DELETE** /credit-notes/{credit-note-ID} | Removes any remaining value from credit note
-*BillForward::CybersourcetokensApi* | [**create_cybersource_token**](docs/CybersourcetokensApi.md#create_cybersource_token) | **POST** /cybersource-tokens | Create a cybersource-token.
-*BillForward::CybersourcetokensApi* | [**get_cybersource_token_by_id**](docs/CybersourcetokensApi.md#get_cybersource_token_by_id) | **GET** /cybersource-tokens/{token-ID} | Returns a single cybersource-token, specified by the token-ID parameter.
-*BillForward::CybersourcetokensApi* | [**get_cybersource_token_by_recurring_subscription_id**](docs/CybersourcetokensApi.md#get_cybersource_token_by_recurring_subscription_id) | **GET** /cybersource-tokens/recurring-subscription-info/{recurring-subscription-ID} | Returns a single cybersource-token, specified by the recurring-subscription-ID parameter.
-*BillForward::CybersourcetokensApi* | [**retire_cybersource_token**](docs/CybersourcetokensApi.md#retire_cybersource_token) | **DELETE** /cybersource-tokens/{token-ID} | Retires the cybersource token specified by the token-ID parameter.
-*BillForward::CybersourcetokensApi* | [**update_cybersource_token**](docs/CybersourcetokensApi.md#update_cybersource_token) | **PUT** /cybersource-tokens | Update a cybersource-token.
-*BillForward::DunninglinesApi* | [**create_dunning_line**](docs/DunninglinesApi.md#create_dunning_line) | **POST** /dunning-lines | Create a dunning-line.
-*BillForward::DunninglinesApi* | [**get_all_dunning_lines**](docs/DunninglinesApi.md#get_all_dunning_lines) | **GET** /dunning-lines | Returns a collection of all dunning-lines. By default 10 values are returned. Records are returned in natural order.
-*BillForward::DunninglinesApi* | [**get_dunning_line_by_attempt_index**](docs/DunninglinesApi.md#get_dunning_line_by_attempt_index) | **GET** /dunning-lines/attempt-index/{index} | Returns a collection of dunning-lines specified by the index parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::DunninglinesApi* | [**get_dunning_line_by_id**](docs/DunninglinesApi.md#get_dunning_line_by_id) | **GET** /dunning-lines/{dunning-line-ID} | Returns a single dunning-line, specified by the dunning-line-ID parameter.
-*BillForward::DunninglinesApi* | [**retire_dunning_line**](docs/DunninglinesApi.md#retire_dunning_line) | **DELETE** /dunning-lines/{dunning-line-ID} | Retires the specified dunning-line.
-*BillForward::DunninglinesApi* | [**update_dunning_line**](docs/DunninglinesApi.md#update_dunning_line) | **PUT** /dunning-lines | Update a dunning-line.
-*BillForward::EmailprovidersApi* | [**create_email_provider**](docs/EmailprovidersApi.md#create_email_provider) | **POST** /email-providers | Create an email provider.
-*BillForward::EmailprovidersApi* | [**delete**](docs/EmailprovidersApi.md#delete) | **DELETE** /email-providers/{email-provider-ID} | Deletes a single email provider, specified by id or name parameter.
-*BillForward::EmailprovidersApi* | [**get_all_email_providers**](docs/EmailprovidersApi.md#get_all_email_providers) | **GET** /email-providers | Returns a collection of all email-providers. By default 10 values are returned. Records are returned in natural order.
-*BillForward::EmailprovidersApi* | [**get_email_by_provider_id**](docs/EmailprovidersApi.md#get_email_by_provider_id) | **GET** /email-providers/{email-provider-ID} | Retrieves a single email provider, specified by the version-ID parameter.
-*BillForward::EmailsApi* | [**get_email_by_id**](docs/EmailsApi.md#get_email_by_id) | **GET** /emails/{email-ID} | Retrieves a single invoice, specified by the version-ID parameter.
-*BillForward::EmailsApi* | [**get_email_html_by_id**](docs/EmailsApi.md#get_email_html_by_id) | **GET** /emails/{email-ID}.html | Retrieves a single invoice, specified by the version-ID parameter.
-*BillForward::EmailsApi* | [**get_email_text_by_id**](docs/EmailsApi.md#get_email_text_by_id) | **GET** /emails/{email-ID}.txt | Retrieves a single invoice, specified by the version-ID parameter.
-*BillForward::EmailsubscriptionsApi* | [**create_email_subscription**](docs/EmailsubscriptionsApi.md#create_email_subscription) | **POST** /email-subscriptions | Create an email subscription.
-*BillForward::EmailsubscriptionsApi* | [**delete_email_subscription_by_type**](docs/EmailsubscriptionsApi.md#delete_email_subscription_by_type) | **DELETE** /email-subscriptions/type&#x3D;{type} | Unsubscribe from the email specified by the type parameter.
-*BillForward::EmailsubscriptionsApi* | [**get_all_email_subscriptions**](docs/EmailsubscriptionsApi.md#get_all_email_subscriptions) | **GET** /email-subscriptions | Returns a collection of all email-subscriptions. By default 10 values are returned. Records are returned in natural order.
-*BillForward::EmailsubscriptionsApi* | [**get_email_subscription_by_id**](docs/EmailsubscriptionsApi.md#get_email_subscription_by_id) | **GET** /email-subscriptions/{email-subscription-id} | Retrieves a single email subscription, specified by ID.
-*BillForward::EmailsubscriptionsApi* | [**update_email_subscription**](docs/EmailsubscriptionsApi.md#update_email_subscription) | **PUT** /email-subscriptions | Update an email subscription.
-*BillForward::FixedtermdefinitionsApi* | [**create_fixed_term_definition**](docs/FixedtermdefinitionsApi.md#create_fixed_term_definition) | **POST** /fixed-term-definitions | Create
-*BillForward::FixedtermdefinitionsApi* | [**update_fixed_term_definition**](docs/FixedtermdefinitionsApi.md#update_fixed_term_definition) | **PUT** /fixed-term-definitions | Update
-*BillForward::FixedtermsApi* | [**update_fixed_term**](docs/FixedtermsApi.md#update_fixed_term) | **PUT** /fixed-terms | Update
-*BillForward::InvoicesApi* | [**add_charge_to_invoice**](docs/InvoicesApi.md#add_charge_to_invoice) | **POST** /invoices/{invoice-ID}/charges | Creates a charge on the specified invoice.
-*BillForward::InvoicesApi* | [**aggregate_invoices**](docs/InvoicesApi.md#aggregate_invoices) | **POST** /invoices/aggregate | Aggregate Invoices into to one parent Invoice
-*BillForward::InvoicesApi* | [**execute_invoice**](docs/InvoicesApi.md#execute_invoice) | **POST** /invoices/{invoice-ID}/execute | Attempt payment for the outstanding value of an invoice
-*BillForward::InvoicesApi* | [**generate_line_payments_for_all_invoices**](docs/InvoicesApi.md#generate_line_payments_for_all_invoices) | **POST** /invoices/generate-line-payments | Generates InvoiceLinePayments for all existing InvoicePayments.
-*BillForward::InvoicesApi* | [**get_all_invoices**](docs/InvoicesApi.md#get_all_invoices) | **GET** /invoices | Retrieves a collection of all invoices. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_all_invoices_as_csv**](docs/InvoicesApi.md#get_all_invoices_as_csv) | **GET** /invoices/all.csv | Retrieves a collection of all invoices. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_bucketed_revenue_attributions_as_csv**](docs/InvoicesApi.md#get_bucketed_revenue_attributions_as_csv) | **GET** /invoices/bucketed-revenue-attributions.csv | Retrieves (as CSV) all attributions of Invoice costs to Invoice lines, bucketed.
-*BillForward::InvoicesApi* | [**get_charges_on_invoice**](docs/InvoicesApi.md#get_charges_on_invoice) | **GET** /invoices/{invoice-ID}/charges | Returns all charges for the specified invoice. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_credit_invoice_line_payments_from_invoices_as_csv**](docs/InvoicesApi.md#get_credit_invoice_line_payments_from_invoices_as_csv) | **GET** /invoices/credit.csv | Retrieves credit note-paid from InvoicePayments upon line items, in CSV format.
-*BillForward::InvoicesApi* | [**get_credit_invoice_line_payments_from_invoices_as_csv_by_payment_received**](docs/InvoicesApi.md#get_credit_invoice_line_payments_from_invoices_as_csv_by_payment_received) | **GET** /invoices/payment-received/credit.csv | Retrieves credit note-paid from InvoicePayments upon line items, in CSV format.
-*BillForward::InvoicesApi* | [**get_debit_invoice_line_payments_from_invoices_as_csv**](docs/InvoicesApi.md#get_debit_invoice_line_payments_from_invoices_as_csv) | **GET** /invoices/revenue.csv | Retrieves received revenue from InvoicePayments upon line items, in CSV format.
-*BillForward::InvoicesApi* | [**get_debit_invoice_line_payments_from_invoices_as_csv_by_payment_received**](docs/InvoicesApi.md#get_debit_invoice_line_payments_from_invoices_as_csv_by_payment_received) | **GET** /invoices/payment-received/revenue.csv | Retrieves received revenue from InvoicePayments upon line items, in CSV format.
-*BillForward::InvoicesApi* | [**get_invoice_as_html**](docs/InvoicesApi.md#get_invoice_as_html) | **GET** /invoices/{ID}.html | Retrieves a single invoice specified by the ID parameter.
-*BillForward::InvoicesApi* | [**get_invoice_as_pdf**](docs/InvoicesApi.md#get_invoice_as_pdf) | **GET** /invoices/{ID}.pdf | Retrieves a single invoice specified by the ID parameter.
-*BillForward::InvoicesApi* | [**get_invoice_by_id**](docs/InvoicesApi.md#get_invoice_by_id) | **GET** /invoices/{invoice-ID} | Retrieves a single invoice specified by the invoice-ID parameter.
-*BillForward::InvoicesApi* | [**get_invoice_by_id_as_csv**](docs/InvoicesApi.md#get_invoice_by_id_as_csv) | **GET** /invoices/{ID}.csv | Retrieves a single invoice specified by the ID parameter.
-*BillForward::InvoicesApi* | [**get_invoice_by_subscription_id**](docs/InvoicesApi.md#get_invoice_by_subscription_id) | **GET** /invoices/subscription/{subscription-ID} | Retrieves a collection of invoices specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoice_by_subscription_version_id**](docs/InvoicesApi.md#get_invoice_by_subscription_version_id) | **GET** /invoices/subscription/version/{subscription-version-ID} | Retrieves a collection of invoices specified by the subscription-version-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoice_by_version_id**](docs/InvoicesApi.md#get_invoice_by_version_id) | **GET** /invoices/version/{version-ID} | Retrieves a single invoice, specified by the version-ID parameter.
-*BillForward::InvoicesApi* | [**get_invoices_by_account_id**](docs/InvoicesApi.md#get_invoices_by_account_id) | **GET** /invoices/account/{account-ID} | Retrieves a collection of invoices specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoices_by_period_end**](docs/InvoicesApi.md#get_invoices_by_period_end) | **GET** /invoices/period-end/{lower-threshold}/{upper-threshold} | Retrieves a collection of invoice objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoices_by_period_start**](docs/InvoicesApi.md#get_invoices_by_period_start) | **GET** /invoices/period-start/{lower-threshold}/{upper-threshold} | Retrieves a collection of invoice objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoices_by_period_start_as_csv**](docs/InvoicesApi.md#get_invoices_by_period_start_as_csv) | **GET** /invoices/period-start/{lower-threshold}/{upper-threshold}.csv | Retrieves a collection of invoice objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoices_by_state**](docs/InvoicesApi.md#get_invoices_by_state) | **GET** /invoices/state/{state} | Retrieves a collection of invoices, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoices_by_state_and_period_start**](docs/InvoicesApi.md#get_invoices_by_state_and_period_start) | **GET** /invoices/state/{state}/period-start/{lower-threshold}/{upper-threshold} | Retrieves a collection of invoice objects specified by the state parameter and with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoices_by_state_and_period_start_as_csv**](docs/InvoicesApi.md#get_invoices_by_state_and_period_start_as_csv) | **GET** /invoices/state/{state}/period-start/{lower-threshold}/{upper-threshold}.csv | Retrieves a collection of invoice objects specified by the state parameter and with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_invoices_by_state_as_csv**](docs/InvoicesApi.md#get_invoices_by_state_as_csv) | **GET** /invoices/state/{state}.csv | Retrieves a collection of invoices, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::InvoicesApi* | [**get_line_payments**](docs/InvoicesApi.md#get_line_payments) | **GET** /invoices/line-payments | Retrieves all InvoiceLine payment attributions.
-*BillForward::InvoicesApi* | [**get_line_payments_as_csv**](docs/InvoicesApi.md#get_line_payments_as_csv) | **GET** /invoices/line-payments.csv | Retrieves (as CSV) all InvoiceLine payment attributions.
-*BillForward::InvoicesApi* | [**get_metadata_for_invoice**](docs/InvoicesApi.md#get_metadata_for_invoice) | **GET** /invoices/{invoice-ID}/metadata | Retrieve any associated metadata.
-*BillForward::InvoicesApi* | [**get_refund_invoice_line_payments_from_invoices_as_csv**](docs/InvoicesApi.md#get_refund_invoice_line_payments_from_invoices_as_csv) | **GET** /invoices/refund.csv | Retrieves awarded refunds from InvoicePayments upon line items, in CSV format.
-*BillForward::InvoicesApi* | [**get_refund_invoice_line_payments_from_invoices_as_csv_by_refund_received**](docs/InvoicesApi.md#get_refund_invoice_line_payments_from_invoices_as_csv_by_refund_received) | **GET** /invoices/payment-received/refund.csv | Retrieves awarded refunds from InvoicePayments upon line items, in CSV format.
-*BillForward::InvoicesApi* | [**get_revenue_attributions**](docs/InvoicesApi.md#get_revenue_attributions) | **GET** /invoices/revenue-attributions | Retrieves all attributions of Invoice costs to Invoice lines.
-*BillForward::InvoicesApi* | [**get_revenue_attributions_as_csv**](docs/InvoicesApi.md#get_revenue_attributions_as_csv) | **GET** /invoices/revenue-attributions.csv | Retrieves (as CSV) all attributions of Invoice costs to Invoice lines.
-*BillForward::InvoicesApi* | [**get_swagger_for_invoice**](docs/InvoicesApi.md#get_swagger_for_invoice) | **GET** /invoices/swagger-end-point/{query-string} | 
-*BillForward::InvoicesApi* | [**import_invoice**](docs/InvoicesApi.md#import_invoice) | **POST** /invoices/import | Import an invoice.
-*BillForward::InvoicesApi* | [**recalculate_invoice**](docs/InvoicesApi.md#recalculate_invoice) | **POST** /invoices/{invoice-ID}/recalculate | Re-calculate an Invoice.
-*BillForward::InvoicesApi* | [**remove_charge_from_invoice**](docs/InvoicesApi.md#remove_charge_from_invoice) | **DELETE** /invoices/{invoice-ID}/charges/{charge-ID} | Removes the specified charge from the specified Invoice.
-*BillForward::InvoicesApi* | [**remove_metadata_from_invoice**](docs/InvoicesApi.md#remove_metadata_from_invoice) | **DELETE** /invoices/{invoice-ID}/metadata | Remove any associated metadata.
-*BillForward::InvoicesApi* | [**set_metadata_for_invoice**](docs/InvoicesApi.md#set_metadata_for_invoice) | **POST** /invoices/{invoice-ID}/metadata | Remove any existing metadata keys and create the provided data.
-*BillForward::InvoicesApi* | [**update_invoice**](docs/InvoicesApi.md#update_invoice) | **PUT** /invoices | Update an Invoice.
-*BillForward::InvoicesApi* | [**upsert_metadata_for_invoice**](docs/InvoicesApi.md#upsert_metadata_for_invoice) | **PUT** /invoices/{invoice-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
-*BillForward::InvoicesApi* | [**void_invoice**](docs/InvoicesApi.md#void_invoice) | **DELETE** /invoices/{invoice-ID} | Voids the invoice specified by the invoice identifier parameter.
-*BillForward::MetadataApi* | [**delete_metadata_key_values**](docs/MetadataApi.md#delete_metadata_key_values) | **DELETE** /metadata | Remove any associated metadata.
-*BillForward::MetadataApi* | [**get_metadata_key_values**](docs/MetadataApi.md#get_metadata_key_values) | **GET** /metadata | Retrieve any associated metadata.
-*BillForward::MetadataApi* | [**set_metadata_key_values**](docs/MetadataApi.md#set_metadata_key_values) | **POST** /metadata | Remove any existing metadata keys and create the provided data.
-*BillForward::MetadataApi* | [**upsert_metadata_key_values**](docs/MetadataApi.md#upsert_metadata_key_values) | **PUT** /metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
-*BillForward::NotificationsApi* | [**ack_notification**](docs/NotificationsApi.md#ack_notification) | **GET** /notifications/ack/{notification-ID} | Acknowledge a newly recevied notification.
-*BillForward::NotificationsApi* | [**get_all_notifications**](docs/NotificationsApi.md#get_all_notifications) | **GET** /notifications | Returns a collection of all notifications. By default 10 values are returned. Records are returned in natural order.
-*BillForward::NotificationsApi* | [**get_notification_by_entity_id**](docs/NotificationsApi.md#get_notification_by_entity_id) | **GET** /notifications/entity-ID/{entity-ID} | Returns a collection of notifications, specified by the entity-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::NotificationsApi* | [**get_notification_by_id**](docs/NotificationsApi.md#get_notification_by_id) | **GET** /notifications/{notification-ID} | Returns a single notification, specified by the notification-ID parameter.
-*BillForward::NotificationsApi* | [**get_notifications_by_webhook_id**](docs/NotificationsApi.md#get_notifications_by_webhook_id) | **GET** /notifications/{lower-threshold}/{upper-threshold}/{webhookID} | Returns a collection of notification objects with created times within the period specified by the lower-threshold and upper-threshold parameters for the given webhook id. By default 10 values are returned. Records are returned in natural order.
-*BillForward::NotificationsApi* | [**get_notifications_within_date_range**](docs/NotificationsApi.md#get_notifications_within_date_range) | **GET** /notifications/{lower-threshold}/{upper-threshold} | Returns a collection of notification objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::OrganizationsApi* | [**create_organization**](docs/OrganizationsApi.md#create_organization) | **POST** /organizations | Create an organization.
-*BillForward::OrganizationsApi* | [**get_all_my_organizations**](docs/OrganizationsApi.md#get_all_my_organizations) | **GET** /organizations/mine | Returns a collection of all my asociated organizations. By default 10 values are returned. Records are returned in natural order.
-*BillForward::OrganizationsApi* | [**get_all_organizations**](docs/OrganizationsApi.md#get_all_organizations) | **GET** /organizations | Returns a collection of all organizations. By default 10 values are returned. Records are returned in natural order.
-*BillForward::OrganizationsApi* | [**get_organization_by_customer_code**](docs/OrganizationsApi.md#get_organization_by_customer_code) | **GET** /organizations/customer-code/{customer-code} | Returns a single organization, specified by the customer-code parameter.
-*BillForward::OrganizationsApi* | [**get_organization_by_id**](docs/OrganizationsApi.md#get_organization_by_id) | **GET** /organizations/{organization-ID} | Returns a single Organization, specified by the organization-ID parameter.
-*BillForward::OrganizationsApi* | [**get_organization_by_name**](docs/OrganizationsApi.md#get_organization_by_name) | **GET** /organizations/name/{name} | Returns a single Organization, specified by the name parameter.
-*BillForward::OrganizationsApi* | [**update_organization**](docs/OrganizationsApi.md#update_organization) | **PUT** /organizations | Update an organization.
-*BillForward::PasswordsApi* | [**create_password**](docs/PasswordsApi.md#create_password) | **POST** /passwords | Create
-*BillForward::PaymentmethodsApi* | [**create_payment_method**](docs/PaymentmethodsApi.md#create_payment_method) | **POST** /payment-methods | Create a payment-method.
-*BillForward::PaymentmethodsApi* | [**delete_payment_method**](docs/PaymentmethodsApi.md#delete_payment_method) | **DELETE** /payment-methods/{payment-method-ID} | Deletes the payment-method specified by the payment-method-ID parameter.
-*BillForward::PaymentmethodsApi* | [**get_all_payment_methods**](docs/PaymentmethodsApi.md#get_all_payment_methods) | **GET** /payment-methods | Returns a collection of all payment-methods. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PaymentmethodsApi* | [**get_payment_method_by_account_id**](docs/PaymentmethodsApi.md#get_payment_method_by_account_id) | **GET** /payment-methods/account/{account-ID} | Returns a collection of payment-methods, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PaymentmethodsApi* | [**get_payment_method_by_id**](docs/PaymentmethodsApi.md#get_payment_method_by_id) | **GET** /payment-methods/{payment-method-ID} | Returns a single payment-method, specified by the payment-method-ID parameter.
-*BillForward::PaymentmethodsApi* | [**get_payment_method_by_link_id**](docs/PaymentmethodsApi.md#get_payment_method_by_link_id) | **GET** /payment-methods/link-id/{linkID} | Returns a single payment-method, specified by the linkID parameter.
-*BillForward::PaymentmethodsApi* | [**get_payment_method_by_payment_gateway**](docs/PaymentmethodsApi.md#get_payment_method_by_payment_gateway) | **GET** /payment-methods/gateway/{gateway} | Returns a collection of payment-methods, specified by the gateway parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PaymentmethodsApi* | [**update_payment_method**](docs/PaymentmethodsApi.md#update_payment_method) | **PUT** /payment-methods | Update a payment-method.
-*BillForward::PaymentmethodsubscriptionlinksApi* | [**create_payment_method_subscription_link**](docs/PaymentmethodsubscriptionlinksApi.md#create_payment_method_subscription_link) | **POST** /payment-method-subscription-links | Create
-*BillForward::PaymentmethodsubscriptionlinksApi* | [**retire_payment_method_subscription_link**](docs/PaymentmethodsubscriptionlinksApi.md#retire_payment_method_subscription_link) | **DELETE** /payment-method-subscription-links/{payment-method-subscription-link-ID} | Retires the payment-method-subscription-link specified by the link-ID parameter.
-*BillForward::PaymentsApi* | [**create_payment**](docs/PaymentsApi.md#create_payment) | **POST** /payments | Create a payment.
-*BillForward::PaymentsApi* | [**get_all_payments**](docs/PaymentsApi.md#get_all_payments) | **GET** /payments | Returns a collection of all payments. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PaymentsApi* | [**get_payment_as_csv**](docs/PaymentsApi.md#get_payment_as_csv) | **GET** /payments/csv | Retrieves payments in CSV format.
-*BillForward::PaymentsApi* | [**get_payment_by_id**](docs/PaymentsApi.md#get_payment_by_id) | **GET** /payments/{payment-ID} | Returns a single payment, specified by the payment-ID parameter.
-*BillForward::PaymentsApi* | [**get_payment_by_invoice_id**](docs/PaymentsApi.md#get_payment_by_invoice_id) | **GET** /payments/invoice/{invoice-ID} | Returns a collection of payments, specified by the invoice-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PaymentsApi* | [**get_payment_by_payment_gateway**](docs/PaymentsApi.md#get_payment_by_payment_gateway) | **GET** /payments/gateway/{gateway} | Returns a collection of payments, specified by the gateway parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PaymentsApi* | [**get_payment_by_payment_method_id**](docs/PaymentsApi.md#get_payment_by_payment_method_id) | **GET** /payments/payment-method/{payment-method-ID} | Returns a collection of payments, specified by the payment-method-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PaymentsApi* | [**update_payment**](docs/PaymentsApi.md#update_payment) | **PUT** /payments | Update a payment.
-*BillForward::PeriodsApi* | [**get_all_periods_for_subscription**](docs/PeriodsApi.md#get_all_periods_for_subscription) | **GET** /periods/{subscription-id} | Retrieve by subscription)
-*BillForward::PeriodsApi* | [**get_latest_periods**](docs/PeriodsApi.md#get_latest_periods) | **GET** /periods | Get all periods
-*BillForward::PermissionsApi* | [**create_permission**](docs/PermissionsApi.md#create_permission) | **POST** /permissions | Create a new permission.
-*BillForward::PermissionsApi* | [**get_all_permissions**](docs/PermissionsApi.md#get_all_permissions) | **GET** /permissions | Retrieves a collection of all permissions. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PermissionsApi* | [**get_available_actions_for_resource**](docs/PermissionsApi.md#get_available_actions_for_resource) | **GET** /permissions/resources/{resource} | Retrieves all the available actions for the specified resource.
-*BillForward::PermissionsApi* | [**get_available_resources**](docs/PermissionsApi.md#get_available_resources) | **GET** /permissions/resources | Retrieves all available resource.
-*BillForward::PermissionsApi* | [**get_permission_by_id**](docs/PermissionsApi.md#get_permission_by_id) | **GET** /permissions/{permission-ID} | Retrieves a single permission, specified by the ID parameter.
-*BillForward::PermissionsApi* | [**revoke_permission**](docs/PermissionsApi.md#revoke_permission) | **DELETE** /permissions/{permission-ID} | Revokes a permission
-*BillForward::PricingcalculatorApi* | [**get_amendment_cost**](docs/PricingcalculatorApi.md#get_amendment_cost) | **POST** /pricing-calculator/amendment-cost | Calculates the price of a subscription's upgrading/downgrading to a new pricing component value.
-*BillForward::PricingcalculatorApi* | [**get_coupon_instance_initialisation_cost**](docs/PricingcalculatorApi.md#get_coupon_instance_initialisation_cost) | **POST** /pricing-calculator/coupon-instance/initialisation | Calculates the price of a subscription to a rate plan, at specified values of pricing component values, and with the specified coupon applied.
-*BillForward::PricingcalculatorApi* | [**get_product_rate_plan_costs**](docs/PricingcalculatorApi.md#get_product_rate_plan_costs) | **POST** /pricing-calculator/product-rate-plan | Calculates the price of a subscription to a rate plan, at specified values of pricing component values.
-*BillForward::PricingcomponentsApi* | [**create_pricing_component**](docs/PricingcomponentsApi.md#create_pricing_component) | **POST** /pricing-components | Create a pricing-component.
-*BillForward::PricingcomponentsApi* | [**get_all_pricing_components**](docs/PricingcomponentsApi.md#get_all_pricing_components) | **GET** /pricing-components | Returns a collection of pricing-components. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentsApi* | [**get_pricing_component**](docs/PricingcomponentsApi.md#get_pricing_component) | **GET** /pricing-components/{pricing-component-ID} | Returns a collection of pricing-components, specified by the pricing-component-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentsApi* | [**get_pricing_component_by_product_rate_plan_id**](docs/PricingcomponentsApi.md#get_pricing_component_by_product_rate_plan_id) | **GET** /pricing-components/product-rate-plan/{product-rate-plan-ID} | Returns a collection of pricing-components, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentsApi* | [**retire_pricing_component**](docs/PricingcomponentsApi.md#retire_pricing_component) | **DELETE** /pricing-components/{pricing-component-ID} | Retires the pricing-component specified by the pricing-component-ID parameter.
-*BillForward::PricingcomponentsApi* | [**update_pricing_component**](docs/PricingcomponentsApi.md#update_pricing_component) | **PUT** /pricing-components | Update a pricing-component.
-*BillForward::PricingcomponenttiersApi* | [**create_pricing_component_tier**](docs/PricingcomponenttiersApi.md#create_pricing_component_tier) | **POST** /pricing-component-tiers | Create
-*BillForward::PricingcomponenttiersApi* | [**get_all_pricing_component_tiers**](docs/PricingcomponenttiersApi.md#get_all_pricing_component_tiers) | **GET** /pricing-component-tiers | Returns a collection of pricing-component-tier-tiers. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponenttiersApi* | [**get_pricing_component_tier**](docs/PricingcomponenttiersApi.md#get_pricing_component_tier) | **GET** /pricing-component-tiers/{pricing-component-tier-ID} | Returns a collection of pricing-component-tier-tiers, specified by the pricing-component-tier-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponenttiersApi* | [**get_pricing_component_tier_by_product_rate_plan_id**](docs/PricingcomponenttiersApi.md#get_pricing_component_tier_by_product_rate_plan_id) | **GET** /pricing-component-tiers/product-rate-plan/{product-rate-plan-ID} | Returns a collection of pricing-component-tier-tiers, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponenttiersApi* | [**update_pricing_component_tier**](docs/PricingcomponenttiersApi.md#update_pricing_component_tier) | **PUT** /pricing-component-tiers | Update.
-*BillForward::PricingcomponentvaluechangesApi* | [**create_pricing_component_value_change**](docs/PricingcomponentvaluechangesApi.md#create_pricing_component_value_change) | **POST** /pricing-component-value-changes | Create a pricing-component-value-change.
-*BillForward::PricingcomponentvaluechangesApi* | [**get_all_pricing_component_value_changes**](docs/PricingcomponentvaluechangesApi.md#get_all_pricing_component_value_changes) | **GET** /pricing-component-value-changes | Returns a collection of pricing-component-value-changes. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentvaluechangesApi* | [**get_pricing_component_value_change**](docs/PricingcomponentvaluechangesApi.md#get_pricing_component_value_change) | **GET** /pricing-component-value-changes/{ID} | Returns a single pricing-component-value-changes, specified by the ID parameter.
-*BillForward::PricingcomponentvaluechangesApi* | [**get_pricing_component_value_change_by_component_id**](docs/PricingcomponentvaluechangesApi.md#get_pricing_component_value_change_by_component_id) | **GET** /pricing-component-value-changes/component-ID/{pricing-component-ID} | Returns a collection of pricing-component-value-changes, specified by the pricing-component-value-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentvaluechangesApi* | [**get_pricing_component_value_change_by_invoice_id**](docs/PricingcomponentvaluechangesApi.md#get_pricing_component_value_change_by_invoice_id) | **GET** /pricing-component-value-changes/invoice/{invoice-ID} | Returns a collection of pricing-component-value-changes, specified by the invoice-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentvaluechangesApi* | [**get_pricing_component_value_change_by_subscription_id**](docs/PricingcomponentvaluechangesApi.md#get_pricing_component_value_change_by_subscription_id) | **GET** /pricing-component-value-changes/subscription/{subscription-ID} | Returns a collection of pricing-component-value-changes, specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentvaluesApi* | [**create_pricing_component_value**](docs/PricingcomponentvaluesApi.md#create_pricing_component_value) | **POST** /pricing-component-values | Create a pricing-component-value.
-*BillForward::PricingcomponentvaluesApi* | [**get_all_pricing_component_values**](docs/PricingcomponentvaluesApi.md#get_all_pricing_component_values) | **GET** /pricing-component-values | Returns a collection of pricing-component-values.By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentvaluesApi* | [**get_pricing_component_value**](docs/PricingcomponentvaluesApi.md#get_pricing_component_value) | **GET** /pricing-component-values/{pricing-component-ID} | Returns a collection of pricing-component-values, specified by the pricing-component-ID parameter.By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentvaluesApi* | [**get_pricing_component_value_by_subscription_id**](docs/PricingcomponentvaluesApi.md#get_pricing_component_value_by_subscription_id) | **GET** /pricing-component-values/subscription/{subscription-ID} | Returns a collection of pricing-component-values, specified by the subscription-ID parameter.By default 10 values are returned. Records are returned in natural order.
-*BillForward::PricingcomponentvaluesApi* | [**update_pricing_component_value**](docs/PricingcomponentvaluesApi.md#update_pricing_component_value) | **PUT** /pricing-component-values | Update a pricing-component-value.
-*BillForward::ProductrateplansApi* | [**add_taxation_strategy_to_rate_plan**](docs/ProductrateplansApi.md#add_taxation_strategy_to_rate_plan) | **POST** /product-rate-plans/{product-rate-plan-ID}/tax | Adds or re-enables the specified taxation-strategy for the given product-rate-plan.
-*BillForward::ProductrateplansApi* | [**create_rate_plan**](docs/ProductrateplansApi.md#create_rate_plan) | **POST** /product-rate-plans | Create a new rate-plan.
-*BillForward::ProductrateplansApi* | [**delete_metadata_for_rate_plan**](docs/ProductrateplansApi.md#delete_metadata_for_rate_plan) | **DELETE** /product-rate-plans/{product-rate-plan-ID}/metadata | Remove any associated metadata.
-*BillForward::ProductrateplansApi* | [**get_all_rate_plans**](docs/ProductrateplansApi.md#get_all_rate_plans) | **GET** /product-rate-plans | Returns a collection of product-rate-plans. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ProductrateplansApi* | [**get_available_taxation_strategies_for_rate_plan**](docs/ProductrateplansApi.md#get_available_taxation_strategies_for_rate_plan) | **GET** /product-rate-plans/{product-rate-plan-ID}/tax | Returns all available taxes for the specified product-rate-plan. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ProductrateplansApi* | [**get_metadata_for_rate_plan**](docs/ProductrateplansApi.md#get_metadata_for_rate_plan) | **GET** /product-rate-plans/{product-rate-plan-ID}/metadata | Retrieve any associated metadata.
-*BillForward::ProductrateplansApi* | [**get_product_rate_plan_by_id**](docs/ProductrateplansApi.md#get_product_rate_plan_by_id) | **GET** /product-rate-plans/{product-rate-plan-ID} | Returns product-rate-plans, specified by the product-rate-plan id or name.
-*BillForward::ProductrateplansApi* | [**get_rate_plan_by_product**](docs/ProductrateplansApi.md#get_rate_plan_by_product) | **GET** /product-rate-plans/product/{product-ID} | Returns a collection of product-rate-plans, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ProductrateplansApi* | [**get_rate_plan_by_product_and_rate_plan**](docs/ProductrateplansApi.md#get_rate_plan_by_product_and_rate_plan) | **GET** /product-rate-plans/product/{product-ID}/rate-plan/{rate-plan-ID} | Returns a collection of product-rate-plans, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ProductrateplansApi* | [**remove_taxation_strategy_from_rate_plan**](docs/ProductrateplansApi.md#remove_taxation_strategy_from_rate_plan) | **DELETE** /product-rate-plans/{product-rate-plan-ID}/tax/{taxation-strategy-ID} | Removes the specified taxation-strategy for the given product-rate-plan.
-*BillForward::ProductrateplansApi* | [**retire_rate_plan**](docs/ProductrateplansApi.md#retire_rate_plan) | **DELETE** /product-rate-plans/{product-rate-plan-ID} | Retires the product-rate-plan specified product-rate-plan-ID.
-*BillForward::ProductrateplansApi* | [**set_metadata_for_rate_plan**](docs/ProductrateplansApi.md#set_metadata_for_rate_plan) | **POST** /product-rate-plans/{product-rate-plan-ID}/metadata | Remove any existing metadata keys and create the provided data.
-*BillForward::ProductrateplansApi* | [**update_rate_plan**](docs/ProductrateplansApi.md#update_rate_plan) | **PUT** /product-rate-plans | Update a rate-plan.
-*BillForward::ProductrateplansApi* | [**upsert_metadata_for_rate_plan**](docs/ProductrateplansApi.md#upsert_metadata_for_rate_plan) | **PUT** /product-rate-plans/{product-rate-plan-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
-*BillForward::ProductsApi* | [**create_product**](docs/ProductsApi.md#create_product) | **POST** /products | Create a product.
-*BillForward::ProductsApi* | [**delete_metadata_for_product**](docs/ProductsApi.md#delete_metadata_for_product) | **DELETE** /products/{product-ID}/metadata | Remove any associated metadata.
-*BillForward::ProductsApi* | [**get_all_products**](docs/ProductsApi.md#get_all_products) | **GET** /products | Returns a collection of products. By default 10 values are returned. Records are returned in natural order.
-*BillForward::ProductsApi* | [**get_metadata_for_product**](docs/ProductsApi.md#get_metadata_for_product) | **GET** /products/{product-ID}/metadata | Retrieve any associated metadata.
-*BillForward::ProductsApi* | [**get_product_by_id**](docs/ProductsApi.md#get_product_by_id) | **GET** /products/{product-ID} | Returns a single product, specified by the product-ID parameter.
-*BillForward::ProductsApi* | [**retire_product**](docs/ProductsApi.md#retire_product) | **DELETE** /products/{product-ID} | Deletes the product specified by the product-ID parameter. Any existing subscriptions will continue; it is a soft delete.
-*BillForward::ProductsApi* | [**set_metadata_for_product**](docs/ProductsApi.md#set_metadata_for_product) | **POST** /products/{product-ID}/metadata | Remove any existing metadata keys and create the provided data.
-*BillForward::ProductsApi* | [**update_product**](docs/ProductsApi.md#update_product) | **PUT** /products | Update a product.
-*BillForward::ProductsApi* | [**upsert_metadata_for_product**](docs/ProductsApi.md#upsert_metadata_for_product) | **PUT** /products/{product-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
-*BillForward::ProfilesApi* | [**get_all_profiles**](docs/ProfilesApi.md#get_all_profiles) | **GET** /profiles | Returns a collection of all profiles. By default 10 values are returned. Records are returned in natural order
-*BillForward::ProfilesApi* | [**get_profile**](docs/ProfilesApi.md#get_profile) | **GET** /profiles/{profile-ID} | Returns a single profile, specified by the ID parameter.
-*BillForward::ProfilesApi* | [**get_profile_by_account_id**](docs/ProfilesApi.md#get_profile_by_account_id) | **GET** /profiles/account/{account-ID} | Returns a collection of profiles, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order
-*BillForward::ProfilesApi* | [**get_profile_by_email_address**](docs/ProfilesApi.md#get_profile_by_email_address) | **GET** /profiles/email/{email} | Returns a single profile, specified by the email parameter.
-*BillForward::ProfilesApi* | [**update_profile**](docs/ProfilesApi.md#update_profile) | **PUT** /profiles | Update a profile
-*BillForward::QuotesApi* | [**quote**](docs/QuotesApi.md#quote) | **POST** /quotes | Returns a quote.
-*BillForward::ReceiptsApi* | [**create_receipt**](docs/ReceiptsApi.md#create_receipt) | **POST** /receipts | Create a receipt.
-*BillForward::ReceiptsApi* | [**get_all_receipts**](docs/ReceiptsApi.md#get_all_receipts) | **GET** /receipts | Returns a collection of all receipts. By default 10 values are returned. receipts are returned in natural order
-*BillForward::ReceiptsApi* | [**get_receipt_by_id**](docs/ReceiptsApi.md#get_receipt_by_id) | **GET** /receipts/{receipt-ID} | Returns a single receipt, specified by the ID parameter.
-*BillForward::ReceiptsApi* | [**get_receipts_by_invoice**](docs/ReceiptsApi.md#get_receipts_by_invoice) | **GET** /receipts/invoice/{invoice-ID} | Returns a receipt for the receipt payment.
-*BillForward::ReceiptsApi* | [**get_receipts_by_payment**](docs/ReceiptsApi.md#get_receipts_by_payment) | **GET** /receipts/payment/{payment-ID} | Returns a collection of receipts for the payment.
-*BillForward::ReceiptsApi* | [**get_receipts_for_debit_payments_as_csv**](docs/ReceiptsApi.md#get_receipts_for_debit_payments_as_csv) | **GET** /receipts/debits.csv | Retrieves debit payments in CSV format.
-*BillForward::ReceiptsApi* | [**get_receipts_for_refund_payments_as_csv**](docs/ReceiptsApi.md#get_receipts_for_refund_payments_as_csv) | **GET** /receipts/refunds.csv | Retrieves refunded payments in CSV format.
-*BillForward::RefundsApi* | [**create_refund**](docs/RefundsApi.md#create_refund) | **POST** /refunds | <p>When creating a refund either the invoice, or invoice payment must be specified.</p><p>Creating a refund by specifying the invoiceID will refund any un-refunded value up to the full value of the payment. When refunding via the invoicePaymentID the same rules apply. Refunds will be processed by the same payment methods that took the payment.</p><p>Refunds can be for a partial amount of the payment. It is possible to create refunds up to the value of the total payment.</p><p>Once a payment or invoice is fully refunded, no more refunds can be created. Errors will be returned if the payment is greater than available refund funds.</p>
-*BillForward::RefundsApi* | [**get_all_refunds**](docs/RefundsApi.md#get_all_refunds) | **GET** /refunds | Returns a collection of all refunds. By default 10 values are returned. Refunds are returned in natural order
-*BillForward::RefundsApi* | [**get_refund_by_id**](docs/RefundsApi.md#get_refund_by_id) | **GET** /refunds/{refund-ID} | Returns a single refund, specified by the ID parameter.
-*BillForward::RefundsApi* | [**get_refund_for_original_payment**](docs/RefundsApi.md#get_refund_for_original_payment) | **GET** /refunds/original-payment/{payment-ID} | Returns a refund for the original payment.
-*BillForward::RefundsApi* | [**get_refund_for_refund_payment**](docs/RefundsApi.md#get_refund_for_refund_payment) | **GET** /refunds/refund-payment/{payment-ID} | Returns a refund for the refund payment.
-*BillForward::RefundsApi* | [**get_refund_for_refunded_invoice**](docs/RefundsApi.md#get_refund_for_refunded_invoice) | **GET** /refunds/invoice/{invoice-ID} | Returns a refund for the refund payment.
-*BillForward::RefundsApi* | [**get_refunds_as_csv**](docs/RefundsApi.md#get_refunds_as_csv) | **GET** /refunds/csv | Retrieves refunds in CSV format.
-*BillForward::RefundsApi* | [**update_refund**](docs/RefundsApi.md#update_refund) | **PUT** /refunds | Update a refund
-*BillForward::RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /roles | Create a new role.
-*BillForward::RolesApi* | [**get_all_roles**](docs/RolesApi.md#get_all_roles) | **GET** /roles | Retrieves a collection of all roles. By default 10 values are returned. Records are returned in natural order.
-*BillForward::RolesApi* | [**get_role_by_id**](docs/RolesApi.md#get_role_by_id) | **GET** /roles/{role} | Retrieves a single role, specified by the ID parameter.
-*BillForward::RolesApi* | [**remove_permission_from_role**](docs/RolesApi.md#remove_permission_from_role) | **DELETE** /roles/{role}/permission/{resource}/{action} | Revokes a particular permission
-*BillForward::RolesApi* | [**revoke_role**](docs/RolesApi.md#revoke_role) | **DELETE** /roles/{role} | Revokes a role
-*BillForward::RolesApi* | [**update_role**](docs/RolesApi.md#update_role) | **PUT** /roles | Update a role.
-*BillForward::SearchApi* | [**perform_search**](docs/SearchApi.md#perform_search) | **GET** /search/{query-string} | Returns the results of the global search specified by the query-string.
-*BillForward::SubscriptionsApi* | [**add_charge_to_subscription**](docs/SubscriptionsApi.md#add_charge_to_subscription) | **POST** /subscriptions/{subscription-ID}/charge | Creates a charge on the specified subscription.
-*BillForward::SubscriptionsApi* | [**add_coupon_to_subscription**](docs/SubscriptionsApi.md#add_coupon_to_subscription) | **POST** /subscriptions/{subscription-ID}/coupons | Applies a coupon to a subscription.
-*BillForward::SubscriptionsApi* | [**add_credit_note_to_subscription**](docs/SubscriptionsApi.md#add_credit_note_to_subscription) | **POST** /subscriptions/{subscription-ID}/credit | Creates a credit-note which may be used by only the specified subscription.
-*BillForward::SubscriptionsApi* | [**add_payment_method_to_subscription**](docs/SubscriptionsApi.md#add_payment_method_to_subscription) | **POST** /subscriptions/{subscription-ID}/payment-methods | Enables the payment method to pay invoices of this subscription.
-*BillForward::SubscriptionsApi* | [**advance_subscription**](docs/SubscriptionsApi.md#advance_subscription) | **POST** /subscriptions/{subscription-ID}/advance | Advance the subscription through time.
-*BillForward::SubscriptionsApi* | [**available_payment_methods_for_subscription**](docs/SubscriptionsApi.md#available_payment_methods_for_subscription) | **GET** /subscriptions/{subscription-ID}/payment-methods | Returns all available payment methods for the specified subscription. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**batch_create_subscriptions**](docs/SubscriptionsApi.md#batch_create_subscriptions) | **POST** /subscriptions/batch | Create multiple subscriptions.
-*BillForward::SubscriptionsApi* | [**cancel_subscription**](docs/SubscriptionsApi.md#cancel_subscription) | **POST** /subscriptions/{subscription-ID}/cancel | Retires the subscription specified by the subscription-ID parameter. Retiring a subscription causes it to cancel based on the specified retirement settings for the product.
-*BillForward::SubscriptionsApi* | [**create_aggregating_subscription**](docs/SubscriptionsApi.md#create_aggregating_subscription) | **POST** /subscriptions/aggregating | Create an aggregating subscription.
-*BillForward::SubscriptionsApi* | [**create_subscription**](docs/SubscriptionsApi.md#create_subscription) | **POST** /subscriptions | Create a new subscription.
-*BillForward::SubscriptionsApi* | [**create_subscription_v2**](docs/SubscriptionsApi.md#create_subscription_v2) | **POST** /subscriptions/create | Create a subscription (V2).
-*BillForward::SubscriptionsApi* | [**create_timer**](docs/SubscriptionsApi.md#create_timer) | **POST** /subscriptions/{subscription-ID}/timer | Create a timer for a subscription event.
-*BillForward::SubscriptionsApi* | [**delete_metadata_for_subscription**](docs/SubscriptionsApi.md#delete_metadata_for_subscription) | **DELETE** /subscriptions/{subscription-ID}/metadata | Remove any associated metadata.
-*BillForward::SubscriptionsApi* | [**freeze_subscription**](docs/SubscriptionsApi.md#freeze_subscription) | **POST** /subscriptions/{subscription-ID}/freeze | Freeze the subscription.
-*BillForward::SubscriptionsApi* | [**get_all_subscriptions**](docs/SubscriptionsApi.md#get_all_subscriptions) | **GET** /subscriptions | Retrieves a collection of all subscriptions. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_applicable_coupons_for_subscription**](docs/SubscriptionsApi.md#get_applicable_coupons_for_subscription) | **GET** /subscriptions/{subscription-ID}/applicable-coupons | Retrieves a collection of the coupons which can be applied to this subscription.
-*BillForward::SubscriptionsApi* | [**get_available_credit_subscription**](docs/SubscriptionsApi.md#get_available_credit_subscription) | **GET** /subscriptions/{subscription-ID}/credit | Returns all available credit-notes for the specified subscription. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_charges_on_subscription**](docs/SubscriptionsApi.md#get_charges_on_subscription) | **GET** /subscriptions/{subscription-ID}/charges | Returns all charges for the specified subscription. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_children_of_subscription**](docs/SubscriptionsApi.md#get_children_of_subscription) | **GET** /subscriptions/{subscription-ID}/children | Return all entities whose invoices will be aggregated by the specified subscription By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_coupons_on_subscription**](docs/SubscriptionsApi.md#get_coupons_on_subscription) | **GET** /subscriptions/{subscription-ID}/coupons | Retrieves a collection of the coupons and the unique codes currently applied to the subscription.
-*BillForward::SubscriptionsApi* | [**get_invoices_for_subscription_by_state**](docs/SubscriptionsApi.md#get_invoices_for_subscription_by_state) | **GET** /subscriptions/{subscriptionID}/invoices/{state} | Retrieves a collection of invoice objects of the specified state for the given subscription. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_metadata_for_subscription**](docs/SubscriptionsApi.md#get_metadata_for_subscription) | **GET** /subscriptions/{subscription-ID}/metadata | Retrieve any associated metadata.
-*BillForward::SubscriptionsApi* | [**get_parent_subscription**](docs/SubscriptionsApi.md#get_parent_subscription) | **GET** /subscriptions/{subscription-ID}/parent | Return the parent of the given subscription.
-*BillForward::SubscriptionsApi* | [**get_pricing_component_values_of_subscription**](docs/SubscriptionsApi.md#get_pricing_component_values_of_subscription) | **GET** /subscriptions/{subscription-ID}/values | Gets the subscription's current pricing-component values.
-*BillForward::SubscriptionsApi* | [**get_subscription_by_account_id**](docs/SubscriptionsApi.md#get_subscription_by_account_id) | **GET** /subscriptions/account/{account-ID} | Retrieves a collection of subscriptions, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_subscription_by_id**](docs/SubscriptionsApi.md#get_subscription_by_id) | **GET** /subscriptions/{subscription-ID} | Retrieves a single subscription, specified by the ID parameter.
-*BillForward::SubscriptionsApi* | [**get_subscription_by_product_id**](docs/SubscriptionsApi.md#get_subscription_by_product_id) | **GET** /subscriptions/product/{product-ID} | Retrieves a collection of subscriptions, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_subscription_by_product_rate_plan_id**](docs/SubscriptionsApi.md#get_subscription_by_product_rate_plan_id) | **GET** /subscriptions/product-rate-plan/{product-rate-plan-ID} | Retrieves a collection of subscriptions, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_subscription_by_state**](docs/SubscriptionsApi.md#get_subscription_by_state) | **GET** /subscriptions/state/{state} | Retrieves a collection of subscriptions, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_subscription_by_version_id**](docs/SubscriptionsApi.md#get_subscription_by_version_id) | **GET** /subscriptions/version/{version-ID} | Retrieves a single subscription, specified by the version-ID parameter.
-*BillForward::SubscriptionsApi* | [**get_subscriptions_by_initial_period_start**](docs/SubscriptionsApi.md#get_subscriptions_by_initial_period_start) | **GET** /subscriptions/initial-period-start/{lower-threshold}/{upper-threshold} | Retrieves a collection of subscription objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_subscriptions_by_period_end**](docs/SubscriptionsApi.md#get_subscriptions_by_period_end) | **GET** /subscriptions/period-end/{lower-threshold}/{upper-threshold} | Retrieves a collection of subscription objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_subscriptions_by_period_start**](docs/SubscriptionsApi.md#get_subscriptions_by_period_start) | **GET** /subscriptions/period-start/{lower-threshold}/{upper-threshold} | Retrieves a collection of subscription objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_subscriptions_by_successful_periods**](docs/SubscriptionsApi.md#get_subscriptions_by_successful_periods) | **GET** /subscriptions/successful-periods/{lower-threshold}/{upper-threshold} | Retrieves a collection of subscription objects whose successful periods count falls within the range specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**get_swagger_subscription**](docs/SubscriptionsApi.md#get_swagger_subscription) | **GET** /subscriptions/swagger-end-point/{query-string} | 
-*BillForward::SubscriptionsApi* | [**get_timers_for_subscription**](docs/SubscriptionsApi.md#get_timers_for_subscription) | **GET** /subscriptions/{subscription-ID}/timer | Retrieves a collection timer amendments for the specified subscription.. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SubscriptionsApi* | [**import_subscription**](docs/SubscriptionsApi.md#import_subscription) | **POST** /subscriptions/import | Import a subscription.
-*BillForward::SubscriptionsApi* | [**invoice_charges_on_subscription**](docs/SubscriptionsApi.md#invoice_charges_on_subscription) | **POST** /subscriptions/{subscription-ID}/invoice-charges | Invoice any outstanding charges for the subscription.
-*BillForward::SubscriptionsApi* | [**migrate_subscription**](docs/SubscriptionsApi.md#migrate_subscription) | **POST** /subscriptions/{subscription-ID}/migrate | Migrate the subscription to a new plan.
-*BillForward::SubscriptionsApi* | [**remove_coupon_from_subscription**](docs/SubscriptionsApi.md#remove_coupon_from_subscription) | **DELETE** /subscriptions/{subscription-ID}/coupons/{coupon-code} | Removes the coupon from the subscription.
-*BillForward::SubscriptionsApi* | [**remove_credit_from_subscription**](docs/SubscriptionsApi.md#remove_credit_from_subscription) | **DELETE** /subscriptions/{subscription-ID}/credit/{value} | Decrease the amount of credit available to the specified subscription.
-*BillForward::SubscriptionsApi* | [**remove_payment_method_from_subscription**](docs/SubscriptionsApi.md#remove_payment_method_from_subscription) | **DELETE** /subscriptions/{subscription-ID}/payment-methods/{payment-method-ID} | Removes the specified payment method for the given subscription.
-*BillForward::SubscriptionsApi* | [**remove_pricing_component_value_change_from_subscription**](docs/SubscriptionsApi.md#remove_pricing_component_value_change_from_subscription) | **DELETE** /subscriptions/{subscription-ID}/values/{pricing-component} | Discards from the subscription any scheduled changes in the value of the specified pricing-component.
-*BillForward::SubscriptionsApi* | [**resume_subscription**](docs/SubscriptionsApi.md#resume_subscription) | **POST** /subscriptions/{subscription-ID}/resume | Resume the frozen subscription.
-*BillForward::SubscriptionsApi* | [**revive_subscription**](docs/SubscriptionsApi.md#revive_subscription) | **POST** /subscriptions/{subscription-ID}/revive | Revives a cancelled subscription and returns it to its previous state
-*BillForward::SubscriptionsApi* | [**set_metadata_for_subscription**](docs/SubscriptionsApi.md#set_metadata_for_subscription) | **POST** /subscriptions/{subscription-ID}/metadata | Remove any existing metadata keys and create the provided data.
-*BillForward::SubscriptionsApi* | [**set_pricing_component_value_on_subscription**](docs/SubscriptionsApi.md#set_pricing_component_value_on_subscription) | **POST** /subscriptions/{subscription-ID}/pricing-component-values | Sets upon this subscription a new value for the specified pricing-component without performing an upgrade.
-*BillForward::SubscriptionsApi* | [**set_pricing_component_value_on_subscription_batch_update**](docs/SubscriptionsApi.md#set_pricing_component_value_on_subscription_batch_update) | **POST** /subscriptions/{subscription-ID}/values | Upgrades/downgrades this subscription to some new value for the specified pricing-component. This endpoint can do synchronous (immediate) and asynchronous (delayed) updates. A synchronous update will generate a charge/credit for an UPGRADE or DOWNGRADE. An asynchronous update will generate an amendment scheduled for the end of the billing period. By default each update is considered synchronous, you can make them asynchronous setting 'applyChangeNow' to 'false'.
-*BillForward::SubscriptionsApi* | [**set_pricing_component_value_on_subscription_v2**](docs/SubscriptionsApi.md#set_pricing_component_value_on_subscription_v2) | **POST** /subscriptions/{subscription-ID}/values/{pricing-component} | Upgrades/downgrades this subscription to some new value for the specified pricing-component.
-*BillForward::SubscriptionsApi* | [**update_subscription**](docs/SubscriptionsApi.md#update_subscription) | **PUT** /subscriptions | Update a subscription.
-*BillForward::SubscriptionsApi* | [**update_subscription_v2**](docs/SubscriptionsApi.md#update_subscription_v2) | **PUT** /subscriptions/update | Update a subscription (V2).
-*BillForward::SubscriptionsApi* | [**upsert_metadata_for_subscription**](docs/SubscriptionsApi.md#upsert_metadata_for_subscription) | **PUT** /subscriptions/{subscription-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
-*BillForward::SynchAppConfigsApi* | [**create_sync_app_config**](docs/SynchAppConfigsApi.md#create_sync_app_config) | **POST** /synchAppConfigs | Create a synch app configuration.
-*BillForward::SynchAppConfigsApi* | [**get_sync_app_config**](docs/SynchAppConfigsApi.md#get_sync_app_config) | **GET** /synchAppConfigs/{synchAppConfigs-ID} | Returns a single config, specified by the ID parameter.
-*BillForward::SynchAppConfigsApi* | [**get_sync_app_config_by_platform**](docs/SynchAppConfigsApi.md#get_sync_app_config_by_platform) | **GET** /synchAppConfigs/platform/{platform} | Returns a collection configurations, specified by the platform parameter.
-*BillForward::SynchAppConfigsApi* | [**update_sync_app_config**](docs/SynchAppConfigsApi.md#update_sync_app_config) | **PUT** /synchAppConfigs | Update a synch app configuration.
-*BillForward::SynchConfigsApi* | [**create_sync_config**](docs/SynchConfigsApi.md#create_sync_config) | **POST** /synchConfigs | Create a synch configuration.
-*BillForward::SynchConfigsApi* | [**get_all_sync_configs**](docs/SynchConfigsApi.md#get_all_sync_configs) | **GET** /synchConfigs | Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SynchConfigsApi* | [**get_sync_config**](docs/SynchConfigsApi.md#get_sync_config) | **GET** /synchConfigs/{synchConfigs-ID} | Returns a single config, specified by the ID parameter.
-*BillForward::SynchConfigsApi* | [**get_sync_config_by_platform**](docs/SynchConfigsApi.md#get_sync_config_by_platform) | **GET** /synchConfigs/platform/{platform} | Returns a collection configurations, specified by the platform parameter.
-*BillForward::SynchConfigsApi* | [**get_sync_config_by_username**](docs/SynchConfigsApi.md#get_sync_config_by_username) | **GET** /synchConfigs/username/{username} | Returns a collection configurations, specified by the username parameter.
-*BillForward::SynchConfigsApi* | [**update_sync_config**](docs/SynchConfigsApi.md#update_sync_config) | **PUT** /synchConfigs | Update a synch configuration.
-*BillForward::SynchJobsApi* | [**create_sync_job**](docs/SynchJobsApi.md#create_sync_job) | **POST** /synchJobs | Create a synch job.
-*BillForward::SynchJobsApi* | [**get_all_sync_jobs**](docs/SynchJobsApi.md#get_all_sync_jobs) | **GET** /synchJobs | Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
-*BillForward::SynchJobsApi* | [**get_sync_job_by_id**](docs/SynchJobsApi.md#get_sync_job_by_id) | **GET** /synchJobs/{synchJob-ID} | Returns a single job, specified by the ID parameter.
-*BillForward::SynchJobsApi* | [**get_sync_job_by_scope**](docs/SynchJobsApi.md#get_sync_job_by_scope) | **GET** /synchJobs/scope/{scope} | Returns a collection jobs, specified by the scope parameter.
-*BillForward::SynchJobsApi* | [**get_sync_job_by_state**](docs/SynchJobsApi.md#get_sync_job_by_state) | **GET** /synchJobs/state/{state} | Returns a collection jobs, specified by the state parameter.
-*BillForward::SynchJobsApi* | [**get_sync_job_by_target**](docs/SynchJobsApi.md#get_sync_job_by_target) | **GET** /synchJobs/target/{target} | Returns a collection jobs, specified by the target parameter.
-*BillForward::SynchJobsApi* | [**get_sync_job_by_type**](docs/SynchJobsApi.md#get_sync_job_by_type) | **GET** /synchJobs/type/{type} | Returns a collection jobs, specified by the type parameter.
-*BillForward::SynchJobsApi* | [**update_sync_job**](docs/SynchJobsApi.md#update_sync_job) | **PUT** /synchJobs | Update a synch job.
-*BillForward::TaxationlinksApi* | [**create_taxation_link**](docs/TaxationlinksApi.md#create_taxation_link) | **POST** /taxation-links | Create
-*BillForward::TaxationlinksApi* | [**get_all_taxation_links**](docs/TaxationlinksApi.md#get_all_taxation_links) | **GET** /taxation-links | Returns a collection of all taxation-links. By default 10 values are returned. Records are returned in natural order.
-*BillForward::TaxationlinksApi* | [**get_taxation_link_by_id**](docs/TaxationlinksApi.md#get_taxation_link_by_id) | **GET** /taxation-links/{taxation-link-ID} | Returns a single taxation-link, specified by the taxation-link-ID parameter.
-*BillForward::TaxationlinksApi* | [**get_taxation_link_by_product_rate_plan**](docs/TaxationlinksApi.md#get_taxation_link_by_product_rate_plan) | **GET** /taxation-links/product-rate-plan/{product-rate-plan-ID} | Returns a collection of taxation-links, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::TaxationlinksApi* | [**get_taxation_link_by_taxation_strategy**](docs/TaxationlinksApi.md#get_taxation_link_by_taxation_strategy) | **GET** /taxation-links/taxation-strategy/{taxation-strategy-ID} | Returns a collection of taxation-links, specified by the taxation-strategy-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::TaxationlinksApi* | [**update_taxation_link**](docs/TaxationlinksApi.md#update_taxation_link) | **PUT** /taxation-links | Update
-*BillForward::TaxationstrategiesApi* | [**create_taxation_strategy**](docs/TaxationstrategiesApi.md#create_taxation_strategy) | **POST** /taxation-strategies | <p>Add a new tax or schedule changes in an existing tax.</p><p>Add a new tax by providing the location and tax percentage. To schedule a tax change specify the ID of the current Tax. A new version of the will be created <i>validFrom</i> the specified date, the existing tax <i>validTill</i> the start of this new tax.</p>
-*BillForward::TaxationstrategiesApi* | [**get_all_taxation_strategies**](docs/TaxationstrategiesApi.md#get_all_taxation_strategies) | **GET** /taxation-strategies | Returns a collection of all taxation-strategies. By default 10 values are returned. Records are returned in natural order.
-*BillForward::TaxationstrategiesApi* | [**get_taxation_strategy_by_consistent_id**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_consistent_id) | **GET** /taxation-strategies/{taxation-strategy-ID} | Returns the tax currently being applied for the taxation-strategy-ID. To return schedule or historic tax changes the include_retired query parameter should be set to true.
-*BillForward::TaxationstrategiesApi* | [**get_taxation_strategy_by_country**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_country) | **GET** /taxation-strategies/country/{country} | Returns a collection of taxation-strategies, specified by the country parameter. By default 10 values are returned. Records are returned in natural order. To return schedule or historic tax changes the include_retired query parameter should be set to true.
-*BillForward::TaxationstrategiesApi* | [**get_taxation_strategy_by_currency**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_currency) | **GET** /taxation-strategies/currency/{currency} | Returns a collection of taxation-strategies, specified by the currency parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::TaxationstrategiesApi* | [**get_taxation_strategy_by_province**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_province) | **GET** /taxation-strategies/province/{province} | Returns a collection of taxation-strategies, specified by the province parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::TaxationstrategiesApi* | [**get_taxation_strategy_by_version_id**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_version_id) | **GET** /taxation-strategies/version/{version-ID} | Returns a single taxation-strategy, specified by the taxation-strategy-ID parameter.
-*BillForward::TaxationstrategiesApi* | [**retire_taxation_strategy**](docs/TaxationstrategiesApi.md#retire_taxation_strategy) | **DELETE** /taxation-strategies/version/{version-ID} | Retires the taxation-strategy specified by taxation-strategy-ID parameter. Only the version of the tax which has an unbounded (null) validTill can be removed. Removing a tax change will make the previous tax come into effect. For example if you have a Tax in January and 5% and a new tax at 7% from February onwards, you can remove the February tax. Remove the February tax will re-instate the January tax.
-*BillForward::TaxationstrategiesApi* | [**update_taxation_strategy**](docs/TaxationstrategiesApi.md#update_taxation_strategy) | **PUT** /taxation-strategies | Update a tax.
-*BillForward::TimeApi* | [**get_time_swagger**](docs/TimeApi.md#get_time_swagger) | **GET** /time/swagger-end-point | 
-*BillForward::TokenizationApi* | [**auth_capture**](docs/TokenizationApi.md#auth_capture) | **POST** /tokenization/auth-capture | [Note: this API can be invoked more simply by our client-side card capture library, <a href=\"https://github.com/billforward/billforward-js\">BillForward.js</a>; you should not need to interact with this API manually unless you have particularly bespoke requirements] 
-*BillForward::TokenizationApi* | [**braintree_card_capture**](docs/TokenizationApi.md#braintree_card_capture) | **POST** /tokenization/braintree | [Warning: for use only in PCI-compliant environments; for more information, <a href=\"mailto:support@billforward.net\">contact us</a> regarding provisioning of your own on-premise BillForward instance] Captures raw credit card details into Braintree's vault.
-*BillForward::TokenizationApi* | [**pay_vision_shout_v1**](docs/TokenizationApi.md#pay_vision_shout_v1) | **POST** /tokenization/payvision-shout-v1 | [Note: this API is intended to be invoked by the PayVision servers -- they are BillForward's way of informing client-side of the result of card-capture from within an iframe] Generates iframe to which customer will be directed upon success or failure. The iframe contains JavaScript which attempts to send a message to BillForward.js on the client-side, which will handle the result.
-*BillForward::TokenizationApi* | [**pre_auth**](docs/TokenizationApi.md#pre_auth) | **POST** /tokenization/pre-auth | [Note: this API can be invoked more simply by our client-side card capture library, <a href=\"https://github.com/billforward/billforward-js\">BillForward.js</a>; you should not need to interact with this API manually unless you have particularly bespoke requirements] 
-*BillForward::TokenizationApi* | [**sage_pay_notify_v300**](docs/TokenizationApi.md#sage_pay_notify_v300) | **POST** /tokenization/sagepay-notify-v3-00 | [Note: this API is intended to be invoked by the SagePay servers -- they are BillForward's way of receiving a callback from a SagePay card capture operation, using SagePay's FORM Protocol, v3.0] Handles SagePay Notification.
-*BillForward::TokenizationApi* | [**sage_pay_shout_v300**](docs/TokenizationApi.md#sage_pay_shout_v300) | **GET** /tokenization/sagepay-shout-v3-00 | [Note: this API is intended to be invoked by the SagePay servers -- they are BillForward's way of informing client-side of the result of card-capture from within an iframe, using SagePay's FORM Protocol, v3.0] Generates iframe to which customer will be directed upon success or failure. The iframe contains JavaScript which attempts to send a message to BillForward.js on the client-side, which will handle the result.
-*BillForward::UnitofmeasureApi* | [**create_unit_of_measure**](docs/UnitofmeasureApi.md#create_unit_of_measure) | **POST** /units-of-measure | Create a unit-of-measure.
-*BillForward::UnitofmeasureApi* | [**get_all_units_of_measure**](docs/UnitofmeasureApi.md#get_all_units_of_measure) | **GET** /units-of-measure | Returns a collection of all unit-of-measure objects. By default 10 values are returned. Records are returned in natural order.
-*BillForward::UnitofmeasureApi* | [**get_unit_of_measure_by_id**](docs/UnitofmeasureApi.md#get_unit_of_measure_by_id) | **GET** /units-of-measure/{unit-of-measure-identifier} | Returns a single unit-of-measure corresponding to the unique id or name specified.
-*BillForward::UnitofmeasureApi* | [**update_unit_of_measure**](docs/UnitofmeasureApi.md#update_unit_of_measure) | **PUT** /units-of-measure | Update a unit-of-measure.
-*BillForward::UsageApi* | [**create_usage_instance**](docs/UsageApi.md#create_usage_instance) | **POST** /usage | Add usage
-*BillForward::UsageApi* | [**get_usage_by_id**](docs/UsageApi.md#get_usage_by_id) | **GET** /usage/{subscription-id}/{period-id} | Retrieve by subscription and period
-*BillForward::UsageApi* | [**get_usage_by_subscription_id**](docs/UsageApi.md#get_usage_by_subscription_id) | **GET** /usage/{subscription-id} | Retrieve by subscription
-*BillForward::UsageApi* | [**get_usage_by_subscription_id_uo_m_period_and_usage_type**](docs/UsageApi.md#get_usage_by_subscription_id_uo_m_period_and_usage_type) | **GET** /usage/{subscription-id}/{uom}/{period-id}/{usage-type} | Retrieve by subscription, period and type
-*BillForward::UsageApi* | [**update_usage_instance**](docs/UsageApi.md#update_usage_instance) | **PUT** /usage | Update usage
-*BillForward::UsageperiodsApi* | [**get_usage_period**](docs/UsageperiodsApi.md#get_usage_period) | **GET** /usage-periods/{subscription-id}/{period-id} | Retrieve by subscription and period
-*BillForward::UsageperiodsApi* | [**get_usage_period_for_all**](docs/UsageperiodsApi.md#get_usage_period_for_all) | **GET** /usage-periods/{subscription-id} | Retrieve by subscription
-*BillForward::UsageperiodsApi* | [**get_usage_period_for_invoice**](docs/UsageperiodsApi.md#get_usage_period_for_invoice) | **GET** /usage-periods/{subscription-id}/invoice/{invoice-id} | Retrieve by invoice)
-*BillForward::UsageroundingstrategiesApi* | [**create_usage_rounding_strategy**](docs/UsageroundingstrategiesApi.md#create_usage_rounding_strategy) | **POST** /usage-rounding-strategies | Create a new rounding strategy
-*BillForward::UsageroundingstrategiesApi* | [**get_usage_rounding_strategy_by_id**](docs/UsageroundingstrategiesApi.md#get_usage_rounding_strategy_by_id) | **GET** /usage-rounding-strategies/{usage-rounding-strategies-ID} | Returns a collection of usage-rounding-strategies, specified by the usage-rounding-strategies-id parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::UsageroundingstrategiesApi* | [**get_usage_rounding_strategy_by_pricing_component_id**](docs/UsageroundingstrategiesApi.md#get_usage_rounding_strategy_by_pricing_component_id) | **GET** /usage-rounding-strategies/pricing-component/{pricing-component-ID} | Returns a collection of usage-rounding-strategies, specified by the pricing-component-ID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::UsageroundingstrategiesApi* | [**update_usage_rounding_strategy**](docs/UsageroundingstrategiesApi.md#update_usage_rounding_strategy) | **PUT** /usage-rounding-strategies | Update a rounding strategy
-*BillForward::UsagesessionsApi* | [**get_active_sessions_for_subscription**](docs/UsagesessionsApi.md#get_active_sessions_for_subscription) | **GET** /usage-sessions/{subscription-id}/active | Get active by subscription
-*BillForward::UsagesessionsApi* | [**get_usage_list_for_usage_session**](docs/UsagesessionsApi.md#get_usage_list_for_usage_session) | **GET** /usage-sessions/{subscription-id} | Retrieve by subscription
-*BillForward::UsagesessionsApi* | [**start_usage_session**](docs/UsagesessionsApi.md#start_usage_session) | **POST** /usage-sessions/start | Start a new session
-*BillForward::UsagesessionsApi* | [**stop_usage_session**](docs/UsagesessionsApi.md#stop_usage_session) | **POST** /usage-sessions/stop | Stop a specified session
-*BillForward::UsernamesApi* | [**create_username**](docs/UsernamesApi.md#create_username) | **POST** /usernames | Create a username.
-*BillForward::UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /users | Create a user.
-*BillForward::UsersApi* | [**create_user_login**](docs/UsersApi.md#create_user_login) | **POST** /users/create-user-login | Create a user.
-*BillForward::UsersApi* | [**get_all_users**](docs/UsersApi.md#get_all_users) | **GET** /users | Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
-*BillForward::UsersApi* | [**get_user_by_id**](docs/UsersApi.md#get_user_by_id) | **GET** /users/{user-ID} | Returns a single User, specified by the ID parameter.
-*BillForward::UsersApi* | [**get_user_by_password_reset_code**](docs/UsersApi.md#get_user_by_password_reset_code) | **GET** /users/password-reset-code/{password-reset-code} | Returns a single User, specified by the password-reset-code parameter.
-*BillForward::UsersApi* | [**get_user_by_sms_password_reset_code**](docs/UsersApi.md#get_user_by_sms_password_reset_code) | **GET** /users/sms-password-reset-code/{sms-password-reset-code} | Returns a single User, specified by the sms-password-reset-code parameter.
-*BillForward::UsersApi* | [**get_user_by_username**](docs/UsersApi.md#get_user_by_username) | **GET** /users/username/{username} | Returns a single User, specified by the username parameter, this is by default the e-mail address of the user.
-*BillForward::UsersApi* | [**reset_user_password**](docs/UsersApi.md#reset_user_password) | **POST** /users/password-reset | Create a password reset request.
-*BillForward::UsersApi* | [**retire_user**](docs/UsersApi.md#retire_user) | **DELETE** /users/{user-ID} | Retires the user with the specified user-ID.
-*BillForward::UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PUT** /users | Update a user.
-*BillForward::UsersApi* | [**update_user_password**](docs/UsersApi.md#update_user_password) | **POST** /users/password-update | Update a user's password.
-*BillForward::VaultedgatewaysApi* | [**create_authorize_net_token**](docs/VaultedgatewaysApi.md#create_authorize_net_token) | **POST** /vaulted-gateways/authorize-net | Create an authorize-net-token.
-*BillForward::VaultedgatewaysApi* | [**create_braintree_token**](docs/VaultedgatewaysApi.md#create_braintree_token) | **POST** /vaulted-gateways/braintree | Create a braintree-token.
-*BillForward::VaultedgatewaysApi* | [**create_stripe_ach_token**](docs/VaultedgatewaysApi.md#create_stripe_ach_token) | **POST** /vaulted-gateways/stripe-ACH | Create a stripe-ACH-token.
-*BillForward::VaultedgatewaysApi* | [**create_stripe_token**](docs/VaultedgatewaysApi.md#create_stripe_token) | **POST** /vaulted-gateways/stripe | Create a stripe-token.
-*BillForward::VaultedgatewaysApi* | [**create_trust_commerce_token**](docs/VaultedgatewaysApi.md#create_trust_commerce_token) | **POST** /vaulted-gateways/trustCommerce | Create a trust-commerce-token.
-*BillForward::VaultedgatewaysApi* | [**get_braintree_by_account_id**](docs/VaultedgatewaysApi.md#get_braintree_by_account_id) | **GET** /vaulted-gateways/braintree/{accountID} | Returns a list of braintree-tokens backing PaymentMethods belonging to the specified account parameter.
-*BillForward::VaultedgatewaysApi* | [**get_by_card_details_id**](docs/VaultedgatewaysApi.md#get_by_card_details_id) | **GET** /vaulted-gateways/stripe/card-details-id/{cardDetailsID} | Returns a single stripe-token, specified by the cardDetailsID parameter.
-*BillForward::VaultedgatewaysApi* | [**get_stripe_ach**](docs/VaultedgatewaysApi.md#get_stripe_ach) | **GET** /vaulted-gateways/stripe-ACH/{stripeACHTokenID} | Returns a single stripe-ACH-token, specified by the stripeACHTokenID parameter.
-*BillForward::VaultedgatewaysApi* | [**get_stripe_token**](docs/VaultedgatewaysApi.md#get_stripe_token) | **GET** /vaulted-gateways/stripe/{stripeTokenID} | Returns a single stripe-token, specified by the stripeTokenID parameter.
-*BillForward::VaultedgatewaysApi* | [**update_stripe_ach_token**](docs/VaultedgatewaysApi.md#update_stripe_ach_token) | **PUT** /vaulted-gateways/stripe-ACH | Update a stripe-ACH-token.
-*BillForward::VaultedgatewaysApi* | [**update_stripe_token**](docs/VaultedgatewaysApi.md#update_stripe_token) | **PUT** /vaulted-gateways/stripe | Update a stripe-token.
-*BillForward::VaultedgatewaysApi* | [**verify_bank_account**](docs/VaultedgatewaysApi.md#verify_bank_account) | **POST** /vaulted-gateways/stripe/verify-bank-account | Verify Stripe bank account.
-*BillForward::VaultedgatewaysApi* | [**webhook**](docs/VaultedgatewaysApi.md#webhook) | **POST** /vaulted-gateways/stripe/webhook | Receive and handle webhook from Stripe.
-*BillForward::WebhooksApi* | [**create_webhook**](docs/WebhooksApi.md#create_webhook) | **POST** /webhooks | Create a webhook.
-*BillForward::WebhooksApi* | [**create_webhook_v2**](docs/WebhooksApi.md#create_webhook_v2) | **POST** /webhooks/create | Create a webhook.
-*BillForward::WebhooksApi* | [**get_all_webhooks**](docs/WebhooksApi.md#get_all_webhooks) | **GET** /webhooks | Returns a collection of Webhooks, specified by the accountID parameter. By default 10 values are returned. Records are returned in natural order.
-*BillForward::WebhooksApi* | [**get_webhook_by_id**](docs/WebhooksApi.md#get_webhook_by_id) | **GET** /webhooks/{webhook-ID} | Returns a single webhook, specified by the webhook-ID parameter.
-*BillForward::WebhooksApi* | [**retire_webhook**](docs/WebhooksApi.md#retire_webhook) | **DELETE** /webhooks/{webhook-ID} | Retires the specified webhook.
-*BillForward::WebhooksApi* | [**update_webhook**](docs/WebhooksApi.md#update_webhook) | **PUT** /webhooks | Update a webhook.
-*BillForward::WebhooksApi* | [**verify_webhook**](docs/WebhooksApi.md#verify_webhook) | **GET** /webhooks/verify/{verification-ID} | New webhooks must be verified before use, use the verificationID of the webhook to perform verification.
+*Bfwd::AccountsApi* | [**add_charge_to_account**](docs/AccountsApi.md#add_charge_to_account) | **POST** /accounts/{account-ID}/invoice | Create a manual invoice.
+*Bfwd::AccountsApi* | [**add_credit_note_to_account**](docs/AccountsApi.md#add_credit_note_to_account) | **POST** /accounts/{account-ID}/credit | Creates a credit-note which may be used by any subscription of this account.
+*Bfwd::AccountsApi* | [**add_permission_to_account**](docs/AccountsApi.md#add_permission_to_account) | **POST** /accounts/{account-ID}/roles/{role} | Add a role to the account
+*Bfwd::AccountsApi* | [**create_account**](docs/AccountsApi.md#create_account) | **POST** /accounts | Create an Account.
+*Bfwd::AccountsApi* | [**delete_account**](docs/AccountsApi.md#delete_account) | **DELETE** /accounts/{account-ID} | Delete the account specified by the account-ID parameter.
+*Bfwd::AccountsApi* | [**delete_metadata_for_account**](docs/AccountsApi.md#delete_metadata_for_account) | **DELETE** /accounts/{account-ID}/metadata | Remove any associated metadata.
+*Bfwd::AccountsApi* | [**get_account_by_id**](docs/AccountsApi.md#get_account_by_id) | **GET** /accounts/{account-ID} | Returns a single account, specified by the account-ID parameter.
+*Bfwd::AccountsApi* | [**get_accounts_by_created**](docs/AccountsApi.md#get_accounts_by_created) | **GET** /accounts/created/{lower-threshold}/{upper-threshold} | Returns a collection of account objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AccountsApi* | [**get_accounts_by_updated**](docs/AccountsApi.md#get_accounts_by_updated) | **GET** /accounts/updated/{lower-threshold}/{upper-threshold} | Returns a collection of account objects with updated times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AccountsApi* | [**get_accounts_by_user_id**](docs/AccountsApi.md#get_accounts_by_user_id) | **GET** /accounts/user/{user-ID} | Returns a collection of accounts, specified by the user-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AccountsApi* | [**get_all_accounts**](docs/AccountsApi.md#get_all_accounts) | **GET** /accounts | Returns a collection of all account objects. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AccountsApi* | [**get_available_credit_on_account**](docs/AccountsApi.md#get_available_credit_on_account) | **GET** /accounts/{account-ID}/credit | Returns all available credit-notes for the specified account. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AccountsApi* | [**get_metadata_for_account**](docs/AccountsApi.md#get_metadata_for_account) | **GET** /accounts/{account-ID}/metadata | Retrieve any associated metadata.
+*Bfwd::AccountsApi* | [**get_permissions_on_account**](docs/AccountsApi.md#get_permissions_on_account) | **GET** /accounts/{account-ID}/roles | Retrieves a collection of roles, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AccountsApi* | [**remove_credit_from_account**](docs/AccountsApi.md#remove_credit_from_account) | **DELETE** /accounts/{account-ID}/credit/{value} | Decrease the amount of credit by the value specified or entirely if no value provided.
+*Bfwd::AccountsApi* | [**remove_permission_from_account**](docs/AccountsApi.md#remove_permission_from_account) | **DELETE** /accounts/{account-ID}/roles/{role} | Revoke the specified role.
+*Bfwd::AccountsApi* | [**set_metadata_for_account**](docs/AccountsApi.md#set_metadata_for_account) | **POST** /accounts/{account-ID}/metadata | Remove any existing metadata keys and create the provided data.
+*Bfwd::AccountsApi* | [**update_account**](docs/AccountsApi.md#update_account) | **PUT** /accounts | Update an Account.
+*Bfwd::AccountsApi* | [**upsert_metadata_for_account**](docs/AccountsApi.md#upsert_metadata_for_account) | **PUT** /accounts/{account-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
+*Bfwd::AddressesApi* | [**create_address**](docs/AddressesApi.md#create_address) | **POST** /addresses | Create
+*Bfwd::AddressesApi* | [**update_address**](docs/AddressesApi.md#update_address) | **PUT** /addresses | Update
+*Bfwd::AmendmentsApi* | [**create_amendment**](docs/AmendmentsApi.md#create_amendment) | **POST** /amendments | Create an amendment.
+*Bfwd::AmendmentsApi* | [**get_all_amendments**](docs/AmendmentsApi.md#get_all_amendments) | **GET** /amendments | Returns a collection of all amendments. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AmendmentsApi* | [**get_amendment_by_id**](docs/AmendmentsApi.md#get_amendment_by_id) | **GET** /amendments/{amendment-ID} | Returns a single amendment, specified by the amendment-ID parameter.
+*Bfwd::AmendmentsApi* | [**get_amendment_by_state**](docs/AmendmentsApi.md#get_amendment_by_state) | **GET** /amendments/state/{state} | Returns a collection of amendments, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AmendmentsApi* | [**get_amendment_by_subscription_id**](docs/AmendmentsApi.md#get_amendment_by_subscription_id) | **GET** /amendments/subscription/{subscription-ID} | Returns a collection of amendments, specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AmendmentsApi* | [**get_amendment_swagger**](docs/AmendmentsApi.md#get_amendment_swagger) | **GET** /amendments/swagger-end-point/{query-string} | 
+*Bfwd::AmendmentsApi* | [**get_amendments_by_actioning_time**](docs/AmendmentsApi.md#get_amendments_by_actioning_time) | **GET** /amendments/actioning-time/{lower-threshold}/{upper-threshold} | Returns a collection of amendment objects with an actioning-time within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AmendmentsApi* | [**get_amendments_by_created_date**](docs/AmendmentsApi.md#get_amendments_by_created_date) | **GET** /amendments/created/{lower-threshold}/{upper-threshold} | Returns a collection of amendment objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AmendmentsApi* | [**get_amendments_by_updated_date**](docs/AmendmentsApi.md#get_amendments_by_updated_date) | **GET** /amendments/updated/{lower-threshold}/{upper-threshold} | Returns a collection of amendment objects with updated times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AmendmentsApi* | [**retire_amendment**](docs/AmendmentsApi.md#retire_amendment) | **DELETE** /amendments/{amendment-ID} | Retires the amendment specified by the amendment-ID parameter. Retiring a amendment causes it to cancel based on the specificed retirement settings for the product.
+*Bfwd::AmendmentsApi* | [**update_amendment**](docs/AmendmentsApi.md#update_amendment) | **PUT** /amendments | Update an amendment.
+*Bfwd::AnalyticsApi* | [**get_account_debts**](docs/AnalyticsApi.md#get_account_debts) | **POST** /analytics/payments/accounts/outstanding | Gets outstanding debts per account, within a date range.
+*Bfwd::AnalyticsApi* | [**get_account_ltv**](docs/AnalyticsApi.md#get_account_ltv) | **GET** /analytics/account-ltv/{account-id}/{end-datetime} | Gets an account's life-time value, as of a given end date.
+*Bfwd::AnalyticsApi* | [**get_account_payments**](docs/AnalyticsApi.md#get_account_payments) | **POST** /analytics/payments/accounts | Gets hourly payments per product, within a date range.
+*Bfwd::AnalyticsApi* | [**get_billforward_managed_payments**](docs/AnalyticsApi.md#get_billforward_managed_payments) | **GET** /analytics/billforward-managed-payments/{start-datetime}/{end-datetime} | Gets all payments managed by BillForward, within a date range.
+*Bfwd::AnalyticsApi* | [**get_churn**](docs/AnalyticsApi.md#get_churn) | **GET** /analytics/churn/{start-datetime}/{end-datetime} | Gets churn, within a date range.
+*Bfwd::AnalyticsApi* | [**get_debts**](docs/AnalyticsApi.md#get_debts) | **GET** /analytics/payments/outstanding/{start-datetime}/{end-datetime} | Gets debts within a date range.
+*Bfwd::AnalyticsApi* | [**get_payments**](docs/AnalyticsApi.md#get_payments) | **GET** /analytics/payments/{start-datetime}/{end-datetime} | Gets payments within a date range.
+*Bfwd::AnalyticsApi* | [**get_product_payments**](docs/AnalyticsApi.md#get_product_payments) | **POST** /analytics/payments-per-product | Gets hourly payments per product, within a date range.
+*Bfwd::AnalyticsApi* | [**get_product_rate_plan_payments**](docs/AnalyticsApi.md#get_product_rate_plan_payments) | **POST** /analytics/payments/product-rate-plan | Gets hourly payments per product, within a date range.
+*Bfwd::AnalyticsApi* | [**get_subscription_ltv**](docs/AnalyticsApi.md#get_subscription_ltv) | **GET** /analytics/subscription-ltv/{subscription-id}/{end-datetime} | Gets a subscription's life-time value, as of a given end date.
+*Bfwd::AnalyticsApi* | [**get_upgrades**](docs/AnalyticsApi.md#get_upgrades) | **GET** /analytics/upgrades/{start-datetime}/{end-datetime} | Gets upgrades, within a date range.
+*Bfwd::AuditlogsApi* | [**get_all_audit_entries**](docs/AuditlogsApi.md#get_all_audit_entries) | **GET** /audit-logs | Returns a collection of all audit-log objects. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AuditlogsApi* | [**get_audit_entries_by_created_date**](docs/AuditlogsApi.md#get_audit_entries_by_created_date) | **GET** /audit-logs/created/{lower-threshold}/{upper-threshold} | Returns a collection of audit-log objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AuditlogsApi* | [**get_audit_entry_by_entity_id**](docs/AuditlogsApi.md#get_audit_entry_by_entity_id) | **GET** /audit-logs/entity/{entity-ID} | Returns a collection of audit-log entries, specified by the entity-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AuditlogsApi* | [**get_audit_entry_by_entity_type**](docs/AuditlogsApi.md#get_audit_entry_by_entity_type) | **GET** /audit-logs/entity-type/{entity-type} | Returns a collection of audit-log entries, specified by the entity-type parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::AuditlogsApi* | [**get_audit_entry_by_id**](docs/AuditlogsApi.md#get_audit_entry_by_id) | **GET** /audit-logs/{audit-ID} | Returns a single audit-log entry, specified by the audit-ID parameter.
+*Bfwd::ChargesApi* | [**batch_recalculate_subscription_charge**](docs/ChargesApi.md#batch_recalculate_subscription_charge) | **POST** /charges/recalculate | Recalculate a batch of charges.
+*Bfwd::ChargesApi* | [**get_all_subscription_charges**](docs/ChargesApi.md#get_all_subscription_charges) | **GET** /charges | Retrieves a collection of all charges. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ChargesApi* | [**get_subscription_charge_by_account_id**](docs/ChargesApi.md#get_subscription_charge_by_account_id) | **GET** /charges/account/{account-ID} | Retrieves a collection of charges, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ChargesApi* | [**get_subscription_charge_by_id**](docs/ChargesApi.md#get_subscription_charge_by_id) | **GET** /charges/{charge-id} | Retrieves a single charge, specified by the charge-id parameter.
+*Bfwd::ChargesApi* | [**get_subscription_charge_by_state**](docs/ChargesApi.md#get_subscription_charge_by_state) | **GET** /charges/state/{state} | Retrieves a collection of charges, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ChargesApi* | [**get_subscription_charge_by_version_id**](docs/ChargesApi.md#get_subscription_charge_by_version_id) | **GET** /charges/version/{version-ID} | Retrieves a single charge, specified by the version-ID parameter.
+*Bfwd::ChargesApi* | [**recalculate_subscription_charge**](docs/ChargesApi.md#recalculate_subscription_charge) | **POST** /charges/{charge-ID}/recalculate | Recalculate a charge.
+*Bfwd::ChargesApi* | [**void_subscription_charge**](docs/ChargesApi.md#void_subscription_charge) | **DELETE** /charges/{charge-id} | Void the charge with the specified charge-ID.
+*Bfwd::ClientsApi* | [**create_client**](docs/ClientsApi.md#create_client) | **POST** /clients | Create a client.
+*Bfwd::ClientsApi* | [**get_all_clients**](docs/ClientsApi.md#get_all_clients) | **GET** /clients | Returns a collection of clients.
+*Bfwd::ClientsApi* | [**get_client_by_id**](docs/ClientsApi.md#get_client_by_id) | **GET** /clients/{client-ID} | Returns a single client, specified by the client-ID parameter.
+*Bfwd::ClientsApi* | [**update_client**](docs/ClientsApi.md#update_client) | **PUT** /clients | Update a client.
+*Bfwd::ConfigurationsApi* | [**create_api_configuration**](docs/ConfigurationsApi.md#create_api_configuration) | **POST** /configurations | Create a configuration.
+*Bfwd::ConfigurationsApi* | [**get_all_api_configurations**](docs/ConfigurationsApi.md#get_all_api_configurations) | **GET** /configurations | Returns a collection of configurations. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ConfigurationsApi* | [**get_api_configurations_by_type**](docs/ConfigurationsApi.md#get_api_configurations_by_type) | **GET** /configurations/type/{configuration-type} | Returns a single configuration, specified by the type parameter.
+*Bfwd::ConfigurationsApi* | [**update_api_configuration**](docs/ConfigurationsApi.md#update_api_configuration) | **PUT** /configurations | Update a configuration.
+*Bfwd::CouponbookApi* | [**create_coupon_book**](docs/CouponbookApi.md#create_coupon_book) | **POST** /coupon-books | Create a coupon-book.
+*Bfwd::CouponbookApi* | [**delete_coupon_book**](docs/CouponbookApi.md#delete_coupon_book) | **DELETE** /coupon-books/{coupon-book-ID} | Retire a coupon-book, specified by the coupon-book-ID parameter.
+*Bfwd::CouponbookApi* | [**get_all_attachable_coupon_books**](docs/CouponbookApi.md#get_all_attachable_coupon_books) | **GET** /coupon-books/attachable/{attachableness}/{has_code} | Returns a collection of attachable coupon-books. An attachable coupon-book has at least one remaining use, and is not deleted. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CouponbookApi* | [**get_all_coupon_books**](docs/CouponbookApi.md#get_all_coupon_books) | **GET** /coupon-books | Returns a collection of coupon-books. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CouponbookApi* | [**get_coupon_book_by_book_code**](docs/CouponbookApi.md#get_coupon_book_by_book_code) | **GET** /coupon-books/book-code/{book-code} | Returns a single coupon-book, specified by the book-code parameter.
+*Bfwd::CouponbookApi* | [**get_coupon_book_by_coupon_book_definition_id**](docs/CouponbookApi.md#get_coupon_book_by_coupon_book_definition_id) | **GET** /coupon-books/coupon-book-definition/{coupon-book-definition-ID} | Returns a collection of coupon-books, specified by coupon-book-definition-ID parameter. By default 10 coupon-books are returned. Records are returned in natural order.
+*Bfwd::CouponbookApi* | [**get_coupon_book_by_coupon_code**](docs/CouponbookApi.md#get_coupon_book_by_coupon_code) | **GET** /coupon-books/coupon/{coupon-code} | Returns a single coupon-book, specified by the coupon-code parameter.
+*Bfwd::CouponbookApi* | [**get_coupon_book_by_id**](docs/CouponbookApi.md#get_coupon_book_by_id) | **GET** /coupon-books/{coupon-book-ID} | Returns a single coupon-book, specified by the coupon-book-ID parameter.
+*Bfwd::CouponbookApi* | [**update_coupon_book**](docs/CouponbookApi.md#update_coupon_book) | **PUT** /coupon-books | Update a coupon-book.
+*Bfwd::CouponbookdefinitionApi* | [**create_coupon_book_definition**](docs/CouponbookdefinitionApi.md#create_coupon_book_definition) | **POST** /coupon-book-definitions | Create a coupon-book-definition.
+*Bfwd::CouponbookdefinitionApi* | [**delete_coupon_book_definition**](docs/CouponbookdefinitionApi.md#delete_coupon_book_definition) | **DELETE** /coupon-book-definitions/{coupon-book-definition-ID} | Retire a coupon-book-definition, specified by the coupon-book-definition-ID parameter.
+*Bfwd::CouponbookdefinitionApi* | [**get_all_coupon_book_definitions**](docs/CouponbookdefinitionApi.md#get_all_coupon_book_definitions) | **GET** /coupon-book-definitions | Returns a collection of coupon-book-definitions. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CouponbookdefinitionApi* | [**get_coupon_book_definition_by_coupon_definition_id**](docs/CouponbookdefinitionApi.md#get_coupon_book_definition_by_coupon_definition_id) | **GET** /coupon-book-definitions/coupon-definition/{coupon-definition-ID} | Returns a collection of coupon-book-definitions, specified by coupon-definition-ID parameter. By default 10 coupon-book-definitions are returned. Records are returned in natural order.
+*Bfwd::CouponbookdefinitionApi* | [**get_coupon_book_definition_by_id**](docs/CouponbookdefinitionApi.md#get_coupon_book_definition_by_id) | **GET** /coupon-book-definitions/{coupon-book-definition-ID} | Returns a single coupon-book-definition, specified by the coupon-book-definition-ID parameter.
+*Bfwd::CouponbookdefinitionApi* | [**update_coupon_book_definition**](docs/CouponbookdefinitionApi.md#update_coupon_book_definition) | **PUT** /coupon-book-definitions | Update a coupon-book-definition.
+*Bfwd::CoupondefinitionApi* | [**create_coupon_definition**](docs/CoupondefinitionApi.md#create_coupon_definition) | **POST** /coupon-definitions | Create a coupon-definition.
+*Bfwd::CoupondefinitionApi* | [**delete_coupon_definition**](docs/CoupondefinitionApi.md#delete_coupon_definition) | **DELETE** /coupon-definitions/{coupon-definition-ID} | Retire a coupon-definition, specified by the coupon-definition-ID parameter.
+*Bfwd::CoupondefinitionApi* | [**get_all_coupon_definitions**](docs/CoupondefinitionApi.md#get_all_coupon_definitions) | **GET** /coupon-definitions | Returns a collection of coupon-definitions. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CoupondefinitionApi* | [**get_coupon_definition_by_id**](docs/CoupondefinitionApi.md#get_coupon_definition_by_id) | **GET** /coupon-definitions/{coupon-definition-ID} | Returns a single coupon-definition, specified by the coupon-definition-ID parameter.
+*Bfwd::CoupondefinitionApi* | [**update_coupon_definition**](docs/CoupondefinitionApi.md#update_coupon_definition) | **PUT** /coupon-definitions | Update a coupon-definition.
+*Bfwd::CouponinstanceApi* | [**create_coupon_instance**](docs/CouponinstanceApi.md#create_coupon_instance) | **POST** /coupon-instances | Create a coupon-instance.
+*Bfwd::CouponinstanceApi* | [**delete_coupon_instance**](docs/CouponinstanceApi.md#delete_coupon_instance) | **DELETE** /coupon-instances/{coupon-instance-ID} | Retire a coupon-instance, specified by the coupon-instance-ID parameter.
+*Bfwd::CouponinstanceApi* | [**get_all_attachable_coupon_instances**](docs/CouponinstanceApi.md#get_all_attachable_coupon_instances) | **GET** /coupon-instances/attachable/{attachableness}/{has_code} | Returns a collection of attachable coupon-instances. An attachable coupon-instance has at least one remaining use, and is not deleted. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CouponinstanceApi* | [**get_all_coupon_instances**](docs/CouponinstanceApi.md#get_all_coupon_instances) | **GET** /coupon-instances | Returns a collection of coupon-instances. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CouponinstanceApi* | [**get_coupon_instance_by_coupon_code**](docs/CouponinstanceApi.md#get_coupon_instance_by_coupon_code) | **GET** /coupon-instances/coupon/{coupon-code} | Returns a collection of coupon-instances, specified by coupon-code parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
+*Bfwd::CouponinstanceApi* | [**get_coupon_instance_by_coupon_definition_id**](docs/CouponinstanceApi.md#get_coupon_instance_by_coupon_definition_id) | **GET** /coupon-instances/coupon-definition/{coupon-definition-ID} | Returns a collection of coupon-instances, specified by coupon-definition-ID parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
+*Bfwd::CouponinstanceApi* | [**get_coupon_instance_by_id**](docs/CouponinstanceApi.md#get_coupon_instance_by_id) | **GET** /coupon-instances/{coupon-instance-ID} | Returns a single coupon-instance, specified by the coupon-instance-ID parameter.
+*Bfwd::CouponinstanceApi* | [**get_coupon_instance_by_target_id**](docs/CouponinstanceApi.md#get_coupon_instance_by_target_id) | **GET** /coupon-instances/target/{target-ID} | Returns a collection of coupon-instances, specified by target-ID parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
+*Bfwd::CouponinstanceApi* | [**get_coupon_instance_by_target_type**](docs/CouponinstanceApi.md#get_coupon_instance_by_target_type) | **GET** /coupon-instances/target-entity/{target} | Returns a collection of coupon-instances, specified by target parameter. By default 10 coupon-instances are returned. Records are returned in natural order.
+*Bfwd::CouponinstanceApi* | [**update_coupon_instance**](docs/CouponinstanceApi.md#update_coupon_instance) | **PUT** /coupon-instances | Update a coupon-instance.
+*Bfwd::CouponmodifierApi* | [**create_coupon_modifier**](docs/CouponmodifierApi.md#create_coupon_modifier) | **POST** /coupon-modifiers | Create a coupon-modifier.
+*Bfwd::CouponmodifierApi* | [**delete_coupon_modifier**](docs/CouponmodifierApi.md#delete_coupon_modifier) | **DELETE** /coupon-modifiers/{coupon-modifier-ID} | Retire a coupon-modifier, specified by the coupon-modifier-ID parameter.
+*Bfwd::CouponmodifierApi* | [**get_all_coupon_modifiers**](docs/CouponmodifierApi.md#get_all_coupon_modifiers) | **GET** /coupon-modifiers | Returns a collection of coupon-modifiers. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CouponmodifierApi* | [**get_coupon_modifier_by_coupon_code**](docs/CouponmodifierApi.md#get_coupon_modifier_by_coupon_code) | **GET** /coupon-modifiers/coupon-code/{coupon-code} | Returns a collection of coupon-modifiers, specified by the coupon-code parameter.
+*Bfwd::CouponmodifierApi* | [**get_coupon_modifier_by_coupon_definition_id**](docs/CouponmodifierApi.md#get_coupon_modifier_by_coupon_definition_id) | **GET** /coupon-modifiers/coupon-definition/{coupon-definition-ID} | Returns a collection of coupon-modifiers, specified by the coupon-definition-ID parameter.
+*Bfwd::CouponmodifierApi* | [**get_coupon_modifier_by_id**](docs/CouponmodifierApi.md#get_coupon_modifier_by_id) | **GET** /coupon-modifiers/{coupon-modifier-ID} | Returns a single coupon-modifier, specified by the coupon-modifier-ID parameter.
+*Bfwd::CouponmodifierApi* | [**update_coupon_modifier**](docs/CouponmodifierApi.md#update_coupon_modifier) | **PUT** /coupon-modifiers | Update a coupon-instance.
+*Bfwd::CouponruleApi* | [**create_coupon_rule**](docs/CouponruleApi.md#create_coupon_rule) | **POST** /coupon-rules | Create a coupon-rule.
+*Bfwd::CouponruleApi* | [**delete_coupon_rule**](docs/CouponruleApi.md#delete_coupon_rule) | **DELETE** /coupon-rules/{coupon-rule-ID} | Retire a coupon-rule, specified by the coupon-rule-ID parameter.
+*Bfwd::CouponruleApi* | [**get_all_coupon_rules**](docs/CouponruleApi.md#get_all_coupon_rules) | **GET** /coupon-rules | Returns a collection of coupon-rules. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CouponruleApi* | [**get_coupon_rule_by_coupon_definition_id**](docs/CouponruleApi.md#get_coupon_rule_by_coupon_definition_id) | **GET** /coupon-rules/coupon-definition/{coupon-definition-ID} | Returns a single coupon-definition, specified by the coupon-definition-ID parameter.
+*Bfwd::CouponruleApi* | [**get_coupon_rule_by_id**](docs/CouponruleApi.md#get_coupon_rule_by_id) | **GET** /coupon-rules/{coupon-rule-ID} | Returns a single coupon-rule, specified by the coupon-rule-ID parameter.
+*Bfwd::CouponsApi* | [**create_coupon**](docs/CouponsApi.md#create_coupon) | **POST** /coupons | Create a coupon.
+*Bfwd::CouponsApi* | [**create_coupon_unique_codes**](docs/CouponsApi.md#create_coupon_unique_codes) | **POST** /coupons/{code}/codes | Create a list of unique coupon codes that can be applied to a subscription.
+*Bfwd::CouponsApi* | [**get_all_coupons**](docs/CouponsApi.md#get_all_coupons) | **GET** /coupons | Returns a collection of all coupons. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::CouponsApi* | [**get_applied_coupons**](docs/CouponsApi.md#get_applied_coupons) | **GET** /coupons/{code}/applied | Returns a list of unique coupons which have been applied.
+*Bfwd::CouponsApi* | [**get_available_coupon_codes_for_code**](docs/CouponsApi.md#get_available_coupon_codes_for_code) | **GET** /coupons/{code}/codes | Returns a list of available unique coupon codes for the specified parent coupon code that can be applied to a subscription.
+*Bfwd::CouponsApi* | [**get_coupon_code**](docs/CouponsApi.md#get_coupon_code) | **GET** /coupons/{code} | Returns the coupon for the specified code that can be applied to a subscription.
+*Bfwd::CouponsApi* | [**get_subscription_applications_of_coupons**](docs/CouponsApi.md#get_subscription_applications_of_coupons) | **GET** /coupons/{code}/subscriptions | Retrieves a collection of the coupons by this coupon code which have been applied.
+*Bfwd::CouponsApi* | [**retire_coupon**](docs/CouponsApi.md#retire_coupon) | **DELETE** /coupons/{code} | <p>This method has 2 main behaviours depending on what is passed in. If the parent coupon code, for example SUMMER, is given no new coupons can be issued or claimed from this code. Deleting will result in the deleted property being set to true.</p><p>If a unique coupon code, for example SUMMER-AGH8, is given this will stop the coupon from being applied to the subscription from that point onwards. When a coupon is deleted the validUntil property is set which is the date/time it stopped applying to the target.</p>
+*Bfwd::CreditnotesApi* | [**create_credit_note**](docs/CreditnotesApi.md#create_credit_note) | **POST** /credit-notes | Create a credit note.
+*Bfwd::CreditnotesApi* | [**get_credit_note_by_id**](docs/CreditnotesApi.md#get_credit_note_by_id) | **GET** /credit-notes/{credit-note-ID} | Returns a single credit-note, specified by the ID parameter.
+*Bfwd::CreditnotesApi* | [**get_credit_note_for_account**](docs/CreditnotesApi.md#get_credit_note_for_account) | **GET** /credit-notes/account/{account-ID} | Returns credit notes for an account.
+*Bfwd::CreditnotesApi* | [**get_credit_note_for_invoice**](docs/CreditnotesApi.md#get_credit_note_for_invoice) | **GET** /credit-notes/invoice/{invoice-ID} | Returns credit notes for an invoice.
+*Bfwd::CreditnotesApi* | [**get_credit_note_for_subscription**](docs/CreditnotesApi.md#get_credit_note_for_subscription) | **GET** /credit-notes/subscription/{subscription-ID} | Returns credit notes for an subscription.
+*Bfwd::CreditnotesApi* | [**retire_credit_note**](docs/CreditnotesApi.md#retire_credit_note) | **DELETE** /credit-notes/{credit-note-ID} | Removes any remaining value from credit note
+*Bfwd::CybersourcetokensApi* | [**create_cybersource_token**](docs/CybersourcetokensApi.md#create_cybersource_token) | **POST** /cybersource-tokens | Create a cybersource-token.
+*Bfwd::CybersourcetokensApi* | [**get_cybersource_token_by_id**](docs/CybersourcetokensApi.md#get_cybersource_token_by_id) | **GET** /cybersource-tokens/{token-ID} | Returns a single cybersource-token, specified by the token-ID parameter.
+*Bfwd::CybersourcetokensApi* | [**get_cybersource_token_by_recurring_subscription_id**](docs/CybersourcetokensApi.md#get_cybersource_token_by_recurring_subscription_id) | **GET** /cybersource-tokens/recurring-subscription-info/{recurring-subscription-ID} | Returns a single cybersource-token, specified by the recurring-subscription-ID parameter.
+*Bfwd::CybersourcetokensApi* | [**retire_cybersource_token**](docs/CybersourcetokensApi.md#retire_cybersource_token) | **DELETE** /cybersource-tokens/{token-ID} | Retires the cybersource token specified by the token-ID parameter.
+*Bfwd::CybersourcetokensApi* | [**update_cybersource_token**](docs/CybersourcetokensApi.md#update_cybersource_token) | **PUT** /cybersource-tokens | Update a cybersource-token.
+*Bfwd::DunninglinesApi* | [**create_dunning_line**](docs/DunninglinesApi.md#create_dunning_line) | **POST** /dunning-lines | Create a dunning-line.
+*Bfwd::DunninglinesApi* | [**get_all_dunning_lines**](docs/DunninglinesApi.md#get_all_dunning_lines) | **GET** /dunning-lines | Returns a collection of all dunning-lines. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::DunninglinesApi* | [**get_dunning_line_by_attempt_index**](docs/DunninglinesApi.md#get_dunning_line_by_attempt_index) | **GET** /dunning-lines/attempt-index/{index} | Returns a collection of dunning-lines specified by the index parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::DunninglinesApi* | [**get_dunning_line_by_id**](docs/DunninglinesApi.md#get_dunning_line_by_id) | **GET** /dunning-lines/{dunning-line-ID} | Returns a single dunning-line, specified by the dunning-line-ID parameter.
+*Bfwd::DunninglinesApi* | [**retire_dunning_line**](docs/DunninglinesApi.md#retire_dunning_line) | **DELETE** /dunning-lines/{dunning-line-ID} | Retires the specified dunning-line.
+*Bfwd::DunninglinesApi* | [**update_dunning_line**](docs/DunninglinesApi.md#update_dunning_line) | **PUT** /dunning-lines | Update a dunning-line.
+*Bfwd::EmailprovidersApi* | [**create_email_provider**](docs/EmailprovidersApi.md#create_email_provider) | **POST** /email-providers | Create an email provider.
+*Bfwd::EmailprovidersApi* | [**delete**](docs/EmailprovidersApi.md#delete) | **DELETE** /email-providers/{email-provider-ID} | Deletes a single email provider, specified by id or name parameter.
+*Bfwd::EmailprovidersApi* | [**get_all_email_providers**](docs/EmailprovidersApi.md#get_all_email_providers) | **GET** /email-providers | Returns a collection of all email-providers. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::EmailprovidersApi* | [**get_email_by_provider_id**](docs/EmailprovidersApi.md#get_email_by_provider_id) | **GET** /email-providers/{email-provider-ID} | Retrieves a single email provider, specified by the version-ID parameter.
+*Bfwd::EmailsApi* | [**get_email_by_id**](docs/EmailsApi.md#get_email_by_id) | **GET** /emails/{email-ID} | Retrieves a single invoice, specified by the version-ID parameter.
+*Bfwd::EmailsApi* | [**get_email_html_by_id**](docs/EmailsApi.md#get_email_html_by_id) | **GET** /emails/{email-ID}.html | Retrieves a single invoice, specified by the version-ID parameter.
+*Bfwd::EmailsApi* | [**get_email_text_by_id**](docs/EmailsApi.md#get_email_text_by_id) | **GET** /emails/{email-ID}.txt | Retrieves a single invoice, specified by the version-ID parameter.
+*Bfwd::EmailsubscriptionsApi* | [**create_email_subscription**](docs/EmailsubscriptionsApi.md#create_email_subscription) | **POST** /email-subscriptions | Create an email subscription.
+*Bfwd::EmailsubscriptionsApi* | [**delete_email_subscription_by_type**](docs/EmailsubscriptionsApi.md#delete_email_subscription_by_type) | **DELETE** /email-subscriptions/type&#x3D;{type} | Unsubscribe from the email specified by the type parameter.
+*Bfwd::EmailsubscriptionsApi* | [**get_all_email_subscriptions**](docs/EmailsubscriptionsApi.md#get_all_email_subscriptions) | **GET** /email-subscriptions | Returns a collection of all email-subscriptions. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::EmailsubscriptionsApi* | [**get_email_subscription_by_id**](docs/EmailsubscriptionsApi.md#get_email_subscription_by_id) | **GET** /email-subscriptions/{email-subscription-id} | Retrieves a single email subscription, specified by ID.
+*Bfwd::EmailsubscriptionsApi* | [**update_email_subscription**](docs/EmailsubscriptionsApi.md#update_email_subscription) | **PUT** /email-subscriptions | Update an email subscription.
+*Bfwd::FixedtermdefinitionsApi* | [**create_fixed_term_definition**](docs/FixedtermdefinitionsApi.md#create_fixed_term_definition) | **POST** /fixed-term-definitions | Create
+*Bfwd::FixedtermdefinitionsApi* | [**update_fixed_term_definition**](docs/FixedtermdefinitionsApi.md#update_fixed_term_definition) | **PUT** /fixed-term-definitions | Update
+*Bfwd::FixedtermsApi* | [**update_fixed_term**](docs/FixedtermsApi.md#update_fixed_term) | **PUT** /fixed-terms | Update
+*Bfwd::InvoicesApi* | [**add_charge_to_invoice**](docs/InvoicesApi.md#add_charge_to_invoice) | **POST** /invoices/{invoice-ID}/charges | Creates a charge on the specified invoice.
+*Bfwd::InvoicesApi* | [**aggregate_invoices**](docs/InvoicesApi.md#aggregate_invoices) | **POST** /invoices/aggregate | Aggregate Invoices into to one parent Invoice
+*Bfwd::InvoicesApi* | [**execute_invoice**](docs/InvoicesApi.md#execute_invoice) | **POST** /invoices/{invoice-ID}/execute | Attempt payment for the outstanding value of an invoice
+*Bfwd::InvoicesApi* | [**generate_line_payments_for_all_invoices**](docs/InvoicesApi.md#generate_line_payments_for_all_invoices) | **POST** /invoices/generate-line-payments | Generates InvoiceLinePayments for all existing InvoicePayments.
+*Bfwd::InvoicesApi* | [**get_all_invoices**](docs/InvoicesApi.md#get_all_invoices) | **GET** /invoices | Retrieves a collection of all invoices. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_all_invoices_as_csv**](docs/InvoicesApi.md#get_all_invoices_as_csv) | **GET** /invoices/all.csv | Retrieves a collection of all invoices. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_bucketed_revenue_attributions_as_csv**](docs/InvoicesApi.md#get_bucketed_revenue_attributions_as_csv) | **GET** /invoices/bucketed-revenue-attributions.csv | Retrieves (as CSV) all attributions of Invoice costs to Invoice lines, bucketed.
+*Bfwd::InvoicesApi* | [**get_charges_on_invoice**](docs/InvoicesApi.md#get_charges_on_invoice) | **GET** /invoices/{invoice-ID}/charges | Returns all charges for the specified invoice. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_credit_invoice_line_payments_from_invoices_as_csv**](docs/InvoicesApi.md#get_credit_invoice_line_payments_from_invoices_as_csv) | **GET** /invoices/credit.csv | Retrieves credit note-paid from InvoicePayments upon line items, in CSV format.
+*Bfwd::InvoicesApi* | [**get_credit_invoice_line_payments_from_invoices_as_csv_by_payment_received**](docs/InvoicesApi.md#get_credit_invoice_line_payments_from_invoices_as_csv_by_payment_received) | **GET** /invoices/payment-received/credit.csv | Retrieves credit note-paid from InvoicePayments upon line items, in CSV format.
+*Bfwd::InvoicesApi* | [**get_debit_invoice_line_payments_from_invoices_as_csv**](docs/InvoicesApi.md#get_debit_invoice_line_payments_from_invoices_as_csv) | **GET** /invoices/revenue.csv | Retrieves received revenue from InvoicePayments upon line items, in CSV format.
+*Bfwd::InvoicesApi* | [**get_debit_invoice_line_payments_from_invoices_as_csv_by_payment_received**](docs/InvoicesApi.md#get_debit_invoice_line_payments_from_invoices_as_csv_by_payment_received) | **GET** /invoices/payment-received/revenue.csv | Retrieves received revenue from InvoicePayments upon line items, in CSV format.
+*Bfwd::InvoicesApi* | [**get_invoice_as_html**](docs/InvoicesApi.md#get_invoice_as_html) | **GET** /invoices/{ID}.html | Retrieves a single invoice specified by the ID parameter.
+*Bfwd::InvoicesApi* | [**get_invoice_as_pdf**](docs/InvoicesApi.md#get_invoice_as_pdf) | **GET** /invoices/{ID}.pdf | Retrieves a single invoice specified by the ID parameter.
+*Bfwd::InvoicesApi* | [**get_invoice_by_id**](docs/InvoicesApi.md#get_invoice_by_id) | **GET** /invoices/{invoice-ID} | Retrieves a single invoice specified by the invoice-ID parameter.
+*Bfwd::InvoicesApi* | [**get_invoice_by_id_as_csv**](docs/InvoicesApi.md#get_invoice_by_id_as_csv) | **GET** /invoices/{ID}.csv | Retrieves a single invoice specified by the ID parameter.
+*Bfwd::InvoicesApi* | [**get_invoice_by_subscription_id**](docs/InvoicesApi.md#get_invoice_by_subscription_id) | **GET** /invoices/subscription/{subscription-ID} | Retrieves a collection of invoices specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoice_by_subscription_version_id**](docs/InvoicesApi.md#get_invoice_by_subscription_version_id) | **GET** /invoices/subscription/version/{subscription-version-ID} | Retrieves a collection of invoices specified by the subscription-version-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoice_by_version_id**](docs/InvoicesApi.md#get_invoice_by_version_id) | **GET** /invoices/version/{version-ID} | Retrieves a single invoice, specified by the version-ID parameter.
+*Bfwd::InvoicesApi* | [**get_invoices_by_account_id**](docs/InvoicesApi.md#get_invoices_by_account_id) | **GET** /invoices/account/{account-ID} | Retrieves a collection of invoices specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoices_by_period_end**](docs/InvoicesApi.md#get_invoices_by_period_end) | **GET** /invoices/period-end/{lower-threshold}/{upper-threshold} | Retrieves a collection of invoice objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoices_by_period_start**](docs/InvoicesApi.md#get_invoices_by_period_start) | **GET** /invoices/period-start/{lower-threshold}/{upper-threshold} | Retrieves a collection of invoice objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoices_by_period_start_as_csv**](docs/InvoicesApi.md#get_invoices_by_period_start_as_csv) | **GET** /invoices/period-start/{lower-threshold}/{upper-threshold}.csv | Retrieves a collection of invoice objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoices_by_state**](docs/InvoicesApi.md#get_invoices_by_state) | **GET** /invoices/state/{state} | Retrieves a collection of invoices, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoices_by_state_and_period_start**](docs/InvoicesApi.md#get_invoices_by_state_and_period_start) | **GET** /invoices/state/{state}/period-start/{lower-threshold}/{upper-threshold} | Retrieves a collection of invoice objects specified by the state parameter and with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoices_by_state_and_period_start_as_csv**](docs/InvoicesApi.md#get_invoices_by_state_and_period_start_as_csv) | **GET** /invoices/state/{state}/period-start/{lower-threshold}/{upper-threshold}.csv | Retrieves a collection of invoice objects specified by the state parameter and with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_invoices_by_state_as_csv**](docs/InvoicesApi.md#get_invoices_by_state_as_csv) | **GET** /invoices/state/{state}.csv | Retrieves a collection of invoices, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::InvoicesApi* | [**get_line_payments**](docs/InvoicesApi.md#get_line_payments) | **GET** /invoices/line-payments | Retrieves all InvoiceLine payment attributions.
+*Bfwd::InvoicesApi* | [**get_line_payments_as_csv**](docs/InvoicesApi.md#get_line_payments_as_csv) | **GET** /invoices/line-payments.csv | Retrieves (as CSV) all InvoiceLine payment attributions.
+*Bfwd::InvoicesApi* | [**get_metadata_for_invoice**](docs/InvoicesApi.md#get_metadata_for_invoice) | **GET** /invoices/{invoice-ID}/metadata | Retrieve any associated metadata.
+*Bfwd::InvoicesApi* | [**get_refund_invoice_line_payments_from_invoices_as_csv**](docs/InvoicesApi.md#get_refund_invoice_line_payments_from_invoices_as_csv) | **GET** /invoices/refund.csv | Retrieves awarded refunds from InvoicePayments upon line items, in CSV format.
+*Bfwd::InvoicesApi* | [**get_refund_invoice_line_payments_from_invoices_as_csv_by_refund_received**](docs/InvoicesApi.md#get_refund_invoice_line_payments_from_invoices_as_csv_by_refund_received) | **GET** /invoices/payment-received/refund.csv | Retrieves awarded refunds from InvoicePayments upon line items, in CSV format.
+*Bfwd::InvoicesApi* | [**get_revenue_attributions**](docs/InvoicesApi.md#get_revenue_attributions) | **GET** /invoices/revenue-attributions | Retrieves all attributions of Invoice costs to Invoice lines.
+*Bfwd::InvoicesApi* | [**get_revenue_attributions_as_csv**](docs/InvoicesApi.md#get_revenue_attributions_as_csv) | **GET** /invoices/revenue-attributions.csv | Retrieves (as CSV) all attributions of Invoice costs to Invoice lines.
+*Bfwd::InvoicesApi* | [**get_swagger_for_invoice**](docs/InvoicesApi.md#get_swagger_for_invoice) | **GET** /invoices/swagger-end-point/{query-string} | 
+*Bfwd::InvoicesApi* | [**import_invoice**](docs/InvoicesApi.md#import_invoice) | **POST** /invoices/import | Import an invoice.
+*Bfwd::InvoicesApi* | [**recalculate_invoice**](docs/InvoicesApi.md#recalculate_invoice) | **POST** /invoices/{invoice-ID}/recalculate | Re-calculate an Invoice.
+*Bfwd::InvoicesApi* | [**remove_charge_from_invoice**](docs/InvoicesApi.md#remove_charge_from_invoice) | **DELETE** /invoices/{invoice-ID}/charges/{charge-ID} | Removes the specified charge from the specified Invoice.
+*Bfwd::InvoicesApi* | [**remove_metadata_from_invoice**](docs/InvoicesApi.md#remove_metadata_from_invoice) | **DELETE** /invoices/{invoice-ID}/metadata | Remove any associated metadata.
+*Bfwd::InvoicesApi* | [**set_metadata_for_invoice**](docs/InvoicesApi.md#set_metadata_for_invoice) | **POST** /invoices/{invoice-ID}/metadata | Remove any existing metadata keys and create the provided data.
+*Bfwd::InvoicesApi* | [**update_invoice**](docs/InvoicesApi.md#update_invoice) | **PUT** /invoices | Update an Invoice.
+*Bfwd::InvoicesApi* | [**upsert_metadata_for_invoice**](docs/InvoicesApi.md#upsert_metadata_for_invoice) | **PUT** /invoices/{invoice-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
+*Bfwd::InvoicesApi* | [**void_invoice**](docs/InvoicesApi.md#void_invoice) | **DELETE** /invoices/{invoice-ID} | Voids the invoice specified by the invoice identifier parameter.
+*Bfwd::MetadataApi* | [**delete_metadata_key_values**](docs/MetadataApi.md#delete_metadata_key_values) | **DELETE** /metadata | Remove any associated metadata.
+*Bfwd::MetadataApi* | [**get_metadata_key_values**](docs/MetadataApi.md#get_metadata_key_values) | **GET** /metadata | Retrieve any associated metadata.
+*Bfwd::MetadataApi* | [**set_metadata_key_values**](docs/MetadataApi.md#set_metadata_key_values) | **POST** /metadata | Remove any existing metadata keys and create the provided data.
+*Bfwd::MetadataApi* | [**upsert_metadata_key_values**](docs/MetadataApi.md#upsert_metadata_key_values) | **PUT** /metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
+*Bfwd::NotificationsApi* | [**ack_notification**](docs/NotificationsApi.md#ack_notification) | **GET** /notifications/ack/{notification-ID} | Acknowledge a newly recevied notification.
+*Bfwd::NotificationsApi* | [**get_all_notifications**](docs/NotificationsApi.md#get_all_notifications) | **GET** /notifications | Returns a collection of all notifications. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::NotificationsApi* | [**get_notification_by_entity_id**](docs/NotificationsApi.md#get_notification_by_entity_id) | **GET** /notifications/entity-ID/{entity-ID} | Returns a collection of notifications, specified by the entity-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::NotificationsApi* | [**get_notification_by_id**](docs/NotificationsApi.md#get_notification_by_id) | **GET** /notifications/{notification-ID} | Returns a single notification, specified by the notification-ID parameter.
+*Bfwd::NotificationsApi* | [**get_notifications_by_webhook_id**](docs/NotificationsApi.md#get_notifications_by_webhook_id) | **GET** /notifications/{lower-threshold}/{upper-threshold}/{webhookID} | Returns a collection of notification objects with created times within the period specified by the lower-threshold and upper-threshold parameters for the given webhook id. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::NotificationsApi* | [**get_notifications_within_date_range**](docs/NotificationsApi.md#get_notifications_within_date_range) | **GET** /notifications/{lower-threshold}/{upper-threshold} | Returns a collection of notification objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::OrganizationsApi* | [**create_organization**](docs/OrganizationsApi.md#create_organization) | **POST** /organizations | Create an organization.
+*Bfwd::OrganizationsApi* | [**get_all_my_organizations**](docs/OrganizationsApi.md#get_all_my_organizations) | **GET** /organizations/mine | Returns a collection of all my asociated organizations. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::OrganizationsApi* | [**get_all_organizations**](docs/OrganizationsApi.md#get_all_organizations) | **GET** /organizations | Returns a collection of all organizations. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::OrganizationsApi* | [**get_organization_by_customer_code**](docs/OrganizationsApi.md#get_organization_by_customer_code) | **GET** /organizations/customer-code/{customer-code} | Returns a single organization, specified by the customer-code parameter.
+*Bfwd::OrganizationsApi* | [**get_organization_by_id**](docs/OrganizationsApi.md#get_organization_by_id) | **GET** /organizations/{organization-ID} | Returns a single Organization, specified by the organization-ID parameter.
+*Bfwd::OrganizationsApi* | [**get_organization_by_name**](docs/OrganizationsApi.md#get_organization_by_name) | **GET** /organizations/name/{name} | Returns a single Organization, specified by the name parameter.
+*Bfwd::OrganizationsApi* | [**update_organization**](docs/OrganizationsApi.md#update_organization) | **PUT** /organizations | Update an organization.
+*Bfwd::PasswordsApi* | [**create_password**](docs/PasswordsApi.md#create_password) | **POST** /passwords | Create
+*Bfwd::PaymentmethodsApi* | [**create_payment_method**](docs/PaymentmethodsApi.md#create_payment_method) | **POST** /payment-methods | Create a payment-method.
+*Bfwd::PaymentmethodsApi* | [**delete_payment_method**](docs/PaymentmethodsApi.md#delete_payment_method) | **DELETE** /payment-methods/{payment-method-ID} | Deletes the payment-method specified by the payment-method-ID parameter.
+*Bfwd::PaymentmethodsApi* | [**get_all_payment_methods**](docs/PaymentmethodsApi.md#get_all_payment_methods) | **GET** /payment-methods | Returns a collection of all payment-methods. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PaymentmethodsApi* | [**get_payment_method_by_account_id**](docs/PaymentmethodsApi.md#get_payment_method_by_account_id) | **GET** /payment-methods/account/{account-ID} | Returns a collection of payment-methods, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PaymentmethodsApi* | [**get_payment_method_by_id**](docs/PaymentmethodsApi.md#get_payment_method_by_id) | **GET** /payment-methods/{payment-method-ID} | Returns a single payment-method, specified by the payment-method-ID parameter.
+*Bfwd::PaymentmethodsApi* | [**get_payment_method_by_link_id**](docs/PaymentmethodsApi.md#get_payment_method_by_link_id) | **GET** /payment-methods/link-id/{linkID} | Returns a single payment-method, specified by the linkID parameter.
+*Bfwd::PaymentmethodsApi* | [**get_payment_method_by_payment_gateway**](docs/PaymentmethodsApi.md#get_payment_method_by_payment_gateway) | **GET** /payment-methods/gateway/{gateway} | Returns a collection of payment-methods, specified by the gateway parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PaymentmethodsApi* | [**update_payment_method**](docs/PaymentmethodsApi.md#update_payment_method) | **PUT** /payment-methods | Update a payment-method.
+*Bfwd::PaymentmethodsubscriptionlinksApi* | [**create_payment_method_subscription_link**](docs/PaymentmethodsubscriptionlinksApi.md#create_payment_method_subscription_link) | **POST** /payment-method-subscription-links | Create
+*Bfwd::PaymentmethodsubscriptionlinksApi* | [**retire_payment_method_subscription_link**](docs/PaymentmethodsubscriptionlinksApi.md#retire_payment_method_subscription_link) | **DELETE** /payment-method-subscription-links/{payment-method-subscription-link-ID} | Retires the payment-method-subscription-link specified by the link-ID parameter.
+*Bfwd::PaymentsApi* | [**create_payment**](docs/PaymentsApi.md#create_payment) | **POST** /payments | Create a payment.
+*Bfwd::PaymentsApi* | [**get_all_payments**](docs/PaymentsApi.md#get_all_payments) | **GET** /payments | Returns a collection of all payments. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PaymentsApi* | [**get_payment_as_csv**](docs/PaymentsApi.md#get_payment_as_csv) | **GET** /payments/csv | Retrieves payments in CSV format.
+*Bfwd::PaymentsApi* | [**get_payment_by_id**](docs/PaymentsApi.md#get_payment_by_id) | **GET** /payments/{payment-ID} | Returns a single payment, specified by the payment-ID parameter.
+*Bfwd::PaymentsApi* | [**get_payment_by_invoice_id**](docs/PaymentsApi.md#get_payment_by_invoice_id) | **GET** /payments/invoice/{invoice-ID} | Returns a collection of payments, specified by the invoice-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PaymentsApi* | [**get_payment_by_payment_gateway**](docs/PaymentsApi.md#get_payment_by_payment_gateway) | **GET** /payments/gateway/{gateway} | Returns a collection of payments, specified by the gateway parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PaymentsApi* | [**get_payment_by_payment_method_id**](docs/PaymentsApi.md#get_payment_by_payment_method_id) | **GET** /payments/payment-method/{payment-method-ID} | Returns a collection of payments, specified by the payment-method-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PaymentsApi* | [**update_payment**](docs/PaymentsApi.md#update_payment) | **PUT** /payments | Update a payment.
+*Bfwd::PeriodsApi* | [**get_all_periods_for_subscription**](docs/PeriodsApi.md#get_all_periods_for_subscription) | **GET** /periods/{subscription-id} | Retrieve by subscription)
+*Bfwd::PeriodsApi* | [**get_latest_periods**](docs/PeriodsApi.md#get_latest_periods) | **GET** /periods | Get all periods
+*Bfwd::PermissionsApi* | [**create_permission**](docs/PermissionsApi.md#create_permission) | **POST** /permissions | Create a new permission.
+*Bfwd::PermissionsApi* | [**get_all_permissions**](docs/PermissionsApi.md#get_all_permissions) | **GET** /permissions | Retrieves a collection of all permissions. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PermissionsApi* | [**get_available_actions_for_resource**](docs/PermissionsApi.md#get_available_actions_for_resource) | **GET** /permissions/resources/{resource} | Retrieves all the available actions for the specified resource.
+*Bfwd::PermissionsApi* | [**get_available_resources**](docs/PermissionsApi.md#get_available_resources) | **GET** /permissions/resources | Retrieves all available resource.
+*Bfwd::PermissionsApi* | [**get_permission_by_id**](docs/PermissionsApi.md#get_permission_by_id) | **GET** /permissions/{permission-ID} | Retrieves a single permission, specified by the ID parameter.
+*Bfwd::PermissionsApi* | [**revoke_permission**](docs/PermissionsApi.md#revoke_permission) | **DELETE** /permissions/{permission-ID} | Revokes a permission
+*Bfwd::PricingcalculatorApi* | [**get_amendment_cost**](docs/PricingcalculatorApi.md#get_amendment_cost) | **POST** /pricing-calculator/amendment-cost | Calculates the price of a subscription's upgrading/downgrading to a new pricing component value.
+*Bfwd::PricingcalculatorApi* | [**get_coupon_instance_initialisation_cost**](docs/PricingcalculatorApi.md#get_coupon_instance_initialisation_cost) | **POST** /pricing-calculator/coupon-instance/initialisation | Calculates the price of a subscription to a rate plan, at specified values of pricing component values, and with the specified coupon applied.
+*Bfwd::PricingcalculatorApi* | [**get_product_rate_plan_costs**](docs/PricingcalculatorApi.md#get_product_rate_plan_costs) | **POST** /pricing-calculator/product-rate-plan | Calculates the price of a subscription to a rate plan, at specified values of pricing component values.
+*Bfwd::PricingcomponentsApi* | [**create_pricing_component**](docs/PricingcomponentsApi.md#create_pricing_component) | **POST** /pricing-components | Create a pricing-component.
+*Bfwd::PricingcomponentsApi* | [**get_all_pricing_components**](docs/PricingcomponentsApi.md#get_all_pricing_components) | **GET** /pricing-components | Returns a collection of pricing-components. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentsApi* | [**get_pricing_component**](docs/PricingcomponentsApi.md#get_pricing_component) | **GET** /pricing-components/{pricing-component-ID} | Returns a collection of pricing-components, specified by the pricing-component-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentsApi* | [**get_pricing_component_by_product_rate_plan_id**](docs/PricingcomponentsApi.md#get_pricing_component_by_product_rate_plan_id) | **GET** /pricing-components/product-rate-plan/{product-rate-plan-ID} | Returns a collection of pricing-components, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentsApi* | [**retire_pricing_component**](docs/PricingcomponentsApi.md#retire_pricing_component) | **DELETE** /pricing-components/{pricing-component-ID} | Retires the pricing-component specified by the pricing-component-ID parameter.
+*Bfwd::PricingcomponentsApi* | [**update_pricing_component**](docs/PricingcomponentsApi.md#update_pricing_component) | **PUT** /pricing-components | Update a pricing-component.
+*Bfwd::PricingcomponenttiersApi* | [**create_pricing_component_tier**](docs/PricingcomponenttiersApi.md#create_pricing_component_tier) | **POST** /pricing-component-tiers | Create
+*Bfwd::PricingcomponenttiersApi* | [**get_all_pricing_component_tiers**](docs/PricingcomponenttiersApi.md#get_all_pricing_component_tiers) | **GET** /pricing-component-tiers | Returns a collection of pricing-component-tier-tiers. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponenttiersApi* | [**get_pricing_component_tier**](docs/PricingcomponenttiersApi.md#get_pricing_component_tier) | **GET** /pricing-component-tiers/{pricing-component-tier-ID} | Returns a collection of pricing-component-tier-tiers, specified by the pricing-component-tier-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponenttiersApi* | [**get_pricing_component_tier_by_product_rate_plan_id**](docs/PricingcomponenttiersApi.md#get_pricing_component_tier_by_product_rate_plan_id) | **GET** /pricing-component-tiers/product-rate-plan/{product-rate-plan-ID} | Returns a collection of pricing-component-tier-tiers, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponenttiersApi* | [**update_pricing_component_tier**](docs/PricingcomponenttiersApi.md#update_pricing_component_tier) | **PUT** /pricing-component-tiers | Update.
+*Bfwd::PricingcomponentvaluechangesApi* | [**create_pricing_component_value_change**](docs/PricingcomponentvaluechangesApi.md#create_pricing_component_value_change) | **POST** /pricing-component-value-changes | Create a pricing-component-value-change.
+*Bfwd::PricingcomponentvaluechangesApi* | [**get_all_pricing_component_value_changes**](docs/PricingcomponentvaluechangesApi.md#get_all_pricing_component_value_changes) | **GET** /pricing-component-value-changes | Returns a collection of pricing-component-value-changes. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentvaluechangesApi* | [**get_pricing_component_value_change**](docs/PricingcomponentvaluechangesApi.md#get_pricing_component_value_change) | **GET** /pricing-component-value-changes/{ID} | Returns a single pricing-component-value-changes, specified by the ID parameter.
+*Bfwd::PricingcomponentvaluechangesApi* | [**get_pricing_component_value_change_by_component_id**](docs/PricingcomponentvaluechangesApi.md#get_pricing_component_value_change_by_component_id) | **GET** /pricing-component-value-changes/component-ID/{pricing-component-ID} | Returns a collection of pricing-component-value-changes, specified by the pricing-component-value-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentvaluechangesApi* | [**get_pricing_component_value_change_by_invoice_id**](docs/PricingcomponentvaluechangesApi.md#get_pricing_component_value_change_by_invoice_id) | **GET** /pricing-component-value-changes/invoice/{invoice-ID} | Returns a collection of pricing-component-value-changes, specified by the invoice-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentvaluechangesApi* | [**get_pricing_component_value_change_by_subscription_id**](docs/PricingcomponentvaluechangesApi.md#get_pricing_component_value_change_by_subscription_id) | **GET** /pricing-component-value-changes/subscription/{subscription-ID} | Returns a collection of pricing-component-value-changes, specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentvaluesApi* | [**create_pricing_component_value**](docs/PricingcomponentvaluesApi.md#create_pricing_component_value) | **POST** /pricing-component-values | Create a pricing-component-value.
+*Bfwd::PricingcomponentvaluesApi* | [**get_all_pricing_component_values**](docs/PricingcomponentvaluesApi.md#get_all_pricing_component_values) | **GET** /pricing-component-values | Returns a collection of pricing-component-values.By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentvaluesApi* | [**get_pricing_component_value**](docs/PricingcomponentvaluesApi.md#get_pricing_component_value) | **GET** /pricing-component-values/{pricing-component-ID} | Returns a collection of pricing-component-values, specified by the pricing-component-ID parameter.By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentvaluesApi* | [**get_pricing_component_value_by_subscription_id**](docs/PricingcomponentvaluesApi.md#get_pricing_component_value_by_subscription_id) | **GET** /pricing-component-values/subscription/{subscription-ID} | Returns a collection of pricing-component-values, specified by the subscription-ID parameter.By default 10 values are returned. Records are returned in natural order.
+*Bfwd::PricingcomponentvaluesApi* | [**update_pricing_component_value**](docs/PricingcomponentvaluesApi.md#update_pricing_component_value) | **PUT** /pricing-component-values | Update a pricing-component-value.
+*Bfwd::ProductrateplansApi* | [**add_taxation_strategy_to_rate_plan**](docs/ProductrateplansApi.md#add_taxation_strategy_to_rate_plan) | **POST** /product-rate-plans/{product-rate-plan-ID}/tax | Adds or re-enables the specified taxation-strategy for the given product-rate-plan.
+*Bfwd::ProductrateplansApi* | [**create_rate_plan**](docs/ProductrateplansApi.md#create_rate_plan) | **POST** /product-rate-plans | Create a new rate-plan.
+*Bfwd::ProductrateplansApi* | [**delete_metadata_for_rate_plan**](docs/ProductrateplansApi.md#delete_metadata_for_rate_plan) | **DELETE** /product-rate-plans/{product-rate-plan-ID}/metadata | Remove any associated metadata.
+*Bfwd::ProductrateplansApi* | [**get_all_rate_plans**](docs/ProductrateplansApi.md#get_all_rate_plans) | **GET** /product-rate-plans | Returns a collection of product-rate-plans. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ProductrateplansApi* | [**get_available_taxation_strategies_for_rate_plan**](docs/ProductrateplansApi.md#get_available_taxation_strategies_for_rate_plan) | **GET** /product-rate-plans/{product-rate-plan-ID}/tax | Returns all available taxes for the specified product-rate-plan. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ProductrateplansApi* | [**get_metadata_for_rate_plan**](docs/ProductrateplansApi.md#get_metadata_for_rate_plan) | **GET** /product-rate-plans/{product-rate-plan-ID}/metadata | Retrieve any associated metadata.
+*Bfwd::ProductrateplansApi* | [**get_product_rate_plan_by_id**](docs/ProductrateplansApi.md#get_product_rate_plan_by_id) | **GET** /product-rate-plans/{product-rate-plan-ID} | Returns product-rate-plans, specified by the product-rate-plan id or name.
+*Bfwd::ProductrateplansApi* | [**get_rate_plan_by_product**](docs/ProductrateplansApi.md#get_rate_plan_by_product) | **GET** /product-rate-plans/product/{product-ID} | Returns a collection of product-rate-plans, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ProductrateplansApi* | [**get_rate_plan_by_product_and_rate_plan**](docs/ProductrateplansApi.md#get_rate_plan_by_product_and_rate_plan) | **GET** /product-rate-plans/product/{product-ID}/rate-plan/{rate-plan-ID} | Returns a collection of product-rate-plans, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ProductrateplansApi* | [**remove_taxation_strategy_from_rate_plan**](docs/ProductrateplansApi.md#remove_taxation_strategy_from_rate_plan) | **DELETE** /product-rate-plans/{product-rate-plan-ID}/tax/{taxation-strategy-ID} | Removes the specified taxation-strategy for the given product-rate-plan.
+*Bfwd::ProductrateplansApi* | [**retire_rate_plan**](docs/ProductrateplansApi.md#retire_rate_plan) | **DELETE** /product-rate-plans/{product-rate-plan-ID} | Retires the product-rate-plan specified product-rate-plan-ID.
+*Bfwd::ProductrateplansApi* | [**set_metadata_for_rate_plan**](docs/ProductrateplansApi.md#set_metadata_for_rate_plan) | **POST** /product-rate-plans/{product-rate-plan-ID}/metadata | Remove any existing metadata keys and create the provided data.
+*Bfwd::ProductrateplansApi* | [**update_rate_plan**](docs/ProductrateplansApi.md#update_rate_plan) | **PUT** /product-rate-plans | Update a rate-plan.
+*Bfwd::ProductrateplansApi* | [**upsert_metadata_for_rate_plan**](docs/ProductrateplansApi.md#upsert_metadata_for_rate_plan) | **PUT** /product-rate-plans/{product-rate-plan-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
+*Bfwd::ProductsApi* | [**create_product**](docs/ProductsApi.md#create_product) | **POST** /products | Create a product.
+*Bfwd::ProductsApi* | [**delete_metadata_for_product**](docs/ProductsApi.md#delete_metadata_for_product) | **DELETE** /products/{product-ID}/metadata | Remove any associated metadata.
+*Bfwd::ProductsApi* | [**get_all_products**](docs/ProductsApi.md#get_all_products) | **GET** /products | Returns a collection of products. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::ProductsApi* | [**get_metadata_for_product**](docs/ProductsApi.md#get_metadata_for_product) | **GET** /products/{product-ID}/metadata | Retrieve any associated metadata.
+*Bfwd::ProductsApi* | [**get_product_by_id**](docs/ProductsApi.md#get_product_by_id) | **GET** /products/{product-ID} | Returns a single product, specified by the product-ID parameter.
+*Bfwd::ProductsApi* | [**retire_product**](docs/ProductsApi.md#retire_product) | **DELETE** /products/{product-ID} | Deletes the product specified by the product-ID parameter. Any existing subscriptions will continue; it is a soft delete.
+*Bfwd::ProductsApi* | [**set_metadata_for_product**](docs/ProductsApi.md#set_metadata_for_product) | **POST** /products/{product-ID}/metadata | Remove any existing metadata keys and create the provided data.
+*Bfwd::ProductsApi* | [**update_product**](docs/ProductsApi.md#update_product) | **PUT** /products | Update a product.
+*Bfwd::ProductsApi* | [**upsert_metadata_for_product**](docs/ProductsApi.md#upsert_metadata_for_product) | **PUT** /products/{product-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
+*Bfwd::ProfilesApi* | [**get_all_profiles**](docs/ProfilesApi.md#get_all_profiles) | **GET** /profiles | Returns a collection of all profiles. By default 10 values are returned. Records are returned in natural order
+*Bfwd::ProfilesApi* | [**get_profile**](docs/ProfilesApi.md#get_profile) | **GET** /profiles/{profile-ID} | Returns a single profile, specified by the ID parameter.
+*Bfwd::ProfilesApi* | [**get_profile_by_account_id**](docs/ProfilesApi.md#get_profile_by_account_id) | **GET** /profiles/account/{account-ID} | Returns a collection of profiles, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order
+*Bfwd::ProfilesApi* | [**get_profile_by_email_address**](docs/ProfilesApi.md#get_profile_by_email_address) | **GET** /profiles/email/{email} | Returns a single profile, specified by the email parameter.
+*Bfwd::ProfilesApi* | [**update_profile**](docs/ProfilesApi.md#update_profile) | **PUT** /profiles | Update a profile
+*Bfwd::QuotesApi* | [**quote**](docs/QuotesApi.md#quote) | **POST** /quotes | Returns a quote.
+*Bfwd::ReceiptsApi* | [**create_receipt**](docs/ReceiptsApi.md#create_receipt) | **POST** /receipts | Create a receipt.
+*Bfwd::ReceiptsApi* | [**get_all_receipts**](docs/ReceiptsApi.md#get_all_receipts) | **GET** /receipts | Returns a collection of all receipts. By default 10 values are returned. receipts are returned in natural order
+*Bfwd::ReceiptsApi* | [**get_receipt_by_id**](docs/ReceiptsApi.md#get_receipt_by_id) | **GET** /receipts/{receipt-ID} | Returns a single receipt, specified by the ID parameter.
+*Bfwd::ReceiptsApi* | [**get_receipts_by_invoice**](docs/ReceiptsApi.md#get_receipts_by_invoice) | **GET** /receipts/invoice/{invoice-ID} | Returns a receipt for the receipt payment.
+*Bfwd::ReceiptsApi* | [**get_receipts_by_payment**](docs/ReceiptsApi.md#get_receipts_by_payment) | **GET** /receipts/payment/{payment-ID} | Returns a collection of receipts for the payment.
+*Bfwd::ReceiptsApi* | [**get_receipts_for_debit_payments_as_csv**](docs/ReceiptsApi.md#get_receipts_for_debit_payments_as_csv) | **GET** /receipts/debits.csv | Retrieves debit payments in CSV format.
+*Bfwd::ReceiptsApi* | [**get_receipts_for_refund_payments_as_csv**](docs/ReceiptsApi.md#get_receipts_for_refund_payments_as_csv) | **GET** /receipts/refunds.csv | Retrieves refunded payments in CSV format.
+*Bfwd::RefundsApi* | [**create_refund**](docs/RefundsApi.md#create_refund) | **POST** /refunds | <p>When creating a refund either the invoice, or invoice payment must be specified.</p><p>Creating a refund by specifying the invoiceID will refund any un-refunded value up to the full value of the payment. When refunding via the invoicePaymentID the same rules apply. Refunds will be processed by the same payment methods that took the payment.</p><p>Refunds can be for a partial amount of the payment. It is possible to create refunds up to the value of the total payment.</p><p>Once a payment or invoice is fully refunded, no more refunds can be created. Errors will be returned if the payment is greater than available refund funds.</p>
+*Bfwd::RefundsApi* | [**get_all_refunds**](docs/RefundsApi.md#get_all_refunds) | **GET** /refunds | Returns a collection of all refunds. By default 10 values are returned. Refunds are returned in natural order
+*Bfwd::RefundsApi* | [**get_refund_by_id**](docs/RefundsApi.md#get_refund_by_id) | **GET** /refunds/{refund-ID} | Returns a single refund, specified by the ID parameter.
+*Bfwd::RefundsApi* | [**get_refund_for_original_payment**](docs/RefundsApi.md#get_refund_for_original_payment) | **GET** /refunds/original-payment/{payment-ID} | Returns a refund for the original payment.
+*Bfwd::RefundsApi* | [**get_refund_for_refund_payment**](docs/RefundsApi.md#get_refund_for_refund_payment) | **GET** /refunds/refund-payment/{payment-ID} | Returns a refund for the refund payment.
+*Bfwd::RefundsApi* | [**get_refund_for_refunded_invoice**](docs/RefundsApi.md#get_refund_for_refunded_invoice) | **GET** /refunds/invoice/{invoice-ID} | Returns a refund for the refund payment.
+*Bfwd::RefundsApi* | [**get_refunds_as_csv**](docs/RefundsApi.md#get_refunds_as_csv) | **GET** /refunds/csv | Retrieves refunds in CSV format.
+*Bfwd::RefundsApi* | [**update_refund**](docs/RefundsApi.md#update_refund) | **PUT** /refunds | Update a refund
+*Bfwd::RolesApi* | [**create_role**](docs/RolesApi.md#create_role) | **POST** /roles | Create a new role.
+*Bfwd::RolesApi* | [**get_all_roles**](docs/RolesApi.md#get_all_roles) | **GET** /roles | Retrieves a collection of all roles. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::RolesApi* | [**get_role_by_id**](docs/RolesApi.md#get_role_by_id) | **GET** /roles/{role} | Retrieves a single role, specified by the ID parameter.
+*Bfwd::RolesApi* | [**remove_permission_from_role**](docs/RolesApi.md#remove_permission_from_role) | **DELETE** /roles/{role}/permission/{resource}/{action} | Revokes a particular permission
+*Bfwd::RolesApi* | [**revoke_role**](docs/RolesApi.md#revoke_role) | **DELETE** /roles/{role} | Revokes a role
+*Bfwd::RolesApi* | [**update_role**](docs/RolesApi.md#update_role) | **PUT** /roles | Update a role.
+*Bfwd::SearchApi* | [**perform_search**](docs/SearchApi.md#perform_search) | **GET** /search/{query-string} | Returns the results of the global search specified by the query-string.
+*Bfwd::SubscriptionsApi* | [**add_charge_to_subscription**](docs/SubscriptionsApi.md#add_charge_to_subscription) | **POST** /subscriptions/{subscription-ID}/charge | Creates a charge on the specified subscription.
+*Bfwd::SubscriptionsApi* | [**add_coupon_to_subscription**](docs/SubscriptionsApi.md#add_coupon_to_subscription) | **POST** /subscriptions/{subscription-ID}/coupons | Applies a coupon to a subscription.
+*Bfwd::SubscriptionsApi* | [**add_credit_note_to_subscription**](docs/SubscriptionsApi.md#add_credit_note_to_subscription) | **POST** /subscriptions/{subscription-ID}/credit | Creates a credit-note which may be used by only the specified subscription.
+*Bfwd::SubscriptionsApi* | [**add_payment_method_to_subscription**](docs/SubscriptionsApi.md#add_payment_method_to_subscription) | **POST** /subscriptions/{subscription-ID}/payment-methods | Enables the payment method to pay invoices of this subscription.
+*Bfwd::SubscriptionsApi* | [**advance_subscription**](docs/SubscriptionsApi.md#advance_subscription) | **POST** /subscriptions/{subscription-ID}/advance | Advance the subscription through time.
+*Bfwd::SubscriptionsApi* | [**available_payment_methods_for_subscription**](docs/SubscriptionsApi.md#available_payment_methods_for_subscription) | **GET** /subscriptions/{subscription-ID}/payment-methods | Returns all available payment methods for the specified subscription. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**batch_create_subscriptions**](docs/SubscriptionsApi.md#batch_create_subscriptions) | **POST** /subscriptions/batch | Create multiple subscriptions.
+*Bfwd::SubscriptionsApi* | [**cancel_subscription**](docs/SubscriptionsApi.md#cancel_subscription) | **POST** /subscriptions/{subscription-ID}/cancel | Retires the subscription specified by the subscription-ID parameter. Retiring a subscription causes it to cancel based on the specified retirement settings for the product.
+*Bfwd::SubscriptionsApi* | [**create_aggregating_subscription**](docs/SubscriptionsApi.md#create_aggregating_subscription) | **POST** /subscriptions/aggregating | Create an aggregating subscription.
+*Bfwd::SubscriptionsApi* | [**create_subscription**](docs/SubscriptionsApi.md#create_subscription) | **POST** /subscriptions | Create a new subscription.
+*Bfwd::SubscriptionsApi* | [**create_subscription_v2**](docs/SubscriptionsApi.md#create_subscription_v2) | **POST** /subscriptions/create | Create a subscription (V2).
+*Bfwd::SubscriptionsApi* | [**create_timer**](docs/SubscriptionsApi.md#create_timer) | **POST** /subscriptions/{subscription-ID}/timer | Create a timer for a subscription event.
+*Bfwd::SubscriptionsApi* | [**delete_metadata_for_subscription**](docs/SubscriptionsApi.md#delete_metadata_for_subscription) | **DELETE** /subscriptions/{subscription-ID}/metadata | Remove any associated metadata.
+*Bfwd::SubscriptionsApi* | [**freeze_subscription**](docs/SubscriptionsApi.md#freeze_subscription) | **POST** /subscriptions/{subscription-ID}/freeze | Freeze the subscription.
+*Bfwd::SubscriptionsApi* | [**get_all_subscriptions**](docs/SubscriptionsApi.md#get_all_subscriptions) | **GET** /subscriptions | Retrieves a collection of all subscriptions. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_applicable_coupons_for_subscription**](docs/SubscriptionsApi.md#get_applicable_coupons_for_subscription) | **GET** /subscriptions/{subscription-ID}/applicable-coupons | Retrieves a collection of the coupons which can be applied to this subscription.
+*Bfwd::SubscriptionsApi* | [**get_available_credit_subscription**](docs/SubscriptionsApi.md#get_available_credit_subscription) | **GET** /subscriptions/{subscription-ID}/credit | Returns all available credit-notes for the specified subscription. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_charges_on_subscription**](docs/SubscriptionsApi.md#get_charges_on_subscription) | **GET** /subscriptions/{subscription-ID}/charges | Returns all charges for the specified subscription. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_children_of_subscription**](docs/SubscriptionsApi.md#get_children_of_subscription) | **GET** /subscriptions/{subscription-ID}/children | Return all entities whose invoices will be aggregated by the specified subscription By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_coupons_on_subscription**](docs/SubscriptionsApi.md#get_coupons_on_subscription) | **GET** /subscriptions/{subscription-ID}/coupons | Retrieves a collection of the coupons and the unique codes currently applied to the subscription.
+*Bfwd::SubscriptionsApi* | [**get_invoices_for_subscription_by_state**](docs/SubscriptionsApi.md#get_invoices_for_subscription_by_state) | **GET** /subscriptions/{subscriptionID}/invoices/{state} | Retrieves a collection of invoice objects of the specified state for the given subscription. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_metadata_for_subscription**](docs/SubscriptionsApi.md#get_metadata_for_subscription) | **GET** /subscriptions/{subscription-ID}/metadata | Retrieve any associated metadata.
+*Bfwd::SubscriptionsApi* | [**get_parent_subscription**](docs/SubscriptionsApi.md#get_parent_subscription) | **GET** /subscriptions/{subscription-ID}/parent | Return the parent of the given subscription.
+*Bfwd::SubscriptionsApi* | [**get_pricing_component_values_of_subscription**](docs/SubscriptionsApi.md#get_pricing_component_values_of_subscription) | **GET** /subscriptions/{subscription-ID}/values | Gets the subscription's current pricing-component values.
+*Bfwd::SubscriptionsApi* | [**get_subscription_by_account_id**](docs/SubscriptionsApi.md#get_subscription_by_account_id) | **GET** /subscriptions/account/{account-ID} | Retrieves a collection of subscriptions, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_subscription_by_id**](docs/SubscriptionsApi.md#get_subscription_by_id) | **GET** /subscriptions/{subscription-ID} | Retrieves a single subscription, specified by the ID parameter.
+*Bfwd::SubscriptionsApi* | [**get_subscription_by_product_id**](docs/SubscriptionsApi.md#get_subscription_by_product_id) | **GET** /subscriptions/product/{product-ID} | Retrieves a collection of subscriptions, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_subscription_by_product_rate_plan_id**](docs/SubscriptionsApi.md#get_subscription_by_product_rate_plan_id) | **GET** /subscriptions/product-rate-plan/{product-rate-plan-ID} | Retrieves a collection of subscriptions, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_subscription_by_state**](docs/SubscriptionsApi.md#get_subscription_by_state) | **GET** /subscriptions/state/{state} | Retrieves a collection of subscriptions, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_subscription_by_version_id**](docs/SubscriptionsApi.md#get_subscription_by_version_id) | **GET** /subscriptions/version/{version-ID} | Retrieves a single subscription, specified by the version-ID parameter.
+*Bfwd::SubscriptionsApi* | [**get_subscriptions_by_initial_period_start**](docs/SubscriptionsApi.md#get_subscriptions_by_initial_period_start) | **GET** /subscriptions/initial-period-start/{lower-threshold}/{upper-threshold} | Retrieves a collection of subscription objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_subscriptions_by_period_end**](docs/SubscriptionsApi.md#get_subscriptions_by_period_end) | **GET** /subscriptions/period-end/{lower-threshold}/{upper-threshold} | Retrieves a collection of subscription objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_subscriptions_by_period_start**](docs/SubscriptionsApi.md#get_subscriptions_by_period_start) | **GET** /subscriptions/period-start/{lower-threshold}/{upper-threshold} | Retrieves a collection of subscription objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_subscriptions_by_successful_periods**](docs/SubscriptionsApi.md#get_subscriptions_by_successful_periods) | **GET** /subscriptions/successful-periods/{lower-threshold}/{upper-threshold} | Retrieves a collection of subscription objects whose successful periods count falls within the range specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**get_swagger_subscription**](docs/SubscriptionsApi.md#get_swagger_subscription) | **GET** /subscriptions/swagger-end-point/{query-string} | 
+*Bfwd::SubscriptionsApi* | [**get_timers_for_subscription**](docs/SubscriptionsApi.md#get_timers_for_subscription) | **GET** /subscriptions/{subscription-ID}/timer | Retrieves a collection timer amendments for the specified subscription.. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SubscriptionsApi* | [**import_subscription**](docs/SubscriptionsApi.md#import_subscription) | **POST** /subscriptions/import | Import a subscription.
+*Bfwd::SubscriptionsApi* | [**invoice_charges_on_subscription**](docs/SubscriptionsApi.md#invoice_charges_on_subscription) | **POST** /subscriptions/{subscription-ID}/invoice-charges | Invoice any outstanding charges for the subscription.
+*Bfwd::SubscriptionsApi* | [**migrate_subscription**](docs/SubscriptionsApi.md#migrate_subscription) | **POST** /subscriptions/{subscription-ID}/migrate | Migrate the subscription to a new plan.
+*Bfwd::SubscriptionsApi* | [**remove_coupon_from_subscription**](docs/SubscriptionsApi.md#remove_coupon_from_subscription) | **DELETE** /subscriptions/{subscription-ID}/coupons/{coupon-code} | Removes the coupon from the subscription.
+*Bfwd::SubscriptionsApi* | [**remove_credit_from_subscription**](docs/SubscriptionsApi.md#remove_credit_from_subscription) | **DELETE** /subscriptions/{subscription-ID}/credit/{value} | Decrease the amount of credit available to the specified subscription.
+*Bfwd::SubscriptionsApi* | [**remove_payment_method_from_subscription**](docs/SubscriptionsApi.md#remove_payment_method_from_subscription) | **DELETE** /subscriptions/{subscription-ID}/payment-methods/{payment-method-ID} | Removes the specified payment method for the given subscription.
+*Bfwd::SubscriptionsApi* | [**remove_pricing_component_value_change_from_subscription**](docs/SubscriptionsApi.md#remove_pricing_component_value_change_from_subscription) | **DELETE** /subscriptions/{subscription-ID}/values/{pricing-component} | Discards from the subscription any scheduled changes in the value of the specified pricing-component.
+*Bfwd::SubscriptionsApi* | [**resume_subscription**](docs/SubscriptionsApi.md#resume_subscription) | **POST** /subscriptions/{subscription-ID}/resume | Resume the frozen subscription.
+*Bfwd::SubscriptionsApi* | [**revive_subscription**](docs/SubscriptionsApi.md#revive_subscription) | **POST** /subscriptions/{subscription-ID}/revive | Revives a cancelled subscription and returns it to its previous state
+*Bfwd::SubscriptionsApi* | [**set_metadata_for_subscription**](docs/SubscriptionsApi.md#set_metadata_for_subscription) | **POST** /subscriptions/{subscription-ID}/metadata | Remove any existing metadata keys and create the provided data.
+*Bfwd::SubscriptionsApi* | [**set_pricing_component_value_on_subscription**](docs/SubscriptionsApi.md#set_pricing_component_value_on_subscription) | **POST** /subscriptions/{subscription-ID}/pricing-component-values | Sets upon this subscription a new value for the specified pricing-component without performing an upgrade.
+*Bfwd::SubscriptionsApi* | [**set_pricing_component_value_on_subscription_batch_update**](docs/SubscriptionsApi.md#set_pricing_component_value_on_subscription_batch_update) | **POST** /subscriptions/{subscription-ID}/values | Upgrades/downgrades this subscription to some new value for the specified pricing-component. This endpoint can do synchronous (immediate) and asynchronous (delayed) updates. A synchronous update will generate a charge/credit for an UPGRADE or DOWNGRADE. An asynchronous update will generate an amendment scheduled for the end of the billing period. By default each update is considered synchronous, you can make them asynchronous setting 'applyChangeNow' to 'false'.
+*Bfwd::SubscriptionsApi* | [**set_pricing_component_value_on_subscription_v2**](docs/SubscriptionsApi.md#set_pricing_component_value_on_subscription_v2) | **POST** /subscriptions/{subscription-ID}/values/{pricing-component} | Upgrades/downgrades this subscription to some new value for the specified pricing-component.
+*Bfwd::SubscriptionsApi* | [**update_subscription**](docs/SubscriptionsApi.md#update_subscription) | **PUT** /subscriptions | Update a subscription.
+*Bfwd::SubscriptionsApi* | [**update_subscription_v2**](docs/SubscriptionsApi.md#update_subscription_v2) | **PUT** /subscriptions/update | Update a subscription (V2).
+*Bfwd::SubscriptionsApi* | [**upsert_metadata_for_subscription**](docs/SubscriptionsApi.md#upsert_metadata_for_subscription) | **PUT** /subscriptions/{subscription-ID}/metadata | Update any existing metadata key-values and insert any new key-values, no keys will be removed.
+*Bfwd::SynchAppConfigsApi* | [**create_sync_app_config**](docs/SynchAppConfigsApi.md#create_sync_app_config) | **POST** /synchAppConfigs | Create a synch app configuration.
+*Bfwd::SynchAppConfigsApi* | [**get_sync_app_config**](docs/SynchAppConfigsApi.md#get_sync_app_config) | **GET** /synchAppConfigs/{synchAppConfigs-ID} | Returns a single config, specified by the ID parameter.
+*Bfwd::SynchAppConfigsApi* | [**get_sync_app_config_by_platform**](docs/SynchAppConfigsApi.md#get_sync_app_config_by_platform) | **GET** /synchAppConfigs/platform/{platform} | Returns a collection configurations, specified by the platform parameter.
+*Bfwd::SynchAppConfigsApi* | [**update_sync_app_config**](docs/SynchAppConfigsApi.md#update_sync_app_config) | **PUT** /synchAppConfigs | Update a synch app configuration.
+*Bfwd::SynchConfigsApi* | [**create_sync_config**](docs/SynchConfigsApi.md#create_sync_config) | **POST** /synchConfigs | Create a synch configuration.
+*Bfwd::SynchConfigsApi* | [**get_all_sync_configs**](docs/SynchConfigsApi.md#get_all_sync_configs) | **GET** /synchConfigs | Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SynchConfigsApi* | [**get_sync_config**](docs/SynchConfigsApi.md#get_sync_config) | **GET** /synchConfigs/{synchConfigs-ID} | Returns a single config, specified by the ID parameter.
+*Bfwd::SynchConfigsApi* | [**get_sync_config_by_platform**](docs/SynchConfigsApi.md#get_sync_config_by_platform) | **GET** /synchConfigs/platform/{platform} | Returns a collection configurations, specified by the platform parameter.
+*Bfwd::SynchConfigsApi* | [**get_sync_config_by_username**](docs/SynchConfigsApi.md#get_sync_config_by_username) | **GET** /synchConfigs/username/{username} | Returns a collection configurations, specified by the username parameter.
+*Bfwd::SynchConfigsApi* | [**update_sync_config**](docs/SynchConfigsApi.md#update_sync_config) | **PUT** /synchConfigs | Update a synch configuration.
+*Bfwd::SynchJobsApi* | [**create_sync_job**](docs/SynchJobsApi.md#create_sync_job) | **POST** /synchJobs | Create a synch job.
+*Bfwd::SynchJobsApi* | [**get_all_sync_jobs**](docs/SynchJobsApi.md#get_all_sync_jobs) | **GET** /synchJobs | Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::SynchJobsApi* | [**get_sync_job_by_id**](docs/SynchJobsApi.md#get_sync_job_by_id) | **GET** /synchJobs/{synchJob-ID} | Returns a single job, specified by the ID parameter.
+*Bfwd::SynchJobsApi* | [**get_sync_job_by_scope**](docs/SynchJobsApi.md#get_sync_job_by_scope) | **GET** /synchJobs/scope/{scope} | Returns a collection jobs, specified by the scope parameter.
+*Bfwd::SynchJobsApi* | [**get_sync_job_by_state**](docs/SynchJobsApi.md#get_sync_job_by_state) | **GET** /synchJobs/state/{state} | Returns a collection jobs, specified by the state parameter.
+*Bfwd::SynchJobsApi* | [**get_sync_job_by_target**](docs/SynchJobsApi.md#get_sync_job_by_target) | **GET** /synchJobs/target/{target} | Returns a collection jobs, specified by the target parameter.
+*Bfwd::SynchJobsApi* | [**get_sync_job_by_type**](docs/SynchJobsApi.md#get_sync_job_by_type) | **GET** /synchJobs/type/{type} | Returns a collection jobs, specified by the type parameter.
+*Bfwd::SynchJobsApi* | [**update_sync_job**](docs/SynchJobsApi.md#update_sync_job) | **PUT** /synchJobs | Update a synch job.
+*Bfwd::TaxationlinksApi* | [**create_taxation_link**](docs/TaxationlinksApi.md#create_taxation_link) | **POST** /taxation-links | Create
+*Bfwd::TaxationlinksApi* | [**get_all_taxation_links**](docs/TaxationlinksApi.md#get_all_taxation_links) | **GET** /taxation-links | Returns a collection of all taxation-links. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::TaxationlinksApi* | [**get_taxation_link_by_id**](docs/TaxationlinksApi.md#get_taxation_link_by_id) | **GET** /taxation-links/{taxation-link-ID} | Returns a single taxation-link, specified by the taxation-link-ID parameter.
+*Bfwd::TaxationlinksApi* | [**get_taxation_link_by_product_rate_plan**](docs/TaxationlinksApi.md#get_taxation_link_by_product_rate_plan) | **GET** /taxation-links/product-rate-plan/{product-rate-plan-ID} | Returns a collection of taxation-links, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::TaxationlinksApi* | [**get_taxation_link_by_taxation_strategy**](docs/TaxationlinksApi.md#get_taxation_link_by_taxation_strategy) | **GET** /taxation-links/taxation-strategy/{taxation-strategy-ID} | Returns a collection of taxation-links, specified by the taxation-strategy-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::TaxationlinksApi* | [**update_taxation_link**](docs/TaxationlinksApi.md#update_taxation_link) | **PUT** /taxation-links | Update
+*Bfwd::TaxationstrategiesApi* | [**create_taxation_strategy**](docs/TaxationstrategiesApi.md#create_taxation_strategy) | **POST** /taxation-strategies | <p>Add a new tax or schedule changes in an existing tax.</p><p>Add a new tax by providing the location and tax percentage. To schedule a tax change specify the ID of the current Tax. A new version of the will be created <i>validFrom</i> the specified date, the existing tax <i>validTill</i> the start of this new tax.</p>
+*Bfwd::TaxationstrategiesApi* | [**get_all_taxation_strategies**](docs/TaxationstrategiesApi.md#get_all_taxation_strategies) | **GET** /taxation-strategies | Returns a collection of all taxation-strategies. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::TaxationstrategiesApi* | [**get_taxation_strategy_by_consistent_id**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_consistent_id) | **GET** /taxation-strategies/{taxation-strategy-ID} | Returns the tax currently being applied for the taxation-strategy-ID. To return schedule or historic tax changes the include_retired query parameter should be set to true.
+*Bfwd::TaxationstrategiesApi* | [**get_taxation_strategy_by_country**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_country) | **GET** /taxation-strategies/country/{country} | Returns a collection of taxation-strategies, specified by the country parameter. By default 10 values are returned. Records are returned in natural order. To return schedule or historic tax changes the include_retired query parameter should be set to true.
+*Bfwd::TaxationstrategiesApi* | [**get_taxation_strategy_by_currency**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_currency) | **GET** /taxation-strategies/currency/{currency} | Returns a collection of taxation-strategies, specified by the currency parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::TaxationstrategiesApi* | [**get_taxation_strategy_by_province**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_province) | **GET** /taxation-strategies/province/{province} | Returns a collection of taxation-strategies, specified by the province parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::TaxationstrategiesApi* | [**get_taxation_strategy_by_version_id**](docs/TaxationstrategiesApi.md#get_taxation_strategy_by_version_id) | **GET** /taxation-strategies/version/{version-ID} | Returns a single taxation-strategy, specified by the taxation-strategy-ID parameter.
+*Bfwd::TaxationstrategiesApi* | [**retire_taxation_strategy**](docs/TaxationstrategiesApi.md#retire_taxation_strategy) | **DELETE** /taxation-strategies/version/{version-ID} | Retires the taxation-strategy specified by taxation-strategy-ID parameter. Only the version of the tax which has an unbounded (null) validTill can be removed. Removing a tax change will make the previous tax come into effect. For example if you have a Tax in January and 5% and a new tax at 7% from February onwards, you can remove the February tax. Remove the February tax will re-instate the January tax.
+*Bfwd::TaxationstrategiesApi* | [**update_taxation_strategy**](docs/TaxationstrategiesApi.md#update_taxation_strategy) | **PUT** /taxation-strategies | Update a tax.
+*Bfwd::TimeApi* | [**get_time_swagger**](docs/TimeApi.md#get_time_swagger) | **GET** /time/swagger-end-point | 
+*Bfwd::TokenizationApi* | [**auth_capture**](docs/TokenizationApi.md#auth_capture) | **POST** /tokenization/auth-capture | [Note: this API can be invoked more simply by our client-side card capture library, <a href=\"https://github.com/billforward/billforward-js\">BillForward.js</a>; you should not need to interact with this API manually unless you have particularly bespoke requirements] 
+*Bfwd::TokenizationApi* | [**braintree_card_capture**](docs/TokenizationApi.md#braintree_card_capture) | **POST** /tokenization/braintree | [Warning: for use only in PCI-compliant environments; for more information, <a href=\"mailto:support@billforward.net\">contact us</a> regarding provisioning of your own on-premise BillForward instance] Captures raw credit card details into Braintree's vault.
+*Bfwd::TokenizationApi* | [**pay_vision_shout_v1**](docs/TokenizationApi.md#pay_vision_shout_v1) | **POST** /tokenization/payvision-shout-v1 | [Note: this API is intended to be invoked by the PayVision servers -- they are BillForward's way of informing client-side of the result of card-capture from within an iframe] Generates iframe to which customer will be directed upon success or failure. The iframe contains JavaScript which attempts to send a message to BillForward.js on the client-side, which will handle the result.
+*Bfwd::TokenizationApi* | [**pre_auth**](docs/TokenizationApi.md#pre_auth) | **POST** /tokenization/pre-auth | [Note: this API can be invoked more simply by our client-side card capture library, <a href=\"https://github.com/billforward/billforward-js\">BillForward.js</a>; you should not need to interact with this API manually unless you have particularly bespoke requirements] 
+*Bfwd::TokenizationApi* | [**sage_pay_notify_v300**](docs/TokenizationApi.md#sage_pay_notify_v300) | **POST** /tokenization/sagepay-notify-v3-00 | [Note: this API is intended to be invoked by the SagePay servers -- they are BillForward's way of receiving a callback from a SagePay card capture operation, using SagePay's FORM Protocol, v3.0] Handles SagePay Notification.
+*Bfwd::TokenizationApi* | [**sage_pay_shout_v300**](docs/TokenizationApi.md#sage_pay_shout_v300) | **GET** /tokenization/sagepay-shout-v3-00 | [Note: this API is intended to be invoked by the SagePay servers -- they are BillForward's way of informing client-side of the result of card-capture from within an iframe, using SagePay's FORM Protocol, v3.0] Generates iframe to which customer will be directed upon success or failure. The iframe contains JavaScript which attempts to send a message to BillForward.js on the client-side, which will handle the result.
+*Bfwd::UnitofmeasureApi* | [**create_unit_of_measure**](docs/UnitofmeasureApi.md#create_unit_of_measure) | **POST** /units-of-measure | Create a unit-of-measure.
+*Bfwd::UnitofmeasureApi* | [**get_all_units_of_measure**](docs/UnitofmeasureApi.md#get_all_units_of_measure) | **GET** /units-of-measure | Returns a collection of all unit-of-measure objects. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::UnitofmeasureApi* | [**get_unit_of_measure_by_id**](docs/UnitofmeasureApi.md#get_unit_of_measure_by_id) | **GET** /units-of-measure/{unit-of-measure-identifier} | Returns a single unit-of-measure corresponding to the unique id or name specified.
+*Bfwd::UnitofmeasureApi* | [**update_unit_of_measure**](docs/UnitofmeasureApi.md#update_unit_of_measure) | **PUT** /units-of-measure | Update a unit-of-measure.
+*Bfwd::UsageApi* | [**create_usage_instance**](docs/UsageApi.md#create_usage_instance) | **POST** /usage | Add usage
+*Bfwd::UsageApi* | [**get_usage_by_id**](docs/UsageApi.md#get_usage_by_id) | **GET** /usage/{subscription-id}/{period-id} | Retrieve by subscription and period
+*Bfwd::UsageApi* | [**get_usage_by_subscription_id**](docs/UsageApi.md#get_usage_by_subscription_id) | **GET** /usage/{subscription-id} | Retrieve by subscription
+*Bfwd::UsageApi* | [**get_usage_by_subscription_id_uo_m_period_and_usage_type**](docs/UsageApi.md#get_usage_by_subscription_id_uo_m_period_and_usage_type) | **GET** /usage/{subscription-id}/{uom}/{period-id}/{usage-type} | Retrieve by subscription, period and type
+*Bfwd::UsageApi* | [**update_usage_instance**](docs/UsageApi.md#update_usage_instance) | **PUT** /usage | Update usage
+*Bfwd::UsageperiodsApi* | [**get_usage_period**](docs/UsageperiodsApi.md#get_usage_period) | **GET** /usage-periods/{subscription-id}/{period-id} | Retrieve by subscription and period
+*Bfwd::UsageperiodsApi* | [**get_usage_period_for_all**](docs/UsageperiodsApi.md#get_usage_period_for_all) | **GET** /usage-periods/{subscription-id} | Retrieve by subscription
+*Bfwd::UsageperiodsApi* | [**get_usage_period_for_invoice**](docs/UsageperiodsApi.md#get_usage_period_for_invoice) | **GET** /usage-periods/{subscription-id}/invoice/{invoice-id} | Retrieve by invoice)
+*Bfwd::UsageroundingstrategiesApi* | [**create_usage_rounding_strategy**](docs/UsageroundingstrategiesApi.md#create_usage_rounding_strategy) | **POST** /usage-rounding-strategies | Create a new rounding strategy
+*Bfwd::UsageroundingstrategiesApi* | [**get_usage_rounding_strategy_by_id**](docs/UsageroundingstrategiesApi.md#get_usage_rounding_strategy_by_id) | **GET** /usage-rounding-strategies/{usage-rounding-strategies-ID} | Returns a collection of usage-rounding-strategies, specified by the usage-rounding-strategies-id parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::UsageroundingstrategiesApi* | [**get_usage_rounding_strategy_by_pricing_component_id**](docs/UsageroundingstrategiesApi.md#get_usage_rounding_strategy_by_pricing_component_id) | **GET** /usage-rounding-strategies/pricing-component/{pricing-component-ID} | Returns a collection of usage-rounding-strategies, specified by the pricing-component-ID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::UsageroundingstrategiesApi* | [**update_usage_rounding_strategy**](docs/UsageroundingstrategiesApi.md#update_usage_rounding_strategy) | **PUT** /usage-rounding-strategies | Update a rounding strategy
+*Bfwd::UsagesessionsApi* | [**get_active_sessions_for_subscription**](docs/UsagesessionsApi.md#get_active_sessions_for_subscription) | **GET** /usage-sessions/{subscription-id}/active | Get active by subscription
+*Bfwd::UsagesessionsApi* | [**get_usage_list_for_usage_session**](docs/UsagesessionsApi.md#get_usage_list_for_usage_session) | **GET** /usage-sessions/{subscription-id} | Retrieve by subscription
+*Bfwd::UsagesessionsApi* | [**start_usage_session**](docs/UsagesessionsApi.md#start_usage_session) | **POST** /usage-sessions/start | Start a new session
+*Bfwd::UsagesessionsApi* | [**stop_usage_session**](docs/UsagesessionsApi.md#stop_usage_session) | **POST** /usage-sessions/stop | Stop a specified session
+*Bfwd::UsernamesApi* | [**create_username**](docs/UsernamesApi.md#create_username) | **POST** /usernames | Create a username.
+*Bfwd::UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /users | Create a user.
+*Bfwd::UsersApi* | [**create_user_login**](docs/UsersApi.md#create_user_login) | **POST** /users/create-user-login | Create a user.
+*Bfwd::UsersApi* | [**get_all_users**](docs/UsersApi.md#get_all_users) | **GET** /users | Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::UsersApi* | [**get_user_by_id**](docs/UsersApi.md#get_user_by_id) | **GET** /users/{user-ID} | Returns a single User, specified by the ID parameter.
+*Bfwd::UsersApi* | [**get_user_by_password_reset_code**](docs/UsersApi.md#get_user_by_password_reset_code) | **GET** /users/password-reset-code/{password-reset-code} | Returns a single User, specified by the password-reset-code parameter.
+*Bfwd::UsersApi* | [**get_user_by_sms_password_reset_code**](docs/UsersApi.md#get_user_by_sms_password_reset_code) | **GET** /users/sms-password-reset-code/{sms-password-reset-code} | Returns a single User, specified by the sms-password-reset-code parameter.
+*Bfwd::UsersApi* | [**get_user_by_username**](docs/UsersApi.md#get_user_by_username) | **GET** /users/username/{username} | Returns a single User, specified by the username parameter, this is by default the e-mail address of the user.
+*Bfwd::UsersApi* | [**reset_user_password**](docs/UsersApi.md#reset_user_password) | **POST** /users/password-reset | Create a password reset request.
+*Bfwd::UsersApi* | [**retire_user**](docs/UsersApi.md#retire_user) | **DELETE** /users/{user-ID} | Retires the user with the specified user-ID.
+*Bfwd::UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PUT** /users | Update a user.
+*Bfwd::UsersApi* | [**update_user_password**](docs/UsersApi.md#update_user_password) | **POST** /users/password-update | Update a user's password.
+*Bfwd::VaultedgatewaysApi* | [**create_authorize_net_token**](docs/VaultedgatewaysApi.md#create_authorize_net_token) | **POST** /vaulted-gateways/authorize-net | Create an authorize-net-token.
+*Bfwd::VaultedgatewaysApi* | [**create_braintree_token**](docs/VaultedgatewaysApi.md#create_braintree_token) | **POST** /vaulted-gateways/braintree | Create a braintree-token.
+*Bfwd::VaultedgatewaysApi* | [**create_stripe_ach_token**](docs/VaultedgatewaysApi.md#create_stripe_ach_token) | **POST** /vaulted-gateways/stripe-ACH | Create a stripe-ACH-token.
+*Bfwd::VaultedgatewaysApi* | [**create_stripe_token**](docs/VaultedgatewaysApi.md#create_stripe_token) | **POST** /vaulted-gateways/stripe | Create a stripe-token.
+*Bfwd::VaultedgatewaysApi* | [**create_trust_commerce_token**](docs/VaultedgatewaysApi.md#create_trust_commerce_token) | **POST** /vaulted-gateways/trustCommerce | Create a trust-commerce-token.
+*Bfwd::VaultedgatewaysApi* | [**get_braintree_by_account_id**](docs/VaultedgatewaysApi.md#get_braintree_by_account_id) | **GET** /vaulted-gateways/braintree/{accountID} | Returns a list of braintree-tokens backing PaymentMethods belonging to the specified account parameter.
+*Bfwd::VaultedgatewaysApi* | [**get_by_card_details_id**](docs/VaultedgatewaysApi.md#get_by_card_details_id) | **GET** /vaulted-gateways/stripe/card-details-id/{cardDetailsID} | Returns a single stripe-token, specified by the cardDetailsID parameter.
+*Bfwd::VaultedgatewaysApi* | [**get_stripe_ach**](docs/VaultedgatewaysApi.md#get_stripe_ach) | **GET** /vaulted-gateways/stripe-ACH/{stripeACHTokenID} | Returns a single stripe-ACH-token, specified by the stripeACHTokenID parameter.
+*Bfwd::VaultedgatewaysApi* | [**get_stripe_token**](docs/VaultedgatewaysApi.md#get_stripe_token) | **GET** /vaulted-gateways/stripe/{stripeTokenID} | Returns a single stripe-token, specified by the stripeTokenID parameter.
+*Bfwd::VaultedgatewaysApi* | [**update_stripe_ach_token**](docs/VaultedgatewaysApi.md#update_stripe_ach_token) | **PUT** /vaulted-gateways/stripe-ACH | Update a stripe-ACH-token.
+*Bfwd::VaultedgatewaysApi* | [**update_stripe_token**](docs/VaultedgatewaysApi.md#update_stripe_token) | **PUT** /vaulted-gateways/stripe | Update a stripe-token.
+*Bfwd::VaultedgatewaysApi* | [**verify_bank_account**](docs/VaultedgatewaysApi.md#verify_bank_account) | **POST** /vaulted-gateways/stripe/verify-bank-account | Verify Stripe bank account.
+*Bfwd::VaultedgatewaysApi* | [**webhook**](docs/VaultedgatewaysApi.md#webhook) | **POST** /vaulted-gateways/stripe/webhook | Receive and handle webhook from Stripe.
+*Bfwd::WebhooksApi* | [**create_webhook**](docs/WebhooksApi.md#create_webhook) | **POST** /webhooks | Create a webhook.
+*Bfwd::WebhooksApi* | [**create_webhook_v2**](docs/WebhooksApi.md#create_webhook_v2) | **POST** /webhooks/create | Create a webhook.
+*Bfwd::WebhooksApi* | [**get_all_webhooks**](docs/WebhooksApi.md#get_all_webhooks) | **GET** /webhooks | Returns a collection of Webhooks, specified by the accountID parameter. By default 10 values are returned. Records are returned in natural order.
+*Bfwd::WebhooksApi* | [**get_webhook_by_id**](docs/WebhooksApi.md#get_webhook_by_id) | **GET** /webhooks/{webhook-ID} | Returns a single webhook, specified by the webhook-ID parameter.
+*Bfwd::WebhooksApi* | [**retire_webhook**](docs/WebhooksApi.md#retire_webhook) | **DELETE** /webhooks/{webhook-ID} | Retires the specified webhook.
+*Bfwd::WebhooksApi* | [**update_webhook**](docs/WebhooksApi.md#update_webhook) | **PUT** /webhooks | Update a webhook.
+*Bfwd::WebhooksApi* | [**verify_webhook**](docs/WebhooksApi.md#verify_webhook) | **GET** /webhooks/verify/{verification-ID} | New webhooks must be verified before use, use the verificationID of the webhook to perform verification.
 
 
 ## Documentation for Models
 
- - [BillForward::APIConfigurationPagedMetadata](docs/APIConfigurationPagedMetadata.md)
- - [BillForward::APIQuote](docs/APIQuote.md)
- - [BillForward::APIQuotePagedMetadata](docs/APIQuotePagedMetadata.md)
- - [BillForward::APIQuoteResponseQuantity](docs/APIQuoteResponseQuantity.md)
- - [BillForward::Account](docs/Account.md)
- - [BillForward::AccountLTVResultPagedMetadata](docs/AccountLTVResultPagedMetadata.md)
- - [BillForward::AccountPagedMetadata](docs/AccountPagedMetadata.md)
- - [BillForward::AccountPaymentsResultPagedMetadata](docs/AccountPaymentsResultPagedMetadata.md)
- - [BillForward::AddChargeRequest](docs/AddChargeRequest.md)
- - [BillForward::AddChargeToAccountResponse](docs/AddChargeToAccountResponse.md)
- - [BillForward::AddChargeToAccountResponsePagedMetadata](docs/AddChargeToAccountResponsePagedMetadata.md)
- - [BillForward::AddChargesToAccountAPIRequest](docs/AddChargesToAccountAPIRequest.md)
- - [BillForward::AddCouponCodeRequest](docs/AddCouponCodeRequest.md)
- - [BillForward::AddPaymentMethodRequest](docs/AddPaymentMethodRequest.md)
- - [BillForward::AddTaxationStrategyRequest](docs/AddTaxationStrategyRequest.md)
- - [BillForward::Address](docs/Address.md)
- - [BillForward::AddressPagedMetadata](docs/AddressPagedMetadata.md)
- - [BillForward::AggregatingComponent](docs/AggregatingComponent.md)
- - [BillForward::Amendment](docs/Amendment.md)
- - [BillForward::AmendmentDiscardAmendment](docs/AmendmentDiscardAmendment.md)
- - [BillForward::AmendmentPagedMetadata](docs/AmendmentPagedMetadata.md)
- - [BillForward::AmendmentPriceNTimePagedMetadata](docs/AmendmentPriceNTimePagedMetadata.md)
- - [BillForward::AuditEntry](docs/AuditEntry.md)
- - [BillForward::AuditEntryPagedMetadata](docs/AuditEntryPagedMetadata.md)
- - [BillForward::AuthCaptureRequest](docs/AuthCaptureRequest.md)
- - [BillForward::AuthorizeNetTokenPagedMetadata](docs/AuthorizeNetTokenPagedMetadata.md)
- - [BillForward::BFError](docs/BFError.md)
- - [BillForward::BFPermission](docs/BFPermission.md)
- - [BillForward::BFPermissionPagedMetadata](docs/BFPermissionPagedMetadata.md)
- - [BillForward::BankAccountVerificationPagedMetadata](docs/BankAccountVerificationPagedMetadata.md)
- - [BillForward::BatchUpdatePricingComponentValuesRequest](docs/BatchUpdatePricingComponentValuesRequest.md)
- - [BillForward::BillforwardManagedPaymentsResultPagedMetadata](docs/BillforwardManagedPaymentsResultPagedMetadata.md)
- - [BillForward::BillingEntityBase](docs/BillingEntityBase.md)
- - [BillForward::BraintreeAuthCaptureRequest](docs/BraintreeAuthCaptureRequest.md)
- - [BillForward::BraintreeCaptureRequest](docs/BraintreeCaptureRequest.md)
- - [BillForward::BraintreeTokenPagedMetadata](docs/BraintreeTokenPagedMetadata.md)
- - [BillForward::CancelSubscriptionRequest](docs/CancelSubscriptionRequest.md)
- - [BillForward::CancellationAmendment](docs/CancellationAmendment.md)
- - [BillForward::CassChurnResultPagedMetadata](docs/CassChurnResultPagedMetadata.md)
- - [BillForward::CassPaymentResultPagedMetadata](docs/CassPaymentResultPagedMetadata.md)
- - [BillForward::CassUpgradeResultPagedMetadata](docs/CassUpgradeResultPagedMetadata.md)
- - [BillForward::Client](docs/Client.md)
- - [BillForward::ClientPagedMetadata](docs/ClientPagedMetadata.md)
- - [BillForward::ComponentChange](docs/ComponentChange.md)
- - [BillForward::ComponentCost](docs/ComponentCost.md)
- - [BillForward::CompoundUsage](docs/CompoundUsage.md)
- - [BillForward::CompoundUsageSession](docs/CompoundUsageSession.md)
- - [BillForward::Coupon](docs/Coupon.md)
- - [BillForward::CouponBook](docs/CouponBook.md)
- - [BillForward::CouponBookDefinition](docs/CouponBookDefinition.md)
- - [BillForward::CouponBookDefinitionPagedMetadata](docs/CouponBookDefinitionPagedMetadata.md)
- - [BillForward::CouponBookPagedMetadata](docs/CouponBookPagedMetadata.md)
- - [BillForward::CouponDefinition](docs/CouponDefinition.md)
- - [BillForward::CouponDefinitionPagedMetadata](docs/CouponDefinitionPagedMetadata.md)
- - [BillForward::CouponDiscount](docs/CouponDiscount.md)
- - [BillForward::CouponDiscountEstimate](docs/CouponDiscountEstimate.md)
- - [BillForward::CouponInstance](docs/CouponInstance.md)
- - [BillForward::CouponInstanceExistingValue](docs/CouponInstanceExistingValue.md)
- - [BillForward::CouponInstancePagedMetadata](docs/CouponInstancePagedMetadata.md)
- - [BillForward::CouponModifierBase](docs/CouponModifierBase.md)
- - [BillForward::CouponModifierBasePagedMetadata](docs/CouponModifierBasePagedMetadata.md)
- - [BillForward::CouponPagedMetadata](docs/CouponPagedMetadata.md)
- - [BillForward::CouponRule](docs/CouponRule.md)
- - [BillForward::CouponRulePagedMetadata](docs/CouponRulePagedMetadata.md)
- - [BillForward::CouponUniqueCodesRequest](docs/CouponUniqueCodesRequest.md)
- - [BillForward::CouponUniqueCodesResponse](docs/CouponUniqueCodesResponse.md)
- - [BillForward::CouponUniqueCodesResponsePagedMetadata](docs/CouponUniqueCodesResponsePagedMetadata.md)
- - [BillForward::CouponWrapperResponse](docs/CouponWrapperResponse.md)
- - [BillForward::CreateAccountProfileRequest](docs/CreateAccountProfileRequest.md)
- - [BillForward::CreateAccountRequest](docs/CreateAccountRequest.md)
- - [BillForward::CreateAddressRequest](docs/CreateAddressRequest.md)
- - [BillForward::CreateAggregatingComponentRequest](docs/CreateAggregatingComponentRequest.md)
- - [BillForward::CreateAggregatingSubscriptionRequest](docs/CreateAggregatingSubscriptionRequest.md)
- - [BillForward::CreateProfileAddressRequest](docs/CreateProfileAddressRequest.md)
- - [BillForward::CreateSubscriptionBatchRequest](docs/CreateSubscriptionBatchRequest.md)
- - [BillForward::CreateSubscriptionChargeAmendment](docs/CreateSubscriptionChargeAmendment.md)
- - [BillForward::CreateSubscriptionRequest](docs/CreateSubscriptionRequest.md)
- - [BillForward::CreditAccountRequest](docs/CreditAccountRequest.md)
- - [BillForward::CreditNote](docs/CreditNote.md)
- - [BillForward::CreditNotePagedMetadata](docs/CreditNotePagedMetadata.md)
- - [BillForward::CreditSubscriptionRequest](docs/CreditSubscriptionRequest.md)
- - [BillForward::CybersourceTokenPagedMetadata](docs/CybersourceTokenPagedMetadata.md)
- - [BillForward::DataSynchronisationAppConfigurationPagedMetadata](docs/DataSynchronisationAppConfigurationPagedMetadata.md)
- - [BillForward::DataSynchronisationConfiguration](docs/DataSynchronisationConfiguration.md)
- - [BillForward::DataSynchronisationConfigurationPagedMetadata](docs/DataSynchronisationConfigurationPagedMetadata.md)
- - [BillForward::DataSynchronizationJobPagedMetadata](docs/DataSynchronizationJobPagedMetadata.md)
- - [BillForward::DebtsResultPagedMetadata](docs/DebtsResultPagedMetadata.md)
- - [BillForward::DunningLine](docs/DunningLine.md)
- - [BillForward::DunningLinePagedMetadata](docs/DunningLinePagedMetadata.md)
- - [BillForward::DynamicMetadata](docs/DynamicMetadata.md)
- - [BillForward::Email](docs/Email.md)
- - [BillForward::EmailPagedMetadata](docs/EmailPagedMetadata.md)
- - [BillForward::EmailProvider](docs/EmailProvider.md)
- - [BillForward::EmailProviderPagedMetadata](docs/EmailProviderPagedMetadata.md)
- - [BillForward::EmailSubscription](docs/EmailSubscription.md)
- - [BillForward::EmailSubscriptionPagedMetadata](docs/EmailSubscriptionPagedMetadata.md)
- - [BillForward::EndTrialAmendment](docs/EndTrialAmendment.md)
- - [BillForward::Event](docs/Event.md)
- - [BillForward::EventData](docs/EventData.md)
- - [BillForward::FileSham](docs/FileSham.md)
- - [BillForward::FixedTerm](docs/FixedTerm.md)
- - [BillForward::FixedTermDefinitionPagedMetadata](docs/FixedTermDefinitionPagedMetadata.md)
- - [BillForward::FixedTermExpiryAmendment](docs/FixedTermExpiryAmendment.md)
- - [BillForward::FixedTermPagedMetadata](docs/FixedTermPagedMetadata.md)
- - [BillForward::FlatPricingComponent](docs/FlatPricingComponent.md)
- - [BillForward::ImportInvoiceLine](docs/ImportInvoiceLine.md)
- - [BillForward::InsertableBillingEntity](docs/InsertableBillingEntity.md)
- - [BillForward::Invoice](docs/Invoice.md)
- - [BillForward::InvoiceChargeRequest](docs/InvoiceChargeRequest.md)
- - [BillForward::InvoiceLine](docs/InvoiceLine.md)
- - [BillForward::InvoiceLinePayment](docs/InvoiceLinePayment.md)
- - [BillForward::InvoiceLinePaymentPagedMetadata](docs/InvoiceLinePaymentPagedMetadata.md)
- - [BillForward::InvoiceNextExecutionAttemptAmendment](docs/InvoiceNextExecutionAttemptAmendment.md)
- - [BillForward::InvoiceOutstandingChargesAmendment](docs/InvoiceOutstandingChargesAmendment.md)
- - [BillForward::InvoicePagedMetadata](docs/InvoicePagedMetadata.md)
- - [BillForward::InvoicePayment](docs/InvoicePayment.md)
- - [BillForward::InvoiceRecalculationAmendment](docs/InvoiceRecalculationAmendment.md)
- - [BillForward::InvoiceRecalculationRequest](docs/InvoiceRecalculationRequest.md)
- - [BillForward::IssueInvoiceAmendment](docs/IssueInvoiceAmendment.md)
- - [BillForward::MetadataKeyValuesPagedMetadata](docs/MetadataKeyValuesPagedMetadata.md)
- - [BillForward::MigrationRequest](docs/MigrationRequest.md)
- - [BillForward::ModelAlias](docs/ModelAlias.md)
- - [BillForward::MutableBillingEntity](docs/MutableBillingEntity.md)
- - [BillForward::NestedChargeRequest](docs/NestedChargeRequest.md)
- - [BillForward::Notification](docs/Notification.md)
- - [BillForward::NotificationPagedMetadata](docs/NotificationPagedMetadata.md)
- - [BillForward::Organization](docs/Organization.md)
- - [BillForward::OrganizationPagedMetadata](docs/OrganizationPagedMetadata.md)
- - [BillForward::Password](docs/Password.md)
- - [BillForward::PasswordPagedMetadata](docs/PasswordPagedMetadata.md)
- - [BillForward::PasswordResetRequest](docs/PasswordResetRequest.md)
- - [BillForward::PauseRequest](docs/PauseRequest.md)
- - [BillForward::Payment](docs/Payment.md)
- - [BillForward::PaymentMethod](docs/PaymentMethod.md)
- - [BillForward::PaymentMethodPagedMetadata](docs/PaymentMethodPagedMetadata.md)
- - [BillForward::PaymentMethodSubscriptionLink](docs/PaymentMethodSubscriptionLink.md)
- - [BillForward::PaymentMethodSubscriptionLinkPagedMetadata](docs/PaymentMethodSubscriptionLinkPagedMetadata.md)
- - [BillForward::PaymentPagedMetadata](docs/PaymentPagedMetadata.md)
- - [BillForward::PaymentRetryRequest](docs/PaymentRetryRequest.md)
- - [BillForward::PendingComponentValueChange](docs/PendingComponentValueChange.md)
- - [BillForward::Period](docs/Period.md)
- - [BillForward::PeriodPagedMetadata](docs/PeriodPagedMetadata.md)
- - [BillForward::PermissionActionEntityPagedMetadata](docs/PermissionActionEntityPagedMetadata.md)
- - [BillForward::PermissionResourceEntityPagedMetadata](docs/PermissionResourceEntityPagedMetadata.md)
- - [BillForward::PriceCalculationPagedMetadata](docs/PriceCalculationPagedMetadata.md)
- - [BillForward::PricingComponent](docs/PricingComponent.md)
- - [BillForward::PricingComponentCouponModifier](docs/PricingComponentCouponModifier.md)
- - [BillForward::PricingComponentMigrationValue](docs/PricingComponentMigrationValue.md)
- - [BillForward::PricingComponentPagedMetadata](docs/PricingComponentPagedMetadata.md)
- - [BillForward::PricingComponentQuantityRequest](docs/PricingComponentQuantityRequest.md)
- - [BillForward::PricingComponentTier](docs/PricingComponentTier.md)
- - [BillForward::PricingComponentTierPagedMetadata](docs/PricingComponentTierPagedMetadata.md)
- - [BillForward::PricingComponentValue](docs/PricingComponentValue.md)
- - [BillForward::PricingComponentValueChangeAmendment](docs/PricingComponentValueChangeAmendment.md)
- - [BillForward::PricingComponentValueChangePagedMetadata](docs/PricingComponentValueChangePagedMetadata.md)
- - [BillForward::PricingComponentValueMigrationAmendmentMapping](docs/PricingComponentValueMigrationAmendmentMapping.md)
- - [BillForward::PricingComponentValuePagedMetadata](docs/PricingComponentValuePagedMetadata.md)
- - [BillForward::PricingComponentValueRequest](docs/PricingComponentValueRequest.md)
- - [BillForward::PricingComponentValueResponsePagedMetadata](docs/PricingComponentValueResponsePagedMetadata.md)
- - [BillForward::Product](docs/Product.md)
- - [BillForward::ProductCouponModifier](docs/ProductCouponModifier.md)
- - [BillForward::ProductPagedMetadata](docs/ProductPagedMetadata.md)
- - [BillForward::ProductPaymentsResultPagedMetadata](docs/ProductPaymentsResultPagedMetadata.md)
- - [BillForward::ProductRatePlan](docs/ProductRatePlan.md)
- - [BillForward::ProductRatePlanMigrationAmendment](docs/ProductRatePlanMigrationAmendment.md)
- - [BillForward::ProductRatePlanPagedMetadata](docs/ProductRatePlanPagedMetadata.md)
- - [BillForward::ProductRatePlanPaymentsResultPagedMetadata](docs/ProductRatePlanPaymentsResultPagedMetadata.md)
- - [BillForward::Profile](docs/Profile.md)
- - [BillForward::ProfilePagedMetadata](docs/ProfilePagedMetadata.md)
- - [BillForward::QuoteRequest](docs/QuoteRequest.md)
- - [BillForward::QuoteRequestValue](docs/QuoteRequestValue.md)
- - [BillForward::RecalculateChargeBatchRequest](docs/RecalculateChargeBatchRequest.md)
- - [BillForward::RecalculateChargeBatchResponse](docs/RecalculateChargeBatchResponse.md)
- - [BillForward::RecalculateChargeBatchResponsePagedMetadata](docs/RecalculateChargeBatchResponsePagedMetadata.md)
- - [BillForward::RecalculateChargeRequest](docs/RecalculateChargeRequest.md)
- - [BillForward::Receipt](docs/Receipt.md)
- - [BillForward::ReceiptPagedMetadata](docs/ReceiptPagedMetadata.md)
- - [BillForward::Refund](docs/Refund.md)
- - [BillForward::RefundPagedMetadata](docs/RefundPagedMetadata.md)
- - [BillForward::ResumeRequest](docs/ResumeRequest.md)
- - [BillForward::ResumeSubscriptionAmendment](docs/ResumeSubscriptionAmendment.md)
- - [BillForward::RevenueAttribution](docs/RevenueAttribution.md)
- - [BillForward::RevenueAttributionPagedMetadata](docs/RevenueAttributionPagedMetadata.md)
- - [BillForward::ReviveSubscriptionRequest](docs/ReviveSubscriptionRequest.md)
- - [BillForward::Role](docs/Role.md)
- - [BillForward::RolePagedMetadata](docs/RolePagedMetadata.md)
- - [BillForward::RuleSatisfaction](docs/RuleSatisfaction.md)
- - [BillForward::SearchResultPagedMetadata](docs/SearchResultPagedMetadata.md)
- - [BillForward::ServiceEndAmendment](docs/ServiceEndAmendment.md)
- - [BillForward::SingleRecalculateChargeRequest](docs/SingleRecalculateChargeRequest.md)
- - [BillForward::StripeACHTokenPagedMetadata](docs/StripeACHTokenPagedMetadata.md)
- - [BillForward::StripeAuthCaptureRequest](docs/StripeAuthCaptureRequest.md)
- - [BillForward::StripeObject](docs/StripeObject.md)
- - [BillForward::StripeTokenPagedMetadata](docs/StripeTokenPagedMetadata.md)
- - [BillForward::Subscription](docs/Subscription.md)
- - [BillForward::SubscriptionCancellationPagedMetadata](docs/SubscriptionCancellationPagedMetadata.md)
- - [BillForward::SubscriptionCharge](docs/SubscriptionCharge.md)
- - [BillForward::SubscriptionChargePagedMetadata](docs/SubscriptionChargePagedMetadata.md)
- - [BillForward::SubscriptionLTVResultPagedMetadata](docs/SubscriptionLTVResultPagedMetadata.md)
- - [BillForward::SubscriptionPagedMetadata](docs/SubscriptionPagedMetadata.md)
- - [BillForward::SwaggerTypeList](docs/SwaggerTypeList.md)
- - [BillForward::SwaggerTypeListInv](docs/SwaggerTypeListInv.md)
- - [BillForward::SwaggerTypeListSubs](docs/SwaggerTypeListSubs.md)
- - [BillForward::TaxationLinkPagedMetadata](docs/TaxationLinkPagedMetadata.md)
- - [BillForward::TaxationStrategyPagedMetadata](docs/TaxationStrategyPagedMetadata.md)
- - [BillForward::TieredPricingComponent](docs/TieredPricingComponent.md)
- - [BillForward::TieredVolumePricingComponent](docs/TieredVolumePricingComponent.md)
- - [BillForward::TimeRequest](docs/TimeRequest.md)
- - [BillForward::TimeResponse](docs/TimeResponse.md)
- - [BillForward::TimeResponsePagedMetadata](docs/TimeResponsePagedMetadata.md)
- - [BillForward::TimeZone](docs/TimeZone.md)
- - [BillForward::TimerAmendment](docs/TimerAmendment.md)
- - [BillForward::TokenizationPreAuthPagedMetadata](docs/TokenizationPreAuthPagedMetadata.md)
- - [BillForward::TrustCommerceTokenPagedMetadata](docs/TrustCommerceTokenPagedMetadata.md)
- - [BillForward::UnitDiscount](docs/UnitDiscount.md)
- - [BillForward::UnitOfMeasure](docs/UnitOfMeasure.md)
- - [BillForward::UnitOfMeasureCouponModifier](docs/UnitOfMeasureCouponModifier.md)
- - [BillForward::UnitOfMeasurePagedMetadata](docs/UnitOfMeasurePagedMetadata.md)
- - [BillForward::UpdateAddressRequest](docs/UpdateAddressRequest.md)
- - [BillForward::UpdateComponentValueAmendment](docs/UpdateComponentValueAmendment.md)
- - [BillForward::UpdatePricingComponentValueChangeResult](docs/UpdatePricingComponentValueChangeResult.md)
- - [BillForward::UpdatePricingComponentValueRequest](docs/UpdatePricingComponentValueRequest.md)
- - [BillForward::UpdatePricingComponentValueResponse](docs/UpdatePricingComponentValueResponse.md)
- - [BillForward::UpdatePricingComponentValueResponsePagedMetadata](docs/UpdatePricingComponentValueResponsePagedMetadata.md)
- - [BillForward::UpdateProfileRequest](docs/UpdateProfileRequest.md)
- - [BillForward::UpdateRoleRequest](docs/UpdateRoleRequest.md)
- - [BillForward::UpdateSubscriptionRequest](docs/UpdateSubscriptionRequest.md)
- - [BillForward::Usage](docs/Usage.md)
- - [BillForward::UsagePagedMetadata](docs/UsagePagedMetadata.md)
- - [BillForward::UsagePeriodPagedMetadata](docs/UsagePeriodPagedMetadata.md)
- - [BillForward::UsageRoundingStrategyPagedMetadata](docs/UsageRoundingStrategyPagedMetadata.md)
- - [BillForward::UsageSession](docs/UsageSession.md)
- - [BillForward::UsageSessionPagedMetadata](docs/UsageSessionPagedMetadata.md)
- - [BillForward::User](docs/User.md)
- - [BillForward::UserCreationRequest](docs/UserCreationRequest.md)
- - [BillForward::UserCreationResponsePagedMetadata](docs/UserCreationResponsePagedMetadata.md)
- - [BillForward::UserPagedMetadata](docs/UserPagedMetadata.md)
- - [BillForward::Username](docs/Username.md)
- - [BillForward::UsernamePagedMetadata](docs/UsernamePagedMetadata.md)
- - [BillForward::WebhookPagedMetadata](docs/WebhookPagedMetadata.md)
+ - [Bfwd::APIConfigurationPagedMetadata](docs/APIConfigurationPagedMetadata.md)
+ - [Bfwd::APIQuote](docs/APIQuote.md)
+ - [Bfwd::APIQuotePagedMetadata](docs/APIQuotePagedMetadata.md)
+ - [Bfwd::APIQuoteResponseQuantity](docs/APIQuoteResponseQuantity.md)
+ - [Bfwd::Account](docs/Account.md)
+ - [Bfwd::AccountLTVResultPagedMetadata](docs/AccountLTVResultPagedMetadata.md)
+ - [Bfwd::AccountPagedMetadata](docs/AccountPagedMetadata.md)
+ - [Bfwd::AccountPaymentsResultPagedMetadata](docs/AccountPaymentsResultPagedMetadata.md)
+ - [Bfwd::AddChargeRequest](docs/AddChargeRequest.md)
+ - [Bfwd::AddChargeToAccountResponse](docs/AddChargeToAccountResponse.md)
+ - [Bfwd::AddChargeToAccountResponsePagedMetadata](docs/AddChargeToAccountResponsePagedMetadata.md)
+ - [Bfwd::AddChargesToAccountAPIRequest](docs/AddChargesToAccountAPIRequest.md)
+ - [Bfwd::AddCouponCodeRequest](docs/AddCouponCodeRequest.md)
+ - [Bfwd::AddPaymentMethodRequest](docs/AddPaymentMethodRequest.md)
+ - [Bfwd::AddTaxationStrategyRequest](docs/AddTaxationStrategyRequest.md)
+ - [Bfwd::Address](docs/Address.md)
+ - [Bfwd::AddressPagedMetadata](docs/AddressPagedMetadata.md)
+ - [Bfwd::AggregatingComponent](docs/AggregatingComponent.md)
+ - [Bfwd::Amendment](docs/Amendment.md)
+ - [Bfwd::AmendmentDiscardAmendment](docs/AmendmentDiscardAmendment.md)
+ - [Bfwd::AmendmentPagedMetadata](docs/AmendmentPagedMetadata.md)
+ - [Bfwd::AmendmentPriceNTimePagedMetadata](docs/AmendmentPriceNTimePagedMetadata.md)
+ - [Bfwd::AuditEntry](docs/AuditEntry.md)
+ - [Bfwd::AuditEntryPagedMetadata](docs/AuditEntryPagedMetadata.md)
+ - [Bfwd::AuthCaptureRequest](docs/AuthCaptureRequest.md)
+ - [Bfwd::AuthorizeNetTokenPagedMetadata](docs/AuthorizeNetTokenPagedMetadata.md)
+ - [Bfwd::BFError](docs/BFError.md)
+ - [Bfwd::BFPermission](docs/BFPermission.md)
+ - [Bfwd::BFPermissionPagedMetadata](docs/BFPermissionPagedMetadata.md)
+ - [Bfwd::BankAccountVerificationPagedMetadata](docs/BankAccountVerificationPagedMetadata.md)
+ - [Bfwd::BatchUpdatePricingComponentValuesRequest](docs/BatchUpdatePricingComponentValuesRequest.md)
+ - [Bfwd::BillforwardManagedPaymentsResultPagedMetadata](docs/BillforwardManagedPaymentsResultPagedMetadata.md)
+ - [Bfwd::BillingEntityBase](docs/BillingEntityBase.md)
+ - [Bfwd::BraintreeAuthCaptureRequest](docs/BraintreeAuthCaptureRequest.md)
+ - [Bfwd::BraintreeCaptureRequest](docs/BraintreeCaptureRequest.md)
+ - [Bfwd::BraintreeTokenPagedMetadata](docs/BraintreeTokenPagedMetadata.md)
+ - [Bfwd::CancelSubscriptionRequest](docs/CancelSubscriptionRequest.md)
+ - [Bfwd::CancellationAmendment](docs/CancellationAmendment.md)
+ - [Bfwd::CassChurnResultPagedMetadata](docs/CassChurnResultPagedMetadata.md)
+ - [Bfwd::CassPaymentResultPagedMetadata](docs/CassPaymentResultPagedMetadata.md)
+ - [Bfwd::CassUpgradeResultPagedMetadata](docs/CassUpgradeResultPagedMetadata.md)
+ - [Bfwd::Client](docs/Client.md)
+ - [Bfwd::ClientPagedMetadata](docs/ClientPagedMetadata.md)
+ - [Bfwd::ComponentChange](docs/ComponentChange.md)
+ - [Bfwd::ComponentCost](docs/ComponentCost.md)
+ - [Bfwd::CompoundUsage](docs/CompoundUsage.md)
+ - [Bfwd::CompoundUsageSession](docs/CompoundUsageSession.md)
+ - [Bfwd::Coupon](docs/Coupon.md)
+ - [Bfwd::CouponBook](docs/CouponBook.md)
+ - [Bfwd::CouponBookDefinition](docs/CouponBookDefinition.md)
+ - [Bfwd::CouponBookDefinitionPagedMetadata](docs/CouponBookDefinitionPagedMetadata.md)
+ - [Bfwd::CouponBookPagedMetadata](docs/CouponBookPagedMetadata.md)
+ - [Bfwd::CouponDefinition](docs/CouponDefinition.md)
+ - [Bfwd::CouponDefinitionPagedMetadata](docs/CouponDefinitionPagedMetadata.md)
+ - [Bfwd::CouponDiscount](docs/CouponDiscount.md)
+ - [Bfwd::CouponDiscountEstimate](docs/CouponDiscountEstimate.md)
+ - [Bfwd::CouponInstance](docs/CouponInstance.md)
+ - [Bfwd::CouponInstanceExistingValue](docs/CouponInstanceExistingValue.md)
+ - [Bfwd::CouponInstancePagedMetadata](docs/CouponInstancePagedMetadata.md)
+ - [Bfwd::CouponModifierBase](docs/CouponModifierBase.md)
+ - [Bfwd::CouponModifierBasePagedMetadata](docs/CouponModifierBasePagedMetadata.md)
+ - [Bfwd::CouponPagedMetadata](docs/CouponPagedMetadata.md)
+ - [Bfwd::CouponRule](docs/CouponRule.md)
+ - [Bfwd::CouponRulePagedMetadata](docs/CouponRulePagedMetadata.md)
+ - [Bfwd::CouponUniqueCodesRequest](docs/CouponUniqueCodesRequest.md)
+ - [Bfwd::CouponUniqueCodesResponse](docs/CouponUniqueCodesResponse.md)
+ - [Bfwd::CouponUniqueCodesResponsePagedMetadata](docs/CouponUniqueCodesResponsePagedMetadata.md)
+ - [Bfwd::CouponWrapperResponse](docs/CouponWrapperResponse.md)
+ - [Bfwd::CreateAccountProfileRequest](docs/CreateAccountProfileRequest.md)
+ - [Bfwd::CreateAccountRequest](docs/CreateAccountRequest.md)
+ - [Bfwd::CreateAddressRequest](docs/CreateAddressRequest.md)
+ - [Bfwd::CreateAggregatingComponentRequest](docs/CreateAggregatingComponentRequest.md)
+ - [Bfwd::CreateAggregatingSubscriptionRequest](docs/CreateAggregatingSubscriptionRequest.md)
+ - [Bfwd::CreateProfileAddressRequest](docs/CreateProfileAddressRequest.md)
+ - [Bfwd::CreateSubscriptionBatchRequest](docs/CreateSubscriptionBatchRequest.md)
+ - [Bfwd::CreateSubscriptionChargeAmendment](docs/CreateSubscriptionChargeAmendment.md)
+ - [Bfwd::CreateSubscriptionRequest](docs/CreateSubscriptionRequest.md)
+ - [Bfwd::CreditAccountRequest](docs/CreditAccountRequest.md)
+ - [Bfwd::CreditNote](docs/CreditNote.md)
+ - [Bfwd::CreditNotePagedMetadata](docs/CreditNotePagedMetadata.md)
+ - [Bfwd::CreditSubscriptionRequest](docs/CreditSubscriptionRequest.md)
+ - [Bfwd::CybersourceTokenPagedMetadata](docs/CybersourceTokenPagedMetadata.md)
+ - [Bfwd::DataSynchronisationAppConfigurationPagedMetadata](docs/DataSynchronisationAppConfigurationPagedMetadata.md)
+ - [Bfwd::DataSynchronisationConfiguration](docs/DataSynchronisationConfiguration.md)
+ - [Bfwd::DataSynchronisationConfigurationPagedMetadata](docs/DataSynchronisationConfigurationPagedMetadata.md)
+ - [Bfwd::DataSynchronizationJobPagedMetadata](docs/DataSynchronizationJobPagedMetadata.md)
+ - [Bfwd::DebtsResultPagedMetadata](docs/DebtsResultPagedMetadata.md)
+ - [Bfwd::DunningLine](docs/DunningLine.md)
+ - [Bfwd::DunningLinePagedMetadata](docs/DunningLinePagedMetadata.md)
+ - [Bfwd::DynamicMetadata](docs/DynamicMetadata.md)
+ - [Bfwd::Email](docs/Email.md)
+ - [Bfwd::EmailPagedMetadata](docs/EmailPagedMetadata.md)
+ - [Bfwd::EmailProvider](docs/EmailProvider.md)
+ - [Bfwd::EmailProviderPagedMetadata](docs/EmailProviderPagedMetadata.md)
+ - [Bfwd::EmailSubscription](docs/EmailSubscription.md)
+ - [Bfwd::EmailSubscriptionPagedMetadata](docs/EmailSubscriptionPagedMetadata.md)
+ - [Bfwd::EndTrialAmendment](docs/EndTrialAmendment.md)
+ - [Bfwd::Event](docs/Event.md)
+ - [Bfwd::EventData](docs/EventData.md)
+ - [Bfwd::FileSham](docs/FileSham.md)
+ - [Bfwd::FixedTerm](docs/FixedTerm.md)
+ - [Bfwd::FixedTermDefinitionPagedMetadata](docs/FixedTermDefinitionPagedMetadata.md)
+ - [Bfwd::FixedTermExpiryAmendment](docs/FixedTermExpiryAmendment.md)
+ - [Bfwd::FixedTermPagedMetadata](docs/FixedTermPagedMetadata.md)
+ - [Bfwd::FlatPricingComponent](docs/FlatPricingComponent.md)
+ - [Bfwd::ImportInvoiceLine](docs/ImportInvoiceLine.md)
+ - [Bfwd::InsertableBillingEntity](docs/InsertableBillingEntity.md)
+ - [Bfwd::Invoice](docs/Invoice.md)
+ - [Bfwd::InvoiceChargeRequest](docs/InvoiceChargeRequest.md)
+ - [Bfwd::InvoiceLine](docs/InvoiceLine.md)
+ - [Bfwd::InvoiceLinePayment](docs/InvoiceLinePayment.md)
+ - [Bfwd::InvoiceLinePaymentPagedMetadata](docs/InvoiceLinePaymentPagedMetadata.md)
+ - [Bfwd::InvoiceNextExecutionAttemptAmendment](docs/InvoiceNextExecutionAttemptAmendment.md)
+ - [Bfwd::InvoiceOutstandingChargesAmendment](docs/InvoiceOutstandingChargesAmendment.md)
+ - [Bfwd::InvoicePagedMetadata](docs/InvoicePagedMetadata.md)
+ - [Bfwd::InvoicePayment](docs/InvoicePayment.md)
+ - [Bfwd::InvoiceRecalculationAmendment](docs/InvoiceRecalculationAmendment.md)
+ - [Bfwd::InvoiceRecalculationRequest](docs/InvoiceRecalculationRequest.md)
+ - [Bfwd::IssueInvoiceAmendment](docs/IssueInvoiceAmendment.md)
+ - [Bfwd::MetadataKeyValuesPagedMetadata](docs/MetadataKeyValuesPagedMetadata.md)
+ - [Bfwd::MigrationRequest](docs/MigrationRequest.md)
+ - [Bfwd::ModelAlias](docs/ModelAlias.md)
+ - [Bfwd::MutableBillingEntity](docs/MutableBillingEntity.md)
+ - [Bfwd::NestedChargeRequest](docs/NestedChargeRequest.md)
+ - [Bfwd::Notification](docs/Notification.md)
+ - [Bfwd::NotificationPagedMetadata](docs/NotificationPagedMetadata.md)
+ - [Bfwd::Organization](docs/Organization.md)
+ - [Bfwd::OrganizationPagedMetadata](docs/OrganizationPagedMetadata.md)
+ - [Bfwd::Password](docs/Password.md)
+ - [Bfwd::PasswordPagedMetadata](docs/PasswordPagedMetadata.md)
+ - [Bfwd::PasswordResetRequest](docs/PasswordResetRequest.md)
+ - [Bfwd::PauseRequest](docs/PauseRequest.md)
+ - [Bfwd::Payment](docs/Payment.md)
+ - [Bfwd::PaymentMethod](docs/PaymentMethod.md)
+ - [Bfwd::PaymentMethodPagedMetadata](docs/PaymentMethodPagedMetadata.md)
+ - [Bfwd::PaymentMethodSubscriptionLink](docs/PaymentMethodSubscriptionLink.md)
+ - [Bfwd::PaymentMethodSubscriptionLinkPagedMetadata](docs/PaymentMethodSubscriptionLinkPagedMetadata.md)
+ - [Bfwd::PaymentPagedMetadata](docs/PaymentPagedMetadata.md)
+ - [Bfwd::PaymentRetryRequest](docs/PaymentRetryRequest.md)
+ - [Bfwd::PendingComponentValueChange](docs/PendingComponentValueChange.md)
+ - [Bfwd::Period](docs/Period.md)
+ - [Bfwd::PeriodPagedMetadata](docs/PeriodPagedMetadata.md)
+ - [Bfwd::PermissionActionEntityPagedMetadata](docs/PermissionActionEntityPagedMetadata.md)
+ - [Bfwd::PermissionResourceEntityPagedMetadata](docs/PermissionResourceEntityPagedMetadata.md)
+ - [Bfwd::PriceCalculationPagedMetadata](docs/PriceCalculationPagedMetadata.md)
+ - [Bfwd::PricingComponent](docs/PricingComponent.md)
+ - [Bfwd::PricingComponentCouponModifier](docs/PricingComponentCouponModifier.md)
+ - [Bfwd::PricingComponentMigrationValue](docs/PricingComponentMigrationValue.md)
+ - [Bfwd::PricingComponentPagedMetadata](docs/PricingComponentPagedMetadata.md)
+ - [Bfwd::PricingComponentQuantityRequest](docs/PricingComponentQuantityRequest.md)
+ - [Bfwd::PricingComponentTier](docs/PricingComponentTier.md)
+ - [Bfwd::PricingComponentTierPagedMetadata](docs/PricingComponentTierPagedMetadata.md)
+ - [Bfwd::PricingComponentValue](docs/PricingComponentValue.md)
+ - [Bfwd::PricingComponentValueChangeAmendment](docs/PricingComponentValueChangeAmendment.md)
+ - [Bfwd::PricingComponentValueChangePagedMetadata](docs/PricingComponentValueChangePagedMetadata.md)
+ - [Bfwd::PricingComponentValueMigrationAmendmentMapping](docs/PricingComponentValueMigrationAmendmentMapping.md)
+ - [Bfwd::PricingComponentValuePagedMetadata](docs/PricingComponentValuePagedMetadata.md)
+ - [Bfwd::PricingComponentValueRequest](docs/PricingComponentValueRequest.md)
+ - [Bfwd::PricingComponentValueResponsePagedMetadata](docs/PricingComponentValueResponsePagedMetadata.md)
+ - [Bfwd::Product](docs/Product.md)
+ - [Bfwd::ProductCouponModifier](docs/ProductCouponModifier.md)
+ - [Bfwd::ProductPagedMetadata](docs/ProductPagedMetadata.md)
+ - [Bfwd::ProductPaymentsResultPagedMetadata](docs/ProductPaymentsResultPagedMetadata.md)
+ - [Bfwd::ProductRatePlan](docs/ProductRatePlan.md)
+ - [Bfwd::ProductRatePlanMigrationAmendment](docs/ProductRatePlanMigrationAmendment.md)
+ - [Bfwd::ProductRatePlanPagedMetadata](docs/ProductRatePlanPagedMetadata.md)
+ - [Bfwd::ProductRatePlanPaymentsResultPagedMetadata](docs/ProductRatePlanPaymentsResultPagedMetadata.md)
+ - [Bfwd::Profile](docs/Profile.md)
+ - [Bfwd::ProfilePagedMetadata](docs/ProfilePagedMetadata.md)
+ - [Bfwd::QuoteRequest](docs/QuoteRequest.md)
+ - [Bfwd::QuoteRequestValue](docs/QuoteRequestValue.md)
+ - [Bfwd::RecalculateChargeBatchRequest](docs/RecalculateChargeBatchRequest.md)
+ - [Bfwd::RecalculateChargeBatchResponse](docs/RecalculateChargeBatchResponse.md)
+ - [Bfwd::RecalculateChargeBatchResponsePagedMetadata](docs/RecalculateChargeBatchResponsePagedMetadata.md)
+ - [Bfwd::RecalculateChargeRequest](docs/RecalculateChargeRequest.md)
+ - [Bfwd::Receipt](docs/Receipt.md)
+ - [Bfwd::ReceiptPagedMetadata](docs/ReceiptPagedMetadata.md)
+ - [Bfwd::Refund](docs/Refund.md)
+ - [Bfwd::RefundPagedMetadata](docs/RefundPagedMetadata.md)
+ - [Bfwd::ResumeRequest](docs/ResumeRequest.md)
+ - [Bfwd::ResumeSubscriptionAmendment](docs/ResumeSubscriptionAmendment.md)
+ - [Bfwd::RevenueAttribution](docs/RevenueAttribution.md)
+ - [Bfwd::RevenueAttributionPagedMetadata](docs/RevenueAttributionPagedMetadata.md)
+ - [Bfwd::ReviveSubscriptionRequest](docs/ReviveSubscriptionRequest.md)
+ - [Bfwd::Role](docs/Role.md)
+ - [Bfwd::RolePagedMetadata](docs/RolePagedMetadata.md)
+ - [Bfwd::RuleSatisfaction](docs/RuleSatisfaction.md)
+ - [Bfwd::SearchResultPagedMetadata](docs/SearchResultPagedMetadata.md)
+ - [Bfwd::ServiceEndAmendment](docs/ServiceEndAmendment.md)
+ - [Bfwd::SingleRecalculateChargeRequest](docs/SingleRecalculateChargeRequest.md)
+ - [Bfwd::StripeACHTokenPagedMetadata](docs/StripeACHTokenPagedMetadata.md)
+ - [Bfwd::StripeAuthCaptureRequest](docs/StripeAuthCaptureRequest.md)
+ - [Bfwd::StripeObject](docs/StripeObject.md)
+ - [Bfwd::StripeTokenPagedMetadata](docs/StripeTokenPagedMetadata.md)
+ - [Bfwd::Subscription](docs/Subscription.md)
+ - [Bfwd::SubscriptionCancellationPagedMetadata](docs/SubscriptionCancellationPagedMetadata.md)
+ - [Bfwd::SubscriptionCharge](docs/SubscriptionCharge.md)
+ - [Bfwd::SubscriptionChargePagedMetadata](docs/SubscriptionChargePagedMetadata.md)
+ - [Bfwd::SubscriptionLTVResultPagedMetadata](docs/SubscriptionLTVResultPagedMetadata.md)
+ - [Bfwd::SubscriptionPagedMetadata](docs/SubscriptionPagedMetadata.md)
+ - [Bfwd::SwaggerTypeList](docs/SwaggerTypeList.md)
+ - [Bfwd::SwaggerTypeListInv](docs/SwaggerTypeListInv.md)
+ - [Bfwd::SwaggerTypeListSubs](docs/SwaggerTypeListSubs.md)
+ - [Bfwd::TaxationLinkPagedMetadata](docs/TaxationLinkPagedMetadata.md)
+ - [Bfwd::TaxationStrategyPagedMetadata](docs/TaxationStrategyPagedMetadata.md)
+ - [Bfwd::TieredPricingComponent](docs/TieredPricingComponent.md)
+ - [Bfwd::TieredVolumePricingComponent](docs/TieredVolumePricingComponent.md)
+ - [Bfwd::TimeRequest](docs/TimeRequest.md)
+ - [Bfwd::TimeResponse](docs/TimeResponse.md)
+ - [Bfwd::TimeResponsePagedMetadata](docs/TimeResponsePagedMetadata.md)
+ - [Bfwd::TimeZone](docs/TimeZone.md)
+ - [Bfwd::TimerAmendment](docs/TimerAmendment.md)
+ - [Bfwd::TokenizationPreAuthPagedMetadata](docs/TokenizationPreAuthPagedMetadata.md)
+ - [Bfwd::TrustCommerceTokenPagedMetadata](docs/TrustCommerceTokenPagedMetadata.md)
+ - [Bfwd::UnitDiscount](docs/UnitDiscount.md)
+ - [Bfwd::UnitOfMeasure](docs/UnitOfMeasure.md)
+ - [Bfwd::UnitOfMeasureCouponModifier](docs/UnitOfMeasureCouponModifier.md)
+ - [Bfwd::UnitOfMeasurePagedMetadata](docs/UnitOfMeasurePagedMetadata.md)
+ - [Bfwd::UpdateAddressRequest](docs/UpdateAddressRequest.md)
+ - [Bfwd::UpdateComponentValueAmendment](docs/UpdateComponentValueAmendment.md)
+ - [Bfwd::UpdatePricingComponentValueChangeResult](docs/UpdatePricingComponentValueChangeResult.md)
+ - [Bfwd::UpdatePricingComponentValueRequest](docs/UpdatePricingComponentValueRequest.md)
+ - [Bfwd::UpdatePricingComponentValueResponse](docs/UpdatePricingComponentValueResponse.md)
+ - [Bfwd::UpdatePricingComponentValueResponsePagedMetadata](docs/UpdatePricingComponentValueResponsePagedMetadata.md)
+ - [Bfwd::UpdateProfileRequest](docs/UpdateProfileRequest.md)
+ - [Bfwd::UpdateRoleRequest](docs/UpdateRoleRequest.md)
+ - [Bfwd::UpdateSubscriptionRequest](docs/UpdateSubscriptionRequest.md)
+ - [Bfwd::Usage](docs/Usage.md)
+ - [Bfwd::UsagePagedMetadata](docs/UsagePagedMetadata.md)
+ - [Bfwd::UsagePeriodPagedMetadata](docs/UsagePeriodPagedMetadata.md)
+ - [Bfwd::UsageRoundingStrategyPagedMetadata](docs/UsageRoundingStrategyPagedMetadata.md)
+ - [Bfwd::UsageSession](docs/UsageSession.md)
+ - [Bfwd::UsageSessionPagedMetadata](docs/UsageSessionPagedMetadata.md)
+ - [Bfwd::User](docs/User.md)
+ - [Bfwd::UserCreationRequest](docs/UserCreationRequest.md)
+ - [Bfwd::UserCreationResponsePagedMetadata](docs/UserCreationResponsePagedMetadata.md)
+ - [Bfwd::UserPagedMetadata](docs/UserPagedMetadata.md)
+ - [Bfwd::Username](docs/Username.md)
+ - [Bfwd::UsernamePagedMetadata](docs/UsernamePagedMetadata.md)
+ - [Bfwd::WebhookPagedMetadata](docs/WebhookPagedMetadata.md)
 
 
 ## Documentation for Authorization

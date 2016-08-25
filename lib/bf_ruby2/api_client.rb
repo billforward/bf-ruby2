@@ -28,7 +28,7 @@ require 'tempfile'
 require 'typhoeus'
 require 'uri'
 
-module BillForward
+module Bfwd
   class ApiClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
@@ -207,7 +207,7 @@ module BillForward
         end
       else
         # models, e.g. Pet
-        BillForward.const_get(return_type).new.tap do |model|
+        Bfwd.const_get(return_type).new.tap do |model|
           model.build_from_hash data
         end
       end

@@ -1,4 +1,4 @@
-# BillForward::SynchConfigsApi
+# Bfwd::SynchConfigsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Create a synch configuration.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchConfigsApi.new
+api_instance = Bfwd::SynchConfigsApi.new
 
-synch_config = BillForward::DataSynchronisationConfiguration.new # DataSynchronisationConfiguration | The data synch config object to be created.
+synch_config = Bfwd::DataSynchronisationConfiguration.new # DataSynchronisationConfiguration | The data synch config object to be created.
 
 
 begin
   #Create a synch configuration.
   result = api_instance.create_sync_config(synch_config)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchConfigsApi->create_sync_config: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ Returns a collection of Users. By default 10 values are returned. Records are re
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchConfigsApi.new
+api_instance = Bfwd::SynchConfigsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -85,7 +85,7 @@ begin
   #Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_sync_configs(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchConfigsApi->get_all_sync_configs: #{e}"
 end
 ```
@@ -127,7 +127,7 @@ Returns a single config, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchConfigsApi.new
+api_instance = Bfwd::SynchConfigsApi.new
 
 synch_configs_id = "synch_configs_id_example" # String | ID of the Synch Configuration.
 
@@ -139,7 +139,7 @@ begin
   #Returns a single config, specified by the ID parameter.
   result = api_instance.get_sync_config(synch_configs_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchConfigsApi->get_sync_config: #{e}"
 end
 ```
@@ -178,7 +178,7 @@ Returns a collection configurations, specified by the platform parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchConfigsApi.new
+api_instance = Bfwd::SynchConfigsApi.new
 
 platform = "platform_example" # String | The type of the synch configuration.
 
@@ -190,7 +190,7 @@ begin
   #Returns a collection configurations, specified by the platform parameter.
   result = api_instance.get_sync_config_by_platform(platform, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchConfigsApi->get_sync_config_by_platform: #{e}"
 end
 ```
@@ -229,7 +229,7 @@ Returns a collection configurations, specified by the username parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchConfigsApi.new
+api_instance = Bfwd::SynchConfigsApi.new
 
 username = "username_example" # String | The username in the synch configuration.
 
@@ -241,7 +241,7 @@ begin
   #Returns a collection configurations, specified by the username parameter.
   result = api_instance.get_sync_config_by_username(username, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchConfigsApi->get_sync_config_by_username: #{e}"
 end
 ```
@@ -280,16 +280,16 @@ Update a synch configuration.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchConfigsApi.new
+api_instance = Bfwd::SynchConfigsApi.new
 
-synch_config = BillForward::DataSynchronisationConfiguration.new # DataSynchronisationConfiguration | The synch configuration object to be updated.
+synch_config = Bfwd::DataSynchronisationConfiguration.new # DataSynchronisationConfiguration | The synch configuration object to be updated.
 
 
 begin
   #Update a synch configuration.
   result = api_instance.update_sync_config(synch_config)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchConfigsApi->update_sync_config: #{e}"
 end
 ```

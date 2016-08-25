@@ -1,4 +1,4 @@
-# BillForward::UpdatePricingComponentValueResponsePagedMetadata
+# Bfwd::UpdatePricingComponentValueResponsePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::Profile
+# Bfwd::Profile
 
 ## Properties
 Name | Type | Description | Notes

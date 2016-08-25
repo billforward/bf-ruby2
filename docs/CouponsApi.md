@@ -1,4 +1,4 @@
-# BillForward::CouponsApi
+# Bfwd::CouponsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -26,16 +26,16 @@ Create a coupon.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponsApi.new
+api_instance = Bfwd::CouponsApi.new
 
-code = BillForward::Coupon.new # Coupon | The coupon object to be created.
+code = Bfwd::Coupon.new # Coupon | The coupon object to be created.
 
 
 begin
   #Create a coupon.
   result = api_instance.create_coupon(code)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponsApi->create_coupon: #{e}"
 end
 ```
@@ -73,19 +73,19 @@ Create a list of unique coupon codes that can be applied to a subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponsApi.new
+api_instance = Bfwd::CouponsApi.new
 
 code = "code_example" # String | The coupon code to use in the generation of the unique codes.
 
 opts = { 
-  request: BillForward::CouponUniqueCodesRequest.new # CouponUniqueCodesRequest | The request object that specifies the number of codes to be created.
+  request: Bfwd::CouponUniqueCodesRequest.new # CouponUniqueCodesRequest | The request object that specifies the number of codes to be created.
 }
 
 begin
   #Create a list of unique coupon codes that can be applied to a subscription.
   result = api_instance.create_coupon_unique_codes(code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponsApi->create_coupon_unique_codes: #{e}"
 end
 ```
@@ -124,7 +124,7 @@ Returns a collection of all coupons. By default 10 values are returned. Records 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponsApi.new
+api_instance = Bfwd::CouponsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -139,7 +139,7 @@ begin
   #Returns a collection of all coupons. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_coupons(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponsApi->get_all_coupons: #{e}"
 end
 ```
@@ -182,7 +182,7 @@ Returns a list of unique coupons which have been applied.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponsApi.new
+api_instance = Bfwd::CouponsApi.new
 
 code = "code_example" # String | The base code to use in the generation of the unique codes.
 
@@ -199,7 +199,7 @@ begin
   #Returns a list of unique coupons which have been applied.
   result = api_instance.get_applied_coupons(code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponsApi->get_applied_coupons: #{e}"
 end
 ```
@@ -243,7 +243,7 @@ Returns a list of available unique coupon codes for the specified parent coupon 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponsApi.new
+api_instance = Bfwd::CouponsApi.new
 
 code = "code_example" # String | The base code to use in the generation of the unique codes.
 
@@ -260,7 +260,7 @@ begin
   #Returns a list of available unique coupon codes for the specified parent coupon code that can be applied to a subscription.
   result = api_instance.get_available_coupon_codes_for_code(code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponsApi->get_available_coupon_codes_for_code: #{e}"
 end
 ```
@@ -304,7 +304,7 @@ Returns the coupon for the specified code that can be applied to a subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponsApi.new
+api_instance = Bfwd::CouponsApi.new
 
 code = "code_example" # String | The parent coupon code to use in the generation of the unique codes.
 
@@ -316,7 +316,7 @@ begin
   #Returns the coupon for the specified code that can be applied to a subscription.
   result = api_instance.get_coupon_code(code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponsApi->get_coupon_code: #{e}"
 end
 ```
@@ -355,7 +355,7 @@ Retrieves a collection of the coupons by this coupon code which have been applie
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponsApi.new
+api_instance = Bfwd::CouponsApi.new
 
 code = "code_example" # String | Base code of the coupon.
 
@@ -372,7 +372,7 @@ begin
   #Retrieves a collection of the coupons by this coupon code which have been applied.
   result = api_instance.get_subscription_applications_of_coupons(code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponsApi->get_subscription_applications_of_coupons: #{e}"
 end
 ```
@@ -416,7 +416,7 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponsApi.new
+api_instance = Bfwd::CouponsApi.new
 
 code = "code_example" # String | ID of the coupon to remove.
 
@@ -427,7 +427,7 @@ begin
   #<p>This method has 2 main behaviours depending on what is passed in. If the parent coupon code, for example SUMMER, is given no new coupons can be issued or claimed from this code. Deleting will result in the deleted property being set to true.</p><p>If a unique coupon code, for example SUMMER-AGH8, is given this will stop the coupon from being applied to the subscription from that point onwards. When a coupon is deleted the validUntil property is set which is the date/time it stopped applying to the target.</p>
   result = api_instance.retire_coupon(code, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponsApi->retire_coupon: #{e}"
 end
 ```

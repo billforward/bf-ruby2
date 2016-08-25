@@ -1,4 +1,4 @@
-# BillForward::AnalyticsApi
+# Bfwd::AnalyticsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -29,16 +29,16 @@ Gets outstanding debts per account, within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
-debts_per_account = BillForward::BillingEntityBase.new # BillingEntityBase | The payments-per-account object.
+debts_per_account = Bfwd::BillingEntityBase.new # BillingEntityBase | The payments-per-account object.
 
 
 begin
   #Gets outstanding debts per account, within a date range.
   result = api_instance.get_account_debts(debts_per_account)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_account_debts: #{e}"
 end
 ```
@@ -76,7 +76,7 @@ Gets an account's life-time value, as of a given end date.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
 account_id = "account_id_example" # String | The id of the account.
 
@@ -94,7 +94,7 @@ begin
   #Gets an account's life-time value, as of a given end date.
   result = api_instance.get_account_ltv(account_id, end_datetime, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_account_ltv: #{e}"
 end
 ```
@@ -138,16 +138,16 @@ Gets hourly payments per product, within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
-payments_per_account = BillForward::BillingEntityBase.new # BillingEntityBase | The payments-per-account object.
+payments_per_account = Bfwd::BillingEntityBase.new # BillingEntityBase | The payments-per-account object.
 
 
 begin
   #Gets hourly payments per product, within a date range.
   result = api_instance.get_account_payments(payments_per_account)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_account_payments: #{e}"
 end
 ```
@@ -185,7 +185,7 @@ Gets all payments managed by BillForward, within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
 start_datetime = "start_datetime_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -203,7 +203,7 @@ begin
   #Gets all payments managed by BillForward, within a date range.
   result = api_instance.get_billforward_managed_payments(start_datetime, end_datetime, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_billforward_managed_payments: #{e}"
 end
 ```
@@ -247,7 +247,7 @@ Gets churn, within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
 start_datetime = "start_datetime_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -265,7 +265,7 @@ begin
   #Gets churn, within a date range.
   result = api_instance.get_churn(start_datetime, end_datetime, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_churn: #{e}"
 end
 ```
@@ -309,7 +309,7 @@ Gets debts within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
 start_datetime = "start_datetime_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -327,7 +327,7 @@ begin
   #Gets debts within a date range.
   result = api_instance.get_debts(start_datetime, end_datetime, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_debts: #{e}"
 end
 ```
@@ -371,7 +371,7 @@ Gets payments within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
 start_datetime = "start_datetime_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -389,7 +389,7 @@ begin
   #Gets payments within a date range.
   result = api_instance.get_payments(start_datetime, end_datetime, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_payments: #{e}"
 end
 ```
@@ -433,16 +433,16 @@ Gets hourly payments per product, within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
-payments_per_product = BillForward::BillingEntityBase.new # BillingEntityBase | The payments-per-product object.
+payments_per_product = Bfwd::BillingEntityBase.new # BillingEntityBase | The payments-per-product object.
 
 
 begin
   #Gets hourly payments per product, within a date range.
   result = api_instance.get_product_payments(payments_per_product)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_product_payments: #{e}"
 end
 ```
@@ -480,16 +480,16 @@ Gets hourly payments per product, within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
-payments_per_product_rate_plan = BillForward::BillingEntityBase.new # BillingEntityBase | The payments-per-product-rate-plan object.
+payments_per_product_rate_plan = Bfwd::BillingEntityBase.new # BillingEntityBase | The payments-per-product-rate-plan object.
 
 
 begin
   #Gets hourly payments per product, within a date range.
   result = api_instance.get_product_rate_plan_payments(payments_per_product_rate_plan)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_product_rate_plan_payments: #{e}"
 end
 ```
@@ -527,7 +527,7 @@ Gets a subscription's life-time value, as of a given end date.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
 subscription_id = "subscription_id_example" # String | The id of the subscription.
 
@@ -545,7 +545,7 @@ begin
   #Gets a subscription's life-time value, as of a given end date.
   result = api_instance.get_subscription_ltv(subscription_id, end_datetime, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_subscription_ltv: #{e}"
 end
 ```
@@ -589,7 +589,7 @@ Gets upgrades, within a date range.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AnalyticsApi.new
+api_instance = Bfwd::AnalyticsApi.new
 
 start_datetime = "start_datetime_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -607,7 +607,7 @@ begin
   #Gets upgrades, within a date range.
   result = api_instance.get_upgrades(start_datetime, end_datetime, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AnalyticsApi->get_upgrades: #{e}"
 end
 ```

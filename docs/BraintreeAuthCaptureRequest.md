@@ -1,4 +1,4 @@
-# BillForward::BraintreeAuthCaptureRequest
+# Bfwd::BraintreeAuthCaptureRequest
 
 ## Properties
 Name | Type | Description | Notes

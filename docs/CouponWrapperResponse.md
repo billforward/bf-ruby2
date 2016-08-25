@@ -1,4 +1,4 @@
-# BillForward::CouponWrapperResponse
+# Bfwd::CouponWrapperResponse
 
 ## Properties
 Name | Type | Description | Notes

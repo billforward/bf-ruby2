@@ -1,4 +1,4 @@
-# BillForward::TimeApi
+# Bfwd::TimeApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -19,16 +19,16 @@ Method | HTTP request | Description
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TimeApi.new
+api_instance = Bfwd::TimeApi.new
 
-request = BillForward::TimeRequest.new # TimeRequest | The request
+request = Bfwd::TimeRequest.new # TimeRequest | The request
 
 
 begin
   #
   result = api_instance.get_time_swagger(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TimeApi->get_time_swagger: #{e}"
 end
 ```

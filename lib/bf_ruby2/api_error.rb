@@ -21,7 +21,7 @@ limitations under the License.
 
 =end
 
-module BillForward
+module Bfwd
   class ApiError < StandardError
     attr_reader :code, :response_headers, :response_body
 

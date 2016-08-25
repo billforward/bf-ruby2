@@ -1,4 +1,4 @@
-# BillForward::AmendmentPagedMetadata
+# Bfwd::AmendmentPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

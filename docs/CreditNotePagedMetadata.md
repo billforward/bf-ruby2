@@ -1,4 +1,4 @@
-# BillForward::CreditNotePagedMetadata
+# Bfwd::CreditNotePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

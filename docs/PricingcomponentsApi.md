@@ -1,4 +1,4 @@
-# BillForward::PricingcomponentsApi
+# Bfwd::PricingcomponentsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Create a pricing-component.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentsApi.new
+api_instance = Bfwd::PricingcomponentsApi.new
 
-pricing_component = BillForward::PricingComponent.new # PricingComponent | The pricing-component object to be updated.
+pricing_component = Bfwd::PricingComponent.new # PricingComponent | The pricing-component object to be updated.
 
 
 begin
   #Create a pricing-component.
   result = api_instance.create_pricing_component(pricing_component)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentsApi->create_pricing_component: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ Returns a collection of pricing-components. By default 10 values are returned. R
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentsApi.new
+api_instance = Bfwd::PricingcomponentsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -86,7 +86,7 @@ begin
   #Returns a collection of pricing-components. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_pricing_components(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentsApi->get_all_pricing_components: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ Returns a collection of pricing-components, specified by the pricing-component-I
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentsApi.new
+api_instance = Bfwd::PricingcomponentsApi.new
 
 pricing_component_id = "pricing_component_id_example" # String | The string ID of the pricing-component.
 
@@ -146,7 +146,7 @@ begin
   #Returns a collection of pricing-components, specified by the pricing-component-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component(pricing_component_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentsApi->get_pricing_component: #{e}"
 end
 ```
@@ -190,7 +190,7 @@ Returns a collection of pricing-components, specified by the product-rate-plan-I
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentsApi.new
+api_instance = Bfwd::PricingcomponentsApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | The string product-rate-plan-ID of the pricing-component.
 
@@ -207,7 +207,7 @@ begin
   #Returns a collection of pricing-components, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component_by_product_rate_plan_id(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentsApi->get_pricing_component_by_product_rate_plan_id: #{e}"
 end
 ```
@@ -251,7 +251,7 @@ Retires the pricing-component specified by the pricing-component-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentsApi.new
+api_instance = Bfwd::PricingcomponentsApi.new
 
 pricing_component_id = "pricing_component_id_example" # String | The string ID of the pricing-component.
 
@@ -263,7 +263,7 @@ begin
   #Retires the pricing-component specified by the pricing-component-ID parameter.
   result = api_instance.retire_pricing_component(pricing_component_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentsApi->retire_pricing_component: #{e}"
 end
 ```
@@ -302,16 +302,16 @@ Update a pricing-component.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentsApi.new
+api_instance = Bfwd::PricingcomponentsApi.new
 
-pricing_component = BillForward::PricingComponent.new # PricingComponent | The pricing-component object to be updated.
+pricing_component = Bfwd::PricingComponent.new # PricingComponent | The pricing-component object to be updated.
 
 
 begin
   #Update a pricing-component.
   result = api_instance.update_pricing_component(pricing_component)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentsApi->update_pricing_component: #{e}"
 end
 ```

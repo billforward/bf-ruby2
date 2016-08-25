@@ -1,4 +1,4 @@
-# BillForward::SearchApi
+# Bfwd::SearchApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -19,7 +19,7 @@ Returns the results of the global search specified by the query-string.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SearchApi.new
+api_instance = Bfwd::SearchApi.new
 
 query_string = "query_string_example" # String | The query string used to search.
 
@@ -36,7 +36,7 @@ begin
   #Returns the results of the global search specified by the query-string.
   result = api_instance.perform_search(query_string, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SearchApi->perform_search: #{e}"
 end
 ```

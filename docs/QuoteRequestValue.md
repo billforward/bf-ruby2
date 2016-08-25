@@ -1,4 +1,4 @@
-# BillForward::QuoteRequestValue
+# Bfwd::QuoteRequestValue
 
 ## Properties
 Name | Type | Description | Notes

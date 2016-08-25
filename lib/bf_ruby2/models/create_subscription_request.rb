@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # Entity for requesting that a subscription be created.
   class CreateSubscriptionRequest
     # {\"description\":\"ID of the BillForward Account who will own this subscription. You should ensure beforehand that the customer has had a BillForward Account created for them.\",\"verbs\":[\"POST\"]}
@@ -412,7 +412,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

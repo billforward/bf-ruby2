@@ -1,4 +1,4 @@
-# BillForward::CreditSubscriptionRequest
+# Bfwd::CreditSubscriptionRequest
 
 ## Properties
 Name | Type | Description | Notes

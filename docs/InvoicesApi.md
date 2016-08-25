@@ -1,4 +1,4 @@
-# BillForward::InvoicesApi
+# Bfwd::InvoicesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -61,18 +61,18 @@ Creates a charge on the specified invoice.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | ID of the invoice.
 
-charge = BillForward::AddChargeRequest.new # AddChargeRequest | The charge request
+charge = Bfwd::AddChargeRequest.new # AddChargeRequest | The charge request
 
 
 begin
   #Creates a charge on the specified invoice.
   result = api_instance.add_charge_to_invoice(invoice_id, charge)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->add_charge_to_invoice: #{e}"
 end
 ```
@@ -111,16 +111,16 @@ Aggregate Invoices into to one parent Invoice
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | 
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | 
 
 
 begin
   #Aggregate Invoices into to one parent Invoice
   result = api_instance.aggregate_invoices(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->aggregate_invoices: #{e}"
 end
 ```
@@ -158,18 +158,18 @@ Attempt payment for the outstanding value of an invoice
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | 
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | 
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | 
 
 
 begin
   #Attempt payment for the outstanding value of an invoice
   result = api_instance.execute_invoice(invoice_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->execute_invoice: #{e}"
 end
 ```
@@ -208,7 +208,7 @@ Generates InvoiceLinePayments for all existing InvoicePayments.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"] # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -218,7 +218,7 @@ begin
   #Generates InvoiceLinePayments for all existing InvoicePayments.
   result = api_instance.generate_line_payments_for_all_invoices(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->generate_line_payments_for_all_invoices: #{e}"
 end
 ```
@@ -256,7 +256,7 @@ Retrieves a collection of all invoices. By default 10 values are returned. Recor
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -273,7 +273,7 @@ begin
   #Retrieves a collection of all invoices. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_invoices(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_all_invoices: #{e}"
 end
 ```
@@ -318,7 +318,7 @@ Retrieves a collection of all invoices. By default 10 values are returned. Recor
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -333,7 +333,7 @@ begin
   #Retrieves a collection of all invoices. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_invoices_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_all_invoices_as_csv: #{e}"
 end
 ```
@@ -376,7 +376,7 @@ Retrieves (as CSV) all attributions of Invoice costs to Invoice lines, bucketed.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -388,7 +388,7 @@ begin
   #Retrieves (as CSV) all attributions of Invoice costs to Invoice lines, bucketed.
   result = api_instance.get_bucketed_revenue_attributions_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_bucketed_revenue_attributions_as_csv: #{e}"
 end
 ```
@@ -428,7 +428,7 @@ Returns all charges for the specified invoice. By default 10 values are returned
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | 
 
@@ -447,7 +447,7 @@ begin
   #Returns all charges for the specified invoice. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_charges_on_invoice(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_charges_on_invoice: #{e}"
 end
 ```
@@ -493,7 +493,7 @@ Retrieves credit note-paid from InvoicePayments upon line items, in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -505,7 +505,7 @@ begin
   #Retrieves credit note-paid from InvoicePayments upon line items, in CSV format.
   result = api_instance.get_credit_invoice_line_payments_from_invoices_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_credit_invoice_line_payments_from_invoices_as_csv: #{e}"
 end
 ```
@@ -545,7 +545,7 @@ Retrieves credit note-paid from InvoicePayments upon line items, in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -557,7 +557,7 @@ begin
   #Retrieves credit note-paid from InvoicePayments upon line items, in CSV format.
   result = api_instance.get_credit_invoice_line_payments_from_invoices_as_csv_by_payment_received(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_credit_invoice_line_payments_from_invoices_as_csv_by_payment_received: #{e}"
 end
 ```
@@ -597,7 +597,7 @@ Retrieves received revenue from InvoicePayments upon line items, in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -609,7 +609,7 @@ begin
   #Retrieves received revenue from InvoicePayments upon line items, in CSV format.
   result = api_instance.get_debit_invoice_line_payments_from_invoices_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_debit_invoice_line_payments_from_invoices_as_csv: #{e}"
 end
 ```
@@ -649,7 +649,7 @@ Retrieves received revenue from InvoicePayments upon line items, in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -661,7 +661,7 @@ begin
   #Retrieves received revenue from InvoicePayments upon line items, in CSV format.
   result = api_instance.get_debit_invoice_line_payments_from_invoices_as_csv_by_payment_received(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_debit_invoice_line_payments_from_invoices_as_csv_by_payment_received: #{e}"
 end
 ```
@@ -701,7 +701,7 @@ Retrieves a single invoice specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 id = "id_example" # String | The ID of the invoice.
 
@@ -722,7 +722,7 @@ begin
   #Retrieves a single invoice specified by the ID parameter.
   result = api_instance.get_invoice_as_html(id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoice_as_html: #{e}"
 end
 ```
@@ -770,7 +770,7 @@ Retrieves a single invoice specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 id = "id_example" # String | The ID of the invoice.
 
@@ -793,7 +793,7 @@ begin
   #Retrieves a single invoice specified by the ID parameter.
   result = api_instance.get_invoice_as_pdf(id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoice_as_pdf: #{e}"
 end
 ```
@@ -843,7 +843,7 @@ Retrieves a single invoice specified by the invoice-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | The ID of the invoice.
 
@@ -861,7 +861,7 @@ begin
   #Retrieves a single invoice specified by the invoice-ID parameter.
   result = api_instance.get_invoice_by_id(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoice_by_id: #{e}"
 end
 ```
@@ -906,7 +906,7 @@ Retrieves a single invoice specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 id = "id_example" # String | The ID of the invoice.
 
@@ -918,7 +918,7 @@ begin
   #Retrieves a single invoice specified by the ID parameter.
   result = api_instance.get_invoice_by_id_as_csv(id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoice_by_id_as_csv: #{e}"
 end
 ```
@@ -957,7 +957,7 @@ Retrieves a collection of invoices specified by the subscription-ID parameter. B
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 subscription_id = "subscription_id_example" # String | ID of the subscription.
 
@@ -975,7 +975,7 @@ begin
   #Retrieves a collection of invoices specified by the subscription-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoice_by_subscription_id(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoice_by_subscription_id: #{e}"
 end
 ```
@@ -1020,7 +1020,7 @@ Retrieves a collection of invoices specified by the subscription-version-ID para
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 subscription_version_id = "subscription_version_id_example" # String | Version ID of the subscription.
 
@@ -1038,7 +1038,7 @@ begin
   #Retrieves a collection of invoices specified by the subscription-version-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoice_by_subscription_version_id(subscription_version_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoice_by_subscription_version_id: #{e}"
 end
 ```
@@ -1083,7 +1083,7 @@ Retrieves a single invoice, specified by the version-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 version_id = "version_id_example" # String | The version-ID of the invoice.
 
@@ -1095,7 +1095,7 @@ begin
   #Retrieves a single invoice, specified by the version-ID parameter.
   result = api_instance.get_invoice_by_version_id(version_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoice_by_version_id: #{e}"
 end
 ```
@@ -1134,7 +1134,7 @@ Retrieves a collection of invoices specified by the account-ID parameter. By def
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 account_id = "account_id_example" # String | ID of the account.
 
@@ -1152,7 +1152,7 @@ begin
   #Retrieves a collection of invoices specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_by_account_id(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoices_by_account_id: #{e}"
 end
 ```
@@ -1197,7 +1197,7 @@ Retrieves a collection of invoice objects with period-end times within the perio
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -1216,7 +1216,7 @@ begin
   #Retrieves a collection of invoice objects with period-end times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_by_period_end(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoices_by_period_end: #{e}"
 end
 ```
@@ -1261,7 +1261,7 @@ Retrieves a collection of invoice objects with period-start times within the per
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -1280,7 +1280,7 @@ begin
   #Retrieves a collection of invoice objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_by_period_start(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoices_by_period_start: #{e}"
 end
 ```
@@ -1325,7 +1325,7 @@ Retrieves a collection of invoice objects with period-start times within the per
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -1344,7 +1344,7 @@ begin
   #Retrieves a collection of invoice objects with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_by_period_start_as_csv(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoices_by_period_start_as_csv: #{e}"
 end
 ```
@@ -1389,7 +1389,7 @@ Retrieves a collection of invoices, specified by the state parameter. By default
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 state = "state_example" # String | The current state of the invoice, either Paid, Pending,  Unpaid or Voided.
 
@@ -1406,7 +1406,7 @@ begin
   #Retrieves a collection of invoices, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_by_state(state, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoices_by_state: #{e}"
 end
 ```
@@ -1450,7 +1450,7 @@ Retrieves a collection of invoice objects specified by the state parameter and w
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 state = "state_example" # String | The current state of the invoice, either Paid, Pending,  Unpaid or Voided.
 
@@ -1471,7 +1471,7 @@ begin
   #Retrieves a collection of invoice objects specified by the state parameter and with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_by_state_and_period_start(state, lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoices_by_state_and_period_start: #{e}"
 end
 ```
@@ -1517,7 +1517,7 @@ Retrieves a collection of invoice objects specified by the state parameter and w
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 state = "state_example" # String | The current state of the invoice, either Paid, Pending,  Unpaid or Voided.
 
@@ -1538,7 +1538,7 @@ begin
   #Retrieves a collection of invoice objects specified by the state parameter and with period-start times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_by_state_and_period_start_as_csv(state, lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoices_by_state_and_period_start_as_csv: #{e}"
 end
 ```
@@ -1584,7 +1584,7 @@ Retrieves a collection of invoices, specified by the state parameter. By default
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 state = "state_example" # String | The current state of the invoice, either Paid, Pending,  Unpaid or Voided.
 
@@ -1601,7 +1601,7 @@ begin
   #Retrieves a collection of invoices, specified by the state parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_invoices_by_state_as_csv(state, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_invoices_by_state_as_csv: #{e}"
 end
 ```
@@ -1645,7 +1645,7 @@ Retrieves all InvoiceLine payment attributions.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -1659,7 +1659,7 @@ begin
   #Retrieves all InvoiceLine payment attributions.
   result = api_instance.get_line_payments(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_line_payments: #{e}"
 end
 ```
@@ -1701,7 +1701,7 @@ Retrieves (as CSV) all InvoiceLine payment attributions.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -1715,7 +1715,7 @@ begin
   #Retrieves (as CSV) all InvoiceLine payment attributions.
   result = api_instance.get_line_payments_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_line_payments_as_csv: #{e}"
 end
 ```
@@ -1757,7 +1757,7 @@ Retrieve any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | 
 
@@ -1769,7 +1769,7 @@ begin
   #Retrieve any associated metadata.
   result = api_instance.get_metadata_for_invoice(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_metadata_for_invoice: #{e}"
 end
 ```
@@ -1808,7 +1808,7 @@ Retrieves awarded refunds from InvoicePayments upon line items, in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -1820,7 +1820,7 @@ begin
   #Retrieves awarded refunds from InvoicePayments upon line items, in CSV format.
   result = api_instance.get_refund_invoice_line_payments_from_invoices_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_refund_invoice_line_payments_from_invoices_as_csv: #{e}"
 end
 ```
@@ -1860,7 +1860,7 @@ Retrieves awarded refunds from InvoicePayments upon line items, in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -1872,7 +1872,7 @@ begin
   #Retrieves awarded refunds from InvoicePayments upon line items, in CSV format.
   result = api_instance.get_refund_invoice_line_payments_from_invoices_as_csv_by_refund_received(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_refund_invoice_line_payments_from_invoices_as_csv_by_refund_received: #{e}"
 end
 ```
@@ -1912,7 +1912,7 @@ Retrieves all attributions of Invoice costs to Invoice lines.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -1924,7 +1924,7 @@ begin
   #Retrieves all attributions of Invoice costs to Invoice lines.
   result = api_instance.get_revenue_attributions(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_revenue_attributions: #{e}"
 end
 ```
@@ -1964,7 +1964,7 @@ Retrieves (as CSV) all attributions of Invoice costs to Invoice lines.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -1976,7 +1976,7 @@ begin
   #Retrieves (as CSV) all attributions of Invoice costs to Invoice lines.
   result = api_instance.get_revenue_attributions_as_csv(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_revenue_attributions_as_csv: #{e}"
 end
 ```
@@ -2016,7 +2016,7 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 query_string = "query_string_example" # String | The query string used to search.
 
@@ -2033,7 +2033,7 @@ begin
   #
   result = api_instance.get_swagger_for_invoice(query_string, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->get_swagger_for_invoice: #{e}"
 end
 ```
@@ -2077,16 +2077,16 @@ Import an invoice.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | 
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | 
 
 
 begin
   #Import an invoice.
   result = api_instance.import_invoice(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->import_invoice: #{e}"
 end
 ```
@@ -2124,18 +2124,18 @@ Re-calculate an Invoice.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | 
 
-request = BillForward::InvoiceRecalculationRequest.new # InvoiceRecalculationRequest | 
+request = Bfwd::InvoiceRecalculationRequest.new # InvoiceRecalculationRequest | 
 
 
 begin
   #Re-calculate an Invoice.
   result = api_instance.recalculate_invoice(invoice_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->recalculate_invoice: #{e}"
 end
 ```
@@ -2174,7 +2174,7 @@ Removes the specified charge from the specified Invoice.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | 
 
@@ -2188,7 +2188,7 @@ begin
   #Removes the specified charge from the specified Invoice.
   result = api_instance.remove_charge_from_invoice(invoice_id, charge_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->remove_charge_from_invoice: #{e}"
 end
 ```
@@ -2228,7 +2228,7 @@ Remove any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | 
 
@@ -2240,7 +2240,7 @@ begin
   #Remove any associated metadata.
   result = api_instance.remove_metadata_from_invoice(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->remove_metadata_from_invoice: #{e}"
 end
 ```
@@ -2279,9 +2279,9 @@ Remove any existing metadata keys and create the provided data.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 invoice_id = "invoice_id_example" # String | 
 
@@ -2293,7 +2293,7 @@ begin
   #Remove any existing metadata keys and create the provided data.
   result = api_instance.set_metadata_for_invoice(metadata, invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->set_metadata_for_invoice: #{e}"
 end
 ```
@@ -2333,16 +2333,16 @@ Update an Invoice.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
-invoice = BillForward::Invoice.new # Invoice | The invoice object to be updated.
+invoice = Bfwd::Invoice.new # Invoice | The invoice object to be updated.
 
 
 begin
   #Update an Invoice.
   result = api_instance.update_invoice(invoice)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->update_invoice: #{e}"
 end
 ```
@@ -2380,9 +2380,9 @@ Update any existing metadata key-values and insert any new key-values, no keys w
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 invoice_id = "invoice_id_example" # String | 
 
@@ -2394,7 +2394,7 @@ begin
   #Update any existing metadata key-values and insert any new key-values, no keys will be removed.
   result = api_instance.upsert_metadata_for_invoice(metadata, invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->upsert_metadata_for_invoice: #{e}"
 end
 ```
@@ -2434,7 +2434,7 @@ Voids the invoice specified by the invoice identifier parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::InvoicesApi.new
+api_instance = Bfwd::InvoicesApi.new
 
 invoice_id = "invoice_id_example" # String | ID of the invoice.
 
@@ -2445,7 +2445,7 @@ begin
   #Voids the invoice specified by the invoice identifier parameter.
   result = api_instance.void_invoice(invoice_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling InvoicesApi->void_invoice: #{e}"
 end
 ```

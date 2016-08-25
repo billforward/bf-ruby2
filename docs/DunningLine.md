@@ -1,4 +1,4 @@
-# BillForward::DunningLine
+# Bfwd::DunningLine
 
 ## Properties
 Name | Type | Description | Notes

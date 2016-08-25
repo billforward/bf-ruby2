@@ -1,4 +1,4 @@
-# BillForward::ResumeSubscriptionAmendment
+# Bfwd::ResumeSubscriptionAmendment
 
 ## Properties
 Name | Type | Description | Notes

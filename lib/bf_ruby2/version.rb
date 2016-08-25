@@ -21,6 +21,6 @@ limitations under the License.
 
 =end
 
-module BillForward
+module Bfwd
   VERSION = "1.2016.230"
 end

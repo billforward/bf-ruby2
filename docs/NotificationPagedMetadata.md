@@ -1,4 +1,4 @@
-# BillForward::NotificationPagedMetadata
+# Bfwd::NotificationPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

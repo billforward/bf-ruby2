@@ -1,4 +1,4 @@
-# BillForward::EmailsubscriptionsApi
+# Bfwd::EmailsubscriptionsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,16 +23,16 @@ Create an email subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailsubscriptionsApi.new
+api_instance = Bfwd::EmailsubscriptionsApi.new
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | .
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | .
 
 
 begin
   #Create an email subscription.
   result = api_instance.create_email_subscription(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailsubscriptionsApi->create_email_subscription: #{e}"
 end
 ```
@@ -70,7 +70,7 @@ Unsubscribe from the email specified by the type parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailsubscriptionsApi.new
+api_instance = Bfwd::EmailsubscriptionsApi.new
 
 type = "type_example" # String | 
 
@@ -82,7 +82,7 @@ begin
   #Unsubscribe from the email specified by the type parameter.
   result = api_instance.delete_email_subscription_by_type(type, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailsubscriptionsApi->delete_email_subscription_by_type: #{e}"
 end
 ```
@@ -121,7 +121,7 @@ Returns a collection of all email-subscriptions. By default 10 values are return
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailsubscriptionsApi.new
+api_instance = Bfwd::EmailsubscriptionsApi.new
 
 state = "state_example" # String | Constrains search to Email Subscriptions of a specific state.
 
@@ -139,7 +139,7 @@ begin
   #Returns a collection of all email-subscriptions. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_email_subscriptions(state, type, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailsubscriptionsApi->get_all_email_subscriptions: #{e}"
 end
 ```
@@ -183,7 +183,7 @@ Retrieves a single email subscription, specified by ID.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailsubscriptionsApi.new
+api_instance = Bfwd::EmailsubscriptionsApi.new
 
 email_subscription_id = "email_subscription_id_example" # String | 
 
@@ -196,7 +196,7 @@ begin
   #Retrieves a single email subscription, specified by ID.
   result = api_instance.get_email_subscription_by_id(email_subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailsubscriptionsApi->get_email_subscription_by_id: #{e}"
 end
 ```
@@ -236,16 +236,16 @@ Update an email subscription.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailsubscriptionsApi.new
+api_instance = Bfwd::EmailsubscriptionsApi.new
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | .
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | .
 
 
 begin
   #Update an email subscription.
   result = api_instance.update_email_subscription(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailsubscriptionsApi->update_email_subscription: #{e}"
 end
 ```

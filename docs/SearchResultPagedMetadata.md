@@ -1,4 +1,4 @@
-# BillForward::SearchResultPagedMetadata
+# Bfwd::SearchResultPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

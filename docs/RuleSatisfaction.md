@@ -1,4 +1,4 @@
-# BillForward::RuleSatisfaction
+# Bfwd::RuleSatisfaction
 
 ## Properties
 Name | Type | Description | Notes

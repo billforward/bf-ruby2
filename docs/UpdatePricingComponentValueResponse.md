@@ -1,4 +1,4 @@
-# BillForward::UpdatePricingComponentValueResponse
+# Bfwd::UpdatePricingComponentValueResponse
 
 ## Properties
 Name | Type | Description | Notes

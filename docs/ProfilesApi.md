@@ -1,4 +1,4 @@
-# BillForward::ProfilesApi
+# Bfwd::ProfilesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,7 +23,7 @@ Returns a collection of all profiles. By default 10 values are returned. Records
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProfilesApi.new
+api_instance = Bfwd::ProfilesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organizations used to restrict the scope of API calls.
@@ -37,7 +37,7 @@ begin
   #Returns a collection of all profiles. By default 10 values are returned. Records are returned in natural order
   result = api_instance.get_all_profiles(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProfilesApi->get_all_profiles: #{e}"
 end
 ```
@@ -79,7 +79,7 @@ Returns a single profile, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProfilesApi.new
+api_instance = Bfwd::ProfilesApi.new
 
 profile_id = "profile_id_example" # String | ID of the Profile.
 
@@ -91,7 +91,7 @@ begin
   #Returns a single profile, specified by the ID parameter.
   result = api_instance.get_profile(profile_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProfilesApi->get_profile: #{e}"
 end
 ```
@@ -130,7 +130,7 @@ Returns a collection of profiles, specified by the account-ID parameter. By defa
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProfilesApi.new
+api_instance = Bfwd::ProfilesApi.new
 
 account_id = "account_id_example" # String | The account-ID of the profile.
 
@@ -146,7 +146,7 @@ begin
   #Returns a collection of profiles, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order
   result = api_instance.get_profile_by_account_id(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProfilesApi->get_profile_by_account_id: #{e}"
 end
 ```
@@ -189,7 +189,7 @@ Returns a single profile, specified by the email parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProfilesApi.new
+api_instance = Bfwd::ProfilesApi.new
 
 email = "email_example" # String | The email address of the profile.
 
@@ -206,7 +206,7 @@ begin
   #Returns a single profile, specified by the email parameter.
   result = api_instance.get_profile_by_email_address(email, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProfilesApi->get_profile_by_email_address: #{e}"
 end
 ```
@@ -250,16 +250,16 @@ Update a profile
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProfilesApi.new
+api_instance = Bfwd::ProfilesApi.new
 
-request = BillForward::UpdateProfileRequest.new # UpdateProfileRequest | The profile object to be updated.
+request = Bfwd::UpdateProfileRequest.new # UpdateProfileRequest | The profile object to be updated.
 
 
 begin
   #Update a profile
   result = api_instance.update_profile(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProfilesApi->update_profile: #{e}"
 end
 ```
