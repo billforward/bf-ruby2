@@ -1,4 +1,4 @@
-# BillForward::UserCreationResponsePagedMetadata
+# Bfwd::UserCreationResponsePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

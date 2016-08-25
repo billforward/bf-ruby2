@@ -1,4 +1,4 @@
-# BillForward::PasswordResetRequest
+# Bfwd::PasswordResetRequest
 
 ## Properties
 Name | Type | Description | Notes

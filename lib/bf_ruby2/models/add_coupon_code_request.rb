@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # <p> Request object containing the coupon code to be applied to the subscription.There are two choices when specifying the above mentioned code: </p>Unique Code - When specifying an existing unique code, the coupon associated to that code will be applied to the subscription, if it is still available.Master Code   - When specifying the base code of the coupon, an attempt will be made to generate an unique code if there is still availability to do so.
   class AddCouponCodeRequest
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -179,7 +179,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

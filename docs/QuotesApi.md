@@ -1,4 +1,4 @@
-# BillForward::QuotesApi
+# Bfwd::QuotesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -19,16 +19,16 @@ Returns a quote.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::QuotesApi.new
+api_instance = Bfwd::QuotesApi.new
 
-quote_request = BillForward::QuoteRequest.new # QuoteRequest | A quote request
+quote_request = Bfwd::QuoteRequest.new # QuoteRequest | A quote request
 
 
 begin
   #Returns a quote.
   result = api_instance.quote(quote_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling QuotesApi->quote: #{e}"
 end
 ```

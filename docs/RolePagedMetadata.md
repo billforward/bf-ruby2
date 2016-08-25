@@ -1,4 +1,4 @@
-# BillForward::RolePagedMetadata
+# Bfwd::RolePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

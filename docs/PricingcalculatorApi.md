@@ -1,4 +1,4 @@
-# BillForward::PricingcalculatorApi
+# Bfwd::PricingcalculatorApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -21,16 +21,16 @@ Calculates the price of a subscription's upgrading/downgrading to a new pricing 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcalculatorApi.new
+api_instance = Bfwd::PricingcalculatorApi.new
 
-ammendment_price_request = BillForward::BillingEntityBase.new # BillingEntityBase | An amendment pricing request
+ammendment_price_request = Bfwd::BillingEntityBase.new # BillingEntityBase | An amendment pricing request
 
 
 begin
   #Calculates the price of a subscription's upgrading/downgrading to a new pricing component value.
   result = api_instance.get_amendment_cost(ammendment_price_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcalculatorApi->get_amendment_cost: #{e}"
 end
 ```
@@ -68,16 +68,16 @@ Calculates the price of a subscription to a rate plan, at specified values of pr
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcalculatorApi.new
+api_instance = Bfwd::PricingcalculatorApi.new
 
-coupon_instance_initialisation_request = BillForward::BillingEntityBase.new # BillingEntityBase | A coupon instance initialisation request
+coupon_instance_initialisation_request = Bfwd::BillingEntityBase.new # BillingEntityBase | A coupon instance initialisation request
 
 
 begin
   #Calculates the price of a subscription to a rate plan, at specified values of pricing component values, and with the specified coupon applied.
   result = api_instance.get_coupon_instance_initialisation_cost(coupon_instance_initialisation_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcalculatorApi->get_coupon_instance_initialisation_cost: #{e}"
 end
 ```
@@ -115,16 +115,16 @@ Calculates the price of a subscription to a rate plan, at specified values of pr
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcalculatorApi.new
+api_instance = Bfwd::PricingcalculatorApi.new
 
-price_request = BillForward::BillingEntityBase.new # BillingEntityBase | A price request
+price_request = Bfwd::BillingEntityBase.new # BillingEntityBase | A price request
 
 
 begin
   #Calculates the price of a subscription to a rate plan, at specified values of pricing component values.
   result = api_instance.get_product_rate_plan_costs(price_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcalculatorApi->get_product_rate_plan_costs: #{e}"
 end
 ```

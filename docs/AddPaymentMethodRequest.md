@@ -1,4 +1,4 @@
-# BillForward::AddPaymentMethodRequest
+# Bfwd::AddPaymentMethodRequest
 
 ## Properties
 Name | Type | Description | Notes

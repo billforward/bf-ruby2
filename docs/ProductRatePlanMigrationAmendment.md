@@ -1,4 +1,4 @@
-# BillForward::ProductRatePlanMigrationAmendment
+# Bfwd::ProductRatePlanMigrationAmendment
 
 ## Properties
 Name | Type | Description | Notes

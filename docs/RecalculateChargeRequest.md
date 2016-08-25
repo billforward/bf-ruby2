@@ -1,4 +1,4 @@
-# BillForward::RecalculateChargeRequest
+# Bfwd::RecalculateChargeRequest
 
 ## Properties
 Name | Type | Description | Notes

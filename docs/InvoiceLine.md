@@ -1,4 +1,4 @@
-# BillForward::InvoiceLine
+# Bfwd::InvoiceLine
 
 ## Properties
 Name | Type | Description | Notes

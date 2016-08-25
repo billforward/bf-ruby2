@@ -1,4 +1,4 @@
-# BillForward::PendingComponentValueChange
+# Bfwd::PendingComponentValueChange
 
 ## Properties
 Name | Type | Description | Notes

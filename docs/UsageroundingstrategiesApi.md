@@ -1,4 +1,4 @@
-# BillForward::UsageroundingstrategiesApi
+# Bfwd::UsageroundingstrategiesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -22,16 +22,16 @@ Create a new rounding strategy
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageroundingstrategiesApi.new
+api_instance = Bfwd::UsageroundingstrategiesApi.new
 
-usage_rounding_strategy = BillForward::MutableBillingEntity.new # MutableBillingEntity | The usage-rounding-strategy object to be created.
+usage_rounding_strategy = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The usage-rounding-strategy object to be created.
 
 
 begin
   #Create a new rounding strategy
   result = api_instance.create_usage_rounding_strategy(usage_rounding_strategy)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageroundingstrategiesApi->create_usage_rounding_strategy: #{e}"
 end
 ```
@@ -69,7 +69,7 @@ Returns a collection of usage-rounding-strategies, specified by the usage-roundi
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageroundingstrategiesApi.new
+api_instance = Bfwd::UsageroundingstrategiesApi.new
 
 usage_rounding_strategies_id = "usage_rounding_strategies_id_example" # String | The string ID of the usage-rounding-strategies.
 
@@ -86,7 +86,7 @@ begin
   #Returns a collection of usage-rounding-strategies, specified by the usage-rounding-strategies-id parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_usage_rounding_strategy_by_id(usage_rounding_strategies_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageroundingstrategiesApi->get_usage_rounding_strategy_by_id: #{e}"
 end
 ```
@@ -130,7 +130,7 @@ Returns a collection of usage-rounding-strategies, specified by the pricing-comp
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageroundingstrategiesApi.new
+api_instance = Bfwd::UsageroundingstrategiesApi.new
 
 pricing_component_id = "pricing_component_id_example" # String | The string pricing-component-ID of the pricing-component.
 
@@ -147,7 +147,7 @@ begin
   #Returns a collection of usage-rounding-strategies, specified by the pricing-component-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_usage_rounding_strategy_by_pricing_component_id(pricing_component_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageroundingstrategiesApi->get_usage_rounding_strategy_by_pricing_component_id: #{e}"
 end
 ```
@@ -191,16 +191,16 @@ Update a rounding strategy
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageroundingstrategiesApi.new
+api_instance = Bfwd::UsageroundingstrategiesApi.new
 
-usage_rounding_strategy = BillForward::MutableBillingEntity.new # MutableBillingEntity | The usage-rounding-strategy object to be updated.
+usage_rounding_strategy = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The usage-rounding-strategy object to be updated.
 
 
 begin
   #Update a rounding strategy
   result = api_instance.update_usage_rounding_strategy(usage_rounding_strategy)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageroundingstrategiesApi->update_usage_rounding_strategy: #{e}"
 end
 ```

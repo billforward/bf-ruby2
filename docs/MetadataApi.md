@@ -1,4 +1,4 @@
-# BillForward::MetadataApi
+# Bfwd::MetadataApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -22,7 +22,7 @@ Remove any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::MetadataApi.new
+api_instance = Bfwd::MetadataApi.new
 
 opts = { 
   organizations: ["organizations_example"] # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -32,7 +32,7 @@ begin
   #Remove any associated metadata.
   result = api_instance.delete_metadata_key_values(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling MetadataApi->delete_metadata_key_values: #{e}"
 end
 ```
@@ -70,7 +70,7 @@ Retrieve any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::MetadataApi.new
+api_instance = Bfwd::MetadataApi.new
 
 opts = { 
   organizations: ["organizations_example"] # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -80,7 +80,7 @@ begin
   #Retrieve any associated metadata.
   result = api_instance.get_metadata_key_values(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling MetadataApi->get_metadata_key_values: #{e}"
 end
 ```
@@ -118,9 +118,9 @@ Remove any existing metadata keys and create the provided data.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::MetadataApi.new
+api_instance = Bfwd::MetadataApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 opts = { 
   organizations: ["organizations_example"] # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -130,7 +130,7 @@ begin
   #Remove any existing metadata keys and create the provided data.
   result = api_instance.set_metadata_key_values(metadata, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling MetadataApi->set_metadata_key_values: #{e}"
 end
 ```
@@ -169,9 +169,9 @@ Update any existing metadata key-values and insert any new key-values, no keys w
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::MetadataApi.new
+api_instance = Bfwd::MetadataApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 opts = { 
   organizations: ["organizations_example"] # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -181,7 +181,7 @@ begin
   #Update any existing metadata key-values and insert any new key-values, no keys will be removed.
   result = api_instance.upsert_metadata_key_values(metadata, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling MetadataApi->upsert_metadata_key_values: #{e}"
 end
 ```

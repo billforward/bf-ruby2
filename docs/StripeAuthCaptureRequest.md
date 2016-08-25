@@ -1,4 +1,4 @@
-# BillForward::StripeAuthCaptureRequest
+# Bfwd::StripeAuthCaptureRequest
 
 ## Properties
 Name | Type | Description | Notes

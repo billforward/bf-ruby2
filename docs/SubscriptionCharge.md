@@ -1,4 +1,4 @@
-# BillForward::SubscriptionCharge
+# Bfwd::SubscriptionCharge
 
 ## Properties
 Name | Type | Description | Notes

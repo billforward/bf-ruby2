@@ -1,4 +1,4 @@
-# BillForward::UnitDiscount
+# Bfwd::UnitDiscount
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::CouponUniqueCodesRequest
+# Bfwd::CouponUniqueCodesRequest
 
 ## Properties
 Name | Type | Description | Notes

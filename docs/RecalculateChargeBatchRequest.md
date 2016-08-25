@@ -1,4 +1,4 @@
-# BillForward::RecalculateChargeBatchRequest
+# Bfwd::RecalculateChargeBatchRequest
 
 ## Properties
 Name | Type | Description | Notes

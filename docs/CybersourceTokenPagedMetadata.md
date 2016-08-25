@@ -1,4 +1,4 @@
-# BillForward::CybersourceTokenPagedMetadata
+# Bfwd::CybersourceTokenPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

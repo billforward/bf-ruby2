@@ -1,4 +1,4 @@
-# BillForward::SubscriptionLTVResultPagedMetadata
+# Bfwd::SubscriptionLTVResultPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

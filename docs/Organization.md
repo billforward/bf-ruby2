@@ -1,4 +1,4 @@
-# BillForward::Organization
+# Bfwd::Organization
 
 ## Properties
 Name | Type | Description | Notes

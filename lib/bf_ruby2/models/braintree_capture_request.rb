@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # [Warning: for use only in PCI-compliant environments; for more information, <a href=\"mailto:support@billforward.net\">contact us</a> regarding provisioning of your own on-premise BillForward instance] This entity is for specifying raw credit card details, to be captured into the Braintree vault.
   class BraintreeCaptureRequest
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -275,7 +275,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

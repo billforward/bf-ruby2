@@ -1,4 +1,4 @@
-# BillForward::TaxationlinksApi
+# Bfwd::TaxationlinksApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Create
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationlinksApi.new
+api_instance = Bfwd::TaxationlinksApi.new
 
-taxation_link = BillForward::MutableBillingEntity.new # MutableBillingEntity | The taxation-link object to be updated.
+taxation_link = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The taxation-link object to be updated.
 
 
 begin
   #Create
   result = api_instance.create_taxation_link(taxation_link)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationlinksApi->create_taxation_link: #{e}"
 end
 ```
@@ -71,7 +71,7 @@ Returns a collection of all taxation-links. By default 10 values are returned. R
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationlinksApi.new
+api_instance = Bfwd::TaxationlinksApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -86,7 +86,7 @@ begin
   #Returns a collection of all taxation-links. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_taxation_links(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationlinksApi->get_all_taxation_links: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ Returns a single taxation-link, specified by the taxation-link-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationlinksApi.new
+api_instance = Bfwd::TaxationlinksApi.new
 
 taxation_link_id = "taxation_link_id_example" # String | The unique ID of the Taxation Link.
 
@@ -141,7 +141,7 @@ begin
   #Returns a single taxation-link, specified by the taxation-link-ID parameter.
   result = api_instance.get_taxation_link_by_id(taxation_link_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationlinksApi->get_taxation_link_by_id: #{e}"
 end
 ```
@@ -180,7 +180,7 @@ Returns a collection of taxation-links, specified by the product-rate-plan-ID pa
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationlinksApi.new
+api_instance = Bfwd::TaxationlinksApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | The ID of the product-rate-plan
 
@@ -197,7 +197,7 @@ begin
   #Returns a collection of taxation-links, specified by the product-rate-plan-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_taxation_link_by_product_rate_plan(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationlinksApi->get_taxation_link_by_product_rate_plan: #{e}"
 end
 ```
@@ -241,7 +241,7 @@ Returns a collection of taxation-links, specified by the taxation-strategy-ID pa
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationlinksApi.new
+api_instance = Bfwd::TaxationlinksApi.new
 
 taxation_strategy_id = "taxation_strategy_id_example" # String | The ID of the taxation-strategy
 
@@ -258,7 +258,7 @@ begin
   #Returns a collection of taxation-links, specified by the taxation-strategy-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_taxation_link_by_taxation_strategy(taxation_strategy_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationlinksApi->get_taxation_link_by_taxation_strategy: #{e}"
 end
 ```
@@ -302,16 +302,16 @@ Update
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TaxationlinksApi.new
+api_instance = Bfwd::TaxationlinksApi.new
 
-taxation_link = BillForward::MutableBillingEntity.new # MutableBillingEntity | The taxation-link object to be updated.
+taxation_link = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The taxation-link object to be updated.
 
 
 begin
   #Update
   result = api_instance.update_taxation_link(taxation_link)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TaxationlinksApi->update_taxation_link: #{e}"
 end
 ```

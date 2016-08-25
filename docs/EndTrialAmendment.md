@@ -1,4 +1,4 @@
-# BillForward::EndTrialAmendment
+# Bfwd::EndTrialAmendment
 
 ## Properties
 Name | Type | Description | Notes

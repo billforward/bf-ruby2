@@ -1,4 +1,4 @@
-# BillForward::TokenizationApi
+# Bfwd::TokenizationApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -24,16 +24,16 @@ Method | HTTP request | Description
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TokenizationApi.new
+api_instance = Bfwd::TokenizationApi.new
 
-auth_capture_request = BillForward::AuthCaptureRequest.new # AuthCaptureRequest | The auth capture request.
+auth_capture_request = Bfwd::AuthCaptureRequest.new # AuthCaptureRequest | The auth capture request.
 
 
 begin
   #[Note: this API can be invoked more simply by our client-side card capture library, <a href=\"https://github.com/billforward/billforward-js\">BillForward.js</a>; you should not need to interact with this API manually unless you have particularly bespoke requirements] 
   result = api_instance.auth_capture(auth_capture_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TokenizationApi->auth_capture: #{e}"
 end
 ```
@@ -71,17 +71,17 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TokenizationApi.new
+api_instance = Bfwd::TokenizationApi.new
 
 opts = { 
-  body: BillForward::BraintreeCaptureRequest.new # BraintreeCaptureRequest | 
+  body: Bfwd::BraintreeCaptureRequest.new # BraintreeCaptureRequest | 
 }
 
 begin
   #[Warning: for use only in PCI-compliant environments; for more information, <a href=\"mailto:support@billforward.net\">contact us</a> regarding provisioning of your own on-premise BillForward instance] Captures raw credit card details into Braintree's vault.
   result = api_instance.braintree_card_capture(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TokenizationApi->braintree_card_capture: #{e}"
 end
 ```
@@ -119,7 +119,7 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TokenizationApi.new
+api_instance = Bfwd::TokenizationApi.new
 
 opts = { 
   resource_path: "resource_path_example", # String | 
@@ -130,7 +130,7 @@ begin
   #[Note: this API is intended to be invoked by the PayVision servers -- they are BillForward's way of informing client-side of the result of card-capture from within an iframe] Generates iframe to which customer will be directed upon success or failure. The iframe contains JavaScript which attempts to send a message to BillForward.js on the client-side, which will handle the result.
   result = api_instance.pay_vision_shout_v1(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TokenizationApi->pay_vision_shout_v1: #{e}"
 end
 ```
@@ -169,16 +169,16 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TokenizationApi.new
+api_instance = Bfwd::TokenizationApi.new
 
-pre_auth_request = BillForward::InsertableBillingEntity.new # InsertableBillingEntity | The auth request.
+pre_auth_request = Bfwd::InsertableBillingEntity.new # InsertableBillingEntity | The auth request.
 
 
 begin
   #[Note: this API can be invoked more simply by our client-side card capture library, <a href=\"https://github.com/billforward/billforward-js\">BillForward.js</a>; you should not need to interact with this API manually unless you have particularly bespoke requirements] 
   result = api_instance.pre_auth(pre_auth_request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TokenizationApi->pre_auth: #{e}"
 end
 ```
@@ -216,12 +216,12 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TokenizationApi.new
+api_instance = Bfwd::TokenizationApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.Multiple organization-IDs may be specified by repeated use of the queryparameter. Example: ...&organizations=org1&organizations=org2
-  bill_forward_url_root: "bill_forward_url_root_example", # String | The URL through which BFJS connected to BillForward.
-  access_token: "access_token_example", # String | The public token through which BFJS connected to BillForward.
+  bill_forward_url_root: "bill_forward_url_root_example", # String | The URL through which BFJS connected to Bfwd.
+  access_token: "access_token_example", # String | The public token through which BFJS connected to Bfwd.
   vps_protocol: "vps_protocol_example", # String | 
   tx_type: "tx_type_example", # String | 
   vendor_tx_code: "vendor_tx_code_example", # String | 
@@ -239,7 +239,7 @@ begin
   #[Note: this API is intended to be invoked by the SagePay servers -- they are BillForward's way of receiving a callback from a SagePay card capture operation, using SagePay's FORM Protocol, v3.0] Handles SagePay Notification.
   result = api_instance.sage_pay_notify_v300(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TokenizationApi->sage_pay_notify_v300: #{e}"
 end
 ```
@@ -249,8 +249,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizations** | [**Array&lt;String&gt;**](String.md)| A list of organization-IDs used to restrict the scope of API calls.Multiple organization-IDs may be specified by repeated use of the queryparameter. Example: ...&amp;organizations&#x3D;org1&amp;organizations&#x3D;org2 | [optional] 
- **bill_forward_url_root** | **String**| The URL through which BFJS connected to BillForward. | [optional] 
- **access_token** | **String**| The public token through which BFJS connected to BillForward. | [optional] 
+ **bill_forward_url_root** | **String**| The URL through which BFJS connected to Bfwd. | [optional] 
+ **access_token** | **String**| The public token through which BFJS connected to Bfwd. | [optional] 
  **vps_protocol** | **String**|  | [optional] 
  **tx_type** | **String**|  | [optional] 
  **vendor_tx_code** | **String**|  | [optional] 
@@ -290,7 +290,7 @@ No authorization required
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::TokenizationApi.new
+api_instance = Bfwd::TokenizationApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.Multiple organization-IDs may be specified by repeated use of the queryparameter. Example: ...&organizations=org1&organizations=org2
@@ -306,7 +306,7 @@ begin
   #[Note: this API is intended to be invoked by the SagePay servers -- they are BillForward's way of informing client-side of the result of card-capture from within an iframe, using SagePay's FORM Protocol, v3.0] Generates iframe to which customer will be directed upon success or failure. The iframe contains JavaScript which attempts to send a message to BillForward.js on the client-side, which will handle the result.
   result = api_instance.sage_pay_shout_v300(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling TokenizationApi->sage_pay_shout_v300: #{e}"
 end
 ```

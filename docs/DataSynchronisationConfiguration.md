@@ -1,4 +1,4 @@
-# BillForward::DataSynchronisationConfiguration
+# Bfwd::DataSynchronisationConfiguration
 
 ## Properties
 Name | Type | Description | Notes

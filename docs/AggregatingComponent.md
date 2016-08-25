@@ -1,4 +1,4 @@
-# BillForward::AggregatingComponent
+# Bfwd::AggregatingComponent
 
 ## Properties
 Name | Type | Description | Notes

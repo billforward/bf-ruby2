@@ -1,4 +1,4 @@
-# BillForward::PricingComponentTier
+# Bfwd::PricingComponentTier
 
 ## Properties
 Name | Type | Description | Notes

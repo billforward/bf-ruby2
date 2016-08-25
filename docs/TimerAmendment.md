@@ -1,4 +1,4 @@
-# BillForward::TimerAmendment
+# Bfwd::TimerAmendment
 
 ## Properties
 Name | Type | Description | Notes

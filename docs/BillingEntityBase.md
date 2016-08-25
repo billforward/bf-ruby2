@@ -1,4 +1,4 @@
-# BillForward::BillingEntityBase
+# Bfwd::BillingEntityBase
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::ProductrateplansApi
+# Bfwd::ProductrateplansApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -32,18 +32,18 @@ Adds or re-enables the specified taxation-strategy for the given product-rate-pl
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
-taxation_strategy = BillForward::AddTaxationStrategyRequest.new # AddTaxationStrategyRequest | The taxation-strategy
+taxation_strategy = Bfwd::AddTaxationStrategyRequest.new # AddTaxationStrategyRequest | The taxation-strategy
 
 
 begin
   #Adds or re-enables the specified taxation-strategy for the given product-rate-plan.
   result = api_instance.add_taxation_strategy_to_rate_plan(product_rate_plan_id, taxation_strategy)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->add_taxation_strategy_to_rate_plan: #{e}"
 end
 ```
@@ -82,16 +82,16 @@ Create a new rate-plan.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
-product_rate_plan = BillForward::ProductRatePlan.new # ProductRatePlan | The product-rate-plan object to be created.
+product_rate_plan = Bfwd::ProductRatePlan.new # ProductRatePlan | The product-rate-plan object to be created.
 
 
 begin
   #Create a new rate-plan.
   result = api_instance.create_rate_plan(product_rate_plan)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->create_rate_plan: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ Remove any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
@@ -141,7 +141,7 @@ begin
   #Remove any associated metadata.
   result = api_instance.delete_metadata_for_rate_plan(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->delete_metadata_for_rate_plan: #{e}"
 end
 ```
@@ -180,7 +180,7 @@ Returns a collection of product-rate-plans. By default 10 values are returned. R
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -196,7 +196,7 @@ begin
   #Returns a collection of product-rate-plans. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_rate_plans(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->get_all_rate_plans: #{e}"
 end
 ```
@@ -240,7 +240,7 @@ Returns all available taxes for the specified product-rate-plan. By default 10 v
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
@@ -256,7 +256,7 @@ begin
   #Returns all available taxes for the specified product-rate-plan. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_available_taxation_strategies_for_rate_plan(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->get_available_taxation_strategies_for_rate_plan: #{e}"
 end
 ```
@@ -299,7 +299,7 @@ Retrieve any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
@@ -311,7 +311,7 @@ begin
   #Retrieve any associated metadata.
   result = api_instance.get_metadata_for_rate_plan(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->get_metadata_for_rate_plan: #{e}"
 end
 ```
@@ -350,7 +350,7 @@ Returns product-rate-plans, specified by the product-rate-plan id or name.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | id or name of the product-rate-plan.
 
@@ -367,7 +367,7 @@ begin
   #Returns product-rate-plans, specified by the product-rate-plan id or name.
   result = api_instance.get_product_rate_plan_by_id(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->get_product_rate_plan_by_id: #{e}"
 end
 ```
@@ -411,7 +411,7 @@ Returns a collection of product-rate-plans, specified by the product-ID paramete
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_id = "product_id_example" # String | 
 
@@ -428,7 +428,7 @@ begin
   #Returns a collection of product-rate-plans, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_rate_plan_by_product(product_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->get_rate_plan_by_product: #{e}"
 end
 ```
@@ -472,7 +472,7 @@ Returns a collection of product-rate-plans, specified by the product-ID paramete
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_id = "product_id_example" # String | 
 
@@ -491,7 +491,7 @@ begin
   #Returns a collection of product-rate-plans, specified by the product-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_rate_plan_by_product_and_rate_plan(product_id, rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->get_rate_plan_by_product_and_rate_plan: #{e}"
 end
 ```
@@ -536,7 +536,7 @@ Removes the specified taxation-strategy for the given product-rate-plan.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
@@ -550,7 +550,7 @@ begin
   #Removes the specified taxation-strategy for the given product-rate-plan.
   result = api_instance.remove_taxation_strategy_from_rate_plan(product_rate_plan_id, taxation_strategy_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->remove_taxation_strategy_from_rate_plan: #{e}"
 end
 ```
@@ -590,7 +590,7 @@ Retires the product-rate-plan specified product-rate-plan-ID.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
@@ -602,7 +602,7 @@ begin
   #Retires the product-rate-plan specified product-rate-plan-ID.
   result = api_instance.retire_rate_plan(product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->retire_rate_plan: #{e}"
 end
 ```
@@ -641,9 +641,9 @@ Remove any existing metadata keys and create the provided data.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
@@ -655,7 +655,7 @@ begin
   #Remove any existing metadata keys and create the provided data.
   result = api_instance.set_metadata_for_rate_plan(metadata, product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->set_metadata_for_rate_plan: #{e}"
 end
 ```
@@ -695,16 +695,16 @@ Update a rate-plan.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
-product_rate_plan = BillForward::ProductRatePlan.new # ProductRatePlan | The product-rate-plan object to be updated.
+product_rate_plan = Bfwd::ProductRatePlan.new # ProductRatePlan | The product-rate-plan object to be updated.
 
 
 begin
   #Update a rate-plan.
   result = api_instance.update_rate_plan(product_rate_plan)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->update_rate_plan: #{e}"
 end
 ```
@@ -742,9 +742,9 @@ Update any existing metadata key-values and insert any new key-values, no keys w
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductrateplansApi.new
+api_instance = Bfwd::ProductrateplansApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 product_rate_plan_id = "product_rate_plan_id_example" # String | 
 
@@ -756,7 +756,7 @@ begin
   #Update any existing metadata key-values and insert any new key-values, no keys will be removed.
   result = api_instance.upsert_metadata_for_rate_plan(metadata, product_rate_plan_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductrateplansApi->upsert_metadata_for_rate_plan: #{e}"
 end
 ```

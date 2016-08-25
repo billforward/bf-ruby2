@@ -1,4 +1,4 @@
-# BillForward::StripeObject
+# Bfwd::StripeObject
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::EmailProvider
+# Bfwd::EmailProvider
 
 ## Properties
 Name | Type | Description | Notes

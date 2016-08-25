@@ -1,4 +1,4 @@
-# BillForward::UnitOfMeasure
+# Bfwd::UnitOfMeasure
 
 ## Properties
 Name | Type | Description | Notes

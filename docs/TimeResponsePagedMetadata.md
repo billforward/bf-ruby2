@@ -1,4 +1,4 @@
-# BillForward::TimeResponsePagedMetadata
+# Bfwd::TimeResponsePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::ComponentCost
+# Bfwd::ComponentCost
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::CouponmodifierApi
+# Bfwd::CouponmodifierApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -25,16 +25,16 @@ Create a coupon-modifier.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponmodifierApi.new
+api_instance = Bfwd::CouponmodifierApi.new
 
-coupon_instance = BillForward::CouponModifierBase.new # CouponModifierBase | The coupon-instance object to be created.
+coupon_instance = Bfwd::CouponModifierBase.new # CouponModifierBase | The coupon-instance object to be created.
 
 
 begin
   #Create a coupon-modifier.
   result = api_instance.create_coupon_modifier(coupon_instance)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponmodifierApi->create_coupon_modifier: #{e}"
 end
 ```
@@ -72,7 +72,7 @@ Retire a coupon-modifier, specified by the coupon-modifier-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponmodifierApi.new
+api_instance = Bfwd::CouponmodifierApi.new
 
 coupon_modifier_id = "coupon_modifier_id_example" # String | ID of the coupon-modifier.
 
@@ -84,7 +84,7 @@ begin
   #Retire a coupon-modifier, specified by the coupon-modifier-ID parameter.
   result = api_instance.delete_coupon_modifier(coupon_modifier_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponmodifierApi->delete_coupon_modifier: #{e}"
 end
 ```
@@ -123,7 +123,7 @@ Returns a collection of coupon-modifiers. By default 10 values are returned. Rec
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponmodifierApi.new
+api_instance = Bfwd::CouponmodifierApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -135,7 +135,7 @@ begin
   #Returns a collection of coupon-modifiers. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_coupon_modifiers(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponmodifierApi->get_all_coupon_modifiers: #{e}"
 end
 ```
@@ -175,7 +175,7 @@ Returns a collection of coupon-modifiers, specified by the coupon-code parameter
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponmodifierApi.new
+api_instance = Bfwd::CouponmodifierApi.new
 
 coupon_code = "coupon_code_example" # String | The coupon-code.
 
@@ -189,7 +189,7 @@ begin
   #Returns a collection of coupon-modifiers, specified by the coupon-code parameter.
   result = api_instance.get_coupon_modifier_by_coupon_code(coupon_code, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponmodifierApi->get_coupon_modifier_by_coupon_code: #{e}"
 end
 ```
@@ -230,7 +230,7 @@ Returns a collection of coupon-modifiers, specified by the coupon-definition-ID 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponmodifierApi.new
+api_instance = Bfwd::CouponmodifierApi.new
 
 coupon_definition_id = "coupon_definition_id_example" # String | ID of the coupon-definition.
 
@@ -242,7 +242,7 @@ begin
   #Returns a collection of coupon-modifiers, specified by the coupon-definition-ID parameter.
   result = api_instance.get_coupon_modifier_by_coupon_definition_id(coupon_definition_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponmodifierApi->get_coupon_modifier_by_coupon_definition_id: #{e}"
 end
 ```
@@ -281,7 +281,7 @@ Returns a single coupon-modifier, specified by the coupon-modifier-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponmodifierApi.new
+api_instance = Bfwd::CouponmodifierApi.new
 
 coupon_modifier_id = "coupon_modifier_id_example" # String | ID of the coupon-modifier.
 
@@ -293,7 +293,7 @@ begin
   #Returns a single coupon-modifier, specified by the coupon-modifier-ID parameter.
   result = api_instance.get_coupon_modifier_by_id(coupon_modifier_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponmodifierApi->get_coupon_modifier_by_id: #{e}"
 end
 ```
@@ -332,16 +332,16 @@ Update a coupon-instance.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponmodifierApi.new
+api_instance = Bfwd::CouponmodifierApi.new
 
-coupon_instance = BillForward::CouponModifierBase.new # CouponModifierBase | The coupon-instance object to be updated.
+coupon_instance = Bfwd::CouponModifierBase.new # CouponModifierBase | The coupon-instance object to be updated.
 
 
 begin
   #Update a coupon-instance.
   result = api_instance.update_coupon_modifier(coupon_instance)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponmodifierApi->update_coupon_modifier: #{e}"
 end
 ```

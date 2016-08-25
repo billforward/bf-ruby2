@@ -1,4 +1,4 @@
-# BillForward::FixedtermdefinitionsApi
+# Bfwd::FixedtermdefinitionsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -20,16 +20,16 @@ Create
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::FixedtermdefinitionsApi.new
+api_instance = Bfwd::FixedtermdefinitionsApi.new
 
-fixed_term_definiton = BillForward::MutableBillingEntity.new # MutableBillingEntity | The fixed-term-definition object to be updated.
+fixed_term_definiton = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The fixed-term-definition object to be updated.
 
 
 begin
   #Create
   result = api_instance.create_fixed_term_definition(fixed_term_definiton)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling FixedtermdefinitionsApi->create_fixed_term_definition: #{e}"
 end
 ```
@@ -67,16 +67,16 @@ Update
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::FixedtermdefinitionsApi.new
+api_instance = Bfwd::FixedtermdefinitionsApi.new
 
-fixed_term_definiton = BillForward::MutableBillingEntity.new # MutableBillingEntity | The fixed-term-definition object to be updated.
+fixed_term_definiton = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The fixed-term-definition object to be updated.
 
 
 begin
   #Update
   result = api_instance.update_fixed_term_definition(fixed_term_definiton)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling FixedtermdefinitionsApi->update_fixed_term_definition: #{e}"
 end
 ```

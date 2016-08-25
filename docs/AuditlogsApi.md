@@ -1,4 +1,4 @@
-# BillForward::AuditlogsApi
+# Bfwd::AuditlogsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,7 +23,7 @@ Returns a collection of all audit-log objects. By default 10 values are returned
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AuditlogsApi.new
+api_instance = Bfwd::AuditlogsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -38,7 +38,7 @@ begin
   #Returns a collection of all audit-log objects. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_audit_entries(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AuditlogsApi->get_all_audit_entries: #{e}"
 end
 ```
@@ -81,7 +81,7 @@ Returns a collection of audit-log objects with created times within the period s
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AuditlogsApi.new
+api_instance = Bfwd::AuditlogsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -100,7 +100,7 @@ begin
   #Returns a collection of audit-log objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_audit_entries_by_created_date(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AuditlogsApi->get_audit_entries_by_created_date: #{e}"
 end
 ```
@@ -145,7 +145,7 @@ Returns a collection of audit-log entries, specified by the entity-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AuditlogsApi.new
+api_instance = Bfwd::AuditlogsApi.new
 
 entity_id = "entity_id_example" # String | The string ID of the entity whose changes are documented by the audit log.
 
@@ -162,7 +162,7 @@ begin
   #Returns a collection of audit-log entries, specified by the entity-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_audit_entry_by_entity_id(entity_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AuditlogsApi->get_audit_entry_by_entity_id: #{e}"
 end
 ```
@@ -206,7 +206,7 @@ Returns a collection of audit-log entries, specified by the entity-type paramete
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AuditlogsApi.new
+api_instance = Bfwd::AuditlogsApi.new
 
 entity_type = "entity_type_example" # String | The type of the entity whose changes are documented by the audit log.
 
@@ -223,7 +223,7 @@ begin
   #Returns a collection of audit-log entries, specified by the entity-type parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_audit_entry_by_entity_type(entity_type, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AuditlogsApi->get_audit_entry_by_entity_type: #{e}"
 end
 ```
@@ -267,7 +267,7 @@ Returns a single audit-log entry, specified by the audit-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AuditlogsApi.new
+api_instance = Bfwd::AuditlogsApi.new
 
 audit_id = "audit_id_example" # String | The string ID of the audit-log entry.
 
@@ -279,7 +279,7 @@ begin
   #Returns a single audit-log entry, specified by the audit-ID parameter.
   result = api_instance.get_audit_entry_by_id(audit_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AuditlogsApi->get_audit_entry_by_id: #{e}"
 end
 ```

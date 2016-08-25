@@ -1,4 +1,4 @@
-# BillForward::EventData
+# Bfwd::EventData
 
 ## Properties
 Name | Type | Description | Notes

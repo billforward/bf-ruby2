@@ -1,4 +1,4 @@
-# BillForward::APIQuote
+# Bfwd::APIQuote
 
 ## Properties
 Name | Type | Description | Notes

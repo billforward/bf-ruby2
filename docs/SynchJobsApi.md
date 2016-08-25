@@ -1,4 +1,4 @@
-# BillForward::SynchJobsApi
+# Bfwd::SynchJobsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -26,16 +26,16 @@ Create a synch job.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchJobsApi.new
+api_instance = Bfwd::SynchJobsApi.new
 
-synch_job = BillForward::MutableBillingEntity.new # MutableBillingEntity | The data synch job object to be created.
+synch_job = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The data synch job object to be created.
 
 
 begin
   #Create a synch job.
   result = api_instance.create_sync_job(synch_job)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchJobsApi->create_sync_job: #{e}"
 end
 ```
@@ -73,7 +73,7 @@ Returns a collection of Users. By default 10 values are returned. Records are re
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchJobsApi.new
+api_instance = Bfwd::SynchJobsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -87,7 +87,7 @@ begin
   #Returns a collection of Users. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_sync_jobs(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchJobsApi->get_all_sync_jobs: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ Returns a single job, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchJobsApi.new
+api_instance = Bfwd::SynchJobsApi.new
 
 synch_job_id = "synch_job_id_example" # String | ID of the Sync Job.
 
@@ -141,7 +141,7 @@ begin
   #Returns a single job, specified by the ID parameter.
   result = api_instance.get_sync_job_by_id(synch_job_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchJobsApi->get_sync_job_by_id: #{e}"
 end
 ```
@@ -180,7 +180,7 @@ Returns a collection jobs, specified by the scope parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchJobsApi.new
+api_instance = Bfwd::SynchJobsApi.new
 
 scope = "scope_example" # String | The scope of the synch job.
 
@@ -192,7 +192,7 @@ begin
   #Returns a collection jobs, specified by the scope parameter.
   result = api_instance.get_sync_job_by_scope(scope, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchJobsApi->get_sync_job_by_scope: #{e}"
 end
 ```
@@ -231,7 +231,7 @@ Returns a collection jobs, specified by the state parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchJobsApi.new
+api_instance = Bfwd::SynchJobsApi.new
 
 state = "state_example" # String | The state of the synch job.
 
@@ -243,7 +243,7 @@ begin
   #Returns a collection jobs, specified by the state parameter.
   result = api_instance.get_sync_job_by_state(state, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchJobsApi->get_sync_job_by_state: #{e}"
 end
 ```
@@ -282,7 +282,7 @@ Returns a collection jobs, specified by the target parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchJobsApi.new
+api_instance = Bfwd::SynchJobsApi.new
 
 target = "target_example" # String | The target of the synch job.
 
@@ -294,7 +294,7 @@ begin
   #Returns a collection jobs, specified by the target parameter.
   result = api_instance.get_sync_job_by_target(target, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchJobsApi->get_sync_job_by_target: #{e}"
 end
 ```
@@ -333,7 +333,7 @@ Returns a collection jobs, specified by the type parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchJobsApi.new
+api_instance = Bfwd::SynchJobsApi.new
 
 type = "type_example" # String | The type of the synch job.
 
@@ -345,7 +345,7 @@ begin
   #Returns a collection jobs, specified by the type parameter.
   result = api_instance.get_sync_job_by_type(type, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchJobsApi->get_sync_job_by_type: #{e}"
 end
 ```
@@ -384,16 +384,16 @@ Update a synch job.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::SynchJobsApi.new
+api_instance = Bfwd::SynchJobsApi.new
 
-synch_job = BillForward::MutableBillingEntity.new # MutableBillingEntity | The synch job object to be updated.
+synch_job = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The synch job object to be updated.
 
 
 begin
   #Update a synch job.
   result = api_instance.update_sync_job(synch_job)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling SynchJobsApi->update_sync_job: #{e}"
 end
 ```

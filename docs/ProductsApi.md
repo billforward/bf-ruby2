@@ -1,4 +1,4 @@
-# BillForward::ProductsApi
+# Bfwd::ProductsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -27,16 +27,16 @@ Create a product.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
-product = BillForward::Product.new # Product | The product object to be updated.
+product = Bfwd::Product.new # Product | The product object to be updated.
 
 
 begin
   #Create a product.
   result = api_instance.create_product(product)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->create_product: #{e}"
 end
 ```
@@ -74,7 +74,7 @@ Remove any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
 product_id = "product_id_example" # String | 
 
@@ -86,7 +86,7 @@ begin
   #Remove any associated metadata.
   result = api_instance.delete_metadata_for_product(product_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->delete_metadata_for_product: #{e}"
 end
 ```
@@ -125,7 +125,7 @@ Returns a collection of products. By default 10 values are returned. Records are
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -141,7 +141,7 @@ begin
   #Returns a collection of products. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_products(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->get_all_products: #{e}"
 end
 ```
@@ -185,7 +185,7 @@ Retrieve any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
 product_id = "product_id_example" # String | 
 
@@ -197,7 +197,7 @@ begin
   #Retrieve any associated metadata.
   result = api_instance.get_metadata_for_product(product_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->get_metadata_for_product: #{e}"
 end
 ```
@@ -236,7 +236,7 @@ Returns a single product, specified by the product-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
 product_id = "product_id_example" # String | ID or name of the product.
 
@@ -253,7 +253,7 @@ begin
   #Returns a single product, specified by the product-ID parameter.
   result = api_instance.get_product_by_id(product_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->get_product_by_id: #{e}"
 end
 ```
@@ -297,7 +297,7 @@ Deletes the product specified by the product-ID parameter. Any existing subscrip
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
 product_id = "product_id_example" # String | ID of the Product.
 
@@ -309,7 +309,7 @@ begin
   #Deletes the product specified by the product-ID parameter. Any existing subscriptions will continue; it is a soft delete.
   result = api_instance.retire_product(product_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->retire_product: #{e}"
 end
 ```
@@ -348,9 +348,9 @@ Remove any existing metadata keys and create the provided data.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 product_id = "product_id_example" # String | 
 
@@ -362,7 +362,7 @@ begin
   #Remove any existing metadata keys and create the provided data.
   result = api_instance.set_metadata_for_product(metadata, product_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->set_metadata_for_product: #{e}"
 end
 ```
@@ -402,16 +402,16 @@ Update a product.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
-product = BillForward::Product.new # Product | The product object to be updated.
+product = Bfwd::Product.new # Product | The product object to be updated.
 
 
 begin
   #Update a product.
   result = api_instance.update_product(product)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->update_product: #{e}"
 end
 ```
@@ -449,9 +449,9 @@ Update any existing metadata key-values and insert any new key-values, no keys w
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ProductsApi.new
+api_instance = Bfwd::ProductsApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 product_id = "product_id_example" # String | 
 
@@ -463,7 +463,7 @@ begin
   #Update any existing metadata key-values and insert any new key-values, no keys will be removed.
   result = api_instance.upsert_metadata_for_product(metadata, product_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ProductsApi->upsert_metadata_for_product: #{e}"
 end
 ```

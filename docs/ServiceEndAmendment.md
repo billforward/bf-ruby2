@@ -1,4 +1,4 @@
-# BillForward::ServiceEndAmendment
+# Bfwd::ServiceEndAmendment
 
 ## Properties
 Name | Type | Description | Notes

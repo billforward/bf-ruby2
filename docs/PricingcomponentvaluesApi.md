@@ -1,4 +1,4 @@
-# BillForward::PricingcomponentvaluesApi
+# Bfwd::PricingcomponentvaluesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,16 +23,16 @@ Create a pricing-component-value.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluesApi.new
+api_instance = Bfwd::PricingcomponentvaluesApi.new
 
-pricing_component_value = BillForward::PricingComponentValue.new # PricingComponentValue | The pricing-component-value object to be updated.
+pricing_component_value = Bfwd::PricingComponentValue.new # PricingComponentValue | The pricing-component-value object to be updated.
 
 
 begin
   #Create a pricing-component-value.
   result = api_instance.create_pricing_component_value(pricing_component_value)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluesApi->create_pricing_component_value: #{e}"
 end
 ```
@@ -70,7 +70,7 @@ Returns a collection of pricing-component-values.By default 10 values are return
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluesApi.new
+api_instance = Bfwd::PricingcomponentvaluesApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -85,7 +85,7 @@ begin
   #Returns a collection of pricing-component-values.By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_pricing_component_values(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluesApi->get_all_pricing_component_values: #{e}"
 end
 ```
@@ -128,7 +128,7 @@ Returns a collection of pricing-component-values, specified by the pricing-compo
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluesApi.new
+api_instance = Bfwd::PricingcomponentvaluesApi.new
 
 pricing_component_id = "pricing_component_id_example" # String | The string ID of the pricing-component-value.
 
@@ -145,7 +145,7 @@ begin
   #Returns a collection of pricing-component-values, specified by the pricing-component-ID parameter.By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component_value(pricing_component_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluesApi->get_pricing_component_value: #{e}"
 end
 ```
@@ -189,7 +189,7 @@ Returns a collection of pricing-component-values, specified by the subscription-
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluesApi.new
+api_instance = Bfwd::PricingcomponentvaluesApi.new
 
 subscription_id = "subscription_id_example" # String | The string subscription-ID of the pricing-component-value.
 
@@ -206,7 +206,7 @@ begin
   #Returns a collection of pricing-component-values, specified by the subscription-ID parameter.By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_pricing_component_value_by_subscription_id(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluesApi->get_pricing_component_value_by_subscription_id: #{e}"
 end
 ```
@@ -250,16 +250,16 @@ Update a pricing-component-value.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::PricingcomponentvaluesApi.new
+api_instance = Bfwd::PricingcomponentvaluesApi.new
 
-pricing_component_value = BillForward::PricingComponentValue.new # PricingComponentValue | The pricing-component-value object to be updated.
+pricing_component_value = Bfwd::PricingComponentValue.new # PricingComponentValue | The pricing-component-value object to be updated.
 
 
 begin
   #Update a pricing-component-value.
   result = api_instance.update_pricing_component_value(pricing_component_value)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling PricingcomponentvaluesApi->update_pricing_component_value: #{e}"
 end
 ```

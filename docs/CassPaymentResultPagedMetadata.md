@@ -1,4 +1,4 @@
-# BillForward::CassPaymentResultPagedMetadata
+# Bfwd::CassPaymentResultPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

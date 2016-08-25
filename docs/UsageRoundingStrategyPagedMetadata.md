@@ -1,4 +1,4 @@
-# BillForward::UsageRoundingStrategyPagedMetadata
+# Bfwd::UsageRoundingStrategyPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

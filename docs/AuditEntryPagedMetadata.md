@@ -1,4 +1,4 @@
-# BillForward::AuditEntryPagedMetadata
+# Bfwd::AuditEntryPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

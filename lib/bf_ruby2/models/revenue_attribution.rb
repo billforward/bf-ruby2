@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # A RevenueAttributions describes a portion of the total cost of an Invoice, that has been attributed to some billable feature.
   class RevenueAttribution
     # {\"description\":\"PeriodStart of the charge with which this RevenueAttribution's invoice line is associated.\",\"verbs\":[\"POST\",\"PUT\",\"GET\"]}
@@ -399,7 +399,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

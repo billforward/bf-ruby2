@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # <p> A coupon discount specifies how and what will be deducted from the subscription's invoices. The target of a discount, i.e. an Unit of Measure, Pricing Component or the Invoice itself, depends on the information received: </p><dl class=\"dl-horizontal\"><dt>Pricing Component</dt><dd>One value must be defined between the name and the identifier of the pricing component. </dd><dt>Unit of Measure</dt><dd>One value must be defined between the name and the identifier of the unit of measure but no values for the pricing component.</dd><dt>Invoice</dt> If no values are defined.
   class CouponDiscount
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -246,7 +246,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

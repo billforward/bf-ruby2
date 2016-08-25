@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # Value of some pricing component from which some price quote is constructed.
   class QuoteRequestValue
     # {\"description\":\"Name or ID of the pricing component involved in some price quote.\",\"verbs\":[\"POST\",\"GET\"]}
@@ -180,7 +180,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

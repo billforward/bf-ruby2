@@ -1,4 +1,4 @@
-# BillForward::UsagesessionsApi
+# Bfwd::UsagesessionsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -22,7 +22,7 @@ Get active by subscription
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsagesessionsApi.new
+api_instance = Bfwd::UsagesessionsApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the subscription whose active sessions you wish to GET.
 
@@ -38,7 +38,7 @@ begin
   #Get active by subscription
   result = api_instance.get_active_sessions_for_subscription(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsagesessionsApi->get_active_sessions_for_subscription: #{e}"
 end
 ```
@@ -81,7 +81,7 @@ Retrieve by subscription
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsagesessionsApi.new
+api_instance = Bfwd::UsagesessionsApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the subscription whose sessions you wish to GET.
 
@@ -97,7 +97,7 @@ begin
   #Retrieve by subscription
   result = api_instance.get_usage_list_for_usage_session(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsagesessionsApi->get_usage_list_for_usage_session: #{e}"
 end
 ```
@@ -140,16 +140,16 @@ Start a new session
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsagesessionsApi.new
+api_instance = Bfwd::UsagesessionsApi.new
 
-usage_sessions = BillForward::CompoundUsageSession.new # CompoundUsageSession | An array of 'Usage Session' objects whose sessions you wish to start.
+usage_sessions = Bfwd::CompoundUsageSession.new # CompoundUsageSession | An array of 'Usage Session' objects whose sessions you wish to start.
 
 
 begin
   #Start a new session
   result = api_instance.start_usage_session(usage_sessions)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsagesessionsApi->start_usage_session: #{e}"
 end
 ```
@@ -187,16 +187,16 @@ Stop a specified session
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsagesessionsApi.new
+api_instance = Bfwd::UsagesessionsApi.new
 
-usage_sessions = BillForward::CompoundUsageSession.new # CompoundUsageSession | An array of 'Usage Session' objects whose sessions you wish to stop.
+usage_sessions = Bfwd::CompoundUsageSession.new # CompoundUsageSession | An array of 'Usage Session' objects whose sessions you wish to stop.
 
 
 begin
   #Stop a specified session
   result = api_instance.stop_usage_session(usage_sessions)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsagesessionsApi->stop_usage_session: #{e}"
 end
 ```

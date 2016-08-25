@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # Partial request, which -- when accompanied by additional context -- describes some request concerning charges.
   class NestedChargeRequest
     # {\"description\":\"Friendly name given to the charge to help identify it.\",\"verbs\":[\"POST\",\"GET\"]}
@@ -291,7 +291,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

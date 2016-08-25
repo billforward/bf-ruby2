@@ -1,4 +1,4 @@
-# BillForward::RefundsApi
+# Bfwd::RefundsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -26,16 +26,16 @@ Method | HTTP request | Description
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RefundsApi.new
+api_instance = Bfwd::RefundsApi.new
 
-refund = BillForward::Refund.new # Refund | The refund object to be created.
+refund = Bfwd::Refund.new # Refund | The refund object to be created.
 
 
 begin
   #<p>When creating a refund either the invoice, or invoice payment must be specified.</p><p>Creating a refund by specifying the invoiceID will refund any un-refunded value up to the full value of the payment. When refunding via the invoicePaymentID the same rules apply. Refunds will be processed by the same payment methods that took the payment.</p><p>Refunds can be for a partial amount of the payment. It is possible to create refunds up to the value of the total payment.</p><p>Once a payment or invoice is fully refunded, no more refunds can be created. Errors will be returned if the payment is greater than available refund funds.</p>
   result = api_instance.create_refund(refund)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RefundsApi->create_refund: #{e}"
 end
 ```
@@ -73,7 +73,7 @@ Returns a collection of all refunds. By default 10 values are returned. Refunds 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RefundsApi.new
+api_instance = Bfwd::RefundsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -87,7 +87,7 @@ begin
   #Returns a collection of all refunds. By default 10 values are returned. Refunds are returned in natural order
   result = api_instance.get_all_refunds(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RefundsApi->get_all_refunds: #{e}"
 end
 ```
@@ -129,7 +129,7 @@ Returns a single refund, specified by the ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RefundsApi.new
+api_instance = Bfwd::RefundsApi.new
 
 refund_id = "refund_id_example" # String | ID of the Refund.
 
@@ -141,7 +141,7 @@ begin
   #Returns a single refund, specified by the ID parameter.
   result = api_instance.get_refund_by_id(refund_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RefundsApi->get_refund_by_id: #{e}"
 end
 ```
@@ -180,7 +180,7 @@ Returns a refund for the original payment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RefundsApi.new
+api_instance = Bfwd::RefundsApi.new
 
 payment_id = "payment_id_example" # String | ID of the Payment.
 
@@ -192,7 +192,7 @@ begin
   #Returns a refund for the original payment.
   result = api_instance.get_refund_for_original_payment(payment_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RefundsApi->get_refund_for_original_payment: #{e}"
 end
 ```
@@ -231,7 +231,7 @@ Returns a refund for the refund payment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RefundsApi.new
+api_instance = Bfwd::RefundsApi.new
 
 payment_id = "payment_id_example" # String | ID of the Payment.
 
@@ -243,7 +243,7 @@ begin
   #Returns a refund for the refund payment.
   result = api_instance.get_refund_for_refund_payment(payment_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RefundsApi->get_refund_for_refund_payment: #{e}"
 end
 ```
@@ -282,7 +282,7 @@ Returns a refund for the refund payment.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RefundsApi.new
+api_instance = Bfwd::RefundsApi.new
 
 invoice_id = "invoice_id_example" # String | ID of the Invoice.
 
@@ -294,7 +294,7 @@ begin
   #Returns a refund for the refund payment.
   result = api_instance.get_refund_for_refunded_invoice(invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RefundsApi->get_refund_for_refunded_invoice: #{e}"
 end
 ```
@@ -333,7 +333,7 @@ Retrieves refunds in CSV format.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RefundsApi.new
+api_instance = Bfwd::RefundsApi.new
 
 completed_start = "completed_start_example" # String | The UTC DateTime specifying the start of the interval within which refunds were completed.
 
@@ -351,7 +351,7 @@ begin
   #Retrieves refunds in CSV format.
   result = api_instance.get_refunds_as_csv(completed_start, completed_end, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RefundsApi->get_refunds_as_csv: #{e}"
 end
 ```
@@ -395,16 +395,16 @@ Update a refund
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::RefundsApi.new
+api_instance = Bfwd::RefundsApi.new
 
-refund = BillForward::Refund.new # Refund | The refund object to be update.
+refund = Bfwd::Refund.new # Refund | The refund object to be update.
 
 
 begin
   #Update a refund
   result = api_instance.update_refund(refund)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling RefundsApi->update_refund: #{e}"
 end
 ```

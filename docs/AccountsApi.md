@@ -1,4 +1,4 @@
-# BillForward::AccountsApi
+# Bfwd::AccountsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -37,18 +37,18 @@ Create a manual invoice.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | ID of the account.
 
-request = BillForward::AddChargesToAccountAPIRequest.new # AddChargesToAccountAPIRequest | The charge request
+request = Bfwd::AddChargesToAccountAPIRequest.new # AddChargesToAccountAPIRequest | The charge request
 
 
 begin
   #Create a manual invoice.
   result = api_instance.add_charge_to_account(account_id, request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->add_charge_to_account: #{e}"
 end
 ```
@@ -87,18 +87,18 @@ Creates a credit-note which may be used by any subscription of this account.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | ID of the account.
 
-credit_note = BillForward::CreditAccountRequest.new # CreditAccountRequest | The credit-note request
+credit_note = Bfwd::CreditAccountRequest.new # CreditAccountRequest | The credit-note request
 
 
 begin
   #Creates a credit-note which may be used by any subscription of this account.
   result = api_instance.add_credit_note_to_account(account_id, credit_note)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->add_credit_note_to_account: #{e}"
 end
 ```
@@ -137,7 +137,7 @@ Add a role to the account
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | ID of the account.
 
@@ -151,7 +151,7 @@ begin
   #Add a role to the account
   result = api_instance.add_permission_to_account(account_id, role, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->add_permission_to_account: #{e}"
 end
 ```
@@ -191,16 +191,16 @@ Create an Account.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
-request = BillForward::CreateAccountRequest.new # CreateAccountRequest | The account object to be created.
+request = Bfwd::CreateAccountRequest.new # CreateAccountRequest | The account object to be created.
 
 
 begin
   #Create an Account.
   result = api_instance.create_account(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->create_account: #{e}"
 end
 ```
@@ -238,7 +238,7 @@ Delete the account specified by the account-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -251,7 +251,7 @@ begin
   #Delete the account specified by the account-ID parameter.
   result = api_instance.delete_account(account_id, delete_gateway_data, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->delete_account: #{e}"
 end
 ```
@@ -291,7 +291,7 @@ Remove any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -303,7 +303,7 @@ begin
   #Remove any associated metadata.
   result = api_instance.delete_metadata_for_account(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->delete_metadata_for_account: #{e}"
 end
 ```
@@ -342,7 +342,7 @@ Returns a single account, specified by the account-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -354,7 +354,7 @@ begin
   #Returns a single account, specified by the account-ID parameter.
   result = api_instance.get_account_by_id(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->get_account_by_id: #{e}"
 end
 ```
@@ -393,7 +393,7 @@ Returns a collection of account objects with created times within the period spe
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -412,7 +412,7 @@ begin
   #Returns a collection of account objects with created times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_accounts_by_created(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->get_accounts_by_created: #{e}"
 end
 ```
@@ -457,7 +457,7 @@ Returns a collection of account objects with updated times within the period spe
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 lower_threshold = "lower_threshold_example" # String | The UTC DateTime specifying the start of the result period.
 
@@ -476,7 +476,7 @@ begin
   #Returns a collection of account objects with updated times within the period specified by the lower-threshold and upper-threshold parameters. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_accounts_by_updated(lower_threshold, upper_threshold, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->get_accounts_by_updated: #{e}"
 end
 ```
@@ -521,7 +521,7 @@ Returns a collection of accounts, specified by the user-ID parameter. By default
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 user_id = "user_id_example" # String | 
 
@@ -538,7 +538,7 @@ begin
   #Returns a collection of accounts, specified by the user-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_accounts_by_user_id(user_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->get_accounts_by_user_id: #{e}"
 end
 ```
@@ -582,7 +582,7 @@ Returns a collection of all account objects. By default 10 values are returned. 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 opts = { 
   id: ["id_example"], # Array<String> | A list of account IDs used to filter the output.
@@ -600,7 +600,7 @@ begin
   #Returns a collection of all account objects. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_accounts(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->get_all_accounts: #{e}"
 end
 ```
@@ -646,7 +646,7 @@ Returns all available credit-notes for the specified account. By default 10 valu
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | The ID of the account
 
@@ -663,7 +663,7 @@ begin
   #Returns all available credit-notes for the specified account. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_available_credit_on_account(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->get_available_credit_on_account: #{e}"
 end
 ```
@@ -707,7 +707,7 @@ Retrieve any associated metadata.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -719,7 +719,7 @@ begin
   #Retrieve any associated metadata.
   result = api_instance.get_metadata_for_account(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->get_metadata_for_account: #{e}"
 end
 ```
@@ -758,7 +758,7 @@ Retrieves a collection of roles, specified by the account-ID parameter. By defau
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -775,7 +775,7 @@ begin
   #Retrieves a collection of roles, specified by the account-ID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_permissions_on_account(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->get_permissions_on_account: #{e}"
 end
 ```
@@ -819,7 +819,7 @@ Decrease the amount of credit by the value specified or entirely if no value pro
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -833,7 +833,7 @@ begin
   #Decrease the amount of credit by the value specified or entirely if no value provided.
   result = api_instance.remove_credit_from_account(account_id, value, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->remove_credit_from_account: #{e}"
 end
 ```
@@ -873,7 +873,7 @@ Revoke the specified role.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
 account_id = "account_id_example" # String | 
 
@@ -887,7 +887,7 @@ begin
   #Revoke the specified role.
   result = api_instance.remove_permission_from_account(account_id, role, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->remove_permission_from_account: #{e}"
 end
 ```
@@ -927,9 +927,9 @@ Remove any existing metadata keys and create the provided data.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 account_id = "account_id_example" # String | 
 
@@ -941,7 +941,7 @@ begin
   #Remove any existing metadata keys and create the provided data.
   result = api_instance.set_metadata_for_account(metadata, account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->set_metadata_for_account: #{e}"
 end
 ```
@@ -981,16 +981,16 @@ Update an Account.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
-account = BillForward::Account.new # Account | The account object to be created.
+account = Bfwd::Account.new # Account | The account object to be created.
 
 
 begin
   #Update an Account.
   result = api_instance.update_account(account)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->update_account: #{e}"
 end
 ```
@@ -1028,9 +1028,9 @@ Update any existing metadata key-values and insert any new key-values, no keys w
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AccountsApi.new
+api_instance = Bfwd::AccountsApi.new
 
-metadata = BillForward::DynamicMetadata.new # DynamicMetadata | 
+metadata = Bfwd::DynamicMetadata.new # DynamicMetadata | 
 
 account_id = "account_id_example" # String | 
 
@@ -1042,7 +1042,7 @@ begin
   #Update any existing metadata key-values and insert any new key-values, no keys will be removed.
   result = api_instance.upsert_metadata_for_account(metadata, account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AccountsApi->upsert_metadata_for_account: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# BillForward::CancelSubscriptionRequest
+# Bfwd::CancelSubscriptionRequest
 
 ## Properties
 Name | Type | Description | Notes

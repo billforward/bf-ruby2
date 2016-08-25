@@ -1,4 +1,4 @@
-# BillForward::RefundPagedMetadata
+# Bfwd::RefundPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

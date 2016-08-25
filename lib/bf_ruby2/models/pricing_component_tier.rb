@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # PricingComponentTier
   class PricingComponentTier
     # { \"description\" : \"The lower threshold of the tier.\", \"verbs\":[\"POST\",\"PUT\",\"GET\"] }
@@ -294,7 +294,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

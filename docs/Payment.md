@@ -1,4 +1,4 @@
-# BillForward::Payment
+# Bfwd::Payment
 
 ## Properties
 Name | Type | Description | Notes

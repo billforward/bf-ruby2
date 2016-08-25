@@ -1,4 +1,4 @@
-# BillForward::CoupondefinitionApi
+# Bfwd::CoupondefinitionApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,16 +23,16 @@ Create a coupon-definition.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CoupondefinitionApi.new
+api_instance = Bfwd::CoupondefinitionApi.new
 
-coupon_definition = BillForward::CouponDefinition.new # CouponDefinition | The coupon-definiton object to be created.
+coupon_definition = Bfwd::CouponDefinition.new # CouponDefinition | The coupon-definiton object to be created.
 
 
 begin
   #Create a coupon-definition.
   result = api_instance.create_coupon_definition(coupon_definition)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CoupondefinitionApi->create_coupon_definition: #{e}"
 end
 ```
@@ -70,7 +70,7 @@ Retire a coupon-definition, specified by the coupon-definition-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CoupondefinitionApi.new
+api_instance = Bfwd::CoupondefinitionApi.new
 
 coupon_definition_id = "coupon_definition_id_example" # String | ID of the coupon-definition.
 
@@ -82,7 +82,7 @@ begin
   #Retire a coupon-definition, specified by the coupon-definition-ID parameter.
   result = api_instance.delete_coupon_definition(coupon_definition_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CoupondefinitionApi->delete_coupon_definition: #{e}"
 end
 ```
@@ -121,7 +121,7 @@ Returns a collection of coupon-definitions. By default 10 values are returned. R
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CoupondefinitionApi.new
+api_instance = Bfwd::CoupondefinitionApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -136,7 +136,7 @@ begin
   #Returns a collection of coupon-definitions. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_coupon_definitions(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CoupondefinitionApi->get_all_coupon_definitions: #{e}"
 end
 ```
@@ -179,7 +179,7 @@ Returns a single coupon-definition, specified by the coupon-definition-ID parame
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CoupondefinitionApi.new
+api_instance = Bfwd::CoupondefinitionApi.new
 
 coupon_definition_id = "coupon_definition_id_example" # String | ID of the coupon-definition.
 
@@ -191,7 +191,7 @@ begin
   #Returns a single coupon-definition, specified by the coupon-definition-ID parameter.
   result = api_instance.get_coupon_definition_by_id(coupon_definition_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CoupondefinitionApi->get_coupon_definition_by_id: #{e}"
 end
 ```
@@ -230,16 +230,16 @@ Update a coupon-definition.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CoupondefinitionApi.new
+api_instance = Bfwd::CoupondefinitionApi.new
 
-coupon_definition = BillForward::CouponDefinition.new # CouponDefinition | The coupon-definition object to be updated.
+coupon_definition = Bfwd::CouponDefinition.new # CouponDefinition | The coupon-definition object to be updated.
 
 
 begin
   #Update a coupon-definition.
   result = api_instance.update_coupon_definition(coupon_definition)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CoupondefinitionApi->update_coupon_definition: #{e}"
 end
 ```

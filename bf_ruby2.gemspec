@@ -28,7 +28,7 @@ require "bf_ruby2/version"
 
 Gem::Specification.new do |s|
   s.name        = "bf_ruby2"
-  s.version     = BillForward::VERSION
+  s.version     = Bfwd::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["BillForward"]
   s.email       = ["help@billforward.net"]

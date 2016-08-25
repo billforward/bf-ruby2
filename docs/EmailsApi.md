@@ -1,4 +1,4 @@
-# BillForward::EmailsApi
+# Bfwd::EmailsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -21,7 +21,7 @@ Retrieves a single invoice, specified by the version-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailsApi.new
+api_instance = Bfwd::EmailsApi.new
 
 email_id = "email_id_example" # String | 
 
@@ -33,7 +33,7 @@ begin
   #Retrieves a single invoice, specified by the version-ID parameter.
   result = api_instance.get_email_by_id(email_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailsApi->get_email_by_id: #{e}"
 end
 ```
@@ -72,7 +72,7 @@ Retrieves a single invoice, specified by the version-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailsApi.new
+api_instance = Bfwd::EmailsApi.new
 
 email_id = "email_id_example" # String | 
 
@@ -84,7 +84,7 @@ begin
   #Retrieves a single invoice, specified by the version-ID parameter.
   result = api_instance.get_email_html_by_id(email_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailsApi->get_email_html_by_id: #{e}"
 end
 ```
@@ -123,7 +123,7 @@ Retrieves a single invoice, specified by the version-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::EmailsApi.new
+api_instance = Bfwd::EmailsApi.new
 
 email_id = "email_id_example" # String | 
 
@@ -135,7 +135,7 @@ begin
   #Retrieves a single invoice, specified by the version-ID parameter.
   result = api_instance.get_email_text_by_id(email_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling EmailsApi->get_email_text_by_id: #{e}"
 end
 ```

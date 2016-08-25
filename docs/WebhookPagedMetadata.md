@@ -1,4 +1,4 @@
-# BillForward::WebhookPagedMetadata
+# Bfwd::WebhookPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

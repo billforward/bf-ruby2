@@ -1,4 +1,4 @@
-# BillForward::EmailSubscriptionPagedMetadata
+# Bfwd::EmailSubscriptionPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

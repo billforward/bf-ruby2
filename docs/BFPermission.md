@@ -1,4 +1,4 @@
-# BillForward::BFPermission
+# Bfwd::BFPermission
 
 ## Properties
 Name | Type | Description | Notes

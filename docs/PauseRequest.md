@@ -1,4 +1,4 @@
-# BillForward::PauseRequest
+# Bfwd::PauseRequest
 
 ## Properties
 Name | Type | Description | Notes

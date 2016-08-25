@@ -23,14 +23,14 @@ limitations under the License.
 
 require 'spec_helper'
 
-describe BillForward::Configuration do
-  let(:config) { BillForward::Configuration.default }
+describe Bfwd::Configuration do
+  let(:config) { Bfwd::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path
     #require 'URI'
     #uri = URI.parse("https://localhost:8080/RestAPI")
-    #BillForward.configure do |c|
+    #Bfwd.configure do |c|
     #  c.host = uri.host
     #  c.base_path = uri.path
     #end

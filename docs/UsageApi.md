@@ -1,4 +1,4 @@
-# BillForward::UsageApi
+# Bfwd::UsageApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,16 +23,16 @@ Add usage
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageApi.new
+api_instance = Bfwd::UsageApi.new
 
-usage = BillForward::CompoundUsage.new # CompoundUsage | An array of The 'Usage' objects to be created.
+usage = Bfwd::CompoundUsage.new # CompoundUsage | An array of The 'Usage' objects to be created.
 
 
 begin
   #Add usage
   result = api_instance.create_usage_instance(usage)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageApi->create_usage_instance: #{e}"
 end
 ```
@@ -70,7 +70,7 @@ Retrieve by subscription and period
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageApi.new
+api_instance = Bfwd::UsageApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the usage.
 
@@ -88,7 +88,7 @@ begin
   #Retrieve by subscription and period
   result = api_instance.get_usage_by_id(subscription_id, period_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageApi->get_usage_by_id: #{e}"
 end
 ```
@@ -132,7 +132,7 @@ Retrieve by subscription
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageApi.new
+api_instance = Bfwd::UsageApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the subscription whose Usage instances you wish to GET.
 
@@ -148,7 +148,7 @@ begin
   #Retrieve by subscription
   result = api_instance.get_usage_by_subscription_id(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageApi->get_usage_by_subscription_id: #{e}"
 end
 ```
@@ -191,7 +191,7 @@ Retrieve by subscription, period and type
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageApi.new
+api_instance = Bfwd::UsageApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the usage.
 
@@ -213,7 +213,7 @@ begin
   #Retrieve by subscription, period and type
   result = api_instance.get_usage_by_subscription_id_uo_m_period_and_usage_type(subscription_id, uom, period_id, usage_type, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageApi->get_usage_by_subscription_id_uo_m_period_and_usage_type: #{e}"
 end
 ```
@@ -259,16 +259,16 @@ Update usage
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageApi.new
+api_instance = Bfwd::UsageApi.new
 
-usage = BillForward::CompoundUsage.new # CompoundUsage | An array of The 'Usage' objects to be updated.
+usage = Bfwd::CompoundUsage.new # CompoundUsage | An array of The 'Usage' objects to be updated.
 
 
 begin
   #Update usage
   result = api_instance.update_usage_instance(usage)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageApi->update_usage_instance: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# BillForward::TrustCommerceTokenPagedMetadata
+# Bfwd::TrustCommerceTokenPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

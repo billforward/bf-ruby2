@@ -1,4 +1,4 @@
-# BillForward::InvoiceRecalculationAmendment
+# Bfwd::InvoiceRecalculationAmendment
 
 ## Properties
 Name | Type | Description | Notes

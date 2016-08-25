@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # An entry from the audit-log, documenting the set of changes made to an entity during an insert or update.
   class AuditEntry
     # { \"description\" : \"ID of the user who made the change.\", \"verbs\":[\"POST\",\"PUT\",\"GET\"] }
@@ -307,7 +307,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

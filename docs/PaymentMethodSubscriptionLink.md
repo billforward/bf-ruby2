@@ -1,4 +1,4 @@
-# BillForward::PaymentMethodSubscriptionLink
+# Bfwd::PaymentMethodSubscriptionLink
 
 ## Properties
 Name | Type | Description | Notes

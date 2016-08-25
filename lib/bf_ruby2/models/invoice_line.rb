@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # An invoice-line represents the portion of an invoice specific to one particular pricing-component and its associated pricing-component-value.
   class InvoiceLine
     # { \"description\" : \"The unit-of-measure associated with the invoice-line.\", \"verbs\":[\"POST\",\"PUT\",\"GET\"] }
@@ -523,7 +523,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

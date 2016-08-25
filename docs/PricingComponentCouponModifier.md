@@ -1,4 +1,4 @@
-# BillForward::PricingComponentCouponModifier
+# Bfwd::PricingComponentCouponModifier
 
 ## Properties
 Name | Type | Description | Notes

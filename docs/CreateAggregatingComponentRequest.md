@@ -1,4 +1,4 @@
-# BillForward::CreateAggregatingComponentRequest
+# Bfwd::CreateAggregatingComponentRequest
 
 ## Properties
 Name | Type | Description | Notes

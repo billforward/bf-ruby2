@@ -1,4 +1,4 @@
-# BillForward::ModelAlias
+# Bfwd::ModelAlias
 
 ## Properties
 Name | Type | Description | Notes

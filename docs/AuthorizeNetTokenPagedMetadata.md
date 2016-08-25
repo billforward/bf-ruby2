@@ -1,4 +1,4 @@
-# BillForward::AuthorizeNetTokenPagedMetadata
+# Bfwd::AuthorizeNetTokenPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

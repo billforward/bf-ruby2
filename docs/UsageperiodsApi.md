@@ -1,4 +1,4 @@
-# BillForward::UsageperiodsApi
+# Bfwd::UsageperiodsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -21,7 +21,7 @@ Retrieve by subscription and period
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageperiodsApi.new
+api_instance = Bfwd::UsageperiodsApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the usage.
 
@@ -39,7 +39,7 @@ begin
   #Retrieve by subscription and period
   result = api_instance.get_usage_period(subscription_id, period_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageperiodsApi->get_usage_period: #{e}"
 end
 ```
@@ -83,7 +83,7 @@ Retrieve by subscription
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageperiodsApi.new
+api_instance = Bfwd::UsageperiodsApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the usage.
 
@@ -99,7 +99,7 @@ begin
   #Retrieve by subscription
   result = api_instance.get_usage_period_for_all(subscription_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageperiodsApi->get_usage_period_for_all: #{e}"
 end
 ```
@@ -142,7 +142,7 @@ Retrieve by invoice)
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::UsageperiodsApi.new
+api_instance = Bfwd::UsageperiodsApi.new
 
 subscription_id = "subscription_id_example" # String | The subscriptionID of the usage.
 
@@ -160,7 +160,7 @@ begin
   #Retrieve by invoice)
   result = api_instance.get_usage_period_for_invoice(subscription_id, invoice_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling UsageperiodsApi->get_usage_period_for_invoice: #{e}"
 end
 ```

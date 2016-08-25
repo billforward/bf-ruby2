@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # Amendments are used to demand (deferred or immediate) changes from the BillForward engines. For example they can be used to control the subscription and invoice lifecycles.
   class Amendment
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -322,7 +322,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

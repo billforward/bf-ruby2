@@ -1,4 +1,4 @@
-# BillForward::VaultedgatewaysApi
+# Bfwd::VaultedgatewaysApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -31,16 +31,16 @@ Create an authorize-net-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-authorize_net_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The authorize-net-token object to be created.
+authorize_net_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The authorize-net-token object to be created.
 
 
 begin
   #Create an authorize-net-token.
   result = api_instance.create_authorize_net_token(authorize_net_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->create_authorize_net_token: #{e}"
 end
 ```
@@ -78,16 +78,16 @@ Create a braintree-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-braintree_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The braintree-token object to be created.
+braintree_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The braintree-token object to be created.
 
 
 begin
   #Create a braintree-token.
   result = api_instance.create_braintree_token(braintree_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->create_braintree_token: #{e}"
 end
 ```
@@ -125,16 +125,16 @@ Create a stripe-ACH-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-stripe_ach_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The stripe-ACH-token object to be created.
+stripe_ach_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The stripe-ACH-token object to be created.
 
 
 begin
   #Create a stripe-ACH-token.
   result = api_instance.create_stripe_ach_token(stripe_ach_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->create_stripe_ach_token: #{e}"
 end
 ```
@@ -172,16 +172,16 @@ Create a stripe-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-stripe_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The stripe-token object to be created.
+stripe_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The stripe-token object to be created.
 
 
 begin
   #Create a stripe-token.
   result = api_instance.create_stripe_token(stripe_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->create_stripe_token: #{e}"
 end
 ```
@@ -219,16 +219,16 @@ Create a trust-commerce-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-trust_commerce_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The trust-commerce-token object to be created.
+trust_commerce_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The trust-commerce-token object to be created.
 
 
 begin
   #Create a trust-commerce-token.
   result = api_instance.create_trust_commerce_token(trust_commerce_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->create_trust_commerce_token: #{e}"
 end
 ```
@@ -266,7 +266,7 @@ Returns a list of braintree-tokens backing PaymentMethods belonging to the speci
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
 account_id = "account_id_example" # String | The string ID of the account-ID.
 
@@ -278,7 +278,7 @@ begin
   #Returns a list of braintree-tokens backing PaymentMethods belonging to the specified account parameter.
   result = api_instance.get_braintree_by_account_id(account_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->get_braintree_by_account_id: #{e}"
 end
 ```
@@ -317,7 +317,7 @@ Returns a single stripe-token, specified by the cardDetailsID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
 card_details_id = "card_details_id_example" # String | The card details id of the stripe-token.
 
@@ -329,7 +329,7 @@ begin
   #Returns a single stripe-token, specified by the cardDetailsID parameter.
   result = api_instance.get_by_card_details_id(card_details_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->get_by_card_details_id: #{e}"
 end
 ```
@@ -368,7 +368,7 @@ Returns a single stripe-ACH-token, specified by the stripeACHTokenID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
 stripe_ach_token_id = "stripe_ach_token_id_example" # String | The string ID of the stripe-ACH-token.
 
@@ -380,7 +380,7 @@ begin
   #Returns a single stripe-ACH-token, specified by the stripeACHTokenID parameter.
   result = api_instance.get_stripe_ach(stripe_ach_token_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->get_stripe_ach: #{e}"
 end
 ```
@@ -419,7 +419,7 @@ Returns a single stripe-token, specified by the stripeTokenID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
 stripe_token_id = "stripe_token_id_example" # String | The string ID of the stripe-token.
 
@@ -431,7 +431,7 @@ begin
   #Returns a single stripe-token, specified by the stripeTokenID parameter.
   result = api_instance.get_stripe_token(stripe_token_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->get_stripe_token: #{e}"
 end
 ```
@@ -470,16 +470,16 @@ Update a stripe-ACH-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-stripe_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The stripe-ACH-token object to be updated.
+stripe_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The stripe-ACH-token object to be updated.
 
 
 begin
   #Update a stripe-ACH-token.
   result = api_instance.update_stripe_ach_token(stripe_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->update_stripe_ach_token: #{e}"
 end
 ```
@@ -517,16 +517,16 @@ Update a stripe-token.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-stripe_token = BillForward::MutableBillingEntity.new # MutableBillingEntity | The stripe-token object to be updated.
+stripe_token = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The stripe-token object to be updated.
 
 
 begin
   #Update a stripe-token.
   result = api_instance.update_stripe_token(stripe_token)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->update_stripe_token: #{e}"
 end
 ```
@@ -564,16 +564,16 @@ Verify Stripe bank account.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-bank_account_verification = BillForward::BillingEntityBase.new # BillingEntityBase | The Bank-Account-Verification object.
+bank_account_verification = Bfwd::BillingEntityBase.new # BillingEntityBase | The Bank-Account-Verification object.
 
 
 begin
   #Verify Stripe bank account.
   result = api_instance.verify_bank_account(bank_account_verification)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->verify_bank_account: #{e}"
 end
 ```
@@ -611,16 +611,16 @@ Receive and handle webhook from Stripe.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::VaultedgatewaysApi.new
+api_instance = Bfwd::VaultedgatewaysApi.new
 
-event = BillForward::Event.new # Event | The event received.
+event = Bfwd::Event.new # Event | The event received.
 
 
 begin
   #Receive and handle webhook from Stripe.
   result = api_instance.webhook(event)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling VaultedgatewaysApi->webhook: #{e}"
 end
 ```

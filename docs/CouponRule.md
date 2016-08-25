@@ -1,4 +1,4 @@
-# BillForward::CouponRule
+# Bfwd::CouponRule
 
 ## Properties
 Name | Type | Description | Notes

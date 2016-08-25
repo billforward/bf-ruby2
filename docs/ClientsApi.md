@@ -1,4 +1,4 @@
-# BillForward::ClientsApi
+# Bfwd::ClientsApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -22,16 +22,16 @@ Create a client.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ClientsApi.new
+api_instance = Bfwd::ClientsApi.new
 
-client = BillForward::Client.new # Client | The client object to be updated.
+client = Bfwd::Client.new # Client | The client object to be updated.
 
 
 begin
   #Create a client.
   result = api_instance.create_client(client)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ClientsApi->create_client: #{e}"
 end
 ```
@@ -69,7 +69,7 @@ Returns a collection of clients.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ClientsApi.new
+api_instance = Bfwd::ClientsApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -84,7 +84,7 @@ begin
   #Returns a collection of clients.
   result = api_instance.get_all_clients(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ClientsApi->get_all_clients: #{e}"
 end
 ```
@@ -127,7 +127,7 @@ Returns a single client, specified by the client-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ClientsApi.new
+api_instance = Bfwd::ClientsApi.new
 
 client_id = "client_id_example" # String | The string ID of the client.
 
@@ -139,7 +139,7 @@ begin
   #Returns a single client, specified by the client-ID parameter.
   result = api_instance.get_client_by_id(client_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ClientsApi->get_client_by_id: #{e}"
 end
 ```
@@ -178,16 +178,16 @@ Update a client.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::ClientsApi.new
+api_instance = Bfwd::ClientsApi.new
 
-client = BillForward::Client.new # Client | The client object to be updated.
+client = Bfwd::Client.new # Client | The client object to be updated.
 
 
 begin
   #Update a client.
   result = api_instance.update_client(client)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling ClientsApi->update_client: #{e}"
 end
 ```

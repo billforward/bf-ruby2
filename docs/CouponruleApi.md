@@ -1,4 +1,4 @@
-# BillForward::CouponruleApi
+# Bfwd::CouponruleApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -23,16 +23,16 @@ Create a coupon-rule.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponruleApi.new
+api_instance = Bfwd::CouponruleApi.new
 
-coupon_rule = BillForward::CouponRule.new # CouponRule | The coupon-rule object to be created.
+coupon_rule = Bfwd::CouponRule.new # CouponRule | The coupon-rule object to be created.
 
 
 begin
   #Create a coupon-rule.
   result = api_instance.create_coupon_rule(coupon_rule)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponruleApi->create_coupon_rule: #{e}"
 end
 ```
@@ -70,7 +70,7 @@ Retire a coupon-rule, specified by the coupon-rule-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponruleApi.new
+api_instance = Bfwd::CouponruleApi.new
 
 coupon_rule_id = "coupon_rule_id_example" # String | ID of the coupon-rule.
 
@@ -82,7 +82,7 @@ begin
   #Retire a coupon-rule, specified by the coupon-rule-ID parameter.
   result = api_instance.delete_coupon_rule(coupon_rule_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponruleApi->delete_coupon_rule: #{e}"
 end
 ```
@@ -121,7 +121,7 @@ Returns a collection of coupon-rules. By default 10 values are returned. Records
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponruleApi.new
+api_instance = Bfwd::CouponruleApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -135,7 +135,7 @@ begin
   #Returns a collection of coupon-rules. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_coupon_rules(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponruleApi->get_all_coupon_rules: #{e}"
 end
 ```
@@ -177,7 +177,7 @@ Returns a single coupon-definition, specified by the coupon-definition-ID parame
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponruleApi.new
+api_instance = Bfwd::CouponruleApi.new
 
 coupon_definition_id = "coupon_definition_id_example" # String | ID of the coupon-definition.
 
@@ -189,7 +189,7 @@ begin
   #Returns a single coupon-definition, specified by the coupon-definition-ID parameter.
   result = api_instance.get_coupon_rule_by_coupon_definition_id(coupon_definition_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponruleApi->get_coupon_rule_by_coupon_definition_id: #{e}"
 end
 ```
@@ -228,7 +228,7 @@ Returns a single coupon-rule, specified by the coupon-rule-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::CouponruleApi.new
+api_instance = Bfwd::CouponruleApi.new
 
 coupon_rule_id = "coupon_rule_id_example" # String | ID of the coupon-rule.
 
@@ -240,7 +240,7 @@ begin
   #Returns a single coupon-rule, specified by the coupon-rule-ID parameter.
   result = api_instance.get_coupon_rule_by_id(coupon_rule_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling CouponruleApi->get_coupon_rule_by_id: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# BillForward::WebhooksApi
+# Bfwd::WebhooksApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -25,16 +25,16 @@ Create a webhook.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::WebhooksApi.new
+api_instance = Bfwd::WebhooksApi.new
 
-webhook = BillForward::MutableBillingEntity.new # MutableBillingEntity | The webhook object to be created.
+webhook = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The webhook object to be created.
 
 
 begin
   #Create a webhook.
   result = api_instance.create_webhook(webhook)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling WebhooksApi->create_webhook: #{e}"
 end
 ```
@@ -72,16 +72,16 @@ Create a webhook.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::WebhooksApi.new
+api_instance = Bfwd::WebhooksApi.new
 
-request = BillForward::BillingEntityBase.new # BillingEntityBase | 
+request = Bfwd::BillingEntityBase.new # BillingEntityBase | 
 
 
 begin
   #Create a webhook.
   result = api_instance.create_webhook_v2(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling WebhooksApi->create_webhook_v2: #{e}"
 end
 ```
@@ -119,7 +119,7 @@ Returns a collection of Webhooks, specified by the accountID parameter. By defau
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::WebhooksApi.new
+api_instance = Bfwd::WebhooksApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.
@@ -134,7 +134,7 @@ begin
   #Returns a collection of Webhooks, specified by the accountID parameter. By default 10 values are returned. Records are returned in natural order.
   result = api_instance.get_all_webhooks(opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling WebhooksApi->get_all_webhooks: #{e}"
 end
 ```
@@ -177,7 +177,7 @@ Returns a single webhook, specified by the webhook-ID parameter.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::WebhooksApi.new
+api_instance = Bfwd::WebhooksApi.new
 
 webhook_id = "webhook_id_example" # String | ID of the webhook.
 
@@ -189,7 +189,7 @@ begin
   #Returns a single webhook, specified by the webhook-ID parameter.
   result = api_instance.get_webhook_by_id(webhook_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling WebhooksApi->get_webhook_by_id: #{e}"
 end
 ```
@@ -228,7 +228,7 @@ Retires the specified webhook.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::WebhooksApi.new
+api_instance = Bfwd::WebhooksApi.new
 
 webhook_id = "webhook_id_example" # String | ID of the webhook.
 
@@ -239,7 +239,7 @@ begin
   #Retires the specified webhook.
   result = api_instance.retire_webhook(webhook_id, organizations)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling WebhooksApi->retire_webhook: #{e}"
 end
 ```
@@ -278,16 +278,16 @@ Update a webhook.
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::WebhooksApi.new
+api_instance = Bfwd::WebhooksApi.new
 
-webhook = BillForward::MutableBillingEntity.new # MutableBillingEntity | The webhook object to be updated.
+webhook = Bfwd::MutableBillingEntity.new # MutableBillingEntity | The webhook object to be updated.
 
 
 begin
   #Update a webhook.
   result = api_instance.update_webhook(webhook)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling WebhooksApi->update_webhook: #{e}"
 end
 ```
@@ -325,7 +325,7 @@ New webhooks must be verified before use, use the verificationID of the webhook 
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::WebhooksApi.new
+api_instance = Bfwd::WebhooksApi.new
 
 verification_id = "verification_id_example" # String | verificationID of the webhook.
 
@@ -337,7 +337,7 @@ begin
   #New webhooks must be verified before use, use the verificationID of the webhook to perform verification.
   result = api_instance.verify_webhook(verification_id, opts)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling WebhooksApi->verify_webhook: #{e}"
 end
 ```

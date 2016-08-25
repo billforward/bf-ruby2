@@ -334,10 +334,10 @@ require 'bf_ruby2/api/users_api'
 require 'bf_ruby2/api/vaultedgateways_api'
 require 'bf_ruby2/api/webhooks_api'
 
-module BillForward
+module Bfwd
   class << self
     # Customize default settings for the SDK using block.
-    #   BillForward.configure do |config|
+    #   Bfwd.configure do |config|
     #     config.username = "xxx"
     #     config.password = "xxx"
     #   end

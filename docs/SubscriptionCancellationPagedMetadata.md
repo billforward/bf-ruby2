@@ -1,4 +1,4 @@
-# BillForward::SubscriptionCancellationPagedMetadata
+# Bfwd::SubscriptionCancellationPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

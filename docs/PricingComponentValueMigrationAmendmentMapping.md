@@ -1,4 +1,4 @@
-# BillForward::PricingComponentValueMigrationAmendmentMapping
+# Bfwd::PricingComponentValueMigrationAmendmentMapping
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::CreateSubscriptionRequest
+# Bfwd::CreateSubscriptionRequest
 
 ## Properties
 Name | Type | Description | Notes

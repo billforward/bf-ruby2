@@ -1,4 +1,4 @@
-# BillForward::AddressesApi
+# Bfwd::AddressesApi
 
 All URIs are relative to *https://localhost:8080/RestAPI*
 
@@ -20,16 +20,16 @@ Create
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AddressesApi.new
+api_instance = Bfwd::AddressesApi.new
 
-request = BillForward::CreateAddressRequest.new # CreateAddressRequest | The address object to be created.
+request = Bfwd::CreateAddressRequest.new # CreateAddressRequest | The address object to be created.
 
 
 begin
   #Create
   result = api_instance.create_address(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AddressesApi->create_address: #{e}"
 end
 ```
@@ -67,16 +67,16 @@ Update
 # load the gem
 require 'bf_ruby2'
 
-api_instance = BillForward::AddressesApi.new
+api_instance = Bfwd::AddressesApi.new
 
-request = BillForward::UpdateAddressRequest.new # UpdateAddressRequest | The address object to be created.
+request = Bfwd::UpdateAddressRequest.new # UpdateAddressRequest | The address object to be created.
 
 
 begin
   #Update
   result = api_instance.update_address(request)
   p result
-rescue BillForward::ApiError => e
+rescue Bfwd::ApiError => e
   puts "Exception when calling AddressesApi->update_address: #{e}"
 end
 ```

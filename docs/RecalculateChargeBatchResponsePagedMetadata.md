@@ -1,4 +1,4 @@
-# BillForward::RecalculateChargeBatchResponsePagedMetadata
+# Bfwd::RecalculateChargeBatchResponsePagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::PricingComponentValueChangeAmendment
+# Bfwd::PricingComponentValueChangeAmendment
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::FixedTerm
+# Bfwd::FixedTerm
 
 ## Properties
 Name | Type | Description | Notes

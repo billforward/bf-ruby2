@@ -23,7 +23,7 @@ limitations under the License.
 
 require 'date'
 
-module BillForward
+module Bfwd
   # Configuration used for synchronising BillForward data with some third-party platform's dataset.
   class DataSynchronisationConfiguration
     # { \"description\" : \"The UTC DateTime when the object was created.\", \"verbs\":[] }
@@ -310,7 +310,7 @@ module BillForward
           end
         end
       else # model
-        temp_model = BillForward.const_get(type).new
+        temp_model = Bfwd.const_get(type).new
         temp_model.build_from_hash(value)
       end
     end

@@ -1,4 +1,4 @@
-# BillForward::StripeTokenPagedMetadata
+# Bfwd::StripeTokenPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

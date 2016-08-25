@@ -1,4 +1,4 @@
-# BillForward::SwaggerTypeListSubs
+# Bfwd::SwaggerTypeListSubs
 
 ## Properties
 Name | Type | Description | Notes

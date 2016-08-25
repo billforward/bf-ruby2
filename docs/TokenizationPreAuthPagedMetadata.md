@@ -1,4 +1,4 @@
-# BillForward::TokenizationPreAuthPagedMetadata
+# Bfwd::TokenizationPreAuthPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

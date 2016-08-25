@@ -1,4 +1,4 @@
-# BillForward::InsertableBillingEntity
+# Bfwd::InsertableBillingEntity
 
 ## Properties
 Name | Type | Description | Notes

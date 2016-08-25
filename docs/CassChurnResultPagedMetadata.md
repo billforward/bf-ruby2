@@ -1,4 +1,4 @@
-# BillForward::CassChurnResultPagedMetadata
+# Bfwd::CassChurnResultPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

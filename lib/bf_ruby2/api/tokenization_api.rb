@@ -23,7 +23,7 @@ limitations under the License.
 
 require "uri"
 
-module BillForward
+module Bfwd
   class TokenizationApi
     attr_accessor :api_client
 
@@ -263,8 +263,8 @@ module BillForward
     # {\"nickname\":\"Handle SagePay Notification\",\"response\":\"sagePayNotifyV3_00.html\",\"request\":\"sagePayNotifyV3_00.request.html\"}
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :organizations A list of organization-IDs used to restrict the scope of API calls.Multiple organization-IDs may be specified by repeated use of the queryparameter. Example: ...&amp;organizations&#x3D;org1&amp;organizations&#x3D;org2
-    # @option opts [String] :bill_forward_url_root The URL through which BFJS connected to BillForward.
-    # @option opts [String] :access_token The public token through which BFJS connected to BillForward.
+    # @option opts [String] :bill_forward_url_root The URL through which BFJS connected to Bfwd.
+    # @option opts [String] :access_token The public token through which BFJS connected to Bfwd.
     # @option opts [String] :vps_protocol 
     # @option opts [String] :tx_type 
     # @option opts [String] :vendor_tx_code 
@@ -286,8 +286,8 @@ module BillForward
     # {\&quot;nickname\&quot;:\&quot;Handle SagePay Notification\&quot;,\&quot;response\&quot;:\&quot;sagePayNotifyV3_00.html\&quot;,\&quot;request\&quot;:\&quot;sagePayNotifyV3_00.request.html\&quot;}
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :organizations A list of organization-IDs used to restrict the scope of API calls.Multiple organization-IDs may be specified by repeated use of the queryparameter. Example: ...&amp;organizations&#x3D;org1&amp;organizations&#x3D;org2
-    # @option opts [String] :bill_forward_url_root The URL through which BFJS connected to BillForward.
-    # @option opts [String] :access_token The public token through which BFJS connected to BillForward.
+    # @option opts [String] :bill_forward_url_root The URL through which BFJS connected to Bfwd.
+    # @option opts [String] :access_token The public token through which BFJS connected to Bfwd.
     # @option opts [String] :vps_protocol 
     # @option opts [String] :tx_type 
     # @option opts [String] :vendor_tx_code 

@@ -1,4 +1,4 @@
-# BillForward::CouponInstance
+# Bfwd::CouponInstance
 
 ## Properties
 Name | Type | Description | Notes

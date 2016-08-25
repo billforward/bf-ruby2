@@ -1,4 +1,4 @@
-# BillForward::CassUpgradeResultPagedMetadata
+# Bfwd::CassUpgradeResultPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes

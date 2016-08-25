@@ -1,4 +1,4 @@
-# BillForward::InvoicePayment
+# Bfwd::InvoicePayment
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# BillForward::UnitOfMeasureCouponModifier
+# Bfwd::UnitOfMeasureCouponModifier
 
 ## Properties
 Name | Type | Description | Notes

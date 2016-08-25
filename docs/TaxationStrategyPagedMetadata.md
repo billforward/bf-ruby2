@@ -1,4 +1,4 @@
-# BillForward::TaxationStrategyPagedMetadata
+# Bfwd::TaxationStrategyPagedMetadata
 
 ## Properties
 Name | Type | Description | Notes
