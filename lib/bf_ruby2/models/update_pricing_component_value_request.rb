@@ -22,7 +22,7 @@ module Bfwd
     attr_accessor :value
 
     # The name or ID of the pricing component to update.
-    attr_accessor :logical_component_id
+    attr_accessor :pricing_component
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -51,7 +51,7 @@ module Bfwd
       {
         :'change_mode' => :'changeMode',
         :'value' => :'value',
-        :'logical_component_id' => :'logicalComponentID'
+        :'pricing_component' => :'pricingComponent'
       }
     end
 
@@ -60,7 +60,7 @@ module Bfwd
       {
         :'change_mode' => :'String',
         :'value' => :'Integer',
-        :'logical_component_id' => :'String'
+        :'pricing_component' => :'String'
       }
     end
 
@@ -80,8 +80,8 @@ module Bfwd
         self.value = attributes[:'value']
       end
 
-      if attributes.has_key?(:'logicalComponentID')
-        self.logical_component_id = attributes[:'logicalComponentID']
+      if attributes.has_key?(:'pricingComponent')
+        self.pricing_component = attributes[:'pricingComponent']
       end
 
     end
@@ -118,7 +118,7 @@ module Bfwd
       self.class == o.class &&
           change_mode == o.change_mode &&
           value == o.value &&
-          logical_component_id == o.logical_component_id
+          pricing_component == o.pricing_component
     end
 
     # @see the `==` method
@@ -130,7 +130,7 @@ module Bfwd
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [change_mode, value, logical_component_id].hash
+      [change_mode, value, pricing_component].hash
     end
 
     # Builds the object from hash
