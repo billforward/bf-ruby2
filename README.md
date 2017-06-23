@@ -77,9 +77,6 @@ require 'bf_ruby2'
 # this gives you the `ap` function for pretty-printing
 require 'awesome_print'
 
-# useful for parsing exception messages -- they can contain JSON strings
-require 'json'
-
 Bfwd::Configuration.default.host="api-sandbox.billforward.net"
 Bfwd::Configuration.default.scheme="https"
 Bfwd::Configuration.default.base_path="v1"
@@ -100,8 +97,7 @@ begin
   response = Bfwd::AccountsApi.new.get_all_accounts({'records': 1})
   ap response.results.first
 rescue Bfwd::ApiError => e
-  err_message = e.response_body || e
-  ap JSON.parse(err_message) rescue err_message
+  ap e.parsed
 end
 
 # Result looks like this:
@@ -149,8 +145,7 @@ begin
   #Creates a credit-note which may be used by any subscription of this account.
   ap Bfwd::AccountsApi.new.add_credit_note_to_account(account_id, credit_note)
 rescue Bfwd::ApiError => e
-  err_message = e.response_body || e
-  ap JSON.parse(err_message) rescue err_message
+  ap e.parsed
 end
 
 # Result looks like this:
