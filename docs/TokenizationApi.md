@@ -220,8 +220,8 @@ api_instance = Bfwd::TokenizationApi.new
 
 opts = { 
   organizations: ["organizations_example"], # Array<String> | A list of organization-IDs used to restrict the scope of API calls.Multiple organization-IDs may be specified by repeated use of the queryparameter. Example: ...&organizations=org1&organizations=org2
-  bill_forward_url_root: "bill_forward_url_root_example", # String | The URL through which BFJS connected to Bfwd.
-  access_token: "access_token_example", # String | The public token through which BFJS connected to Bfwd.
+  bill_forward_url_root: "bill_forward_url_root_example", # String | The URL through which BFJS connected to BillForward.
+  access_token: "access_token_example", # String | The public token through which BFJS connected to BillForward.
   vps_protocol: "vps_protocol_example", # String | 
   tx_type: "tx_type_example", # String | 
   vendor_tx_code: "vendor_tx_code_example", # String | 
@@ -249,8 +249,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizations** | [**Array&lt;String&gt;**](String.md)| A list of organization-IDs used to restrict the scope of API calls.Multiple organization-IDs may be specified by repeated use of the queryparameter. Example: ...&amp;organizations&#x3D;org1&amp;organizations&#x3D;org2 | [optional] 
- **bill_forward_url_root** | **String**| The URL through which BFJS connected to Bfwd. | [optional] 
- **access_token** | **String**| The public token through which BFJS connected to Bfwd. | [optional] 
+ **bill_forward_url_root** | **String**| The URL through which BFJS connected to BillForward. | [optional] 
+ **access_token** | **String**| The public token through which BFJS connected to BillForward. | [optional] 
  **vps_protocol** | **String**|  | [optional] 
  **tx_type** | **String**|  | [optional] 
  **vendor_tx_code** | **String**|  | [optional] 
