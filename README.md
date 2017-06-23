@@ -66,6 +66,8 @@ Then [generate an API token](https://app-sandbox.billforward.net/#/setup/persona
 
 Here is an example which demonstrates POSTing a JSON request to our API, and handling the result. The example adds credit to an Account.
 
+You could use the interactive REPL that comes with Ruby, `irb`.
+
 ```ruby
 # Load the gem
 require 'bf_ruby2'
