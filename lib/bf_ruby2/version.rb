@@ -11,5 +11,5 @@ Swagger Codegen version: 2.2.3-SNAPSHOT
 =end
 
 module Bfwd
-  VERSION = "1.0.0"
+  VERSION = "3.2017.174"
 end

@@ -37,6 +37,11 @@ To build the Ruby code into a gem:
 
 ```shell
 gem build bf_ruby2.gemspec
+```
+
+You need to install the built gem to your local gem repository if you want to be able to `require 'bf_ruby2'` in a Ruby script:
+
+```shell
 gem install ./bf_ruby2-3.2017.174.gem
 ```
 
