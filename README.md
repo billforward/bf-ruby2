@@ -68,9 +68,17 @@ Here is an example which demonstrates POSTing a JSON request to our API, and han
 
 You could use the interactive REPL that comes with Ruby, `irb`.
 
+Use a pre-amble like this at the start of your script. This saves your connection settings onto the "default" (singleton) ApiClient.
+
 ```ruby
 # Load the gem
 require 'bf_ruby2'
+
+# this gives you the `ap` function for pretty-printing
+require 'awesome_print'
+
+# useful for parsing exception messages -- they can contain JSON strings
+require 'json'
 
 Bfwd::Configuration.default.host="api-sandbox.billforward.net"
 Bfwd::Configuration.default.scheme="https"
@@ -81,12 +89,56 @@ Bfwd::Configuration.default.debugging = false
 # your BillForward private token
 access_token = "EXAMPLE38-1136-4646-a552-fa2728da66b6"
 
-client = Bfwd::ApiClient.new
+client = Bfwd::ApiClient.default
 client.default_headers.merge! 'Authorization' => "Bearer #{access_token}"
+```
 
-api_instance = Bfwd::AccountsApi.new client
+**Example GET request**
 
-account_id = "ACC-23A086A2-F460-470E-85C5-BB52CD55"
+```ruby
+begin
+  response = Bfwd::AccountsApi.new.get_all_accounts({'records': 1})
+  ap response.results.first
+rescue Bfwd::ApiError => e
+  err_message = e.response_body || e
+  ap JSON.parse(err_message) rescue err_message
+end
+
+# Result looks like this:
+{
+                    :created => #<DateTime: 2017-06-23T19:29:01+00:00 ((2457928j,70141s,0n),+0s,2299161j)>,
+                  :changedBy => "78FB9BDC-D972-4AE4-8984-255B3151826B",
+                    :updated => #<DateTime: 2017-06-23T19:29:01+00:00 ((2457928j,70141s,0n),+0s,2299161j)>,
+                   :metadata => {},
+                         :id => "ACC-45120DC3-107A-4BC1-8931-732B04C8",
+             :organizationID => "958C9C72-FDB6-4BDB-9C23-4894B4201D6E",
+    :successfulSubscriptions => 0,
+                    :deleted => false,
+                    :profile => {
+                      :created => #<DateTime: 2017-06-23T19:29:01+00:00 ((2457928j,70141s,0n),+0s,2299161j)>,
+                    :changedBy => "78FB9BDC-D972-4AE4-8984-255B3151826B",
+                      :updated => #<DateTime: 2017-06-23T19:29:01+00:00 ((2457928j,70141s,0n),+0s,2299161j)>,
+                           :id => "PRF-BD715B92-23FA-4D5E-A9A2-5B8EA3D0",
+                    :accountID => "ACC-45120DC3-107A-4BC1-8931-732B04C8",
+               :organizationID => "958C9C72-FDB6-4BDB-9C23-4894B4201D6E",
+                        :email => "bill.me@gent.ly",
+                    :firstName => "Handsome",
+                     :lastName => "Jack",
+                  :companyName => "SuccessCorp",
+                      :logoURL => "",
+                    :addresses => [],
+                       :mobile => "",
+                    :vatNumber => "",
+        :additionalInformation => ""
+    },
+             :paymentMethods => []
+}
+```
+
+**Example POST request**
+
+```ruby
+account_id = "ACC-45120DC3-107A-4BC1-8931-732B04C8"
 
 credit_note = Bfwd::CreditAccountRequest.new ({
   'currency': 'USD',
@@ -95,31 +147,31 @@ credit_note = Bfwd::CreditAccountRequest.new ({
 
 begin
   #Creates a credit-note which may be used by any subscription of this account.
-  result = api_instance.add_credit_note_to_account(account_id, credit_note)
-  p result
+  ap Bfwd::AccountsApi.new.add_credit_note_to_account(account_id, credit_note)
 rescue Bfwd::ApiError => e
-  # puts "Exception when calling AccountsApi->add_credit_note_to_account: #{JSON.parse(e.response_body) || e}"
-  puts "Exception when calling AccountsApi->add_credit_note_to_account: #{e.response_body || e}"
+  err_message = e.response_body || e
+  ap JSON.parse(err_message) rescue err_message
 end
-```
 
-```ruby
 # Result looks like this:
-=> #<Bfwd::CreditNotePagedMetadata:0x007fa7cbd8b600
- @execution_time=304000,
- @results=
-  [#<Bfwd::CreditNote:0x007fa7cbd8b268
-    @account_id="ACC-23A086A2-F460-470E-85C5-BB52CD55",
-    @changed_by="CF0CBF36-922B-403F-AA95-22BAD9960BF3",
-    @created=#<DateTime: 2016-08-18T00:29:37+00:00 ((2457619j,1777s,0n),+0s,2299161j)>,
-    @created_by="CF0CBF36-922B-403F-AA95-22BAD9960BF3",
-    @currency="USD",
-    @id="CDT-2797BD1B-8C1A-4589-B23A-B0432A0D",
-    @organization_id="ORG-BE199668-332C-4EFD-B05D-D705142C",
-    @remaining_value=1.09,
-    @type="manual",
-    @updated=#<DateTime: 2016-08-18T00:29:37+00:00 ((2457619j,1777s,0n),+0s,2299161j)>,
-    @value=1.09>]>
+{
+    :executionTime => 88500,
+          :results => [
+        [0] {
+                   :created => #<DateTime: 2017-06-23T19:37:15+00:00 ((2457928j,70635s,0n),+0s,2299161j)>,
+                 :changedBy => "78FB9BDC-D972-4AE4-8984-255B3151826B",
+                   :updated => #<DateTime: 2017-06-23T19:37:15+00:00 ((2457928j,70635s,0n),+0s,2299161j)>,
+                        :id => "CDT-C1FDE61E-5BDA-49FC-86A9-C87EA0D9",
+                 :accountID => "ACC-45120DC3-107A-4BC1-8931-732B04C8",
+            :organizationID => "958C9C72-FDB6-4BDB-9C23-4894B4201D6E",
+                      :type => "manual",
+                  :currency => "USD",
+                     :value => 1.09,
+            :remainingValue => 1.09,
+                 :createdBy => "78FB9BDC-D972-4AE4-8984-255B3151826B"
+        }
+    ]
+}
 ```
 
 ## Releasing
